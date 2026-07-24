@@ -95,6 +95,34 @@
   .rnew{font-size:9px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#fff;background:var(--gold);padding:2px 7px;border-radius:100px;}
   @media(max-width:620px){.rtitle{white-space:normal;}.rcat{display:none;}}
   .empty{text-align:center;color:var(--stone);font-size:14px;padding:50px 0;}
+  /* Option C — sidebar filters */
+  .layout{display:grid;grid-template-columns:214px 1fr;gap:30px;align-items:start;margin-top:20px;}
+  .side{position:sticky;top:18px;}
+  .fgroup{margin-bottom:22px;}
+  .flabel{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);font-weight:700;margin-bottom:8px;}
+  .flist{display:flex;flex-direction:column;gap:2px;}
+  .fitem{display:flex;align-items:center;gap:9px;width:100%;text-align:left;border:1px solid transparent;background:none;border-radius:8px;padding:7px 10px;font-size:13.5px;font-weight:600;color:var(--slate);cursor:pointer;font-family:inherit;transition:background .12s;}
+  .fitem:hover{background:var(--sand);}
+  .fitem.active{background:#FAECE7;color:var(--clay-deep);}
+  .fitem .fdot{width:9px;height:9px;border-radius:50%;flex:none;}
+  .fitem>span:not(.fdot):not(.fcount){overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .fitem .fcount{margin-left:auto;font-size:11.5px;font-weight:600;color:var(--stone);flex:none;}
+  .fitem.active .fcount{color:var(--clay-dark);}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+  .segbtn{border:none;background:var(--paper);color:var(--slate);font-size:12.5px;font-weight:600;padding:8px 14px;cursor:pointer;font-family:inherit;}
+  .segbtn.active{background:var(--clay);color:#fff;}
+  .clearbtn{border:1px solid var(--line);background:var(--paper);color:var(--clay-dark);font-weight:700;font-size:12.5px;border-radius:8px;padding:9px 12px;cursor:pointer;width:100%;}
+  .clearbtn:hover{border-color:var(--clay);}
+  .resbar{display:flex;align-items:center;gap:14px;margin-bottom:6px;flex-wrap:wrap;}
+  .rescount{font-size:12.5px;color:var(--stone);}
+  @media(max-width:760px){
+    .layout{grid-template-columns:1fr;gap:16px;}
+    .side{position:static;}
+    .fgroup{margin-bottom:14px;}
+    .flist{flex-direction:row;flex-wrap:wrap;gap:8px;}
+    .fitem{width:auto;border:1px solid var(--line);border-radius:100px;background:var(--paper);}
+    .fitem>span:not(.fdot):not(.fcount){white-space:normal;}
+  }
   .subscribe{border-top:1px solid var(--line);background:linear-gradient(135deg,#2A211C 0%,#4A342A 55%,var(--clay-deep) 100%);color:#F5EFE7;}
   .subscribe .wrap{padding:50px 24px;text-align:center;}
   .subscribe h2{font-family:var(--serif);font-size:28px;margin-bottom:8px;color:#fff;}
@@ -131,23 +159,37 @@
 <main>
   <div class="wrap">
     <h2 class="sec">Latest explainers</h2>
-    <div class="searchrow">
-      <input id="search" class="search" type="search" placeholder="Search explainers&hellip;" oninput="onSearch()">
-    </div>
-    <div class="filterlabel">Source</div>
-    <div class="chips" id="sourceChips"></div>
-    <div class="filterlabel">Category</div>
-    <div class="chips" id="catChips"></div>
-    <div class="filterlabel">Group by</div>
-    <div class="chips" id="groupChips">
-      <button class="chip active" data-group="date" onclick="setGroup('date')">By month</button>
-      <button class="chip" data-group="company" onclick="setGroup('company')">By company</button>
-    </div>
+    <div class="layout">
+      <aside class="side" aria-label="Filters">
+        <div class="fgroup">
+          <div class="flabel">Source</div>
+          <div class="flist" id="sourceList"></div>
+        </div>
+        <div class="fgroup">
+          <div class="flabel">Topic</div>
+          <div class="flist" id="catList"></div>
+        </div>
+        <div class="fgroup">
+          <div class="flabel">Group by</div>
+          <div class="seg" id="groupChips">
+            <button class="segbtn active" data-group="date" onclick="setGroup('date')">Month</button>
+            <button class="segbtn" data-group="company" onclick="setGroup('company')">Company</button>
+          </div>
+        </div>
+        <button class="clearbtn" id="clearbtn" onclick="resetFilters()" style="display:none;">Clear filters</button>
+      </aside>
 
-    <div class="grid" id="grid"></div>
-    <h3 class="morehead" id="morehead" style="display:none;">Browse the archive</h3>
-    <div id="groups"></div>
-    <div class="empty" id="empty" style="display:none;">No explainers match your filters. <a href="#" onclick="resetFilters();return false;" style="color:var(--clay-dark);font-weight:700;">Clear filters</a></div>
+      <section class="results">
+        <div class="resbar">
+          <input id="search" class="search" type="search" placeholder="Search explainers&hellip;" oninput="onSearch()">
+          <span class="rescount" id="rescount"></span>
+        </div>
+        <div class="grid" id="grid"></div>
+        <h3 class="morehead" id="morehead" style="display:none;">Browse the archive</h3>
+        <div id="groups"></div>
+        <div class="empty" id="empty" style="display:none;">No explainers match your filters. <a href="#" onclick="resetFilters();return false;" style="color:var(--clay-dark);font-weight:700;">Clear filters</a></div>
+      </section>
+    </div>
   </div>
 </main>
 
@@ -205,31 +247,33 @@ function fmtDate(iso){ return new Date(iso+"T00:00:00").toLocaleDateString("en-U
 function isNew(iso){ var d=new Date(iso+"T00:00:00"); var days=(Date.now()-d.getTime())/(1000*60*60*24); return days>=0&&days<=NEW_DAYS; }
 function countBy(dim,val){ return POSTS.filter(function(p){return dim==="source"?p.source===val:p.category===val;}).length; }
 
-function buildChips(){
+function fitemHTML(kind,val,label,count,dot){
+  var d = dot ? '<span class="fdot" style="background:'+dot+'"></span>' : '';
+  var fn = kind==="source" ? "setSource" : "setCat";
+  return '<button class="fitem" data-val="'+val.replace(/"/g,"&quot;")+'" onclick="'+fn+'(this.dataset.val)">'+d+'<span>'+label+'</span><span class="fcount">'+count+'</span></button>';
+}
+function buildFilters(){
   var sources=Array.from(new Set(POSTS.map(function(p){return p.source;})));
   var cats=Array.from(new Set(POSTS.map(function(p){return p.category;})));
-  var srcHtml='<button class="chip" data-val="All sources" onclick="setSource(this.dataset.val)">All sources ('+POSTS.length+')</button>';
-  srcHtml+=sources.map(function(s){
-    var acc=SOURCE_COLORS[s]||"#CC785C";
-    return '<button class="chip" data-accent data-val="'+s+'" style="--acc:'+acc+'" onclick="setSource(this.dataset.val)">'+s+' ('+countBy("source",s)+')</button>';
-  }).join("");
-  document.getElementById("sourceChips").innerHTML=srcHtml;
-  var catHtml='<button class="chip" data-val="All" onclick="setCat(this.dataset.val)">All ('+POSTS.length+')</button>';
-  catHtml+=cats.map(function(c){
-    return '<button class="chip" data-val="'+c+'" onclick="setCat(this.dataset.val)">'+c+' ('+countBy("category",c)+')</button>';
-  }).join("");
-  document.getElementById("catChips").innerHTML=catHtml;
-  syncChips();
+  var s='<button class="fitem" data-val="All sources" onclick="setSource(this.dataset.val)"><span>All sources</span><span class="fcount">'+POSTS.length+'</span></button>';
+  s+=sources.map(function(x){return fitemHTML("source",x,x,countBy("source",x),SOURCE_COLORS[x]||"#CC785C");}).join("");
+  document.getElementById("sourceList").innerHTML=s;
+  var c='<button class="fitem" data-val="All" onclick="setCat(this.dataset.val)"><span>All topics</span><span class="fcount">'+POSTS.length+'</span></button>';
+  c+=cats.map(function(x){return fitemHTML("cat",x,x,countBy("category",x),null);}).join("");
+  document.getElementById("catList").innerHTML=c;
+  syncFilters();
 }
-function setSource(s){ activeSource=s; syncChips(); render(); }
-function setCat(c){ activeCat=c; syncChips(); render(); }
-function setGroup(g){ activeGroup=g; syncChips(); render(); }
-function onSearch(){ query=document.getElementById("search").value; render(); }
-function resetFilters(){ activeSource="All sources"; activeCat="All"; query=""; document.getElementById("search").value=""; syncChips(); render(); }
-function syncChips(){
-  document.querySelectorAll("#sourceChips .chip").forEach(function(el){el.classList.toggle("active",el.dataset.val===activeSource);});
-  document.querySelectorAll("#catChips .chip").forEach(function(el){el.classList.toggle("active",el.dataset.val===activeCat);});
-  document.querySelectorAll("#groupChips .chip").forEach(function(el){el.classList.toggle("active",el.dataset.group===activeGroup);});
+function setSource(s){ activeSource=s; syncFilters(); render(); }
+function setCat(c){ activeCat=c; syncFilters(); render(); }
+function setGroup(g){ activeGroup=g; syncFilters(); render(); }
+function onSearch(){ query=document.getElementById("search").value; syncFilters(); render(); }
+function resetFilters(){ activeSource="All sources"; activeCat="All"; query=""; document.getElementById("search").value=""; syncFilters(); render(); }
+function syncFilters(){
+  document.querySelectorAll("#sourceList .fitem").forEach(function(el){el.classList.toggle("active",el.dataset.val===activeSource);});
+  document.querySelectorAll("#catList .fitem").forEach(function(el){el.classList.toggle("active",el.dataset.val===activeCat);});
+  document.querySelectorAll("#groupChips .segbtn").forEach(function(el){el.classList.toggle("active",el.dataset.group===activeGroup);});
+  var showClear=(activeSource!=="All sources"||activeCat!=="All"||(query&&query.trim()!==""));
+  var cb=document.getElementById("clearbtn"); if(cb) cb.style.display=showClear?"block":"none";
 }
 
 function cardHTML(p){
@@ -280,6 +324,7 @@ function render(){
 
   var featured=list.slice(0,3), rest=list.slice(3);
   document.getElementById("empty").style.display=list.length?"none":"block";
+  document.getElementById("rescount").textContent=list.length+(list.length===1?" explainer":" explainers");
   document.getElementById("grid").innerHTML=featured.map(cardHTML).join("");
   document.getElementById("groups").innerHTML=groupRows(rest);
   var mh=document.getElementById("morehead");
@@ -287,7 +332,7 @@ function render(){
   mh.style.display=rest.length?"block":"none";
 }
 
-buildChips();
+buildFilters();
 render();
 </script>
 </body>
