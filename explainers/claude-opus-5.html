@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introducing Claude Opus 5">
+<meta property="og:description" content="Opus 5 comes close to Fable 5's frontier intelligence at half the price — a new state-of-the-art on coding and knowledge work, and Anthropic's most aligned model to date.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-opus-5.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/og-image.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Introducing Claude Opus 5">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/og-image.png">
+
+<title>Introducing Claude Opus 5 — Explainer</title>
+<style>
+  :root{
+    --clay:#CC785C;
+    --clay-dark:#A8543C;
+    --clay-deep:#7A3B29;
+    --ink:#1F1B18;
+    --slate:#3D3733;
+    --stone:#6B6259;
+    --cream:#F5F2EC;
+    --paper:#FBFAF6;
+    --sand:#EDE7DB;
+    --line:#DED6C7;
+    --gold:#B9975B;
+    --serif:'Georgia','Times New Roman',serif;
+    --sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+    --mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;text-decoration:none;color:var(--ink);}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--clay);border-radius:100px;padding:4px 12px;}
+  .hero{background:linear-gradient(160deg,#2A211C 0%,#4A342A 55%,var(--clay-deep) 100%);color:#F5EFE7;padding:64px 0 56px;}
+  .hero .wrap{max-width:900px;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#E9C6B5;border:1px solid rgba(233,198,181,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(32px,5vw,52px);line-height:1.08;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#EADFD3;max-width:700px;}
+  .meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:34px;padding-top:22px;border-top:1px solid rgba(245,239,231,.18);font-size:13px;}
+  .meta .m span{display:block;color:#D9B9A6;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#F7EEE6;font-size:14px;}
+  section{padding:52px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--clay-dark);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--clay);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16.5px;color:var(--slate);margin-bottom:16px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:22px;line-height:1.4;color:var(--clay-deep);border-left:4px solid var(--clay);padding:6px 0 6px 22px;margin:26px 0;max-width:720px;}
+  .lead-quote cite{display:block;font-family:var(--sans);font-size:13px;font-style:normal;color:var(--stone);margin-top:10px;letter-spacing:.02em;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px 30px;box-shadow:0 1px 0 var(--sand);}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;}
+  .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--clay);}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:30px;margin:28px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .stat{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  @media(max-width:820px){.stat{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:480px){.stat{grid-template-columns:1fr;}}
+  .stat .s{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:20px;text-align:center;}
+  .stat .s .n{font-family:var(--serif);font-size:34px;color:var(--clay);line-height:1;margin-bottom:8px;}
+  .stat .s .l{font-size:12.5px;color:var(--stone);line-height:1.4;}
+  .bars{display:flex;flex-direction:column;gap:16px;}
+  .bar{}
+  .bar .top{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:6px;color:var(--slate);}
+  .bar .top b{color:var(--ink);}
+  .track{background:var(--sand);border-radius:100px;height:16px;overflow:hidden;}
+  .fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--clay),var(--clay-deep));}
+  .fill.alt{background:linear-gradient(90deg,#C9BCA6,#9A8B72);}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px;}
+  .card h3{font-size:16.5px;margin-bottom:8px;}
+  .card p{font-size:14px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--clay-deep);background:var(--sand);border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--clay-deep));color:#F4ECE4;border-radius:16px;padding:34px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#E7D6CA;font-size:15px;max-width:560px;}
+  .btn{background:var(--clay);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;border:1px solid rgba(255,255,255,.15);}
+  .protip{background:#FBF3EC;border:1px solid #E7C9B6;border-left:4px solid var(--clay);border-radius:10px;padding:18px 22px;margin:24px 0;max-width:820px;}
+  .protip strong{color:var(--clay-deep);}
+  code{font-family:var(--mono);font-size:.92em;background:var(--sand);padding:1px 6px;border-radius:5px;color:var(--clay-deep);}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--clay-dark);}
+  .src{margin-top:8px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="dot">&#10039;</span> AI Blog Explainers</a>
+    <span class="srcbadge">Claude</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">Claude &middot; July 24, 2026</span>
+    <h1>Introducing Claude Opus 5</h1>
+    <p class="lede">A thoughtful, proactive model that comes close to Fable 5&rsquo;s frontier intelligence at <strong>half the price</strong> &mdash; new state-of-the-art on coding and knowledge work, and Anthropic&rsquo;s most aligned model to date.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>Claude</strong></div>
+      <div class="m"><span>Category</span><strong>Product</strong></div>
+      <div class="m"><span>Reading time</span><strong>6 min</strong></div>
+      <div class="m"><span>Price</span><strong>$5 / $25 per M tokens</strong></div>
+    </div>
+  </div>
+</header>
+
+<!-- TL;DR -->
+<section>
+  <div class="wrap">
+    <div class="tldr">
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li>Opus 5 is a step-change for the Opus tier: near Fable 5 intelligence at roughly half the cost per task, available today on every platform.</li>
+        <li>New state-of-the-art on Frontier-Bench and GDPval-AA; it more than doubles Opus 4.8 on Frontier-Bench and lands within 0.5% of Fable 5 on CursorBench at half the cost.</li>
+        <li>Built for daily use &mdash; the new default on Claude Max and strongest model on Claude Pro &mdash; with an effort setting to trade intelligence against token cost.</li>
+        <li>Stronger at verifying its own work: it writes its own test harnesses, finds true root causes, and pushes back on flawed designs.</li>
+        <li>Anthropic&rsquo;s most aligned model yet (2.3 on the behavioral audit) and does not advance dangerous dual-use capabilities &mdash; still behind Mythos 5 on cyber exploitation and autonomous biology.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Headline numbers -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">The headline</div>
+    <h2>Frontier-adjacent intelligence, Opus economics</h2>
+    <p class="body">Claude Opus 5 delivers greatly improved performance at the same price as its predecessor, Opus 4.8 &mdash; while approaching the intelligence of the frontier Fable 5 class at about half the cost. It&rsquo;s designed to be used every day and works more efficiently than other models, which is why it&rsquo;s the new default on Claude Max and the strongest option on Claude Pro.</p>
+
+    <div class="figure">
+      <div class="cap">Figure 1 &middot; Opus 5 at a glance</div>
+      <div class="stat">
+        <div class="s"><div class="n">~&frac12;</div><div class="l">the cost of Fable 5, at near-Fable intelligence</div></div>
+        <div class="s"><div class="n">2&times;+</div><div class="l">Opus 4.8&rsquo;s score on Frontier-Bench v0.1, at lower cost per task</div></div>
+        <div class="s"><div class="n">3&times;</div><div class="l">the next-best model on ARC-AGI 3 (novel problem solving)</div></div>
+        <div class="s"><div class="n">2.3</div><div class="l">misalignment score &mdash; lowest of Anthropic&rsquo;s recent models</div></div>
+      </div>
+    </div>
+    <p class="lead-quote">Opus 5 comes close to the frontier intelligence of Fable 5 at half the price &mdash; and it&rsquo;s designed to be used every day.</p>
+  </div>
+</section>
+
+<!-- Benchmarks -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Performance</div>
+    <h2>Where it leads</h2>
+    <p class="body">Across software engineering, agentic automation, and reasoning, Opus 5 sets the pace &mdash; often beating every model at a given cost. Bars below are directional, illustrating the gaps Anthropic reported.</p>
+
+    <div class="figure">
+      <div class="cap">Figure 2 &middot; Selected results (relative, illustrative)</div>
+      <div class="bars">
+        <div class="bar">
+          <div class="top"><span><b>Frontier-Bench v0.1</b> &mdash; software engineering</span><span>Opus 5 &gt; all models</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+          <div class="top" style="margin-top:6px;color:var(--stone)"><span>Opus 4.8</span><span>&lt; half of Opus 5</span></div>
+          <div class="track"><div class="fill alt" style="width:47%"></div></div>
+        </div>
+        <div class="bar">
+          <div class="top"><span><b>CursorBench 3.2</b> (max effort)</span><span>within 0.5% of Fable 5, at &frac12; the cost</span></div>
+          <div class="track"><div class="fill" style="width:98%"></div></div>
+        </div>
+        <div class="bar">
+          <div class="top"><span><b>Zapier AutomationBench</b> &mdash; end-to-end business tasks</span><span>~1.5&times; next-best at same cost</span></div>
+          <div class="track"><div class="fill" style="width:88%"></div></div>
+        </div>
+        <div class="bar">
+          <div class="top"><span><b>OSWorld 2.0</b> &mdash; computer use</span><span>beats Fable 5&rsquo;s best at ~&#8531; the cost</span></div>
+          <div class="track"><div class="fill" style="width:82%"></div></div>
+        </div>
+        <div class="bar">
+          <div class="top"><span><b>ARC-AGI 3</b> &mdash; novel problem solving</span><span>3&times; the next-best model</span></div>
+          <div class="track"><div class="fill" style="width:95%"></div></div>
+        </div>
+      </div>
+    </div>
+    <p class="body">It&rsquo;s also a meaningful jump for scientific research &mdash; better than Opus 4.8 on every life-sciences eval, with the biggest gains in organic chemistry (+10.2 pts on inferring molecular structure from spectroscopy) and protein tasks (+7.7 pts). One caveat: it remains behind Mythos 5 on cybersecurity.</p>
+  </div>
+</section>
+
+<!-- What's different: judgment -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">What changed</div>
+    <h2>It checks its own work</h2>
+    <p class="body">The recurring theme from early-access customers isn&rsquo;t just raw capability &mdash; it&rsquo;s judgement and thoroughness. Opus 5 verifies, iterates, and knows when <em>not</em> to rush.</p>
+
+    <div class="grid2">
+      <div class="card">
+        <span class="pill">Builds its own tools</span>
+        <h3>Wrote a vision pipeline to see</h3>
+        <p>Asked to rebuild a machine part in FreeCAD from a drawing it was deliberately given no way to view, Opus 5 wrote its own computer-vision pipeline to pull geometry from raw pixels &mdash; repeatedly. No competing model solved it in five attempts.</p>
+      </div>
+      <div class="card">
+        <span class="pill">Finds root causes</span>
+        <h3>Fixed what the community patch missed</h3>
+        <p>On a real bug in a popular package manager, it found the root cause and fixed an edge case the community&rsquo;s patch missed. A competing model patched only the surface symptom, then declared it resolved.</p>
+      </div>
+      <div class="card">
+        <span class="pill">Long-horizon agency</span>
+        <h3>Built a market data feed in one session</h3>
+        <p>An engineer at a trading firm had Opus 5 build a market-data feed for a new exchange in a single session. With no live feed to validate against, it built its own test harness to confirm it parsed the data correctly.</p>
+      </div>
+      <div class="card">
+        <span class="pill">Real judgement</span>
+        <h3>Pushed back &mdash; and held its ground</h3>
+        <p>In a rearchitecting session it pushed back on a proposed design, explained what was valuable in the idea, narrowed the objection to one question, and proposed a compromise &mdash; the kind of judgement that earns less oversight.</p>
+      </div>
+    </div>
+
+    <div class="protip">
+      <strong>By the numbers, from early customers.</strong> Lovable: +22% on hardest agentic coding vs Opus 4.8, with far less run-to-run variance. Box: +8% overall, +11% data analysis, +17% due diligence. A legal team: similar quality at 26% fewer tokens. A trading benchmark: best-in-family using ~&#8542; the reasoning tokens and under half the latency of Opus 4.8.
+    </div>
+  </div>
+</section>
+
+<!-- Alignment & safety -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Alignment &amp; safety</div>
+    <h2>The most aligned Claude yet</h2>
+    <p class="body">On Anthropic&rsquo;s automated behavioral audit, Opus 5 scores 2.3 on overall misaligned behavior &mdash; the lowest of its recent models. It adheres to Claude&rsquo;s Constitution better than Opus 4.8, Sonnet 5, or Fable 5, shows the lowest rates of deceptive behavior, is the least susceptible to being tricked into misuse, and is the safest yet at avoiding reckless, hard-to-reverse actions.</p>
+    <p class="body">On safety, Opus 5 does not advance the frontier of risky dual-use capability. It comes close to Mythos 5 at <em>finding</em> cyber vulnerabilities but stays substantially behind on <em>exploiting</em> them (as shown on the OSS-Fuzz eval), and Mythos 5 remains stronger on long-running autonomous biology work. Its cyber classifiers are less restrictive than Fable 5&rsquo;s &mdash; expected to intervene ~85% less often &mdash; allowing source-code vulnerability finding while blocking binary scanning, pen-testing, and exploit generation. Flagged requests fall back to Opus 4.8 by default.</p>
+  </div>
+</section>
+
+<!-- Getting started -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Getting started</div>
+    <h2>Available today on every platform</h2>
+    <p class="body">Opus 5 ships at <strong>$5 per million input tokens and $25 per million output tokens</strong> &mdash; the same as Opus 4.8. Developers use <code>claude-opus-5</code> on the Claude API. A Fast mode runs ~2.5&times; the default speed at twice the base price (or via usage credits in Claude Code). Unlike the frontier tiers, Opus 5 has no data-retention requirement for general access.</p>
+    <p class="body">Two beta updates ship alongside it: <strong>mid-conversation tool changes</strong> (swap which tools Claude can use without invalidating the prompt cache) and <strong>automatic fallbacks</strong> on the API (flagged requests route to the best available model instead of being blocked).</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="border-bottom:none;">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>Start building with Opus 5</h2>
+        <p>Use <code>claude-opus-5</code> on the Claude API today, tune with the effort setting, and see the prompting guide to get the most out of it.</p>
+      </div>
+      <a class="btn" href="https://www.anthropic.com/claude/opus">Explore Opus &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){
+      var l=it.querySelector("link"); return l?l.textContent.trim():"";
+    }).filter(Boolean);
+    var here=location.href.split("#")[0].split("?")[0];
+    var mine=here.split("/").pop();
+    var i=-1;
+    for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the Anthropic newsroom &middot; JPM-style design system in Claude clay palette.</p>
+    <p class="src">Source: <a href="https://www.anthropic.com/news/claude-opus-5">Introducing Claude Opus 5</a> &mdash; anthropic.com/news, July 24, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://www.anthropic.com/news/claude-opus-5" target="_blank" rel="noopener" title="Read the original article"
+     style="background:#7A3B29;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:#CC785C;color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+
+</body>
+</html>

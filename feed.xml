@@ -5,7 +5,15 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Jul 2026 23:05:22 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2026 23:09:43 +0000</lastBuildDate>
+    <item>
+      <title>Introducing Claude Opus 5</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-opus-5.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-opus-5.html</guid>
+      <category>Claude</category>
+      <pubDate>Fri, 24 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Opus 5 comes close to Fable 5's frontier intelligence at half the price — new state-of-the-art on coding and knowledge work, and Anthropic's most aligned model to date.</description>
+    </item>
     <item>
       <title>The New Rules of Context Engineering for Claude 5 Models</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-new-rules-of-context-engineering-for-claude-5-generation-models.html</link>
