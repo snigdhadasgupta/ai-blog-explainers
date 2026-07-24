@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Models Explained: Choosing the Best Model for Your Use Case">
+<meta property="og:description" content="Mythos, Fable, Opus, Sonnet, Haiku — how to pick the right Claude model class, why cost-per-task beats cost-per-token, and how evals settle it.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-models-explained-choosing-the-best-model-for-your-use-case.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/og-image.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude Models Explained: Choosing the Best Model for Your Use Case">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/og-image.png">
+
+<title>Claude Models Explained: Choosing the Best Model — Explainer</title>
+<style>
+  :root{
+    --clay:#CC785C;
+    --clay-dark:#A8543C;
+    --clay-deep:#7A3B29;
+    --ink:#1F1B18;
+    --slate:#3D3733;
+    --stone:#6B6259;
+    --cream:#F5F2EC;
+    --paper:#FBFAF6;
+    --sand:#EDE7DB;
+    --line:#DED6C7;
+    --gold:#B9975B;
+    --serif:'Georgia','Times New Roman',serif;
+    --sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+    --mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;text-decoration:none;color:var(--ink);}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--clay);border-radius:100px;padding:4px 12px;}
+  .hero{background:linear-gradient(160deg,#2A211C 0%,#4A342A 55%,var(--clay-deep) 100%);color:#F5EFE7;padding:64px 0 56px;}
+  .hero .wrap{max-width:900px;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#E9C6B5;border:1px solid rgba(233,198,181,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(32px,5vw,52px);line-height:1.08;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#EADFD3;max-width:700px;}
+  .meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:34px;padding-top:22px;border-top:1px solid rgba(245,239,231,.18);font-size:13px;}
+  .meta .m span{display:block;color:#D9B9A6;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#F7EEE6;font-size:14px;}
+  section{padding:52px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--clay-dark);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--clay);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16.5px;color:var(--slate);margin-bottom:16px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:22px;line-height:1.4;color:var(--clay-deep);border-left:4px solid var(--clay);padding:6px 0 6px 22px;margin:26px 0;max-width:720px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px 30px;box-shadow:0 1px 0 var(--sand);}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;}
+  .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--clay);}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:30px;margin:28px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .ladder{display:flex;flex-direction:column;gap:10px;}
+  .rung{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:16px 18px;border-left:6px solid var(--clay);}
+  @media(max-width:640px){.rung{grid-template-columns:1fr;gap:6px;}}
+  .rung .name{font-family:var(--serif);font-size:20px;color:var(--clay-deep);font-weight:700;}
+  .rung .name small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);font-weight:700;margin-top:3px;}
+  .rung p{font-size:13.5px;color:var(--stone);line-height:1.5;}
+  .rung.r1{border-left-color:#7A3B29;}
+  .rung.r2{border-left-color:#A8543C;}
+  .rung.r3{border-left-color:#CC785C;}
+  .rung.r4{border-left-color:#D89B84;}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px;}
+  .card .q{font-family:var(--serif);font-size:30px;color:var(--clay);line-height:1;margin-bottom:12px;}
+  .card h3{font-size:16.5px;margin-bottom:8px;}
+  .card p{font-size:14px;color:var(--stone);}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--clay-deep));color:#F4ECE4;border-radius:16px;padding:34px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#E7D6CA;font-size:15px;max-width:560px;}
+  .btn{background:var(--clay);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;border:1px solid rgba(255,255,255,.15);}
+  .protip{background:#FBF3EC;border:1px solid #E7C9B6;border-left:4px solid var(--clay);border-radius:10px;padding:18px 22px;margin:24px 0;max-width:820px;}
+  .protip strong{color:var(--clay-deep);}
+  code{font-family:var(--mono);font-size:.92em;background:var(--sand);padding:1px 6px;border-radius:5px;color:var(--clay-deep);}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--clay-dark);}
+  .src{margin-top:8px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="dot">&#10039;</span> AI Blog Explainers</a>
+    <span class="srcbadge">Claude</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">Claude &middot; July 24, 2026</span>
+    <h1>Claude Models Explained: Choosing the Best Model for Your Use Case</h1>
+    <p class="lede">Five model classes, one recurring question: &ldquo;which one should I use?&rdquo; Anthropic&rsquo;s default answer is counterintuitive &mdash; start with the <em>most</em> intelligent model, then dial cost down with effort level.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>Claude</strong></div>
+      <div class="m"><span>Category</span><strong>Enterprise AI</strong></div>
+      <div class="m"><span>Reading time</span><strong>5 min</strong></div>
+      <div class="m"><span>Products</span><strong>Claude Platform</strong></div>
+    </div>
+  </div>
+</header>
+
+<!-- TL;DR -->
+<section>
+  <div class="wrap">
+    <div class="tldr">
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li>Default recommendation: start with the most intelligent generally-available model, then use <strong>effort level</strong> to tune performance and cost.</li>
+        <li>Cost-per-<em>task</em> is often lower for smarter models even when price-per-token is higher &mdash; they take fewer turns and less thinking to get it right.</li>
+        <li>Model classes don&rsquo;t specialize by domain. Every Claude model is trained for coding, agents, and knowledge work; they differ in <em>how hard</em> a problem they carry, and at what price and speed.</li>
+        <li>Four questions decide it: how hard is the task, what are the latency needs, what are the access constraints, and what are the unit economics.</li>
+        <li>Benchmarks guide direction but saturate on frontier models &mdash; custom <strong>evals</strong> on your real workloads are how you actually choose.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Start smart -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">The default</div>
+    <h2>Start smart, then dial down</h2>
+    <p class="body">The most frequent question Anthropic hears is &ldquo;what model should I choose for this workload?&rdquo; As more classes and versions shipped, the answer got more nuanced &mdash; but the starting move is simple: begin with the most intelligent model and use effort level to balance quality against cost.</p>
+    <p class="body">Why start high? More capable models often take fewer turns and less thinking time to get most tasks right, so cost-per-task can be lower even when price-per-token is higher &mdash; especially at lower effort levels. Starting small also blurs the line between a <em>model</em> failure and a <em>setup</em> failure. As latency- or cost-sensitive cases arise, step down through the classes until you find your fit. (Some teams prefer the reverse: start cheapest, move up until the quality bar is met.)</p>
+    <p class="lead-quote">Higher-class models at lower effort can be more efficient than smaller models &mdash; capability isn&rsquo;t just about the ceiling, it&rsquo;s about how few tries it takes.</p>
+  </div>
+</section>
+
+<!-- The family ladder -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">The line-up</div>
+    <h2>The Claude model family</h2>
+    <p class="body">One family, arranged by how hard a problem each class can reliably carry &mdash; not by domain.</p>
+
+    <div class="figure">
+      <div class="cap">Figure 1 &middot; Model classes, most capable to fastest</div>
+      <div class="ladder">
+        <div class="rung r1">
+          <div class="name">Mythos / Fable<small>Frontier</small></div>
+          <p>Anthropic&rsquo;s most capable class &mdash; coding, long-running agents, and problems AI hasn&rsquo;t reliably solved before. Same underlying model in two packages: <strong>Mythos</strong> for trusted orgs doing dual-use cyber/bio work; <strong>Fable</strong> with added safeguards for general use. Both require limited data retention.</p>
+        </div>
+        <div class="rung r2">
+          <div class="name">Opus<small>Powerful</small></div>
+          <p>Reasoning-intensive enterprise tasks. Consistently ranks among leading models on benchmarks like GDPval-AA and Terminal-Bench 2.1. If Opus clears your bar, its speed and price may beat Fable; if it struggles, Fable&rsquo;s extra wisdom and creativity is the answer.</p>
+        </div>
+        <div class="rung r3">
+          <div class="name">Sonnet<small>Versatile</small></div>
+          <p>The everyday workhorse &mdash; a balance of performance, cost, and speed for the widest set of use cases, including high-volume sub-agents in multi-agent orchestration.</p>
+        </div>
+        <div class="rung r4">
+          <div class="name">Haiku<small>Fastest</small></div>
+          <p>Lowest cost and fastest class, built for high-frequency workloads where latency and cost dominate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Four questions -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">How to decide</div>
+    <h2>Four questions that pick the class</h2>
+    <p class="body">Model classes don&rsquo;t specialize &mdash; there&rsquo;s no &ldquo;finance model&rdquo; and &ldquo;science model.&rdquo; The difference is difficulty carried, at a cost in price and speed. Ask:</p>
+
+    <div class="grid2">
+      <div class="card"><div class="q">1</div><h3>How hard is this task?</h3><p>Lots of time, multiple steps, or previously unsolved &rarr; reach for a more capable class.</p></div>
+      <div class="card"><div class="q">2</div><h3>What are the latency needs?</h3><p>High-frequency, customer-facing workloads &rarr; Sonnet is often the best choice.</p></div>
+      <div class="card"><div class="q">3</div><h3>What are the access constraints?</h3><p>Mythos is limited to Project Glasswing orgs; not every class is available to every role.</p></div>
+      <div class="card"><div class="q">4</div><h3>What are the unit economics?</h3><p>High production volumes may suit lower classes &mdash; if evals show the task is done satisfactorily. Tune with effort level.</p></div>
+    </div>
+
+    <div class="protip">
+      <strong>The advisor strategy.</strong> A faster, cheaper worker model can call a more intelligent model to check its plan and grade its work. On SWE-bench Pro, Sonnet 5 with a Fable 5 advisor lands within 10% of Fable 5&rsquo;s score at 63% of the cost of running Fable 5 for the whole task.
+    </div>
+  </div>
+</section>
+
+<!-- Evals -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">How to be sure</div>
+    <h2>Benchmarks point; evals decide</h2>
+    <p class="body">Two ways to check whether a model is capable enough: standard benchmarks and custom evaluations. Benchmarks are helpful directional guides across classes and providers &mdash; but powerful models like Opus and Fable often solve nearly everything on a test (saturation), which stops telling you much.</p>
+    <p class="body">When that happens, run the models on real workloads or your own evals: a curated set of problems drawn from production, including the hard tasks where your current tools fall short, with success criteria your team defines. This is where the capability and creativity of frontier models start to separate &mdash; from the pack and from one another.</p>
+    <p class="lead-quote">There is no one-size-fits-all model. The best way to choose is to understand each class and understand your use case in depth &mdash; which means building, maintaining, and deploying strong evals.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="border-bottom:none;">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>Make the smart choice</h2>
+        <p>Start with the most capable model, tune with effort level, and let evals on your real workloads settle which class ships to production.</p>
+      </div>
+      <a class="btn" href="https://claude.com/pricing#api">See model pricing &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){
+      var l=it.querySelector("link"); return l?l.textContent.trim():"";
+    }).filter(Boolean);
+    var here=location.href.split("#")[0].split("?")[0];
+    var mine=here.split("/").pop();
+    var i=-1;
+    for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the Claude blog &middot; JPM-style design system in Claude clay palette.</p>
+    <p class="src">Source: <a href="https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case">Claude models explained: choosing the best model for your use case</a> &mdash; claude.com/blog, July 24, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case" target="_blank" rel="noopener" title="Read the original article"
+     style="background:#7A3B29;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:#CC785C;color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+
+</body>
+</html>

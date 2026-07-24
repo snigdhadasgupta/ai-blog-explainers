@@ -5,7 +5,31 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Jul 2026 00:52:47 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2026 23:05:22 +0000</lastBuildDate>
+    <item>
+      <title>The New Rules of Context Engineering for Claude 5 Models</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-new-rules-of-context-engineering-for-claude-5-generation-models.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-new-rules-of-context-engineering-for-claude-5-generation-models.html</guid>
+      <category>Claude</category>
+      <pubDate>Fri, 24 Jul 2026 00:00:00 +0000</pubDate>
+      <description>Anthropic removed over 80% of Claude Code's system prompt for its newest models with no measurable loss — and seven context-engineering best practices flipped.</description>
+    </item>
+    <item>
+      <title>Claude Models Explained: Choosing the Best Model for Your Use Case</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-models-explained-choosing-the-best-model-for-your-use-case.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-models-explained-choosing-the-best-model-for-your-use-case.html</guid>
+      <category>Claude</category>
+      <pubDate>Fri, 24 Jul 2026 00:00:00 +0000</pubDate>
+      <description>Mythos, Fable, Opus, Sonnet, Haiku — start with the most intelligent model and tune with effort level. Why cost-per-task beats cost-per-token, and how evals settle it.</description>
+    </item>
+    <item>
+      <title>Four Role-Based Claude Certifications</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/four-role-based-claude-certifications.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/four-role-based-claude-certifications.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate>
+      <description>Anthropic expands its proctored, identity-verified Claude Certification Program to four role-based credentials, with the largest consultancies certifying people by the tens of thousands.</description>
+    </item>
     <item>
       <title>Think Through Hard Problems in Voice Mode</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/think-through-hard-problems-in-voice-mode.html</link>
