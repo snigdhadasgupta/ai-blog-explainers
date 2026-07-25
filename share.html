@@ -50,7 +50,7 @@
   .item{display:flex;flex-direction:column;}
 
   /* the shareable card (mirrors the downloadable PNG) */
-  .card{position:relative;border-radius:14px;overflow:hidden;color:#F3E9E1;
+  .card{position:relative;border-radius:14px;overflow:hidden;color:#F3E9E1;text-decoration:none;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;
         background:linear-gradient(150deg,#241C18,var(--cdeep,#7A3B29));
         border-left:7px solid var(--acc,#CC785C);box-shadow:0 12px 30px -18px rgba(0,0,0,.6);
         padding:22px 24px 16px;min-height:300px;display:flex;flex-direction:column;}
@@ -74,6 +74,7 @@
   .btn:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
   .btn.pri{background:var(--gold);color:#fff;border-color:var(--gold);}
   .btn.pri:hover{background:var(--gold-deep);border-color:var(--gold-deep);}
+  .card:hover{transform:translateY(-3px);box-shadow:0 16px 34px -18px rgba(0,0,0,.7);}
 
   .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;font-size:13px;font-weight:700;padding:11px 20px;border-radius:100px;opacity:0;transition:.25s;z-index:99;pointer-events:none;}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
@@ -133,13 +134,13 @@ function renderGrid(){
     var liUrl="https://www.linkedin.com/sharing/share-offsite/?url="+encodeURIComponent(url);
     return ''
       +'<div class="item">'
-      +  '<div class="card" style="--acc:'+acc+';--cdeep:'+deepen(acc)+'">'
+      +  '<a class="card" href="'+url+'" style="--acc:'+acc+';--cdeep:'+deepen(acc)+'">'
       +    '<div class="c-top"><span class="c-src">'+esc(p.source)+'</span><span class="c-date">'+fmt(p.date)+'</span></div>'
       +    '<span class="c-cat">'+esc(p.category)+'</span>'
       +    '<div class="c-hook"><span class="qm">&ldquo;</span>'+esc(p.hook)+'</div>'
       +    '<div class="c-body">'+esc(p.body)+'</div>'
       +    '<div class="c-foot"><img src="logo-mark.svg" alt=""><b>AI Blog Explainers</b></div>'
-      +  '</div>'
+      +  '</a>'
       +  '<div class="actions">'
       +    '<a class="btn pri" href="'+imgFor(p)+'" download="'+p.slug+'.png">Image</a>'
       +    '<button class="btn" onclick="copyText(\''+url.replace(/'/g,"\\'")+'\',\'Link copied\')">Link</button>'
