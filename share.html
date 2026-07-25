@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Most Sharable — AI Blog Explainers">
+<meta property="og:description" content="The lines worth passing on. Grab a card as an image, text, or link — each points back to the full explainer.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Most Sharable — AI Blog Explainers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --clay:#CC785C; --clay-dark:#A8543C; --clay-deep:#7A3B29;
+    --gold:#B4832E; --gold-deep:#8A5F1C;
+    --ink:#1F1B18; --slate:#3D3733; --stone:#6B6259;
+    --cream:#F5F2EC; --paper:#FBFAF6; --sand:#EDE7DB; --line:#DED6C7;
+    --serif:'Georgia','Times New Roman',serif;
+    --sans:'Inter',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+    --mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--gold);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);}
+  .brand img{width:30px;height:30px;border-radius:8px;display:block;}
+  .brand b{font-weight:800;font-size:17px;letter-spacing:-.01em;}
+  .brand b span{color:var(--gold-deep);}
+  .navlink{font-size:13px;font-weight:700;color:var(--clay-dark);text-decoration:none;}
+
+  header.head{padding:42px 0 6px;}
+  .kicker{font-family:var(--mono);font-size:13px;letter-spacing:.12em;color:#2E7D5B;font-weight:700;}
+  header.head h1{font-family:var(--serif);font-size:clamp(30px,5vw,46px);margin:6px 0 12px;}
+  header.head p{font-size:16px;color:var(--slate);max-width:660px;}
+  header.head p b{color:var(--ink);}
+
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 4px;}
+  .chip{font-size:12.5px;font-weight:700;color:var(--slate);background:var(--paper);border:1px solid var(--line);border-radius:100px;padding:7px 14px;cursor:pointer;}
+  .chip.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;padding:26px 0 60px;}
+  @media(max-width:860px){.grid{grid-template-columns:1fr;}}
+  .item{display:flex;flex-direction:column;}
+
+  /* the shareable card (mirrors the downloadable PNG) */
+  .card{position:relative;border-radius:14px;overflow:hidden;color:#F3E9E1;
+        background:linear-gradient(150deg,#241C18,var(--cdeep,#7A3B29));
+        border-left:7px solid var(--acc,#CC785C);box-shadow:0 12px 30px -18px rgba(0,0,0,.6);
+        padding:22px 24px 16px;min-height:300px;display:flex;flex-direction:column;}
+  .c-top{display:flex;align-items:center;justify-content:space-between;}
+  .c-src{font-weight:800;font-size:15px;letter-spacing:.03em;color:#F3E9E1;text-transform:uppercase;}
+  .c-date{font-size:11.5px;font-weight:700;letter-spacing:.08em;color:#CBB2A3;}
+  .c-cat{display:inline-block;margin-top:12px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--acc,#CC785C);border-radius:100px;padding:5px 13px;align-self:flex-start;}
+  .c-hook{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;color:var(--acc,#CC785C);
+          font-size:34px;line-height:1.03;letter-spacing:.01em;margin:16px 0 8px;}
+  .c-hook .qm{font-family:var(--serif);font-size:34px;color:var(--acc,#CC785C);margin-right:4px;}
+  .c-body{font-size:15px;line-height:1.42;color:#F3E9E1;}
+  .c-foot{margin-top:auto;padding-top:14px;border-top:1px solid #4E3A2E;display:flex;align-items:center;justify-content:flex-end;gap:9px;}
+  .c-foot img{width:22px;height:22px;border-radius:5px;}
+  .c-foot b{font-size:13px;font-weight:400;color:#F3E9E1;}
+
+  /* action toolbar under the card */
+  .actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
+  .btn{font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--slate);
+       background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:8px 12px;cursor:pointer;
+       text-decoration:none;display:inline-flex;align-items:center;gap:5px;}
+  .btn:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .btn.pri{background:var(--gold);color:#fff;border-color:var(--gold);}
+  .btn.pri:hover{background:var(--gold-deep);border-color:var(--gold-deep);}
+
+  .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;font-size:13px;font-weight:700;padding:11px 20px;border-radius:100px;opacity:0;transition:.25s;z-index:99;pointer-events:none;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+  footer{padding:26px 0 46px;color:var(--stone);font-size:12.5px;border-top:1px solid var(--line);}
+  footer a{color:var(--clay-dark);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="logo-mark.svg" alt=""><b>AI Blog <span>Explainers</span></b></a>
+    <a class="navlink" href="index.html">&larr; All explainers</a>
+  </div>
+</div>
+
+<header class="head">
+  <div class="wrap">
+    <div class="kicker">// WORTH PASSING ON</div>
+    <h1>Most Sharable</h1>
+    <p>The lines worth quoting from each explainer &mdash; <b>grab any one</b> as an image, text, or link. Every card points back to the full explainer.</p>
+    <div class="filters" id="filters"></div>
+  </div>
+</header>
+
+<div class="wrap"><div class="grid" id="grid"></div></div>
+
+<div class="toast" id="toast">Copied</div>
+
+<footer><div class="wrap"><p>AI Blog Explainers &middot; cards link back to the full visual explainer. <a href="index.html">Browse all &rarr;</a></p></div></footer>
+
+<script src="share-posts.js"></script>
+<script>
+const SITE="https://snigdhadasgupta.github.io/ai-blog-explainers";
+const SOURCE_COLORS={"Claude":"#CC785C","Anthropic":"#CC785C","OpenAI":"#0F9D77","Microsoft 365":"#0067B8","Google Workspace":"#4285F4","Microsoft Security":"#0E7490"};
+function deepen(hex){var c=hex.replace('#','');var r=Math.round(parseInt(c.slice(0,2),16)*0.42),g=Math.round(parseInt(c.slice(2,4),16)*0.42),b=Math.round(parseInt(c.slice(4,6),16)*0.42);return 'rgb('+r+','+g+','+b+')';}
+const POSTS=window.__POSTS__||[];
+function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function fmt(iso){return new Date(iso+"T00:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}).toUpperCase();}
+function urlFor(p){return SITE+"/explainers/"+p.slug+".html";}
+function imgFor(p){return "share-cards/"+p.slug+".png";}
+let activeSource="All";
+function toast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove("show");},1400);}
+function copyText(txt,label){navigator.clipboard.writeText(txt).then(function(){toast(label||"Copied");});}
+function renderFilters(){
+  var srcs=["All"].concat(Array.from(new Set(POSTS.map(function(p){return p.source;}))));
+  document.getElementById("filters").innerHTML=srcs.map(function(s){
+    return '<button class="chip'+(s===activeSource?' active':'')+'" onclick="setSource(\''+s.replace(/'/g,"\\'")+'\')">'+esc(s)+'</button>';}).join('');
+}
+function setSource(s){activeSource=s;renderFilters();renderGrid();}
+function renderGrid(){
+  var list=POSTS.filter(function(p){return activeSource==="All"||p.source===activeSource;}).slice().sort(function(a,b){return a.date<b.date?1:-1;});
+  document.getElementById("grid").innerHTML=list.map(function(p){
+    var acc=SOURCE_COLORS[p.source]||"#CC785C";var url=urlFor(p);
+    var shareText='“'+p.hook+'” '+p.body+' — '+url;
+    var xUrl="https://twitter.com/intent/tweet?text="+encodeURIComponent(p.hook+" ")+"&url="+encodeURIComponent(url);
+    var liUrl="https://www.linkedin.com/sharing/share-offsite/?url="+encodeURIComponent(url);
+    return ''
+      +'<div class="item">'
+      +  '<div class="card" style="--acc:'+acc+';--cdeep:'+deepen(acc)+'">'
+      +    '<div class="c-top"><span class="c-src">'+esc(p.source)+'</span><span class="c-date">'+fmt(p.date)+'</span></div>'
+      +    '<span class="c-cat">'+esc(p.category)+'</span>'
+      +    '<div class="c-hook"><span class="qm">&ldquo;</span>'+esc(p.hook)+'</div>'
+      +    '<div class="c-body">'+esc(p.body)+'</div>'
+      +    '<div class="c-foot"><img src="logo-mark.svg" alt=""><b>AI Blog Explainers</b></div>'
+      +  '</div>'
+      +  '<div class="actions">'
+      +    '<a class="btn pri" href="'+imgFor(p)+'" download="'+p.slug+'.png">Image</a>'
+      +    '<button class="btn" onclick="copyText(\''+url.replace(/'/g,"\\'")+'\',\'Link copied\')">Link</button>'
+      +    '<button class="btn" onclick=\'copyText('+JSON.stringify(shareText)+',"Text copied")\'>Copy text</button>'
+      +    '<a class="btn" href="'+xUrl+'" target="_blank" rel="noopener">X</a>'
+      +    '<a class="btn" href="'+liUrl+'" target="_blank" rel="noopener">in</a>'
+      +  '</div>'
+      +'</div>';
+  }).join('');
+}
+renderFilters();renderGrid();
+</script>
+</body>
+</html>
