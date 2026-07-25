@@ -158,51 +158,6 @@
   </div>
 </header>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap');
-.sharable{background:var(--paper);border-bottom:1px solid var(--line);padding:34px 0 42px;}
-.sharable .mshead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px;}
-.sharable .mskick{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:#2E7D5B;font-weight:700;}
-.sharable h2.mstitle{font-family:var(--serif);font-size:clamp(24px,3.2vw,32px);margin:5px 0 4px;}
-.sharable .mssub{font-size:14.5px;color:var(--slate);max-width:620px;}
-.sharable .msall{font-size:13px;font-weight:700;color:var(--clay-dark);text-decoration:none;white-space:nowrap;border:1px solid var(--line);border-radius:100px;padding:9px 16px;}
-.sharable .msall:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
-.msgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:18px;}
-.mscard{border-radius:14px;overflow:hidden;color:#F3E9E1;background:linear-gradient(150deg,#241C18,var(--cd,#7A3B29));border-left:7px solid var(--ac,#CC785C);box-shadow:0 12px 30px -20px rgba(0,0,0,.6);padding:20px 22px 14px;display:flex;flex-direction:column;min-height:270px;}
-.mscard .t{display:flex;align-items:center;justify-content:space-between;}
-.mscard .s{font-weight:800;font-size:14px;letter-spacing:.03em;text-transform:uppercase;}
-.mscard .dt{font-size:11px;font-weight:700;letter-spacing:.08em;color:#CBB2A3;}
-.mscard .cg{align-self:flex-start;margin-top:11px;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--ac,#CC785C);border-radius:100px;padding:5px 12px;}
-.mscard .hk{font-family:'Anton',sans-serif;text-transform:uppercase;color:var(--ac,#CC785C);font-size:30px;line-height:1.04;margin:14px 0 7px;}
-.mscard .hk .qm{font-family:var(--serif);}
-.mscard .bd{font-size:14px;line-height:1.4;color:#F3E9E1;}
-.mscard .ft{margin-top:auto;padding-top:12px;border-top:1px solid #4E3A2E;display:flex;align-items:center;justify-content:flex-end;gap:8px;}
-.mscard .ft img{width:20px;height:20px;border-radius:5px;}
-.mscard .ft b{font-size:12px;font-weight:400;}
-.msact{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px;}
-.msbtn{font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--slate);background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:7px 11px;cursor:pointer;text-decoration:none;}
-.msbtn:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
-.msbtn.pri{background:#B4832E;color:#fff;border-color:#B4832E;}
-.msbtn.pri:hover{background:#8A5F1C;border-color:#8A5F1C;}
-.mstoast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(16px);background:var(--ink);color:#fff;font-size:13px;font-weight:700;padding:10px 18px;border-radius:100px;opacity:0;transition:.22s;z-index:99;pointer-events:none;}
-.mstoast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-</style>
-
-<section class="sharable">
-  <div class="wrap">
-    <div class="mshead">
-      <div>
-        <div class="mskick">// WORTH PASSING ON</div>
-        <h2 class="mstitle">Most Sharable</h2>
-        <div class="mssub">The lines worth quoting &mdash; grab one as an image, text, or link. Each points back to the full explainer.</div>
-      </div>
-      <a class="msall" href="share.html">See all sharable &rarr;</a>
-    </div>
-    <div class="msgrid" id="msGrid"></div>
-  </div>
-</section>
-<div class="mstoast" id="msToast">Copied</div>
-
 <main>
   <div class="wrap">
     <h2 class="sec">Latest explainers</h2>
@@ -240,6 +195,52 @@
   </div>
 </main>
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap');
+.sharable{background:var(--paper);border-bottom:1px solid var(--line);padding:34px 0 42px;}
+.sharable .mshead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px;}
+.sharable .mskick{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:#2E7D5B;font-weight:700;}
+.sharable h2.mstitle{font-family:var(--serif);font-size:clamp(24px,3.2vw,32px);margin:5px 0 4px;}
+.sharable .mssub{font-size:14.5px;color:var(--slate);max-width:620px;}
+.sharable .msall{font-size:13px;font-weight:700;color:var(--clay-dark);text-decoration:none;white-space:nowrap;border:1px solid var(--line);border-radius:100px;padding:9px 16px;}
+.sharable .msall:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+.msgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:13px;}
+.mscard{border-radius:14px;overflow:hidden;color:#F3E9E1;background:linear-gradient(150deg,#241C18,var(--cd,#7A3B29));border-left:7px solid var(--ac,#CC785C);box-shadow:0 12px 30px -20px rgba(0,0,0,.6);padding:15px 17px 11px;display:flex;flex-direction:column;min-height:190px;}
+.mscard .t{display:flex;align-items:center;justify-content:space-between;}
+.mscard .s{font-weight:800;font-size:12.5px;letter-spacing:.03em;text-transform:uppercase;}
+.mscard .dt{font-size:11px;font-weight:700;letter-spacing:.08em;color:#CBB2A3;}
+.mscard .cg{align-self:flex-start;margin-top:11px;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--ac,#CC785C);border-radius:100px;padding:5px 12px;}
+.mscard .hk{font-family:'Anton',sans-serif;text-transform:uppercase;color:var(--ac,#CC785C);font-size:22px;line-height:1.05;margin:10px 0 6px;}
+.mscard .hk .qm{font-family:var(--serif);}
+.mscard .bd{font-size:12px;line-height:1.4;color:#F3E9E1;}
+.mscard .ft{margin-top:auto;padding-top:12px;border-top:1px solid #4E3A2E;display:flex;align-items:center;justify-content:flex-end;gap:8px;}
+.mscard .ft img{width:18px;height:18px;border-radius:5px;}
+.mscard .ft b{font-size:11px;font-weight:400;}
+.msact{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px;}
+.msbtn{font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--slate);background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:7px 11px;cursor:pointer;text-decoration:none;}
+.msbtn:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+.msbtn.pri{background:#B4832E;color:#fff;border-color:#B4832E;}
+.msbtn.pri:hover{background:#8A5F1C;border-color:#8A5F1C;}
+.mstoast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(16px);background:var(--ink);color:#fff;font-size:13px;font-weight:700;padding:10px 18px;border-radius:100px;opacity:0;transition:.22s;z-index:99;pointer-events:none;}
+.mstoast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+
+<section class="sharable">
+  <div class="wrap">
+    <div class="mshead">
+      <div>
+        <div class="mskick">// WORTH PASSING ON</div>
+        <h2 class="mstitle">Most Sharable</h2>
+        <div class="mssub">The lines worth quoting &mdash; grab one as an image, text, or link. Each points back to the full explainer.</div>
+      </div>
+      <a class="msall" href="share.html">See all sharable &rarr;</a>
+    </div>
+    <div class="msgrid" id="msGrid"></div>
+  </div>
+</section>
+<div class="mstoast" id="msToast">Copied</div>
+
+
 <section class="subscribe" id="subscribe">
   <div class="wrap">
     <h2>Get new explainers by email</h2>
@@ -270,7 +271,7 @@ const SOURCE_COLORS = {
 const NEW_DAYS = 3;
 
 const POSTS = [
-  {slug:"claude-opus-5",title:"Introducing Claude Opus 5",date:"2026-07-24",source:"Anthropic",category:"Product",readingTime:"6 min",summary:"Opus 5 comes close to Fable 5's frontier intelligence at half the price — new state-of-the-art on coding and knowledge work, stronger at verifying its own work, and Anthropic's most aligned model to date."},
+  {slug:"claude-opus-5",title:"Introducing Claude Opus 5",date:"2026-07-24",source:"Anthropic",category:"Model Launch",readingTime:"6 min",summary:"Opus 5 comes close to Fable 5's frontier intelligence at half the price — new state-of-the-art on coding and knowledge work, stronger at verifying its own work, and Anthropic's most aligned model to date."},
   {slug:"the-new-rules-of-context-engineering-for-claude-5-generation-models",title:"The New Rules of Context Engineering for Claude 5 Models",date:"2026-07-24",source:"Claude",category:"Claude Code",readingTime:"5 min",summary:"Anthropic removed over 80% of Claude Code's system prompt for its newest models with no measurable loss — and seven context-engineering 'best practices' flipped. Here's what replaced them."},
   {slug:"claude-models-explained-choosing-the-best-model-for-your-use-case",title:"Claude Models Explained: Choosing the Best Model for Your Use Case",date:"2026-07-24",source:"Claude",category:"Enterprise AI",readingTime:"5 min",summary:"Mythos, Fable, Opus, Sonnet, Haiku — start with the most intelligent model and tune with effort level. Why cost-per-task beats cost-per-token, and how evals settle the choice."},
   {slug:"four-role-based-claude-certifications",title:"Four Role-Based Claude Certifications",date:"2026-07-23",source:"Claude",category:"Enterprise AI",readingTime:"5 min",summary:"Anthropic expands its proctored, identity-verified Claude Certification Program to four role-based credentials — with the largest consultancies certifying people by the tens of thousands."},
