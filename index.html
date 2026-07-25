@@ -74,10 +74,10 @@
   @media(max-width:620px){.grid{grid-template-columns:1fr;}}
   .card{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:24px;text-decoration:none;color:inherit;transition:box-shadow .18s,transform .18s;}
   .card:hover{box-shadow:0 14px 34px -20px rgba(122,59,41,.45);transform:translateY(-2px);}
-  .card .row{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
-  .badge{font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#fff;padding:4px 10px;border-radius:100px;}
-  .cat{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--clay-dark);font-weight:700;}
-  .newpill{margin-left:auto;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:#fff;background:var(--gold);padding:3px 9px;border-radius:100px;}
+  .card .row{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:nowrap;min-width:0;}
+  .badge{font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#fff;padding:4px 10px;border-radius:100px;white-space:nowrap;flex:none;}
+  .cat{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--clay-dark);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
+  .newpill{margin-left:auto;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:#fff;background:var(--gold);padding:3px 9px;border-radius:100px;white-space:nowrap;flex:none;}
   .card h3{font-family:var(--serif);font-size:20px;line-height:1.22;margin-bottom:10px;color:var(--ink);}
   .card:hover h3{color:var(--clay-deep);}
   .card .meta{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--stone);margin-bottom:12px;}
@@ -273,7 +273,7 @@ const SOURCE_COLORS = {
 const NEW_DAYS = 3;
 
 const POSTS = [
-  {slug:"claude-opus-5",title:"Introducing Claude Opus 5",date:"2026-07-24",source:"Anthropic",category:"Model Launch",readingTime:"6 min",summary:"Opus 5 comes close to Fable 5's frontier intelligence at half the price — new state-of-the-art on coding and knowledge work, stronger at verifying its own work, and Anthropic's most aligned model to date."},
+  {slug:"claude-opus-5",title:"Introducing Claude Opus 5",date:"2026-07-24",source:"Claude",category:"Model Launch",readingTime:"6 min",summary:"Opus 5 comes close to Fable 5's frontier intelligence at half the price — new state-of-the-art on coding and knowledge work, stronger at verifying its own work, and Anthropic's most aligned model to date."},
   {slug:"the-new-rules-of-context-engineering-for-claude-5-generation-models",title:"The New Rules of Context Engineering for Claude 5 Models",date:"2026-07-24",source:"Claude",category:"Claude Code",readingTime:"5 min",summary:"Anthropic removed over 80% of Claude Code's system prompt for its newest models with no measurable loss — and seven context-engineering 'best practices' flipped. Here's what replaced them."},
   {slug:"claude-models-explained-choosing-the-best-model-for-your-use-case",title:"Claude Models Explained: Choosing the Best Model for Your Use Case",date:"2026-07-24",source:"Claude",category:"Enterprise AI",readingTime:"5 min",summary:"Mythos, Fable, Opus, Sonnet, Haiku — start with the most intelligent model and tune with effort level. Why cost-per-task beats cost-per-token, and how evals settle the choice."},
   {slug:"four-role-based-claude-certifications",title:"Four Role-Based Claude Certifications",date:"2026-07-23",source:"Claude",category:"Enterprise AI",readingTime:"5 min",summary:"Anthropic expands its proctored, identity-verified Claude Certification Program to four role-based credentials — with the largest consultancies certifying people by the tens of thousands."},
