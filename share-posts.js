@@ -126,5 +126,13 @@ window.__POSTS__ = [
     "date": "2026-07-09",
     "hook": "Four days to 48 hours.",
     "body": "UST is putting Claude Code inside chip validation — cutting cycles 50–70% — plus healthcare, telecom, and banking systems, and training 20,000 engineers, with a human approving every step."
+  },
+  {
+    "slug": "securing-agentic-workflows-box-mcp-server-guardrails",
+    "source": "Box",
+    "category": "AI Governance",
+    "date": "2026-05-08",
+    "hook": "Guardrails for agents.",
+    "body": "Box's new Admin Console controls give IT granular, per-tool permissions over how AI agents touch enterprise content — access tiers, custom tool config, invisible guardrails, and full audit logs."
   }
 ];

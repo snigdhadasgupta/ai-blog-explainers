@@ -71,6 +71,14 @@
       <description>UST is embedding Claude Code into the engineering pipelines behind chips, cars, and connected devices &amp;mdash; cutting validation cycles 50&amp;ndash;70% &amp;mdash; plus healthcare, telecom, and banking, with 20,000 engineers trained.</description>
     </item>
     <item>
+      <title>Securing Agentic Workflows with Box MCP Server Guardrails</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/securing-agentic-workflows-box-mcp-server-guardrails.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/securing-agentic-workflows-box-mcp-server-guardrails.html</guid>
+      <category>Box</category>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <description>Box&amp;#39;s new MCP server Admin Controls give IT teams granular guardrails over how AI agents interact with enterprise content &amp;mdash; access tiers, per-tool config, invisible guardrails, and full audit logging.</description>
+    </item>
+    <item>
       <title>Microsoft Agent 365: A Control Plane to Govern Your AI Agents</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations.html</link>
       <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations.html</guid>

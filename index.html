@@ -268,7 +268,7 @@
 <script>
 const SOURCE_COLORS = {
   "Anthropic":"#A64B2A", "Claude":"#CC785C", "OpenAI":"#0F9D77", "Microsoft 365":"#0067B8",
-  "Google Workspace":"#4285F4", "Microsoft Security":"#0E7490"
+  "Google Workspace":"#4285F4", "Microsoft Security":"#0E7490", "Box":"#3D3AAE"
 };
 const NEW_DAYS = 3;
 
@@ -287,6 +287,7 @@ const POSTS = [
   {slug:"ust-claude",title:"UST is Bringing Claude to Physical AI",date:"2026-07-09",source:"Anthropic",category:"Case Study",readingTime:"5 min",summary:"UST is embedding Claude Code into the engineering pipelines behind chips, cars, and connected devices \u2014 cutting validation cycles 50\u201370% \u2014 plus healthcare, telecom, and banking platforms, with 20,000 engineers trained."},
   {slug:"copilot-in-excel-frontier-finance",title:"Copilot in Excel: Built for the Era of Frontier Finance",date:"2026-06-25",source:"Microsoft 365",category:"Productivity",readingTime:"6 min",summary:"New skills, financial connectors, and traceability bring finance-grade AI to Excel — show its work, use trusted data, and trace every calculation."},
   {slug:"june-2026-workspace-feature-drop",title:"June Workspace Drops: New AI Features for Drive, Sheets & Gmail",date:"2026-06-25",source:"Google Workspace",category:"Productivity",readingTime:"2 min",summary:"Google's June Workspace drop adds AI to auto-organize Drive files, fix Sheets formula errors with Gemini, and refine Gmail drafts with an improved Help me write."},
+  {slug:"securing-agentic-workflows-box-mcp-server-guardrails",title:"Securing Agentic Workflows with Box MCP Server Guardrails",date:"2026-05-08",source:"Box",category:"AI Governance",readingTime:"4 min",summary:"Box's new MCP server Admin Controls give IT teams granular guardrails over how AI agents interact with enterprise content \u2014 access tiers, per-tool config, invisible guardrails, and full audit logging."},
   {slug:"microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations",title:"Microsoft Agent 365: A Control Plane to Govern Your AI Agents",date:"2026-05-01",source:"Microsoft Security",category:"AI Governance",readingTime:"6 min",summary:"Agent 365 is an enterprise control plane to observe, govern, and secure AI agents — tackling agent sprawl and shadow AI with discovery, least-privilege guardrails, and network controls."},
   {slug:"introducing-workspace-intelligence",title:"Introducing Workspace Intelligence",date:"2026-04-22",source:"Google Workspace",category:"Productivity",readingTime:"5 min",summary:"Google's Workspace Intelligence gives Gemini a unified, real-time understanding of your apps, projects, and colleagues — powering agentic work across Chat, Docs, Sheets, Slides, Gmail, and Drive."}
 ];
@@ -389,7 +390,7 @@ render();
 <script>
 (function(){
   var MSPOSTS=window.__POSTS__||[];
-  var SC={"Claude":"#CC785C","Anthropic":"#A64B2A","OpenAI":"#0F9D77","Microsoft 365":"#0067B8","Google Workspace":"#4285F4","Microsoft Security":"#0E7490"};
+  var SC={"Claude":"#CC785C","Anthropic":"#A64B2A","OpenAI":"#0F9D77","Microsoft 365":"#0067B8","Google Workspace":"#4285F4","Microsoft Security":"#0E7490","Box":"#3D3AAE"};
   var SITE="https://snigdhadasgupta.github.io/ai-blog-explainers";
   function dp(h){var c=h.replace('#','');function v(i){return Math.round(parseInt(c.substr(i,2),16)*0.42);}return 'rgb('+v(0)+','+v(2)+','+v(4)+')';}
   function esc(x){return (x||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
