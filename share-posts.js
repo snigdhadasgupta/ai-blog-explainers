@@ -1,5 +1,13 @@
 window.__POSTS__ = [
   {
+    "slug": "how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them",
+    "source": "Claude",
+    "category": "Product",
+    "date": "2026-07-24",
+    "hook": "Ideas before you build",
+    "body": "The designer who built Claude Design shares how he uses it daily \u2014 turning half-formed ideas into on-brand decks, prototypes, and one-pagers before anyone commits to building them."
+  },
+  {
     "slug": "claude-opus-5",
     "source": "Claude",
     "category": "Model Launch",
