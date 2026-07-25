@@ -63,6 +63,14 @@
       <description>Agents chain actions across systems with no human approving each step. Microsoft's playbook: treat every agent as a first-class principal.</description>
     </item>
     <item>
+      <title>UST is Bringing Claude to Physical AI</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ust-claude.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ust-claude.html</guid>
+      <category>Anthropic</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0000</pubDate>
+      <description>UST is embedding Claude Code into the engineering pipelines behind chips, cars, and connected devices &amp;mdash; cutting validation cycles 50&amp;ndash;70% &amp;mdash; plus healthcare, telecom, and banking, with 20,000 engineers trained.</description>
+    </item>
+    <item>
       <title>Microsoft Agent 365: A Control Plane to Govern Your AI Agents</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations.html</link>
       <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations.html</guid>

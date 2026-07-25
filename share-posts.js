@@ -118,5 +118,13 @@ window.__POSTS__ = [
     "date": "2026-04-22",
     "hook": "Gemini that knows your work.",
     "body": "A unified, real-time understanding of your apps, projects, and colleagues — powering agentic work across Chat, Docs, Sheets, Slides, Gmail, and Drive."
+  },
+  {
+    "slug": "ust-claude",
+    "source": "Anthropic",
+    "category": "Case Study",
+    "date": "2026-07-09",
+    "hook": "Four days to 48 hours.",
+    "body": "UST is putting Claude Code inside chip validation — cutting cycles 50–70% — plus healthcare, telecom, and banking systems, and training 20,000 engineers, with a human approving every step."
   }
 ];
