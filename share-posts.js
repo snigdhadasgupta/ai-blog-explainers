@@ -1,19 +1,11 @@
 window.__POSTS__ = [
   {
-    "slug": "how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them",
-    "source": "Claude",
-    "category": "Product",
-    "date": "2026-07-24",
-    "hook": "Ideas before you build",
-    "body": "The designer who built Claude Design shares how he uses it daily \u2014 turning half-formed ideas into on-brand decks, prototypes, and one-pagers before anyone commits to building them."
-  },
-  {
     "slug": "claude-opus-5",
     "source": "Claude",
     "category": "Model Launch",
     "date": "2026-07-24",
     "hook": "Half the price.",
-    "body": "Opus 5 comes close to Fable 5's frontier intelligence at half the price — new state-of-the-art on coding and knowledge work, and Anthropic's most aligned model to date."
+    "body": "Opus 5 comes close to Fable 5's frontier intelligence at half the price \u2014 new state-of-the-art on coding and knowledge work, and Anthropic's most aligned model to date."
   },
   {
     "slug": "the-new-rules-of-context-engineering-for-claude-5-generation-models",
@@ -21,7 +13,7 @@ window.__POSTS__ = [
     "category": "Claude Code",
     "date": "2026-07-24",
     "hook": "80% less prompt.",
-    "body": "Anthropic cut Claude Code's system prompt by over 80% for its newest models with no measurable loss — and seven long-standing context-engineering best practices flipped."
+    "body": "Anthropic cut Claude Code's system prompt by over 80% for its newest models with no measurable loss \u2014 and seven long-standing context-engineering best practices flipped."
   },
   {
     "slug": "claude-models-explained-choosing-the-best-model-for-your-use-case",
@@ -29,7 +21,7 @@ window.__POSTS__ = [
     "category": "Enterprise AI",
     "date": "2026-07-24",
     "hook": "Start with the smartest.",
-    "body": "Begin with the most intelligent model and tune with effort level — cost-per-task beats cost-per-token, and custom evals on your real workloads settle the choice."
+    "body": "Begin with the most intelligent model and tune with effort level \u2014 cost-per-task beats cost-per-token, and custom evals on your real workloads settle the choice."
   },
   {
     "slug": "four-role-based-claude-certifications",
@@ -37,7 +29,7 @@ window.__POSTS__ = [
     "category": "Enterprise AI",
     "date": "2026-07-23",
     "hook": "Certify the humans.",
-    "body": "Anthropic's Claude Certification Program expands to four role-based credentials — proctored and identity-verified, with the largest consultancies certifying people by the tens of thousands."
+    "body": "Anthropic's Claude Certification Program expands to four role-based credentials \u2014 proctored and identity-verified, with the largest consultancies certifying people by the tens of thousands."
   },
   {
     "slug": "think-through-hard-problems-in-voice-mode",
@@ -45,7 +37,7 @@ window.__POSTS__ = [
     "category": "Product",
     "date": "2026-07-23",
     "hook": "A sounding board that acts.",
-    "body": "Claude voice mode now runs on Opus and Sonnet, reaches connected tools like Gmail, Slack, and Calendar, and speaks many more languages — a spoken partner that can also act."
+    "body": "Claude voice mode now runs on Opus and Sonnet, reaches connected tools like Gmail, Slack, and Calendar, and speaks many more languages \u2014 a spoken partner that can also act."
   },
   {
     "slug": "building-verification-loops-in-claude-code-with-skills",
@@ -53,7 +45,7 @@ window.__POSTS__ = [
     "category": "Claude Code",
     "date": "2026-07-22",
     "hook": "Let Claude check itself.",
-    "body": "Turn the manual checks you keep repeating into skills, so Claude closes its own feedback loop — and lands closer to what you want on the very first try."
+    "body": "Turn the manual checks you keep repeating into skills, so Claude closes its own feedback loop \u2014 and lands closer to what you want on the very first try."
   },
   {
     "slug": "how-outtake-built-a-cyber-investigator-on-claude",
@@ -61,7 +53,7 @@ window.__POSTS__ = [
     "category": "Agents",
     "date": "2026-07-22",
     "hook": "Agents that hunt threats.",
-    "body": "Fleets of AI agents that detect, investigate, and dismantle digital threats — plus the harness that keeps multi-hour autonomous investigations on track."
+    "body": "Fleets of AI agents that detect, investigate, and dismantle digital threats \u2014 plus the harness that keeps multi-hour autonomous investigations on track."
   },
   {
     "slug": "introducing-openai-presence",
@@ -69,7 +61,7 @@ window.__POSTS__ = [
     "category": "Agents",
     "date": "2026-07-22",
     "hook": "Agents, meet guardrails.",
-    "body": "A battle-tested enterprise product for putting AI agents to work across customer and internal workflows — pairing model reasoning with policies, guardrails, and escalation rules."
+    "body": "A battle-tested enterprise product for putting AI agents to work across customer and internal workflows \u2014 pairing model reasoning with policies, guardrails, and escalation rules."
   },
   {
     "slug": "introducing-chatgpt-small-business-program",
@@ -77,7 +69,7 @@ window.__POSTS__ = [
     "category": "AI Adoption",
     "date": "2026-07-21",
     "hook": "AI for small business.",
-    "body": "OpenAI's new program helps small businesses build AI skills and automate work with ChatGPT — with training, in-person academies, guides, and partner integrations."
+    "body": "OpenAI's new program helps small businesses build AI skills and automate work with ChatGPT \u2014 with training, in-person academies, guides, and partner integrations."
   },
   {
     "slug": "safety-alignment-long-horizon-models",
@@ -85,7 +77,7 @@ window.__POSTS__ = [
     "category": "AI Governance",
     "date": "2026-07-20",
     "hook": "When agents run for hours.",
-    "body": "What OpenAI learned deploying a long-running agentic model — sandbox escapes, scanner evasion, and the shift to trajectory-level monitoring and iterative deployment."
+    "body": "What OpenAI learned deploying a long-running agentic model \u2014 sandbox escapes, scanner evasion, and the shift to trajectory-level monitoring and iterative deployment."
   },
   {
     "slug": "least-privilege-for-ai-agents-identity-access-and-tool-binding",
@@ -101,7 +93,7 @@ window.__POSTS__ = [
     "category": "Productivity",
     "date": "2026-06-25",
     "hook": "Finance-grade AI in Excel.",
-    "body": "New skills, financial connectors, and traceability bring finance-grade AI to Excel — Copilot shows its work, uses trusted data, and traces every calculation."
+    "body": "New skills, financial connectors, and traceability bring finance-grade AI to Excel \u2014 Copilot shows its work, uses trusted data, and traces every calculation."
   },
   {
     "slug": "june-2026-workspace-feature-drop",
@@ -117,7 +109,7 @@ window.__POSTS__ = [
     "category": "AI Governance",
     "date": "2026-05-01",
     "hook": "A control plane for agents.",
-    "body": "Agent 365 is an enterprise control plane to observe, govern, and secure AI agents — tackling agent sprawl and shadow AI with discovery, guardrails, and network controls."
+    "body": "Agent 365 is an enterprise control plane to observe, govern, and secure AI agents \u2014 tackling agent sprawl and shadow AI with discovery, guardrails, and network controls."
   },
   {
     "slug": "introducing-workspace-intelligence",
@@ -125,7 +117,7 @@ window.__POSTS__ = [
     "category": "Productivity",
     "date": "2026-04-22",
     "hook": "Gemini that knows your work.",
-    "body": "A unified, real-time understanding of your apps, projects, and colleagues — powering agentic work across Chat, Docs, Sheets, Slides, Gmail, and Drive."
+    "body": "A unified, real-time understanding of your apps, projects, and colleagues \u2014 powering agentic work across Chat, Docs, Sheets, Slides, Gmail, and Drive."
   },
   {
     "slug": "ust-claude",
@@ -133,7 +125,7 @@ window.__POSTS__ = [
     "category": "Case Study",
     "date": "2026-07-09",
     "hook": "Four days to 48 hours.",
-    "body": "UST is putting Claude Code inside chip validation — cutting cycles 50–70% — plus healthcare, telecom, and banking systems, and training 20,000 engineers, with a human approving every step."
+    "body": "UST is putting Claude Code inside chip validation \u2014 cutting cycles 50\u201370% \u2014 plus healthcare, telecom, and banking systems, and training 20,000 engineers, with a human approving every step."
   },
   {
     "slug": "securing-agentic-workflows-box-mcp-server-guardrails",
@@ -141,6 +133,6 @@ window.__POSTS__ = [
     "category": "AI Governance",
     "date": "2026-05-08",
     "hook": "Guardrails for agents.",
-    "body": "Box's new Admin Console controls give IT granular, per-tool permissions over how AI agents touch enterprise content — access tiers, custom tool config, invisible guardrails, and full audit logs."
+    "body": "Box's new Admin Console controls give IT granular, per-tool permissions over how AI agents touch enterprise content \u2014 access tiers, custom tool config, invisible guardrails, and full audit logs."
   }
 ];
