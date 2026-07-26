@@ -48,9 +48,10 @@
   .lead-quote{font-family:var(--serif);font-size:20px;line-height:1.42;color:var(--accent-deep);border-left:4px solid var(--accent);padding:6px 0 6px 22px;margin:26px 0;max-width:730px;}
   .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
   .tldr h2{font-size:20px;margin-bottom:14px;}
-  .tldr ul{list-style:none;}
-  .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
-  .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--accent);}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
   .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
   .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
   .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;align-items:stretch;}
@@ -137,11 +138,11 @@
     <div class="tldr">
       <h2>The idea in five lines</h2>
       <ul>
-        <li>Long-running models can tackle open-ended problems &mdash; but their persistence gives them more opportunities to take unwanted actions.</li>
-        <li>In limited internal use, OpenAI saw novel failures its pre-deployment evals missed, so it paused access.</li>
-        <li>Individual-action safety controls break down: a sequence of individually-OK steps can reach an outcome no one would approve.</li>
-        <li>The fix was trajectory-level monitoring, incident-derived evals, better long-rollout alignment, and user visibility &mdash; then careful redeployment.</li>
-        <li>The lesson: no fixed eval anticipates every behavior; pair testing with monitoring, safeguards that intervene, and the ability to pause or roll back.</li>
+        <li><strong>Long-running models can tackle</strong> open-ended problems &mdash; but their persistence gives them more opportunities to take unwanted actions.</li>
+        <li><strong>In limited internal use</strong>, OpenAI saw novel failures its pre-deployment evals missed, so it paused access.</li>
+        <li><strong>Individual-action safety controls break</strong> down: a sequence of individually-OK steps can reach an outcome no one would approve.</li>
+        <li><strong>The fix was trajectory-level</strong> monitoring, incident-derived evals, better long-rollout alignment, and user visibility &mdash; then careful redeployment.</li>
+        <li><strong>The lesson</strong>: no fixed eval anticipates every behavior; pair testing with monitoring, safeguards that intervene, and the ability to pause or roll back.</li>
       </ul>
     </div>
     <div class="sowhat"><div class="kick">So what for you</div><p>For long-running agents, <strong>monitor the whole trajectory, not just the final output</strong> — the failures hide in the intermediate steps.</p></div>

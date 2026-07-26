@@ -51,9 +51,10 @@
   .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
   .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
   .tldr h2{font-size:20px;margin-bottom:14px;}
-  .tldr ul{list-style:none;}
-  .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
-  .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--accent);}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
   .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
   .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
   .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:stretch;}
@@ -140,11 +141,11 @@
     <div class="tldr" data-tier-anchor>
       <h2>The idea in five lines</h2>
       <ul>
-        <li>Agents chain actions across email, files, tickets, and cloud &mdash; without a human approving each step &mdash; which breaks identity and authorization models built for service accounts.</li>
-        <li>Two quiet failure modes: scope creep (a &ldquo;Reader&rdquo; role grows write access) and combined cross-tool access that grants broader effective permissions than any single grant.</li>
-        <li>The right mental model: make every agent a first-class principal &mdash; a lifecycle-managed identity, a named owner, explicit task-based roles, tightly scoped permissions.</li>
-        <li>Bind tools tightly: expose only an approved manifest of actions, allowlist high-impact ones, and use just-in-time (JIT) time-limited elevation that drops back to baseline.</li>
-        <li>Verify explicitly on every downstream call and log identity, role, scope, action, and &ldquo;on behalf of&rdquo; user &mdash; or your audit trail looks present but is useless in an incident.</li>
+        <li><strong>Agents chain actions across</strong> email, files, tickets, and cloud &mdash; without a human approving each step &mdash; which breaks identity and authorization models built for service accounts.</li>
+        <li><strong>Two quiet failure modes</strong>: scope creep (a &ldquo;Reader&rdquo; role grows write access) and combined cross-tool access that grants broader effective permissions than any single grant.</li>
+        <li><strong>The right mental model</strong>: make every agent a first-class principal &mdash; a lifecycle-managed identity, a named owner, explicit task-based roles, tightly scoped permissions.</li>
+        <li><strong>Bind tools tightly</strong>: expose only an approved manifest of actions, allowlist high-impact ones, and use just-in-time (JIT) time-limited elevation that drops back to baseline.</li>
+        <li><strong>Verify explicitly on every</strong> downstream call and log identity, role, scope, action, and &ldquo;on behalf of&rdquo; user &mdash; or your audit trail looks present but is useless in an incident.</li>
       </ul>
     </div>
     <div class="sowhat">

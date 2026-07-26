@@ -49,9 +49,10 @@
   .lead-quote{font-family:var(--serif);font-size:21px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:6px 0 6px 22px;margin:26px 0;max-width:720px;}
   .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
   .tldr h2{font-size:20px;margin-bottom:14px;}
-  .tldr ul{list-style:none;}
-  .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
-  .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--accent);}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
   .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
   .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
   .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
@@ -148,11 +149,11 @@
     <div class="tldr">
       <h2>The idea in five lines</h2>
       <ul>
-        <li>New technology reaches developers first, and finance is often next &mdash; and for decades that finance tool has been Excel.</li>
-        <li>AI in finance must clear the same bar: show its work, use trusted data, and trace every calculation.</li>
-        <li>Three new pillars: <strong>skills</strong> for repeatable workflows, <strong>financial connectors</strong> for trusted data, and improved <strong>traceability</strong>.</li>
-        <li>Skills are open-standard <code>SKILL.md</code> files saved in OneDrive that guide Copilot through processes like a DCF or a monthly close.</li>
-        <li>&ldquo;Plan with Copilot&rdquo; and change attribution make every edit reviewable &mdash; the answer alone isn&rsquo;t enough; you need to know how you got there.</li>
+        <li><strong>New technology reaches developers</strong> first, and finance is often next &mdash; and for decades that finance tool has been Excel.</li>
+        <li><strong>AI in finance must clear</strong> the same bar: show its work, use trusted data, and trace every calculation.</li>
+        <li><strong>Three new pillars</strong>: skills for repeatable workflows, financial connectors for trusted data, and improved traceability.</li>
+        <li><strong>Skills are open-standard <code>SKILL.md</code></strong> files saved in OneDrive that guide Copilot through processes like a DCF or a monthly close.</li>
+        <li><strong>&ldquo;Plan with Copilot&rdquo</strong>; and change attribution make every edit reviewable &mdash; the answer alone isn&rsquo;t enough; you need to know how you got there.</li>
       </ul>
     </div>
     <div class="sowhat"><div class="kick">So what for you</div><p>Before trusting AI in finance work, <strong>require it to show its sources and calculation trail</strong> — traceability is what makes the output usable.</p></div>

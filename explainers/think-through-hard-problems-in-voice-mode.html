@@ -48,9 +48,10 @@
   .lead-quote{font-family:var(--serif);font-size:20px;line-height:1.42;color:var(--accent-deep);border-left:4px solid var(--accent);padding:6px 0 6px 22px;margin:26px 0;max-width:730px;}
   .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
   .tldr h2{font-size:20px;margin-bottom:14px;}
-  .tldr ul{list-style:none;}
-  .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
-  .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--accent);}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
   .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
   .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
   .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:stretch;}
@@ -141,11 +142,11 @@
     <div class="tldr">
       <h2>The idea in five lines</h2>
       <ul>
-        <li>Voice mode used to run only on Haiku &mdash; fast, but shallow. Now Opus and Sonnet, the models built for hard problem-solving, are available too.</li>
-        <li>You can switch models mid-conversation, and voice defaults to your last text-chat model, so you move between voice and text without starting over.</li>
-        <li>Voice can now reach your connected tools &mdash; Gmail, Slack, Google Calendar, Canva &mdash; so a spoken decision becomes an action (with a permission prompt each time).</li>
-        <li>Many more languages are available on every plan &mdash; from Hindi and Japanese to Brazilian Portuguese &mdash; switchable mid-conversation.</li>
-        <li>It&rsquo;s in beta on mobile, desktop, and web (best from your phone); Free gets Haiku + one tool, paid plans unlock the bigger models and all connected tools.</li>
+        <li><strong>Voice mode used to run</strong> only on Haiku &mdash; fast, but shallow. Now Opus and Sonnet, the models built for hard problem-solving, are available too.</li>
+        <li><strong>You can switch models</strong> mid-conversation, and voice defaults to your last text-chat model, so you move between voice and text without starting over.</li>
+        <li><strong>Voice can now reach</strong> your connected tools &mdash; Gmail, Slack, Google Calendar, Canva &mdash; so a spoken decision becomes an action (with a permission prompt each time).</li>
+        <li><strong>Many more languages are available</strong> on every plan &mdash; from Hindi and Japanese to Brazilian Portuguese &mdash; switchable mid-conversation.</li>
+        <li><strong>It&rsquo;s in beta on mobile</strong>, desktop, and web (best from your phone); Free gets Haiku + one tool, paid plans unlock the bigger models and all connected tools.</li>
       </ul>
     </div>
     <div class="sowhat"><div class="kick">So what for you</div><p>Use voice mode for the <strong>think-out-loud parts of your work</strong> — planning, triage, talking through a problem — now that it reaches your real tools.</p></div>

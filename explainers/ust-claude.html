@@ -60,9 +60,10 @@
   .lead-quote{font-family:var(--serif);font-size:22px;line-height:1.4;color:var(--clay-deep);border-left:4px solid var(--clay);padding:6px 0 6px 22px;margin:26px 0;max-width:720px;}
   .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px 30px;box-shadow:0 1px 0 var(--sand);}
   .tldr h2{font-size:20px;margin-bottom:14px;}
-  .tldr ul{list-style:none;}
-  .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
-  .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--clay);}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
   .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
   .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
   .stat{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-around;text-align:center;}
@@ -156,11 +157,11 @@
     <div class="tldr">
       <h2>The idea in five lines</h2>
       <ul>
-        <li><strong>Physical AI</strong> means intelligence built into the equipment and engineering processes that produce real products &mdash; chips, cars, connected devices &mdash; not just office chat.</li>
-        <li>UST, an engineering-services firm, is embedding <strong>Claude Code</strong> into the pipelines its clients use to verify designs, validate silicon, run factories, and service products.</li>
-        <li>On its <strong>iDEC</strong> validation platform, a closed loop already cut cycle times <strong>50&ndash;70%</strong> &mdash; four-day turnarounds down to 48 hours &mdash; and Claude is now its reasoning layer, reading schematics and writing the regression tests engineers used to script by hand.</li>
-        <li>Claude is also going into UST&rsquo;s <strong>healthcare, telecom, and banking</strong> platforms, always with a human approving each recommended action.</li>
-        <li>UST is training <strong>20,000</strong> engineers, architects, and consultants on Claude and becoming a Global Premier Partner in the Claude Partner Network.</li>
+        <li><strong>Physical AI means intelligence</strong> built into the equipment and engineering processes that produce real products &mdash; chips, cars, connected devices &mdash; not just office chat.</li>
+        <li><strong>UST, an engineering-services firm</strong>, is embedding Claude Code into the pipelines its clients use to verify designs, validate silicon, run factories, and service products.</li>
+        <li><strong>On its iDEC validation</strong> platform, a closed loop already cut cycle times 50&ndash;70% &mdash; four-day turnarounds down to 48 hours &mdash; and Claude is now its reasoning layer, reading schematics and writing the regression tests engineers used to script by hand.</li>
+        <li><strong>Claude is also going into UST&rsquo;s</strong> healthcare, telecom, and banking platforms, always with a human approving each recommended action.</li>
+        <li><strong>UST is training 20,000</strong> engineers, architects, and consultants on Claude and becoming a Global Premier Partner in the Claude Partner Network.</li>
       </ul>
     </div>
     <div class="sowhat"><div class="kick">So what for you</div><p>For document- or validation-heavy engineering pipelines, <strong>pilot an AI coding agent on one slow cycle</strong> and measure the time saved before scaling.</p></div>

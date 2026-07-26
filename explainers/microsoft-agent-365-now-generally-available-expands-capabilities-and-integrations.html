@@ -49,9 +49,10 @@
   .lead-quote cite{display:block;font-family:var(--sans);font-size:13.5px;font-style:normal;color:var(--stone);margin-top:10px;letter-spacing:.04em;}
   .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
   .tldr h2{font-size:20px;margin-bottom:14px;}
-  .tldr ul{list-style:none;}
-  .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
-  .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--accent);}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
   .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
   .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
   .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
@@ -144,11 +145,11 @@
     <div class="tldr">
       <h2>The idea in five lines</h2>
       <ul>
-        <li>The problem isn&rsquo;t that agents exist &mdash; it&rsquo;s that they multiply fast, span apps/endpoints/cloud, and act outside the control of risk teams.</li>
-        <li>An agent that can invoke tools, access data, and talk to other agents can turn a &ldquo;helpful&rdquo; workflow into data oversharing or over-privileged actions in seconds.</li>
-        <li>Agent 365 is a single <strong>control plane</strong> to observe, govern, and secure agents &mdash; both Microsoft-built and ecosystem/third-party.</li>
-        <li>New capabilities discover <strong>shadow AI</strong> agents (via Defender + Intune), apply policy guardrails, and sync inventories across AWS Bedrock and Google Cloud.</li>
-        <li>Governance principle: &ldquo;You can&rsquo;t govern what you can&rsquo;t see, and you can&rsquo;t secure what you don&rsquo;t understand.&rdquo;</li>
+        <li><strong>The problem isn&rsquo;t that agents</strong> exist &mdash; it&rsquo;s that they multiply fast, span apps/endpoints/cloud, and act outside the control of risk teams.</li>
+        <li><strong>An agent that can invoke</strong> tools, access data, and talk to other agents can turn a &ldquo;helpful&rdquo; workflow into data oversharing or over-privileged actions in seconds.</li>
+        <li><strong>Agent 365 is a single</strong> control plane to observe, govern, and secure agents &mdash; both Microsoft-built and ecosystem/third-party.</li>
+        <li><strong>New capabilities discover shadow</strong> AI agents (via Defender + Intune), apply policy guardrails, and sync inventories across AWS Bedrock and Google Cloud.</li>
+        <li><strong>Governance principle</strong>: &ldquo;You can&rsquo;t govern what you can&rsquo;t see, and you can&rsquo;t secure what you don&rsquo;t understand.&rdquo;</li>
       </ul>
     </div>
     <div class="sowhat"><div class="kick">So what for you</div><p>If agents are multiplying across your org, <strong>stand up a control plane to inventory and govern them</strong> before shadow-AI sprawl gets ahead of you.</p></div>

@@ -61,9 +61,10 @@
   .lead-quote cite{display:block;font-family:var(--sans);font-size:13px;font-style:normal;color:var(--stone);margin-top:10px;letter-spacing:.02em;}
   .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px 30px;box-shadow:0 1px 0 var(--sand);}
   .tldr h2{font-size:20px;margin-bottom:14px;}
-  .tldr ul{list-style:none;}
-  .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
-  .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--clay);}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
   .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
   .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
   .stat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
@@ -164,11 +165,11 @@
     <div class="tldr">
       <h2>The idea in five lines</h2>
       <ul>
-        <li>Three new role-based certifications join the program, mapping to the four largest roles that put Claude into production.</li>
-        <li>Every exam is proctored and identity-verified via Pearson &mdash; validated capability, not course attendance. Badges are issued through Credly.</li>
-        <li>Momentum is real: 36,000+ consultants certified across 1,300+ organizations since March; 400,000+ trained this year via Anthropic Partner Academy.</li>
-        <li>Certified-practitioner counts feed a firm&rsquo;s tier in the Claude Partner Network &mdash; Global Premier requires 1,000 certified, 100 customers across 3 regions, and 15 public endorsements.</li>
-        <li>Accenture (50k), PwC (30k), DXC &amp; UST (20k each), Deloitte &amp; KPMG (15k) and others have committed to certify at scale. Next tier review: October 1.</li>
+        <li><strong>Three new role-based certifications</strong> join the program, mapping to the four largest roles that put Claude into production.</li>
+        <li><strong>Every exam is proctored</strong> and identity-verified via Pearson &mdash; validated capability, not course attendance. Badges are issued through Credly.</li>
+        <li><strong>Momentum is real</strong>: 36,000+ consultants certified across 1,300+ organizations since March; 400,000+ trained this year via Anthropic Partner Academy.</li>
+        <li><strong>Certified-practitioner counts feed a firm&rsquo;s</strong> tier in the Claude Partner Network &mdash; Global Premier requires 1,000 certified, 100 customers across 3 regions, and 15 public endorsements.</li>
+        <li><strong>Accenture (50k), PwC (30k)</strong>, DXC &amp; UST (20k each), Deloitte &amp; KPMG (15k) and others have committed to certify at scale. Next tier review: October 1.</li>
       </ul>
     </div>
     <div class="sowhat"><div class="kick">So what for you</div><p>If you're scaling AI use across a team, treat these <strong>role-based certifications as a concrete way to verify skills</strong> rather than assume them.</p></div>

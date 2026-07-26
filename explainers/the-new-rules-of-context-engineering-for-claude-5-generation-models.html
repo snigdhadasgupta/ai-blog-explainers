@@ -61,9 +61,10 @@
   .lead-quote{font-family:var(--serif);font-size:22px;line-height:1.4;color:var(--clay-deep);border-left:4px solid var(--clay);padding:6px 0 6px 22px;margin:26px 0;max-width:720px;}
   .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px 30px;box-shadow:0 1px 0 var(--sand);}
   .tldr h2{font-size:20px;margin-bottom:14px;}
-  .tldr ul{list-style:none;}
-  .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
-  .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--clay);}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
   .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
   .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
   .stat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
@@ -171,11 +172,11 @@
     <div class="tldr">
       <h2>The idea in five lines</h2>
       <ul>
-        <li>A prompt is one message; <em>context</em> is everything assembled around it &mdash; system prompt, Skills, CLAUDE.md, memory. Engineering that context drives your results.</li>
-        <li>Newer models have better judgement, so guardrails that protected older models now over-constrain them. Anthropic removed 80%+ of Claude Code&rsquo;s system prompt with no measurable loss.</li>
-        <li>Seven old best practices flipped: give rules &rarr; let Claude judge; give examples &rarr; design interfaces; front-load everything &rarr; progressive disclosure.</li>
-        <li>Spend your tokens where they matter: product context in the system prompt, gotchas in CLAUDE.md, opinions and know-how in Skills.</li>
-        <li>Run <code>/doctor</code> in Claude Code to rightsize your own Skills and CLAUDE.md files automatically.</li>
+        <li><strong>A prompt is one message</strong>; <em>context</em> is everything assembled around it &mdash; system prompt, Skills, CLAUDE.md, memory. Engineering that context drives your results.</li>
+        <li><strong>Newer models have better</strong> judgement, so guardrails that protected older models now over-constrain them. Anthropic removed 80%+ of Claude Code&rsquo;s system prompt with no measurable loss.</li>
+        <li><strong>Seven old best practices flipped</strong>: give rules &rarr; let Claude judge; give examples &rarr; design interfaces; front-load everything &rarr; progressive disclosure.</li>
+        <li><strong>Spend your tokens where they</strong> matter: product context in the system prompt, gotchas in CLAUDE.md, opinions and know-how in Skills.</li>
+        <li><strong>Run <code>/doctor</code> in Claude</strong> Code to rightsize your own Skills and CLAUDE.md files automatically.</li>
       </ul>
     </div>
     <div class="sowhat"><div class="kick">So what for you</div><p>Audit your own agent's system prompt for <strong>rules, examples, and repetition you no longer need</strong> — with capable models, trimming context often improves results rather than hurting them.</p></div>

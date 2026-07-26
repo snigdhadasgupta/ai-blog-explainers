@@ -47,9 +47,10 @@
   p.body{font-size:16.5px;color:var(--slate);margin-bottom:16px;max-width:760px;}
   .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
   .tldr h2{font-size:20px;margin-bottom:14px;}
-  .tldr ul{list-style:none;}
-  .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
-  .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--accent);}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
   .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
   .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
@@ -136,10 +137,10 @@
     <div class="tldr">
       <h2>The idea in four lines</h2>
       <ul>
-        <li>June&rsquo;s Workspace drop is a set of AI features aimed at keeping your work organized and moving.</li>
-        <li>Three headliners: <strong>Organize my files</strong> in Drive, <strong>fix formula errors</strong> with Gemini in Sheets, and an improved <strong>Help me write</strong> in Gmail.</li>
-        <li>You stay in control &mdash; e.g. approve Drive&rsquo;s filing suggestions one-by-one or in bulk.</li>
-        <li>Plus wider availability: AI Inbox reaches more plans, and Gemini in Sheets adds 28 more languages.</li>
+        <li><strong>June&rsquo;s Workspace drop is a set</strong> of AI features aimed at keeping your work organized and moving.</li>
+        <li><strong>Three headliners</strong>: Organize my files in Drive, fix formula errors with Gemini in Sheets, and an improved Help me write in Gmail.</li>
+        <li><strong>You stay in control</strong> &mdash; e.g. approve Drive&rsquo;s filing suggestions one-by-one or in bulk.</li>
+        <li><strong>Plus wider availability</strong>: AI Inbox reaches more plans, and Gemini in Sheets adds 28 more languages.</li>
       </ul>
     </div>
     <div class="sowhat"><div class="kick">So what for you</div><p>Turn on the new Drive, Sheets, and Gmail AI helpers for <strong>one workflow you repeat weekly</strong> and check whether they actually save time before rolling them out.</p></div>

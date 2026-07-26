@@ -48,9 +48,10 @@
   .lead-quote{font-family:var(--serif);font-size:21px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:6px 0 6px 22px;margin:26px 0;max-width:720px;}
   .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
   .tldr h2{font-size:20px;margin-bottom:14px;}
-  .tldr ul{list-style:none;}
-  .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
-  .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--accent);}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
   .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
   .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
   .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
@@ -138,11 +139,11 @@
     <div class="tldr">
       <h2>The idea in five lines</h2>
       <ul>
-        <li>Most of us lose hours stitching together scattered info across tabs, emails, and chats before we even start the real work.</li>
-        <li>Workspace Intelligence understands the meaning and relationships across your Docs, Slides, Gmail, projects, and org knowledge &mdash; not just the raw data.</li>
-        <li>It automates three things: gathering the right information, knowing what matters right now, and personalizing output to your voice and style.</li>
-        <li>It shows up across Chat, Docs, Sheets, Slides, Gmail, and Drive &mdash; and connects to outside tools like Asana, Jira, and Salesforce.</li>
-        <li>Enterprise-grade: your data isn&rsquo;t used for ads or model training, with US/EU data residency and client-side encryption.</li>
+        <li><strong>Most of us lose</strong> hours stitching together scattered info across tabs, emails, and chats before we even start the real work.</li>
+        <li><strong>Workspace Intelligence understands the meaning</strong> and relationships across your Docs, Slides, Gmail, projects, and org knowledge &mdash; not just the raw data.</li>
+        <li><strong>It automates three things</strong>: gathering the right information, knowing what matters right now, and personalizing output to your voice and style.</li>
+        <li><strong>It shows up across</strong> Chat, Docs, Sheets, Slides, Gmail, and Drive &mdash; and connects to outside tools like Asana, Jira, and Salesforce.</li>
+        <li><strong>Enterprise-grade</strong>: your data isn&rsquo;t used for ads or model training, with US/EU data residency and client-side encryption.</li>
       </ul>
     </div>
     <div class="sowhat"><div class="kick">So what for you</div><p>Watch how a <strong>unified work-context layer changes agent quality</strong> — the payoff is less any single feature than agents that understand your projects and people.</p></div>

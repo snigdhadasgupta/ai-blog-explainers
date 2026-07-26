@@ -60,9 +60,10 @@
   .lead-quote{font-family:var(--serif);font-size:22px;line-height:1.4;color:var(--clay-deep);border-left:4px solid var(--clay);padding:6px 0 6px 22px;margin:26px 0;max-width:720px;}
   .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px 30px;box-shadow:0 1px 0 var(--sand);}
   .tldr h2{font-size:20px;margin-bottom:14px;}
-  .tldr ul{list-style:none;}
-  .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
-  .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--clay);}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
   .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
   .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
   .ladder{display:flex;flex-direction:column;gap:10px;}
@@ -156,11 +157,11 @@
     <div class="tldr">
       <h2>The idea in five lines</h2>
       <ul>
-        <li>Default recommendation: start with the most intelligent generally-available model, then use <strong>effort level</strong> to tune performance and cost.</li>
-        <li>Cost-per-<em>task</em> is often lower for smarter models even when price-per-token is higher &mdash; they take fewer turns and less thinking to get it right.</li>
-        <li>Model classes don&rsquo;t specialize by domain. Every Claude model is trained for coding, agents, and knowledge work; they differ in <em>how hard</em> a problem they carry, and at what price and speed.</li>
-        <li>Four questions decide it: how hard is the task, what are the latency needs, what are the access constraints, and what are the unit economics.</li>
-        <li>Benchmarks guide direction but saturate on frontier models &mdash; custom <strong>evals</strong> on your real workloads are how you actually choose.</li>
+        <li><strong>Default recommendation</strong>: start with the most intelligent generally-available model, then use effort level to tune performance and cost.</li>
+        <li><strong>Cost-per-<em>task</em> is often lower</strong> for smarter models even when price-per-token is higher &mdash; they take fewer turns and less thinking to get it right.</li>
+        <li><strong>Model classes don&rsquo;t specialize</strong> by domain. Every Claude model is trained for coding, agents, and knowledge work; they differ in <em>how hard</em> a problem they carry, and at what price and speed.</li>
+        <li><strong>Four questions decide it</strong>: how hard is the task, what are the latency needs, what are the access constraints, and what are the unit economics.</li>
+        <li><strong>Benchmarks guide direction but saturate</strong> on frontier models &mdash; custom evals on your real workloads are how you actually choose.</li>
       </ul>
     </div>
     <div class="sowhat"><div class="kick">So what for you</div><p>Choose your model by <strong>cost per finished task, not cost per token</strong>: start with the most capable model, then dial effort down until quality slips.</p></div>

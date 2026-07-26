@@ -50,9 +50,10 @@
   .lead-quote cite{display:block;font-family:var(--sans);font-size:13.5px;font-style:normal;color:var(--stone);margin-top:10px;letter-spacing:.04em;}
   .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
   .tldr h2{font-size:20px;margin-bottom:14px;}
-  .tldr ul{list-style:none;}
-  .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
-  .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--accent);}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
   .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
   .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
   .flow{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;align-items:stretch;}
@@ -148,11 +149,11 @@
     <div class="tldr">
       <h2>The idea in five lines</h2>
       <ul>
-        <li>The enterprise challenge is no longer proving agents <em>can</em> work &mdash; it&rsquo;s making them reliable enough for high-value production work.</li>
-        <li>OpenAI Presence deploys trusted agents that answer questions, use company systems, take approved actions, and escalate to people when needed.</li>
-        <li>Each deployment starts with one specific job and gets only the knowledge and system access that job requires.</li>
-        <li>The company sets the policies: what the agent can do, when it needs approval, and when a human takes over.</li>
-        <li>After launch, Codex reads production sessions and escalations and proposes updates teams can test and approve.</li>
+        <li><strong>The enterprise challenge is no longer</strong> proving agents <em>can</em> work &mdash; it&rsquo;s making them reliable enough for high-value production work.</li>
+        <li><strong>OpenAI Presence deploys trusted</strong> agents that answer questions, use company systems, take approved actions, and escalate to people when needed.</li>
+        <li><strong>Each deployment starts with one</strong> specific job and gets only the knowledge and system access that job requires.</li>
+        <li><strong>The company sets the policies</strong>: what the agent can do, when it needs approval, and when a human takes over.</li>
+        <li><strong>After launch, Codex reads</strong> production sessions and escalations and proposes updates teams can test and approve.</li>
       </ul>
     </div>
     <div class="sowhat"><div class="kick">So what for you</div><p>When evaluating agent platforms, weigh the <strong>guardrails, policies, and observability</strong> around the model as heavily as the model's reasoning.</p></div>

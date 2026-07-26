@@ -60,9 +60,10 @@
   .lead-quote{font-family:var(--serif);font-size:22px;line-height:1.4;color:var(--clay-deep);border-left:4px solid var(--clay);padding:6px 0 6px 22px;margin:26px 0;max-width:720px;}
   .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px 30px;box-shadow:0 1px 0 var(--sand);}
   .tldr h2{font-size:20px;margin-bottom:14px;}
-  .tldr ul{list-style:none;}
-  .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
-  .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--clay);}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
   .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
   .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
   .ladder{display:flex;flex-direction:column;gap:10px;}
@@ -155,11 +156,11 @@
     <div class="tldr">
       <h2>The idea in five lines</h2>
       <ul>
-        <li>The risk: an agent that combines <strong>access to sensitive data, state-changing actions, and external communication</strong> &mdash; the &ldquo;lethal trifecta&rdquo; &mdash; can leak or damage content if ungoverned.</li>
-        <li>Box added <strong>Admin Controls for its MCP server</strong>: a dedicated Admin Console tab to oversee and restrict the tools third-party AI platforms can use on your content.</li>
-        <li><strong>Granular access tiers</strong> per tool category (Files &amp; Folders, Search, Collaboration): Disabled, Read-Only, Read &amp; Write, or Custom.</li>
-        <li><strong>Invisible guardrails</strong> hide disabled tools from the agent&rsquo;s context window, and <strong>full audit logs</strong> record every configuration change &mdash; who and when.</li>
-        <li>It&rsquo;s client-agnostic &mdash; the same guardrails apply whether the agent runs on Claude, ChatGPT, or a custom integration.</li>
+        <li><strong>The risk</strong>: an agent that combines access to sensitive data, state-changing actions, and external communication &mdash; the &ldquo;lethal trifecta&rdquo; &mdash; can leak or damage content if ungoverned.</li>
+        <li><strong>Box added Admin Controls</strong> for its MCP server: a dedicated Admin Console tab to oversee and restrict the tools third-party AI platforms can use on your content.</li>
+        <li><strong>Granular access tiers per</strong> tool category (Files &amp; Folders, Search, Collaboration): Disabled, Read-Only, Read &amp; Write, or Custom.</li>
+        <li><strong>Invisible guardrails hide disabled</strong> tools from the agent&rsquo;s context window, and full audit logs record every configuration change &mdash; who and when.</li>
+        <li><strong>It&rsquo;s client-agnostic</strong> &mdash; the same guardrails apply whether the agent runs on Claude, ChatGPT, or a custom integration.</li>
       </ul>
     </div>
     <div class="sowhat"><div class="kick">So what for you</div><p>Before connecting AI agents to your content, <strong>set access tiers and per-tool limits at the server</strong> — don't rely on the agent to police itself.</p></div>
