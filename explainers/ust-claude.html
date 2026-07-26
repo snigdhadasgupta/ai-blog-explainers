@@ -43,15 +43,15 @@
   .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;text-decoration:none;color:var(--ink);}
   .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
   .srcbadge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--clay);border-radius:100px;padding:4px 12px;}
-  .hero{background:linear-gradient(160deg,#2A211C 0%,#4A2E22 55%,var(--clay-deep) 100%);color:#F5EFE7;padding:64px 0 56px;}
-  .hero .wrap{max-width:900px;}
+  .hero{background:linear-gradient(160deg,#2A211C 0%,#4A2E22 55%,var(--clay-deep) 100%);color:#F5EFE7;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
   .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#E9C6B5;border:1px solid rgba(233,198,181,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
   .hero h1{font-family:var(--serif);font-size:clamp(32px,5vw,52px);line-height:1.08;font-weight:700;margin-bottom:18px;}
   .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#EADFD3;max-width:720px;}
   .meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:34px;padding-top:22px;border-top:1px solid rgba(245,239,231,.18);font-size:13px;}
   .meta .m span{display:block;color:#D9B9A6;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
   .meta .m strong{font-weight:600;color:#F7EEE6;font-size:14px;}
-  section{padding:52px 0;border-bottom:1px solid var(--line);}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
   .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--clay-dark);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:26px;height:2px;background:var(--clay);display:inline-block;}
   h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
@@ -63,7 +63,7 @@
   .tldr ul{list-style:none;}
   .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
   .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--clay);}
-  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:30px;margin:28px 0;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
   .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
   .stat{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-around;text-align:center;}
   .stat .s{flex:1;min-width:160px;}
@@ -81,7 +81,7 @@
   .card h3{font-size:16.5px;margin-bottom:8px;}
   .card .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--clay-dark);font-weight:700;margin-bottom:10px;}
   .card p{font-size:14px;color:var(--stone);}
-  .callout{background:linear-gradient(135deg,var(--ink),var(--clay-deep));color:#F4ECE4;border-radius:16px;padding:34px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--clay-deep));color:#F4ECE4;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
   .callout h2{color:#fff;margin-bottom:6px;}
   .callout p{color:#E7D6CA;font-size:15px;max-width:560px;}
   .btn{background:var(--clay);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;border:1px solid rgba(255,255,255,.15);}
@@ -91,6 +91,25 @@
   footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
   footer a{color:var(--clay-dark);}
   .src{margin-top:8px;}
+
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent,var(--clay));}
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent,var(--clay));color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep,var(--clay-deep));}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:20px 24px;margin:22px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
 </style>
 </head>
 <body>
@@ -103,6 +122,9 @@
 </div>
 
 <header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><g stroke="#fff" stroke-opacity=".18" stroke-width="1.5"><line x1="380" y1="230" x2="250" y2="118"/><line x1="380" y1="230" x2="520" y2="118"/><line x1="380" y1="230" x2="250" y2="342"/><line x1="380" y1="230" x2="520" y2="342"/><line x1="380" y1="230" x2="558" y2="230"/><line x1="380" y1="230" x2="228" y2="230"/></g><circle cx="380" cy="230" r="40" class="hnode"/><circle cx="380" cy="230" r="40" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/><circle cx="380" cy="230" r="6" fill="#fff"/><g fill="#fff"><circle cx="250" cy="118" r="8" fill-opacity=".8"/><circle cx="520" cy="118" r="8" fill-opacity=".8"/><circle cx="250" cy="342" r="8" fill-opacity=".8"/><circle cx="520" cy="342" r="8" fill-opacity=".8"/><circle cx="558" cy="230" r="7" fill-opacity=".7"/><circle cx="228" cy="230" r="7" fill-opacity=".7"/></g></svg>
+  </div>
   <div class="wrap">
     <span class="tag">Anthropic &middot; July 9, 2026</span>
     <h1>UST is Bringing Claude to Physical AI</h1>
@@ -116,8 +138,20 @@
   </div>
 </header>
 
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
 <!-- TL;DR -->
-<section>
+<section data-depth="tldr">
   <div class="wrap">
     <div class="tldr">
       <h2>The idea in five lines</h2>
@@ -129,11 +163,12 @@
         <li>UST is training <strong>20,000</strong> engineers, architects, and consultants on Claude and becoming a Global Premier Partner in the Claude Partner Network.</li>
       </ul>
     </div>
+    <div class="sowhat"><div class="kick">So what for you</div><p>For document- or validation-heavy engineering pipelines, <strong>pilot an AI coding agent on one slow cycle</strong> and measure the time saved before scaling.</p></div>
   </div>
 </section>
 
 <!-- The problem -->
-<section>
+<section data-depth="manager">
   <div class="wrap">
     <div class="eyebrow">Why it matters</div>
     <h2>Early mistakes get expensive fast</h2>
@@ -144,7 +179,7 @@
 </section>
 
 <!-- iDEC stat + loop -->
-<section>
+<section data-depth="tech">
   <div class="wrap">
     <div class="eyebrow">The clearest example</div>
     <h2>iDEC: proving silicon before production</h2>
@@ -164,7 +199,7 @@
 </section>
 
 <!-- Four platforms -->
-<section>
+<section data-depth="tech">
   <div class="wrap">
     <div class="eyebrow">Beyond the fab</div>
     <h2>Claude across four UST platforms</h2>
@@ -183,7 +218,7 @@
 </section>
 
 <!-- Governance -->
-<section>
+<section data-depth="manager">
   <div class="wrap">
     <div class="eyebrow">Why it ships</div>
     <h2>Reliability plus human-in-the-loop governance</h2>
@@ -196,7 +231,7 @@
 </section>
 
 <!-- CTA -->
-<section style="border-bottom:none;">
+<section style="border-bottom:none;" data-depth="manager">
   <div class="wrap">
     <div class="callout">
       <div>
@@ -267,5 +302,27 @@ function aibeCopy(){
 }
 </script>
 
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={tldr:"Just the summary + the takeaway.",manager:"Summary, why it matters, and what to do.",tech:"Everything, including the deeper detail."};
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
 </body>
 </html>

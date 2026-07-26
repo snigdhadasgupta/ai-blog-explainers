@@ -31,15 +31,15 @@
   .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
   .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
   .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
-  .hero{background:linear-gradient(160deg,#17222A 0%,#123E4C 55%,var(--accent-deep) 100%);color:#EAF4F7;padding:64px 0 56px;}
-  .hero .wrap{max-width:900px;}
+  .hero{background:linear-gradient(160deg,#17222A 0%,#123E4C 55%,var(--accent-deep) 100%);color:#EAF4F7;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
   .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#A9D8E4;border:1px solid rgba(169,216,228,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
   .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;}
   .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#D6EAF0;max-width:720px;}
   .meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:34px;padding-top:22px;border-top:1px solid rgba(234,244,247,.18);font-size:13px;}
   .meta .m span{display:block;color:#93C4D2;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
   .meta .m strong{font-weight:600;color:#EAF4F7;font-size:14px;}
-  section{padding:52px 0;border-bottom:1px solid var(--line);}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
   .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
   h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
@@ -47,12 +47,12 @@
   p.body{font-size:16.5px;color:var(--slate);margin-bottom:16px;max-width:760px;}
   .lead-quote{font-family:var(--serif);font-size:20px;line-height:1.42;color:var(--accent-deep);border-left:4px solid var(--accent);padding:6px 0 6px 22px;margin:26px 0;max-width:730px;}
   .lead-quote cite{display:block;font-family:var(--sans);font-size:13.5px;font-style:normal;color:var(--stone);margin-top:10px;letter-spacing:.04em;}
-  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px 30px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
   .tldr h2{font-size:20px;margin-bottom:14px;}
   .tldr ul{list-style:none;}
   .tldr li{position:relative;padding-left:30px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
   .tldr li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:4px;background:var(--accent);}
-  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:30px;margin:28px 0;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
   .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
   .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
   @media(max-width:820px){.pillars{grid-template-columns:1fr;}}
@@ -73,13 +73,32 @@
   .checks td{padding:12px 15px;border-top:1px solid var(--line);color:var(--slate);vertical-align:top;}
   .checks tr:nth-child(even) td{background:var(--cream);}
   .checks td.k{font-weight:700;color:var(--accent-deep);white-space:nowrap;}
-  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#EAF4F7;border-radius:16px;padding:34px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#EAF4F7;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
   .callout h2{color:#fff;margin-bottom:6px;}
   .callout p{color:#D2E7ED;font-size:15px;max-width:560px;}
   .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
   footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
   footer a{color:var(--accent-deep);}
   .src{margin-top:8px;}
+
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent,var(--clay));}
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent,var(--clay));color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep,var(--clay-deep));}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:20px 24px;margin:22px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
 </style>
 </head>
 <body>
@@ -92,6 +111,9 @@
 </div>
 
 <header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><g stroke="#fff" stroke-opacity=".18" stroke-width="1.5"><line x1="380" y1="230" x2="250" y2="118"/><line x1="380" y1="230" x2="520" y2="118"/><line x1="380" y1="230" x2="250" y2="342"/><line x1="380" y1="230" x2="520" y2="342"/><line x1="380" y1="230" x2="558" y2="230"/><line x1="380" y1="230" x2="228" y2="230"/></g><circle cx="380" cy="230" r="40" class="hnode"/><circle cx="380" cy="230" r="40" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/><circle cx="380" cy="230" r="6" fill="#fff"/><g fill="#fff"><circle cx="250" cy="118" r="8" fill-opacity=".8"/><circle cx="520" cy="118" r="8" fill-opacity=".8"/><circle cx="250" cy="342" r="8" fill-opacity=".8"/><circle cx="520" cy="342" r="8" fill-opacity=".8"/><circle cx="558" cy="230" r="7" fill-opacity=".7"/><circle cx="228" cy="230" r="7" fill-opacity=".7"/></g></svg>
+  </div>
   <div class="wrap">
     <span class="tag">Microsoft Security &middot; Agentic Governance &middot; May 1, 2026</span>
     <h1>Microsoft Agent 365: A Control Plane to Govern Your AI Agents</h1>
@@ -105,7 +127,19 @@
   </div>
 </header>
 
-<section>
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
   <div class="wrap">
     <div class="tldr">
       <h2>The idea in five lines</h2>
@@ -117,10 +151,11 @@
         <li>Governance principle: &ldquo;You can&rsquo;t govern what you can&rsquo;t see, and you can&rsquo;t secure what you don&rsquo;t understand.&rdquo;</li>
       </ul>
     </div>
+    <div class="sowhat"><div class="kick">So what for you</div><p>If agents are multiplying across your org, <strong>stand up a control plane to inventory and govern them</strong> before shadow-AI sprawl gets ahead of you.</p></div>
   </div>
 </section>
 
-<section>
+<section data-depth="tech">
   <div class="wrap">
     <div class="eyebrow">The concept</div>
     <h2>A control plane for agent sprawl</h2>
@@ -138,7 +173,7 @@
   </div>
 </section>
 
-<section>
+<section data-depth="manager">
   <div class="wrap">
     <div class="eyebrow">What&rsquo;s new</div>
     <h2>From shadow AI to cross-cloud control</h2>
@@ -153,7 +188,7 @@
   </div>
 </section>
 
-<section>
+<section data-depth="manager">
   <div class="wrap">
     <div class="eyebrow">The governance checklist</div>
     <h2>What &ldquo;governing agents&rdquo; actually means</h2>
@@ -172,7 +207,7 @@
   </div>
 </section>
 
-<section style="border-bottom:none;">
+<section style="border-bottom:none;" data-depth="manager">
   <div class="wrap">
     <div class="callout">
       <div>
@@ -241,6 +276,28 @@ function aibeCopy(){
     var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
   });
 }
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={tldr:"Just the summary + the takeaway.",manager:"Summary, why it matters, and what to do.",tech:"Everything, including the deeper detail."};
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
 </script>
 </body>
 </html>

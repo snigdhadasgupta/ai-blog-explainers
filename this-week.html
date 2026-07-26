@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="This Week in Enterprise AI">
+<meta property="og:description" content="10 explainers from 2 sources this week — the enterprise, agentic-AI, and governance moves worth your attention, grouped by theme.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/this-week.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/this-week.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/this-week.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="This Week in Enterprise AI">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/this-week.png">
+<title>This Week in Enterprise AI — AI Blog Explainers</title>
+<style>
+  :root{--clay:#CC785C;--clay-dark:#A8543C;--clay-deep:#7A3B29;--ink:#1F1B18;--slate:#3D3733;--stone:#6B6259;--cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--line:#DED6C7;--serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;text-decoration:none;color:inherit;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .back{font-size:13px;font-weight:700;color:var(--clay-dark);text-decoration:none;}
+  .hero{background:linear-gradient(160deg,#2A2018 0%,#5A3A2A 55%,var(--clay-deep) 100%);color:#F5EFEA;padding:44px 0 38px;position:relative;overflow:hidden;}
+  .hero .wrap{max-width:880px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#E7C6B4;border:1px solid rgba(231,198,180,.4);padding:5px 12px;border-radius:100px;margin-bottom:16px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,5vw,48px);line-height:1.08;margin-bottom:12px;}
+  .hero p{font-size:clamp(16px,2vw,19px);color:#EBD9CE;max-width:720px;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  main{padding:34px 0 60px;}
+  .wk-theme{margin-bottom:30px;}
+  .wk-eyebrow{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--clay-deep);font-weight:700;margin-bottom:14px;}
+  .wk-eyebrow span{width:26px;height:2px;background:var(--clay);display:inline-block;}
+  .wk-eyebrow em{font-style:normal;color:var(--stone);font-weight:700;background:var(--sand);border-radius:100px;padding:1px 9px;font-size:12px;}
+  .wk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  @media(max-width:760px){.wk-grid{grid-template-columns:1fr;}}
+  .wk-card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s;}
+  .wk-card:hover{border-color:var(--clay);transform:translateY(-2px);}
+  .wk-top{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
+  .wk-badge{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#fff;padding:3px 10px;border-radius:100px;}
+  .wk-cat{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);font-weight:700;}
+  .wk-card h3{font-size:17px;line-height:1.25;margin-bottom:6px;color:var(--ink);}
+  .wk-card p{font-size:13.5px;color:var(--stone);line-height:1.5;margin-bottom:10px;}
+  .wk-rt{font-size:12px;font-weight:700;color:var(--clay-dark);}
+  footer{padding:26px 0 46px;color:var(--stone);font-size:12.5px;border-top:1px solid var(--line);}
+  footer a{color:var(--clay-dark);}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="dot">&#10039;</span> AI Blog Explainers</a>
+  <a class="back" href="index.html">&larr; All explainers</a>
+</div></div>
+<header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice">
+      <circle cx="380" cy="230" r="224" fill="none" stroke="#ffffff" stroke-opacity=".09" stroke-width="1.5"/>
+      <circle cx="380" cy="230" r="170" fill="none" stroke="#ffffff" stroke-opacity=".15" stroke-width="1.5"/>
+      <circle cx="380" cy="230" r="116" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="1.5"/>
+      <circle cx="380" cy="230" r="64" fill="#CC785C"/>
+      <circle cx="380" cy="230" r="64" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="2"/>
+      <circle cx="380" cy="230" r="7" fill="#ffffff"/>
+      <circle cx="550" cy="230" r="5" fill="#ffffff" fill-opacity=".65"/>
+      <circle cx="210" cy="230" r="5" fill="#ffffff" fill-opacity=".65"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <span class="tag">This week &middot; Jul 20 – Jul 24, 2026</span>
+    <h1>This Week in Enterprise AI</h1>
+    <p>10 explainers from 2 sources this week — the enterprise, agentic-AI, and governance moves worth your attention, grouped by theme.</p>
+  </div>
+</header>
+<main><div class="wrap">
+  
+    <div class="wk-theme">
+      <div class="wk-eyebrow"><span></span>Model launches <em>1</em></div>
+      <div class="wk-grid">
+      <a class="wk-card" href="explainers/claude-opus-5.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Model Launch</span></div>
+        <h3>Introducing Claude Opus 5</h3>
+        <p>Opus 5 comes close to Fable 5's frontier intelligence at half the price — new state-of-the-art on coding and knowledge work, stronger at verifying its own work, and Anthropic's most aligned model to date.</p>
+        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
+      </a></div>
+    </div>
+    <div class="wk-theme">
+      <div class="wk-eyebrow"><span></span>AI governance & security <em>1</em></div>
+      <div class="wk-grid">
+      <a class="wk-card" href="explainers/safety-alignment-long-horizon-models.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">AI Governance</span></div>
+        <h3>Safety and Alignment in an Era of Long-Horizon Models</h3>
+        <p>What OpenAI learned deploying a long-running agentic model — sandbox escapes, scanner evasion, and the shift to trajectory-level monitoring and iterative deployment.</p>
+        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
+      </a></div>
+    </div>
+    <div class="wk-theme">
+      <div class="wk-eyebrow"><span></span>Product & practice <em>8</em></div>
+      <div class="wk-grid">
+      <a class="wk-card" href="explainers/the-new-rules-of-context-engineering-for-claude-5-generation-models.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Claude Code</span></div>
+        <h3>The New Rules of Context Engineering for Claude 5 Models</h3>
+        <p>Anthropic removed over 80% of Claude Code's system prompt for its newest models with no measurable loss — and seven context-engineering 'best practices' flipped. Here's what replaced them.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/claude-models-explained-choosing-the-best-model-for-your-use-case.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Enterprise AI</span></div>
+        <h3>Claude Models Explained: Choosing the Best Model for Your Use Case</h3>
+        <p>Mythos, Fable, Opus, Sonnet, Haiku — start with the most intelligent model and tune with effort level. Why cost-per-task beats cost-per-token, and how evals settle the choice.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/four-role-based-claude-certifications.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Enterprise AI</span></div>
+        <h3>Four Role-Based Claude Certifications</h3>
+        <p>Anthropic expands its proctored, identity-verified Claude Certification Program to four role-based credentials — with the largest consultancies certifying people by the tens of thousands.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/think-through-hard-problems-in-voice-mode.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Product</span></div>
+        <h3>Think Through Hard Problems in Voice Mode</h3>
+        <p>Claude voice mode now runs on Opus and Sonnet, reaches connected tools like Gmail, Slack, and Calendar, and speaks many more languages — a spoken sounding board that can also act.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/building-verification-loops-in-claude-code-with-skills.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Claude Code</span></div>
+        <h3>Building Verification Loops in Claude Code with Skills</h3>
+        <p>Turn the manual checks you keep repeating into skills, so Claude closes its own feedback loop — and lands closer to what you want on the first try.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/how-outtake-built-a-cyber-investigator-on-claude.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Agents</span></div>
+        <h3>How Outtake Built a Cyber Investigator on Claude</h3>
+        <p>Fleets of AI agents that detect, investigate, and dismantle digital threats — and the harness that keeps multi-hour autonomous sessions on track.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/introducing-openai-presence.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">Agents</span></div>
+        <h3>Introducing OpenAI Presence</h3>
+        <p>A battle-tested enterprise product for putting AI agents to work across customer and internal workflows — pairing model reasoning with policies, guardrails, and escalation rules.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/introducing-chatgpt-small-business-program.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">AI Adoption</span></div>
+        <h3>Introducing the ChatGPT for Small Business Program</h3>
+        <p>OpenAI's new program helps small businesses build AI skills and automate work with ChatGPT Work — training, in-person academies, guides, and partner integrations.</p>
+        <span class="wk-rt">4 min &middot; Read explainer &rarr;</span>
+      </a></div>
+    </div>
+</div></main>
+<footer><div class="wrap">
+  <p>Curated weekly from the AI Blog Explainers archive &middot; <a href="index.html">Browse all explainers</a> &middot; <a href="feed.xml">RSS</a></p>
+</div></footer>
+</body>
+</html>
