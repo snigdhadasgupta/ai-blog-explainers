@@ -1,5 +1,13 @@
 window.__POSTS__ = [
   {
+    "slug": "cognizant-anthropic",
+    "source": "Anthropic",
+    "category": "Case Study",
+    "date": "2026-07-27",
+    "hook": "Pilot to production.",
+    "body": "Cognizant becomes a Global Premier Partner in the Claude Partner Network — embedding Claude across its engineering platforms and 350,000-person workforce, with results already live in manufacturing, life sciences, and insurance."
+  },
+  {
     "slug": "claude-opus-5",
     "source": "Claude",
     "category": "Model Launch",
