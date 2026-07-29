@@ -1,5 +1,29 @@
 window.__POSTS__ = [
   {
+    "slug": "gpt-5-6-frontier-intelligence-efficiency",
+    "source": "OpenAI",
+    "category": "Model Launch",
+    "date": "2026-07-29",
+    "hook": "Intelligence per dollar",
+    "body": "OpenAI's GPT-5.6 family chases efficiency over raw power: three tiers on the cost-intelligence curve, plus inference and agent-harness gains the model itself landed inside Codex."
+  },
+  {
+    "slug": "bringing-mcp-2026-07-28-to-claude",
+    "source": "Claude",
+    "category": "Agents",
+    "date": "2026-07-28",
+    "hook": "MCP goes stateless",
+    "body": "The fifth MCP spec moves the protocol to a stateless request/response core, graduates Apps and Tasks as versioned extensions, and hardens auth for enterprise identity — now rolling out across Claude."
+  },
+  {
+    "slug": "enhancing-ai-security-through-global-ai-red-teaming",
+    "source": "Microsoft Security",
+    "category": "AI Governance",
+    "date": "2026-07-27",
+    "hook": "Red teaming, worldwide",
+    "body": "Microsoft's EXTRA alliance funds 18 university labs on six continents plus a specialist network — because the riskiest AI failures need multilingual, regional expertise no single internal team can replicate."
+  },
+  {
     "slug": "cognizant-anthropic",
     "source": "Anthropic",
     "category": "Case Study",

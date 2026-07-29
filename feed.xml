@@ -5,7 +5,31 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jul 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2026 08:00:00 +0000</lastBuildDate>
+    <item>
+      <title>How GPT-5.6 Fuses Frontier Intelligence with Efficiency</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/gpt-5-6-frontier-intelligence-efficiency.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/gpt-5-6-frontier-intelligence-efficiency.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Wed, 29 Jul 2026 12:00:00 +0000</pubDate>
+      <description>OpenAI's GPT-5.6 family is engineered for intelligence-per-dollar — a tiered lineup (Sol, Terra, Luna) plus deep inference and agentic-harness optimizations, many landed by GPT-5.6 Sol itself inside Codex.</description>
+    </item>
+    <item>
+      <title>MCP 2026-07-28: A Stateless Core Comes to Claude</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/bringing-mcp-2026-07-28-to-claude.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/bringing-mcp-2026-07-28-to-claude.html</guid>
+      <category>Claude</category>
+      <pubDate>Tue, 28 Jul 2026 15:00:00 +0000</pubDate>
+      <description>The fifth MCP spec moves the protocol to a stateless request/response core, graduates MCP Apps and Tasks as versioned extensions, and hardens auth for enterprise identity — rolling out across Claude products.</description>
+    </item>
+    <item>
+      <title>Enhancing AI Security Through Global Red Teaming</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/enhancing-ai-security-through-global-ai-red-teaming.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/enhancing-ai-security-through-global-ai-red-teaming.html</guid>
+      <category>Microsoft Security</category>
+      <pubDate>Mon, 27 Jul 2026 16:25:00 +0000</pubDate>
+      <description>Microsoft's External Red Team Alliance (EXTRA) funds 18 university labs on six continents plus a specialist network — because the hardest AI failure modes need multilingual, regional, and domain expertise no single team has.</description>
+    </item>
     <item>
       <title>Cognizant Takes Claude From Pilot to Production</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/cognizant-anthropic.html</link>
