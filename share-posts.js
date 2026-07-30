@@ -1,5 +1,13 @@
 window.__POSTS__ = [
   {
+    "slug": "advancing-the-price-performance-frontier-with-gpt-5-6",
+    "source": "OpenAI",
+    "category": "Model Launch",
+    "date": "2026-07-30",
+    "hook": "80% cheaper, same brains",
+    "body": "OpenAI passes GPT-5.6 efficiency gains to customers: Luna drops 80%, Terra 20%, and a new Fast mode runs Sol 2.5x faster — making high-volume AI economical to run at scale."
+  },
+  {
     "slug": "gpt-5-6-frontier-intelligence-efficiency",
     "source": "OpenAI",
     "category": "Model Launch",

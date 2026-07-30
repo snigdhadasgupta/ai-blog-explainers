@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Advancing the Price-Performance Frontier with GPT-5.6">
+<meta property="og:description" content="OpenAI cuts GPT-5.6 Luna 80% and Terra 20%, and adds a Fast mode for Sol — passing hard-won efficiency gains to enterprises so more workloads become economical to run at scale.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/advancing-the-price-performance-frontier-with-gpt-5-6.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/advancing-the-price-performance-frontier-with-gpt-5-6.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/advancing-the-price-performance-frontier-with-gpt-5-6.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Advancing the Price-Performance Frontier with GPT-5.6">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/advancing-the-price-performance-frontier-with-gpt-5-6.png">
+<title>GPT-5.6 Price-Performance — Explainer</title>
+<style>
+  :root{
+    --clay:#CC785C;--clay-dark:#A8543C;--clay-deep:#7A3B29;--ink:#1F1B18;--slate:#3D3733;--stone:#6B6259;--cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--line:#DED6C7;
+    --accent:#0F9D77;--accent-deep:#0A5E48;
+    --serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
+  .hero{background:linear-gradient(160deg,#0E1614 0%,#0B3A2C 52%,var(--accent-deep) 100%);color:#EAF7F1;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent);}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#A9E7CF;border:1px solid rgba(169,231,207,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#D6F0E5;max-width:720px;}
+  .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(234,247,241,.18);font-size:13px;}
+  .meta .m span{display:block;color:#8FD9BC;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#EFFBF6;font-size:14px;}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16px;color:var(--slate);margin-bottom:12px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:stretch;}
+  @media(max-width:820px){.flow{grid-template-columns:1fr 1fr;}}
+  .fstep{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+  .fstep .n{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .fstep h4{font-size:12.5px;margin-bottom:4px;color:var(--ink);line-height:1.2;}
+  .fstep p{font-size:11px;color:var(--stone);line-height:1.35;}
+  .loopnote{text-align:center;margin-top:14px;font-size:13px;color:var(--accent-deep);font-weight:600;font-style:italic;}
+  .scard-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  @media(max-width:820px){.scard-grid{grid-template-columns:1fr;}}
+  .scard{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:18px 20px;}
+  .scard .big{font-family:var(--serif);font-size:34px;font-weight:700;color:var(--accent-deep);line-height:1;}
+  .scard .lbl{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--stone);margin:8px 0 4px;}
+  .scard .ctx{font-size:13px;color:var(--slate);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr;}}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:13.5px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);background:#D6EFE6;border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .pricerow{display:flex;align-items:baseline;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);flex-wrap:wrap;}
+  .pricerow:last-child{border-bottom:none;}
+  .pricerow .tier{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--ink);min-width:118px;}
+  .pricerow .cut{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--accent);border-radius:100px;padding:3px 10px;}
+  .pricerow .det{font-size:13.5px;color:var(--slate);flex:1;min-width:200px;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#EAF7F1;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#D6F0E5;font-size:15px;max-width:560px;}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--accent-deep);}
+  .src{margin-top:8px;}
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent);color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep);}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:22px 26px;margin:26px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span class="dot">&#10039;</span> AI Blog Explainer</a>
+    <div class="srcbadge">OpenAI</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><path d="M 258 320 A 140 140 0 1 1 502 320" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="16" stroke-linecap="round"/><g stroke="#fff" stroke-opacity=".3" stroke-width="3"><line x1="380" y1="196" x2="380" y2="172"/><line x1="300" y1="228" x2="278" y2="220"/><line x1="460" y1="228" x2="482" y2="220"/></g><line x1="380" y1="300" x2="330" y2="228" stroke="#fff" stroke-opacity=".6" stroke-width="7" stroke-linecap="round"/><circle cx="380" cy="300" r="16" class="hnode"/></svg>
+  </div>
+  <div class="wrap">
+    <span class="tag">OpenAI &middot; Model Launch &middot; July 30, 2026</span>
+    <h1>Passing the efficiency gains on to the bill</h1>
+    <p class="lede">A day after showing how GPT-5.6 made itself cheaper to run, OpenAI hands those savings to customers: Luna drops 80%, Terra 20%, and a new Fast mode lets Sol run 2.5&times; faster when speed is worth the premium.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>OpenAI</strong></div>
+      <div class="m"><span>Topic</span><strong>Pricing &middot; Model tiers</strong></div>
+      <div class="m"><span>Theme</span><strong>Price-performance frontier</strong></div>
+      <div class="m"><span>Reading time</span><strong>5 min</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
+  <div class="wrap">
+    <div class="tldr" data-tier-anchor>
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li><strong>Prices come down</strong> &mdash; GPT-5.6 Luna now costs 80% less and Terra 20% less, in the API and against paid Codex and ChatGPT Work quotas.</li>
+        <li><strong>New Fast mode for Sol</strong> &mdash; up to 2.5&times; faster than Standard at twice the price, with no change in intelligence; it replaces Priority Processing.</li>
+        <li><strong>Match intelligence to the outcome</strong> &mdash; pick a tier per step of a workflow rather than defaulting to the flagship for everything.</li>
+        <li><strong>Cheap enough to broaden use</strong> &mdash; Luna delivers year-ago frontier quality at roughly six cents on the dollar per task, and nearly 9&times; the speed.</li>
+        <li><strong>Efficiency, not discounting</strong> &mdash; the cuts reflect real gains across models, inference, and the agentic harness, not a promotional price.</li>
+      </ul>
+    </div>
+    <div class="sowhat">
+      <div class="kick">So what for you</div>
+      <p>Before you renew a flagship-only AI budget, <strong>re-run your evaluations against the cheaper tiers</strong> &mdash; high-volume steps like classification, extraction, and routine implementation may now clear your quality bar at a fraction of the cost, freeing budget for the few tasks that truly need the top model.</p>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">What changed</div>
+    <h2>The savings move from the lab to the invoice</h2>
+    <p class="body">OpenAI frames this as the sequel to its engineering post on GPT-5.6 efficiency: yesterday it explained how the model made itself cheaper to run, and today it passes those gains to customers. Lower prices land for the two workhorse tiers &mdash; Luna, the fastest and most affordable model, and Terra, the balanced everyday model &mdash; while Sol gains a speed option. The same reductions flow through to how usage counts against paid Codex and ChatGPT Work subscriptions, so budgets stretch further without a plan change.</p>
+    <p class="lead-quote">GPT-5.6 Luna is the closest we&rsquo;ve come to intelligence too cheap to meter. &mdash; Michele Catasta, President &amp; Head of AI, Replit</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The new pricing</div>
+    <h2>Two cheaper tiers, one faster option</h2>
+    <div class="figure">
+      <div class="cap">Figure 1 &middot; GPT-5.6 API pricing, effective July 30, 2026</div>
+      <div class="pricerow"><span class="tier">Luna</span><span class="cut">-80%</span><span class="det">$0.20 / M input &middot; $1.20 / M output. The fastest, most affordable tier for high-volume, multi-step work.</span></div>
+      <div class="pricerow"><span class="tier">Terra</span><span class="cut">-20%</span><span class="det">$2 / M input &middot; $12 / M output. The balanced model for everyday work; matches GPT-5.5 quality in partner tests.</span></div>
+      <div class="pricerow"><span class="tier">Sol</span><span class="cut">Fast mode</span><span class="det">Price unchanged; new Fast mode delivers up to 2.5&times; speed at 2&times; price, same intelligence. Replaces Priority Processing and is backward compatible with <span style="font-family:var(--mono);font-size:12.5px;">priority</span>-tagged requests.</span></div>
+    </div>
+    <p class="body">Subscription prices and quota budgets stay the same &mdash; Terra and Luna usage simply consumes fewer credits. Free and Go users get Terra; Plus, Pro, Business, and Enterprise users can choose Terra or Luna. Pricing changes roll out on AWS later the same day.</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">What teams are seeing</div>
+    <h2>Real deployments, real cost curves</h2>
+    <div class="figure">
+      <div class="cap">Figure 2 &middot; Reported results from launch partners</div>
+      <div class="scard-grid">
+        <div class="scard"><div class="big">&frac12; cost</div><div class="lbl">Notion &middot; Terra vs. GPT-5.5</div><div class="ctx">Comparable quality per task at half the cost and 60% less time in Notion&rsquo;s personal agent.</div></div>
+        <div class="scard"><div class="big">24&rarr;90%</div><div class="lbl">Blitzy &middot; prompt-cache reuse</div><div class="ctx">Luna moved Blitzy from a single structured call to a full tool-calling loop &mdash; 87% lower cost than GPT-5.4 mini.</div></div>
+        <div class="scard"><div class="big">-99%</div><div class="lbl">Agents&rsquo; Last Exam &middot; Luna vs. Fable 5</div><div class="ctx">Luna outperforms Fable 5 on professional work at an estimated cost per task nearly 99% lower.</div></div>
+        <div class="scard"><div class="big">40% / 40%</div><div class="lbl">Dust &middot; faster / cheaper</div><div class="ctx">Luna is 40% faster and 40% cheaper than Dust&rsquo;s previous default on the same agentic tasks.</div></div>
+      </div>
+    </div>
+    <p class="body">The through-line: teams are making Luna the default for background agents and high-volume automation, then reserving Sol for the steps where extra reasoning changes the result. Cognition folded Luna into Devin Fusion as a low-cost pair for larger models; Ramp reports Terra and Luna leading its internal coding benchmarks on cost-efficiency.</p>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">Where the savings come from</div>
+    <h2>Three layers, optimized together</h2>
+    <p class="body">The price cuts are downstream of efficiency work across the whole stack, not a margin decision. GPT-5.6 models take a more direct path through a task; better routing keeps hardware productive; optimized serving software generates tokens more cheaply; and smarter context management stops agents repeating completed work.</p>
+    <div class="figure">
+      <div class="cap">Figure 3 &middot; The compounding efficiency loop</div>
+      <div class="flow">
+        <div class="fstep"><div class="n">1</div><h4>Better models</h4><p>A more direct path through work means fewer tokens for the same result.</p></div>
+        <div class="fstep"><div class="n">2</div><h4>Inference systems</h4><p>Sol rewrote production kernels within a human-led process &mdash; ~20% lower end-to-end serving cost.</p></div>
+        <div class="fstep"><div class="n">3</div><h4>Token generation</h4><p>Hundreds of Sol-run experiments lifted token-generation efficiency by 15%+.</p></div>
+        <div class="fstep"><div class="n">4</div><h4>Agentic harness</h4><p>Smarter context management keeps agents from redoing finished work across turns.</p></div>
+      </div>
+      <div class="loopnote">&#8635; More capable models help the team find the next round of gains &mdash; a tighter feedback loop that accelerates as the models improve.</div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">Compute strategy</div>
+    <h2>Matching each workload to the right system</h2>
+    <p class="body">Meeting demand for abundant intelligence takes both more compute and more productive compute. OpenAI describes a resilient infrastructure portfolio that routes each workload to the systems best suited to run it, supporting both ends of the price-performance curve at once.</p>
+    <div class="grid2">
+      <div class="card"><span class="pill">Low-cost end</span><h3>High volume becomes economical</h3><p>New Luna and Terra prices make large-scale document analysis, customer-interaction classification, and routine implementation practical to run broadly &mdash; work that was previously too costly to automate at scale.</p></div>
+      <div class="card"><span class="pill">Frontier end</span><h3>Fast mode when speed matters</h3><p>Fast mode gives API customers quicker access to Sol on the most consequential work, so complex jobs can move faster when the premium is justified &mdash; without changing the model&rsquo;s intelligence.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:none;" data-depth="manager">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>What to do about it</h2>
+        <p>Audit which workflows still run on your most expensive model out of habit. Move high-volume, well-specified steps to Luna or Terra, keep Sol (optionally in Fast mode) for the hard calls, and let evaluations &mdash; not defaults &mdash; decide where extra intelligence actually pays for itself.</p>
+      </div>
+      <a class="btn" href="https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/">Read the post &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){var l=it.querySelector("link");return l?l.textContent.trim():"";}).filter(Boolean);
+    var mine=location.href.split("#")[0].split("?")[0].split("/").pop();
+    var i=-1; for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the OpenAI news blog &middot; AI Blog Explainers house style (Claude clay palette, OpenAI accent).</p>
+    <p class="src">Source: <a href="https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/">Advancing the price-performance frontier with GPT-5.6</a> &mdash; openai.com/news, July 30, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/" target="_blank" rel="noopener" title="Read the original article"
+     style="background:#0A5E48;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:#CC785C;color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={
+    tldr:"Just the five-line summary + the takeaway.",
+    manager:"Summary, why it matters, and what to do — no deep internals.",
+    tech:"Everything, including inference and compute-strategy internals."
+  };
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>
