@@ -90,14 +90,23 @@ if (PROBE) {
 const FFMPEG = findFfmpeg();
 const total = Math.round((END - START) * FPS);
 
+// Use the generated score if it is present; otherwise lay down a silent track,
+// since some platforms mishandle a video with no audio stream at all.
+const SCORE = resolve(here, 'score.wav');
+const audioIn = existsSync(SCORE)
+  ? ['-i', SCORE]
+  : ['-f', 'lavfi', '-i', 'anullsrc=channel_layout=stereo:sample_rate=48000'];
+if (!QUIET) console.log(existsSync(SCORE) ? 'audio: score.wav' : 'audio: silent');
+
 const args = [
   '-y',
   '-f', 'image2pipe',
   '-framerate', String(FPS),
   '-c:v', 'mjpeg',
   '-i', '-',
-  '-f', 'lavfi',
-  '-i', 'anullsrc=channel_layout=stereo:sample_rate=48000',
+  ...audioIn,
+  '-map', '0:v:0',
+  '-map', '1:a:0',
   '-shortest',
   '-c:v', 'libx264',
   '-preset', 'slow',
@@ -106,7 +115,7 @@ const args = [
   '-level', '4.1',
   '-pix_fmt', 'yuv420p',
   '-c:a', 'aac',
-  '-b:a', '96k',
+  '-b:a', '192k',
   '-r', String(FPS),
   '-movflags', '+faststart',
   OUT,

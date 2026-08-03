@@ -2,7 +2,7 @@
 
 A 64-second launch film for **AI Blog Explainers**, rendered from HTML — no video editor, no external footage. The product shots are real screenshots of the live pages, and the share cards in the montage are the actual PNGs from `share-cards/`.
 
-**Output:** `ai-blog-explainers-launch.mp4` — 1920×1080, 30 fps, H.264 + silent AAC track, ~14 MB.
+**Output:** `ai-blog-explainers-launch.mp4` — 1920×1080, 30 fps, H.264 + AAC, ~15 MB.
 **Poster frame:** `poster.png`.
 
 ## Storyboard
@@ -30,11 +30,32 @@ real time, so a slow machine produces the same file as a fast one — just later
 
 Opened in a normal browser, `launch.html` plays itself on a loop for previewing.
 
+## Music
+
+`score.py` synthesizes the soundtrack from scratch — oscillators, envelopes and a
+Schroeder reverb, no samples and no library tracks — so there is nothing to license and no
+attribution to carry. Warm editorial ambient in F major at 82 BPM, arranged against the same
+scene boundaries as the film: sparse under the cold open, tense under "nobody has time to read
+it all", a pulse when the pipeline appears, a lift into the share-card grid, and a resolve on the
+end card.
+
+It masters to about −16 dBFS RMS with ~1 dB of true headroom, because AAC reconstructs
+inter-sample peaks above the source level — mastering hot here comes back clipping.
+
 ## Re-rendering
 
 ```bash
 node video/capture.mjs     # refresh the product screenshots from the current site
+python3 video/score.py     # ~20 s → video/score.wav  (needs numpy)
 node video/render.mjs      # ~4 min → video/ai-blog-explainers-launch.mp4
+```
+
+`render.mjs` picks up `score.wav` automatically when it exists, and falls back to a silent
+track otherwise. To re-score without re-rendering 1,920 frames, just remux:
+
+```bash
+ffmpeg -i video/ai-blog-explainers-launch.mp4 -i video/score.wav \
+  -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 192k -shortest out.mp4
 ```
 
 Useful flags:
@@ -58,9 +79,10 @@ streaming titles), `CARDS` (which share cards appear in the grid), and the stat 
 ## Files
 
 - `launch.html` — the film. Timeline, scenes, and copy.
+- `score.py` — the soundtrack. Arrangement, voices, and mix.
 - `render.mjs` — frame-stepper + encoder.
 - `capture.mjs` — screenshots the live pages into `assets/`.
 - `pw.mjs` — resolves Playwright from a local or global install.
 - `fonts/`, `fonts.css` — Inter + Source Serif 4 (latin subset), vendored so renders are
   reproducible on any machine.
-- `assets/`, `probe/` — generated, git-ignored. Recreate with the commands above.
+- `assets/`, `probe/`, `score.wav` — generated, git-ignored. Recreate with the commands above.
