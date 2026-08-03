@@ -1,5 +1,13 @@
 window.__POSTS__ = [
   {
+    "slug": "the-next-measure-of-ai-momentum-is-work-transformed",
+    "source": "Microsoft 365",
+    "category": "Enterprise AI",
+    "date": "2026-07-30",
+    "hook": "Seats were phase one",
+    "body": "Microsoft 365 Copilot crossed 30 million paid seats — but the real signal is agents finishing whole workflows. Eaton, Levi's and EY show the metric shifting from adoption to work transformed."
+  },
+  {
     "slug": "advancing-the-price-performance-frontier-with-gpt-5-6",
     "source": "OpenAI",
     "category": "Model Launch",
