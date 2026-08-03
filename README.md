@@ -52,4 +52,27 @@ Pure static — **no build step**. A daily scheduled task (`daily-cluad-blog`) r
 3. Add an `<item>` to `feed.xml`.
 4. For a card: add `{hook, body}` for the slug to `_cardgen/share-content.json`, run the generator to `share-cards/<slug>.png`, and add an entry to `share-posts.js`.
 
+### Build an explainer from a YouTube video
+
+Source material for an explainer doesn't have to be a blog post. `tools/yt-transcript.py` turns a video URL into a Markdown transcript you can hand to the explainer step:
+
+```bash
+uv run tools/yt-transcript.py "https://www.youtube.com/watch?v=VIDEO_ID"
+# -> transcripts/VIDEO_ID.md
+```
+
+`uv` reads the script's inline dependency block, so there's nothing to install. With a plain interpreter, `pip install youtube-transcript-api yt-dlp` first.
+
+| Flag | Effect |
+|---|---|
+| `-o PATH` | Output file (default `transcripts/<video_id>.md`) |
+| `-l en,en-GB` | Caption languages, best first |
+| `--timestamps` | Prefix each paragraph with its start time |
+| `--no-meta` | Skip the yt-dlp title/channel/date lookup |
+| `--stdout` | Print instead of writing a file |
+
+It accepts any YouTube URL form (`watch`, `youtu.be`, `shorts`, `embed`, `live`) or a bare video ID, prefers human-written captions over auto-generated ones, and reflows the caption fragments into readable paragraphs. Captions are fetched via the captions API, falling back to yt-dlp when that's refused.
+
+**This needs direct network access to youtube.com.** It won't run from a Claude Code web session whose egress policy blocks YouTube — run it locally and commit the transcript.
+
 Published automatically via GitHub Pages (**main / root**).
