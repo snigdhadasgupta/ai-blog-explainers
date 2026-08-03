@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Blog Explainers — Launch Video</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+:root{
+  --clay:#CC785C;--clay-lt:#E9A183;--clay-deep:#7A3B29;--gold:#B9975B;
+  --cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--ink:#1F1B18;
+  --dim:#D6C3B4;--serif:'Source Serif 4',Georgia,serif;--sans:'Inter',-apple-system,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:#14100E;}
+body{font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision;}
+
+/* ---------- stage ---------- */
+#stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:#1B1512;color:var(--cream);}
+.layer{position:absolute;inset:0;}
+.bg{background:linear-gradient(155deg,#241C18 0%,#3B2A22 52%,#6B3324 100%);}
+.glow{background:radial-gradient(60% 55% at 50% 45%,rgba(204,120,92,.30),transparent 70%);}
+.grain{opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");background-size:320px 320px;}
+.vig{background:radial-gradient(120% 100% at 50% 50%,transparent 45%,rgba(12,8,6,.55) 100%);}
+
+.scene{position:absolute;inset:0;opacity:0;visibility:hidden;will-change:opacity,transform;}
+
+/* ---------- shared type ---------- */
+.eyebrow{font-size:15px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--clay-lt);}
+.display{font-family:var(--serif);font-weight:700;line-height:1.02;letter-spacing:-.015em;color:#FCF7F1;}
+.sub{font-size:29px;line-height:1.5;color:#E4D3C6;font-weight:400;}
+.mask{overflow:hidden;display:block;}
+.mask>span{display:block;will-change:transform,opacity;}
+.rule{height:2px;background:linear-gradient(90deg,transparent,var(--clay),transparent);}
+
+/* ---------- S1 open ---------- */
+#s1 .center{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;}
+#s1 .logo{width:132px;height:132px;margin:0 auto 46px;display:block;border-radius:31px;box-shadow:0 30px 70px -28px rgba(0,0,0,.85);}
+#s1 .wm{font-size:118px;}
+#s1 .rule{width:520px;margin:40px auto 30px;}
+#s1 .tag{font-size:17px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:#E9C6B5;}
+
+/* ---------- S2 stream ---------- */
+#s2 .streamwrap{position:absolute;inset:0;-webkit-mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent);}
+#s2 .col{position:absolute;top:0;width:560px;will-change:transform;}
+#s2 .col.a{left:110px;}
+#s2 .col.b{left:700px;}
+#s2 .col.c{left:1290px;}
+.hchip{background:rgba(251,250,246,.055);border:1px solid rgba(237,231,219,.12);border-radius:14px;padding:19px 22px;margin-bottom:20px;}
+.hchip .top{display:flex;align-items:center;gap:9px;margin-bottom:9px;}
+.hchip .dot{width:9px;height:9px;border-radius:50%;flex:none;}
+.hchip .src{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#C7B4A6;}
+.hchip .ttl{font-family:var(--serif);font-size:21px;line-height:1.25;color:#EFE3D8;font-weight:600;}
+#s2 .scrim{position:absolute;inset:0;background:
+  linear-gradient(180deg,transparent 16%,rgba(19,13,10,.90) 33%,rgba(19,13,10,.94) 50%,rgba(19,13,10,.90) 67%,transparent 84%),
+  radial-gradient(64% 44% at 50% 50%,rgba(19,13,10,.85) 40%,transparent 78%);}
+#s2 .copy{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;}
+#s2 .l1{font-size:88px;text-shadow:0 6px 40px rgba(15,10,8,.95);}
+#s2 .l2{margin-top:26px;font-size:28px;letter-spacing:.02em;color:#DBC4B4;text-shadow:0 4px 26px rgba(15,10,8,.95);}
+#s2 .l3{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-size:92px;text-shadow:0 6px 44px rgba(15,10,8,.95);}
+#s2 .l3 em{font-style:normal;color:var(--clay-lt);}
+
+/* ---------- S3 pipeline ---------- */
+#s3 .hd{position:absolute;left:0;right:0;top:118px;text-align:center;}
+#s3 .hd .display{font-size:76px;}
+#s3 .hd .eyebrow{margin-bottom:24px;}
+#s3 .cards{position:absolute;left:130px;right:130px;top:372px;display:flex;gap:52px;}
+#s3 .foot{position:absolute;left:0;right:0;top:872px;text-align:center;font-size:25px;letter-spacing:.03em;color:#CBB2A2;}
+#s3 .foot b{color:#EBC4B1;font-weight:600;}
+.pcard{flex:1;background:rgba(251,250,246,.06);border:1px solid rgba(237,231,219,.16);border-radius:22px;padding:38px 36px 34px;position:relative;will-change:transform,opacity;}
+.pcard .num{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--clay-lt);letter-spacing:.1em;}
+.pcard h3{font-family:var(--serif);font-size:44px;font-weight:700;margin:14px 0 14px;color:#FCF7F1;letter-spacing:-.01em;}
+.pcard p{font-size:22px;line-height:1.45;color:#DCC9BB;min-height:96px;}
+.pcard .art{margin-top:20px;height:96px;display:flex;align-items:center;gap:11px;}
+.sdot{width:26px;height:26px;border-radius:50%;flex:none;box-shadow:0 0 0 4px rgba(255,255,255,.05);}
+.minipage{width:100%;height:92px;border-radius:10px;background:rgba(245,242,236,.1);border:1px solid rgba(237,231,219,.18);padding:14px 16px;}
+.minipage i{display:block;height:9px;border-radius:5px;background:rgba(245,242,236,.42);margin-bottom:10px;}
+.minicard{width:100%;height:92px;border-radius:10px;background:linear-gradient(135deg,#3A241C,#8A4530);border:1px solid rgba(237,231,219,.2);padding:15px 17px;}
+.minicard i{display:block;height:10px;border-radius:5px;background:var(--clay-lt);margin-bottom:11px;}
+#s3 .arrow{position:absolute;top:520px;height:2px;background:var(--clay);opacity:.75;}
+#s3 .arrow::after{content:"";position:absolute;right:-2px;top:-5px;border-left:11px solid var(--clay);border-top:6px solid transparent;border-bottom:6px solid transparent;}
+
+/* ---------- S4/S5 product shots ---------- */
+.shot{position:absolute;left:50%;top:322px;width:1240px;margin-left:-620px;height:660px;border-radius:16px;overflow:hidden;background:#F5F2EC;border:1px solid rgba(237,231,219,.22);box-shadow:0 50px 110px -40px rgba(0,0,0,.9);will-change:transform,opacity;}
+.chrome{height:46px;background:#241C18;border-bottom:1px solid rgba(237,231,219,.14);display:flex;align-items:center;padding:0 18px;gap:9px;}
+.chrome i{width:12px;height:12px;border-radius:50%;background:#5A473D;flex:none;}
+.chrome .url{margin-left:16px;height:26px;flex:1;border-radius:100px;background:rgba(245,242,236,.09);display:flex;align-items:center;padding:0 14px;font-size:13px;color:#C4B2A4;letter-spacing:.02em;}
+.viewport{position:relative;height:614px;overflow:hidden;background:#F5F2EC;}
+.viewport img{position:absolute;left:0;top:0;width:1240px;display:block;will-change:transform;}
+.shotcap{position:absolute;left:0;right:0;top:132px;text-align:center;}
+.shotcap .eyebrow{margin-bottom:20px;}
+.shotcap .display{font-size:62px;}
+.pill{position:absolute;background:rgba(20,14,11,.9);border:1px solid rgba(233,161,131,.5);color:#F3E4DA;font-size:19px;font-weight:600;border-radius:100px;padding:11px 22px;white-space:nowrap;backdrop-filter:blur(2px);will-change:transform,opacity;}
+
+/* ---------- S6 cards ---------- */
+#s6 .hd{position:absolute;left:0;right:0;top:104px;text-align:center;}
+#s6 .hd .display{font-size:66px;}
+#s6 .hd .sub{margin-top:18px;font-size:26px;}
+#s6 .grid{position:absolute;left:96px;right:96px;top:326px;display:grid;grid-template-columns:repeat(3,1fr);gap:34px 32px;}
+#s6 .gcard{border-radius:12px;overflow:hidden;box-shadow:0 26px 56px -26px rgba(0,0,0,.85);border:1px solid rgba(237,231,219,.16);will-change:transform,opacity;}
+#s6 .gcard img{width:100%;display:block;}
+
+/* ---------- S7 stats ---------- */
+#s7 .hd{position:absolute;left:0;right:0;top:268px;text-align:center;}
+#s7 .hd .display{font-size:66px;}
+#s7 .stats{position:absolute;left:120px;right:120px;top:512px;display:flex;gap:34px;}
+#s7 .foot{position:absolute;left:0;right:0;top:842px;text-align:center;font-size:25px;letter-spacing:.03em;color:#CBB2A2;}
+.stat{flex:1;text-align:center;border-top:2px solid rgba(233,161,131,.45);padding-top:34px;will-change:transform,opacity;}
+.stat .n{font-family:var(--serif);font-size:104px;font-weight:700;line-height:1;color:#FCF7F1;letter-spacing:-.02em;}
+.stat .n small{font-size:52px;color:var(--clay-lt);}
+.stat .k{margin-top:16px;font-size:21px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#D2BCAD;}
+
+/* ---------- S8 CTA ---------- */
+#s8 .center{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;}
+#s8 .logo{width:96px;height:96px;border-radius:23px;margin:0 auto 34px;display:block;}
+#s8 .display{font-size:82px;}
+#s8 .urlpill{display:inline-flex;align-items:center;gap:16px;margin-top:44px;border:1px solid rgba(233,161,131,.55);background:rgba(204,120,92,.14);border-radius:100px;padding:20px 40px;font-size:32px;font-weight:600;color:#FBEDE4;letter-spacing:.01em;}
+#s8 .urlpill .go{color:var(--clay-lt);}
+#s8 .fine{margin-top:34px;font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:#C6AF9F;font-weight:600;}
+
+/* ---------- progress ---------- */
+#pbar{position:absolute;left:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--gold),var(--clay));width:0;}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="layer bg"></div>
+  <div class="layer glow" id="glow"></div>
+  <div class="layer grain" id="grain"></div>
+  <div class="layer vig"></div>
+
+  <!-- ============ S1 : open ============ -->
+  <section class="scene" id="s1">
+    <div class="center" id="s1c">
+      <img class="logo" id="s1logo" src="../logo-mark.svg" alt="">
+      <div class="mask"><span class="display wm" id="s1wm">AI Blog Explainers</span></div>
+      <div class="rule" id="s1rule"></div>
+      <div class="tag" id="s1tag">The daily AI digest, explained visually</div>
+    </div>
+  </section>
+
+  <!-- ============ S2 : the problem ============ -->
+  <section class="scene" id="s2">
+    <div class="streamwrap">
+      <div class="col a" id="col0"></div>
+      <div class="col b" id="col1"></div>
+      <div class="col c" id="col2"></div>
+    </div>
+    <div class="scrim"></div>
+    <div class="copy" id="s2copy">
+      <div class="mask"><span class="display l1" id="s2l1">Every day, the labs ship.</span></div>
+      <div class="l2" id="s2l2">Model launches · Agent platforms · Governance rules · Feature drops</div>
+    </div>
+    <div class="display l3" id="s2l3">Nobody has time to <em>read it all</em>.</div>
+  </section>
+
+  <!-- ============ S3 : the pipeline ============ -->
+  <section class="scene" id="s3">
+    <div class="hd">
+      <div class="eyebrow" id="s3eye">So it gets read for you</div>
+      <div class="mask"><span class="display" id="s3hd">Every post, three steps, no hands.</span></div>
+    </div>
+    <div class="arrow" id="arr0"></div>
+    <div class="arrow" id="arr1"></div>
+    <div class="cards">
+      <div class="pcard" id="pc0">
+        <div class="num">01 — SCAN</div>
+        <h3>Watch the blogs</h3>
+        <p>Seven official sources, checked every day for posts that matter to people who actually work with AI.</p>
+        <div class="art" id="dots"></div>
+      </div>
+      <div class="pcard" id="pc1">
+        <div class="num">02 — EXPLAIN</div>
+        <h3>Build the page</h3>
+        <p>Each post becomes a one-page visual explainer: TL;DR, infographic, and why it matters.</p>
+        <div class="art"><div class="minipage"><i style="width:78%"></i><i style="width:94%"></i><i style="width:60%;opacity:.65"></i></div></div>
+      </div>
+      <div class="pcard" id="pc2">
+        <div class="num">03 — SHARE</div>
+        <h3>Ship the card</h3>
+        <p>A 1200×630 social card per post, plus the homepage, the gallery, and the RSS feed — published automatically.</p>
+        <div class="art"><div class="minicard"><i style="width:52%"></i><i style="width:88%;opacity:.55;height:7px"></i><i style="width:72%;opacity:.55;height:7px"></i></div></div>
+      </div>
+    </div>
+    <div class="foot" id="s3foot">Fetch → explain → card → publish. <b>No one presses go.</b></div>
+  </section>
+
+  <!-- ============ S4 : homepage ============ -->
+  <section class="scene" id="s4">
+    <div class="shotcap">
+      <div class="eyebrow">The homepage</div>
+      <div class="mask"><span class="display" id="s4hd">Everything that shipped, in one place.</span></div>
+    </div>
+    <div class="shot" id="shot4">
+      <div class="chrome"><i></i><i></i><i></i><div class="url">snigdhadasgupta.github.io/ai-blog-explainers</div></div>
+      <div class="viewport"><img id="img4" src="assets/home-full.png" alt=""></div>
+    </div>
+    <div class="pill" id="p4a" style="left:74px;top:548px;">Filter by company</div>
+    <div class="pill" id="p4b" style="left:74px;top:632px;">…by topic, or by month</div>
+    <div class="pill" id="p4c" style="right:74px;top:592px;">Newest first, every day</div>
+  </section>
+
+  <!-- ============ S5 : explainer ============ -->
+  <section class="scene" id="s5">
+    <div class="shotcap">
+      <div class="eyebrow">One post · one page</div>
+      <div class="mask"><span class="display" id="s5hd">Read it in five minutes, not fifty.</span></div>
+    </div>
+    <div class="shot" id="shot5">
+      <div class="chrome"><i></i><i></i><i></i><div class="url">…/explainers/claude-opus-5.html</div></div>
+      <div class="viewport"><img id="img5" src="assets/explainer-full.png" alt=""></div>
+    </div>
+    <div class="pill" id="p5a" style="left:74px;top:560px;">TL;DR up top</div>
+    <div class="pill" id="p5b" style="right:74px;top:640px;">Infographics, not walls of text</div>
+  </section>
+
+  <!-- ============ S6 : share cards ============ -->
+  <section class="scene" id="s6">
+    <div class="hd">
+      <div class="mask"><span class="display" id="s6hd">Every explainer ships with a share card.</span></div>
+      <div class="sub" id="s6sub">Post the image, or post the link — the preview <em style="font-style:normal;color:#F0C3AE">is</em> the card.</div>
+    </div>
+    <div class="grid" id="s6grid"></div>
+  </section>
+
+  <!-- ============ S7 : stats ============ -->
+  <section class="scene" id="s7">
+    <div class="hd"><div class="mask"><span class="display" id="s7hd">Running daily, on its own.</span></div></div>
+    <div class="stats" id="s7stats">
+      <div class="stat"><div class="n" data-to="23">0</div><div class="k">Explainers live</div></div>
+      <div class="stat"><div class="n" data-to="7">0</div><div class="k">Sources tracked</div></div>
+      <div class="stat"><div class="n" data-to="0">0</div><div class="k">Manual steps</div></div>
+      <div class="stat"><div class="n" data-static="24<small>h</small>">24<small>h</small></div><div class="k">Refresh cycle</div></div>
+    </div>
+    <div class="foot" id="s7foot">A scheduled task does the reading, the writing, and the publishing.</div>
+  </section>
+
+  <!-- ============ S8 : CTA ============ -->
+  <section class="scene" id="s8">
+    <div class="center" id="s8c">
+      <img class="logo" id="s8logo" src="../logo-mark.svg" alt="">
+      <div class="mask"><span class="display" id="s8hd">Read today’s digest.</span></div>
+      <div class="urlpill" id="s8url">snigdhadasgupta.github.io/ai-blog-explainers <span class="go">→</span></div>
+      <div class="fine" id="s8fine">Updated daily · Free · RSS</div>
+    </div>
+  </section>
+
+  <div class="layer" id="fade" style="background:#0C0806;pointer-events:none;"></div>
+  <div id="pbar"></div>
+</div>
+
+<script>
+/* =========================================================
+   Timeline. Everything is a pure function of t (seconds),
+   so any frame can be rendered in any order, deterministically.
+   ========================================================= */
+const DURATION = 64;
+
+const SCENES = [
+  ['s1', 0,    6.0],
+  ['s2', 6.0,  15.0],
+  ['s3', 15.0, 23.6],
+  ['s4', 23.6, 32.8],
+  ['s5', 32.8, 41.6],
+  ['s6', 41.6, 50.4],
+  ['s7', 50.4, 56.2],
+  ['s8', 56.2, 64.0],
+];
+const XF = 0.55; // cross-fade at scene edges
+
+const SOURCE_COLORS = {
+  "Anthropic":"#A64B2A","Claude":"#CC785C","OpenAI":"#0F9D77","Microsoft 365":"#0067B8",
+  "Google Workspace":"#4285F4","Microsoft Security":"#0E7490","Box":"#3D3AAE"
+};
+const HEADLINES = [
+  ["Claude","Introducing Claude Opus 5"],
+  ["OpenAI","Advancing the Price-Performance Frontier with GPT-5.6"],
+  ["Microsoft 365","The Next Measure of AI Momentum Is Work Transformed"],
+  ["Claude","MCP 2026-07-28: A Stateless Core Comes to Claude"],
+  ["Microsoft Security","Enhancing AI Security Through Global Red Teaming"],
+  ["Anthropic","Cognizant Takes Claude From Pilot to Production"],
+  ["Google Workspace","Introducing Workspace Intelligence"],
+  ["OpenAI","Safety and Alignment in an Era of Long-Horizon Models"],
+  ["Claude","The New Rules of Context Engineering for Claude 5 Models"],
+  ["Box","Securing Agentic Workflows with Box MCP Server Guardrails"],
+  ["Microsoft Security","Least Privilege for AI Agents: Identity, Access & Tool Binding"],
+  ["OpenAI","Introducing OpenAI Presence"],
+  ["Claude","Building Verification Loops in Claude Code with Skills"],
+  ["Microsoft 365","Copilot in Excel: Built for the Era of Frontier Finance"],
+  ["Anthropic","UST is Bringing Claude to Physical AI"],
+  ["Claude","Think Through Hard Problems in Voice Mode"],
+  ["OpenAI","How GPT-5.6 Fuses Frontier Intelligence with Efficiency"],
+  ["Google Workspace","June Workspace Drops: New AI Features for Drive, Sheets & Gmail"],
+  ["Claude","Four Role-Based Claude Certifications"],
+  ["Claude","Claude Models Explained: Choosing the Best Model"],
+  ["Microsoft Security","Microsoft Agent 365: A Control Plane to Govern Your AI Agents"],
+  ["OpenAI","Introducing the ChatGPT for Small Business Program"],
+  ["Claude","How Outtake Built a Cyber Investigator on Claude"],
+];
+const CARDS = [
+  "claude-opus-5","advancing-the-price-performance-frontier-with-gpt-5-6",
+  "the-next-measure-of-ai-momentum-is-work-transformed","least-privilege-for-ai-agents-identity-access-and-tool-binding",
+  "june-2026-workspace-feature-drop","cognizant-anthropic"
+];
+
+/* ---------- easing / helpers ---------- */
+const clamp=(x,a=0,b=1)=>x<a?a:x>b?b:x;
+const prog=(t,s,d)=>clamp((t-s)/d);
+const outCubic=x=>1-Math.pow(1-x,3);
+const outQuint=x=>1-Math.pow(1-x,5);
+const inOut=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const lerp=(a,b,x)=>a+(b-a)*x;
+const $=id=>document.getElementById(id);
+
+function css(el,{o=1,x=0,y=0,s=1,r=0}={}){
+  el.style.opacity=o;
+  el.style.transform=`translate3d(${x.toFixed(2)}px,${y.toFixed(2)}px,0)`+(s!==1?` scale(${s.toFixed(4)})`:'')+(r?` rotate(${r.toFixed(3)}deg)`:'');
+}
+// fade + rise, with an optional hold-then-exit
+function rise(el,t,start,{dur=.85,dy=42,ds=0,ease=outCubic,out=null,outDur=.5,outDy=-26}={}){
+  const p=ease(prog(t,start,dur));
+  let o=p, y=lerp(dy,0,p), s=1+lerp(ds,0,p);
+  if(out!==null&&t>out){ const q=inOut(prog(t,out,outDur)); o=1-q; y=lerp(0,outDy,q); }
+  css(el,{o,y,s});
+}
+// masked line reveal (text slides up out of an overflow-hidden box)
+function reveal(el,t,start,{dur=.95,dy=null,ease=outQuint}={}){
+  const box=el.parentElement, h=dy===null?el.offsetHeight*1.05:dy;
+  const p=ease(prog(t,start,dur));
+  box.style.opacity=1;
+  css(el,{o:clamp(p*1.6),y:lerp(h,0,p)});
+}
+
+/* ---------- build repeated DOM ---------- */
+(function buildStream(){
+  const cols=[[],[],[]];
+  for(let i=0;i<HEADLINES.length;i++) cols[i%3].push(HEADLINES[i]);
+  cols.forEach((items,ci)=>{
+    const el=$('col'+ci);
+    // duplicated so the upward scroll never runs out of content
+    el.innerHTML=[...items,...items].map(([src,ttl])=>
+      `<div class="hchip"><div class="top"><span class="dot" style="background:${SOURCE_COLORS[src]}"></span><span class="src">${src}</span></div><div class="ttl">${ttl}</div></div>`
+    ).join('');
+  });
+})();
+(function buildDots(){
+  $('dots').innerHTML=Object.values(SOURCE_COLORS).map(c=>`<span class="sdot" style="background:${c}"></span>`).join('');
+})();
+(function buildCards(){
+  $('s6grid').innerHTML=CARDS.map(s=>`<div class="gcard"><img src="../share-cards/${s}.png" alt=""></div>`).join('');
+})();
+
+const sceneEls=Object.fromEntries(SCENES.map(([id])=>[id,$(id)]));
+const gcards=[...document.querySelectorAll('#s6grid .gcard')];
+const stats=[...document.querySelectorAll('#s7stats .stat')];
+const colEls=[$('col0'),$('col1'),$('col2')];
+const colH=colEls.map(el=>el.scrollHeight/2); // one un-duplicated pass
+
+/* ---------- per-scene animation ---------- */
+function scene1(u,t){                    // u = local time
+  const c=$('s1c');
+  const drift=lerp(0,-16,clamp(u/6));
+  css(c,{y:drift-0+0});
+  c.style.transform=`translateY(-50%) translate3d(0,${drift.toFixed(2)}px,0)`;
+  c.style.opacity=1;
+
+  const lp=outCubic(prog(u,.25,1.15));
+  css($('s1logo'),{o:lp,y:lerp(46,0,lp),s:lerp(.7,1,lp),r:lerp(-9,0,lp)});
+
+  reveal($('s1wm'),u,1.0,{dur:1.2});
+
+  const rp=outCubic(prog(u,1.95,.9));
+  const rule=$('s1rule');
+  rule.style.opacity=rp; rule.style.width=lerp(0,520,rp).toFixed(1)+'px';
+  rule.style.margin='40px auto 30px';
+
+  rise($('s1tag'),u,2.35,{dur:1,dy:20});
+}
+
+function scene2(u,t){
+  // continuous upward stream, different speeds per column
+  const speeds=[74,92,64];
+  colEls.forEach((el,i)=>{
+    const y=-((u+i*3.1)*speeds[i])%colH[i];
+    css(el,{y:y-60,o:1});
+  });
+
+  const copy=$('s2copy');
+  copy.style.opacity=1;
+  copy.style.transform='translateY(-50%)';
+  reveal($('s2l1'),u,.45,{dur:1.1});
+  rise($('s2l2'),u,1.35,{dur:.9,dy:22});
+
+  // first block leaves, punchline arrives
+  const gone=inOut(prog(u,4.5,.7));
+  if(gone>0) copy.style.opacity=1-gone;
+
+  const el3=$('s2l3');
+  const p=outQuint(prog(u,5.15,1.1));
+  el3.style.opacity=clamp(p*1.4);
+  el3.style.transform=`translateY(-50%) translate3d(0,${lerp(34,0,p).toFixed(2)}px,0) scale(${lerp(.965,1,p).toFixed(4)})`;
+}
+
+function scene3(u,t){
+  rise($('s3eye'),u,.15,{dur:.7,dy:16});
+  reveal($('s3hd'),u,.4,{dur:1.0});
+  const cards=[$('pc0'),$('pc1'),$('pc2')];
+  cards.forEach((el,i)=>{
+    const p=outCubic(prog(u,1.25+i*.42,1.0));
+    css(el,{o:p,y:lerp(60,0,p),s:lerp(.95,1,p)});
+  });
+  // connectors between cards (cards flex 1 within 130..1790 with 52px gaps)
+  const total=1920-260, gap=52, w=(total-2*gap)/3;
+  [0,1].forEach(i=>{
+    const a=$('arr'+i);
+    const x0=130+w*(i+1)+gap*i;
+    const p=outCubic(prog(u,1.95+i*.42,.65));
+    a.style.left=x0+6+'px';
+    a.style.width=lerp(0,gap-16,p).toFixed(1)+'px';
+    a.style.opacity=p*.8;
+  });
+  // dots pop in
+  [...$('dots').children].forEach((d,i)=>{
+    const p=outCubic(prog(u,2.5+i*.11,.5));
+    css(d,{o:p,s:lerp(.2,1,p)});
+  });
+  rise($('s3foot'),u,3.6,{dur:.9,dy:20});
+}
+
+function shotScene(u,{capEl,shotEl,imgEl,pills,scroll,start=0}){
+  const cap=capEl.parentElement.parentElement; // .shotcap
+  rise(cap.querySelector('.eyebrow'),u,.15,{dur:.7,dy:16});
+  reveal(capEl,u,.35,{dur:1.0});
+
+  const p=outCubic(prog(u,.3,1.25));
+  css(shotEl,{o:p,y:lerp(70,0,p),s:lerp(.965,1,p)});
+
+  // slow parallax scroll through the real page
+  const k=inOut(clamp((u-1.0)/(scroll.dur)));
+  imgEl.style.transform=`translate3d(0,${lerp(scroll.from,scroll.to,k).toFixed(2)}px,0)`;
+
+  pills.forEach(([el,at,until])=>{
+    const q=outCubic(prog(u,at,.6));
+    const hide=inOut(prog(u,until,.5));
+    css(el,{o:q*(1-hide),y:lerp(14,0,q),s:lerp(.94,1,q)});
+  });
+}
+
+function scene6(u,t){
+  reveal($('s6hd'),u,.15,{dur:.95});
+  rise($('s6sub'),u,.6,{dur:.75,dy:20});
+  gcards.forEach((el,i)=>{
+    const col=i%3, row=(i/3)|0;
+    const p=outCubic(prog(u,.8+(row*.26)+(col*.15),.95));
+    css(el,{o:p,y:lerp(78,0,p),s:lerp(.9,1,p),r:lerp(col===0?-3.5:col===2?3.5:0,0,p)});
+  });
+}
+
+function scene7(u,t){
+  reveal($('s7hd'),u,.15,{dur:.95});
+  stats.forEach((el,i)=>{
+    const p=outCubic(prog(u,.6+i*.2,.85));
+    css(el,{o:p,y:lerp(46,0,p)});
+    const n=el.querySelector('.n');
+    if(n.dataset.to!==undefined){
+      const target=+n.dataset.to;
+      const c=outQuint(prog(u,.7+i*.2,1.4));
+      n.textContent=Math.round(target*c);
+    }
+  });
+  rise($('s7foot'),u,2.3,{dur:.9,dy:20});
+}
+
+function scene8(u,t){
+  const c=$('s8c');
+  const drift=lerp(10,-8,clamp(u/7.8));
+  c.style.transform=`translateY(-50%) translate3d(0,${drift.toFixed(2)}px,0)`;
+  c.style.opacity=1;
+  const lp=outCubic(prog(u,.15,.9));
+  css($('s8logo'),{o:lp,y:lerp(30,0,lp),s:lerp(.82,1,lp)});
+  reveal($('s8hd'),u,.55,{dur:1.05});
+  rise($('s8url'),u,1.25,{dur:.9,dy:26,ds:.04});
+  rise($('s8fine'),u,1.75,{dur:.8,dy:16});
+}
+
+const RUNNERS={s1:scene1,s2:scene2,s3:scene3,s6:scene6,s7:scene7,s8:scene8};
+
+/* ---------- master seek ---------- */
+function seek(t){
+  t=clamp(t,0,DURATION);
+
+  // ambient background motion, continuous across the whole film
+  const g=$('glow');
+  g.style.transform=`translate3d(${(Math.sin(t*0.22)*70).toFixed(2)}px,${(Math.cos(t*0.17)*46).toFixed(2)}px,0) scale(${(1+Math.sin(t*.13)*.07).toFixed(4)})`;
+  g.style.opacity=(0.72+Math.sin(t*.31)*0.12).toFixed(3);
+  $('grain').style.transform=`translate3d(${((t*37)%320).toFixed(1)}px,${((t*23)%320).toFixed(1)}px,0)`;
+  $('pbar').style.width=(t/DURATION*1920).toFixed(1)+'px';
+  $('fade').style.opacity=(1-clamp(t/0.8)).toFixed(3);   // fade up from black
+
+  for(let si=0;si<SCENES.length;si++){
+    const [id,s,e]=SCENES[si];
+    const el=sceneEls[id];
+    const last=si===SCENES.length-1;
+    // A scene pre-rolls for XF seconds: its content starts animating while the
+    // previous scene is still fading out, so a cut never lands on an empty frame.
+    const live=t>=s-XF && t<=e+0.001;
+    el.style.visibility=live?'visible':'hidden';
+    if(!live){ el.style.opacity=0; continue; }
+    const u=si===0?t:t-(s-XF);          // no pre-roll for the opening scene
+    const fadeIn=clamp((t-(s-XF))/XF);
+    const fadeOut=last?1:1-clamp((t-(e-XF))/XF);
+    el.style.opacity=inOut(Math.min(fadeIn,fadeOut)).toFixed(4);
+    const run=RUNNERS[id];
+    if(run) run(u,t);
+    else if(id==='s4') shotScene(u,{capEl:$('s4hd'),shotEl:$('shot4'),imgEl:$('img4'),
+      pills:[[$('p4a'),3.5,6.3],[$('p4b'),3.9,6.3],[$('p4c'),6.6,8.7]],scroll:{from:0,to:-1500,dur:7.4}});
+    else if(id==='s5') shotScene(u,{capEl:$('s5hd'),shotEl:$('shot5'),imgEl:$('img5'),
+      pills:[[$('p5a'),1.7,4.3],[$('p5b'),5.0,8.2]],scroll:{from:0,to:-1900,dur:7.0}});
+  }
+}
+window.seek=seek;
+window.DURATION=DURATION;
+
+/* ---------- readiness (fonts + images decoded) ---------- */
+window.__ready=(async()=>{
+  await document.fonts.ready;
+  const imgs=[...document.images];
+  await Promise.all(imgs.map(i=>i.complete?Promise.resolve():new Promise(r=>{i.onload=i.onerror=r;})));
+  await Promise.all(imgs.map(i=>i.decode?i.decode().catch(()=>{}):null));
+  seek(0);
+  await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+  return true;
+})();
+
+/* ---------- live preview when opened in a browser ---------- */
+if(!location.search.includes('render')){
+  window.__ready.then(()=>{
+    const t0=performance.now();
+    (function loop(){ seek(((performance.now()-t0)/1000)%DURATION); requestAnimationFrame(loop); })();
+  });
+}
+</script>
+</body>
+</html>

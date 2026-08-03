@@ -2,3 +2,5 @@ node_modules/
 *.bak
 __*
 package-lock.json
+video/assets/
+video/probe/
