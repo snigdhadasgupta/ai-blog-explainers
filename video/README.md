@@ -1,8 +1,8 @@
 # Launch video
 
-A 64-second launch film for **AI Blog Explainers**, rendered from HTML — no video editor, no external footage. The product shots are real screenshots of the live pages, and the share cards in the montage are the actual PNGs from `share-cards/`.
+A 60-second launch film for **AI Blog Explainers**, rendered from HTML — no video editor, no external footage. The product shots are real screenshots of the live pages, and the share cards in the montage are the actual PNGs from `share-cards/`.
 
-**Output:** `ai-blog-explainers-launch.mp4` — 1920×1080, 30 fps, H.264 + AAC, ~15 MB.
+**Output:** `ai-blog-explainers-launch.mp4` — 1920×1080, 30 fps, H.264 + AAC, 60.0s, ~15 MB.
 **Poster frame:** `poster.png`.
 
 ## Storyboard
@@ -10,13 +10,23 @@ A 64-second launch film for **AI Blog Explainers**, rendered from HTML — no vi
 | Time | Scene |
 |---|---|
 | 0:00 | Logo + wordmark cold open |
-| 0:06 | The problem — a live stream of real headlines, "Nobody has time to read it all" |
-| 0:15 | The pipeline — scan → explain → share |
-| 0:23 | The homepage, scrolling, with callouts |
-| 0:32 | An explainer page, scrolling |
-| 0:41 | The share-card grid |
-| 0:50 | Stats — 23 explainers, 7 sources, 0 manual steps, 24h cycle |
-| 0:56 | Call to action + URL |
+| 0:05 | The problem — a live stream of real headlines, "Nobody has time to read it all" |
+| 0:14 | The pipeline — scan → explain → share |
+| 0:22 | The homepage, scrolling, with callouts |
+| 0:31 | An explainer page, scrolling |
+| 0:39 | The share-card grid |
+| 0:47 | Stats — 23 explainers, 7 sources, 0 manual steps, 24h cycle |
+| 0:53 | Call to action + URL |
+
+## Length
+
+`launch.html` authors every scene against `TIMELINE` seconds and plays the film back over
+`RUNTIME`; `seek()` maps between them, so one number compresses or stretches the whole piece —
+scenes, crossfades, the animations inside each scene, and the background drift all scale
+together. `score.py` mirrors both constants, and because `BAR` is derived from the scene
+boundaries, retiming the film retimes the music with it (60s runs at ~124 BPM, 64s at ~117).
+
+Keep the two files in sync: if you change `RUNTIME` in one, change it in the other.
 
 ## How it works
 
@@ -36,26 +46,26 @@ Opened in a normal browser, `launch.html` plays itself on a loop for previewing.
 and a Schroeder reverb, no samples and no library tracks — so there is nothing to license and no
 attribution to carry.
 
-A driving major-key anthem at ~117 BPM: four-on-the-floor, claps on 2 and 4, octave bass in
+A driving major-key anthem at ~124 BPM: four-on-the-floor, claps on 2 and 4, octave bass in
 eighths, 16th-note arps, and a sidechain pump against the kick. Strictly major harmony
 (F / Bb / C) voiced high and open — the minor sevenths and low pads are what made an earlier
 pass sound wistful.
 
-The beat runs from the logo hit (`DRUM_IN`, ~0.6s) to the last downbeat (`DRUM_OUT`, ~62.4s),
+The beat runs from the logo hit (`DRUM_IN`, ~0.5s) to the last downbeat (`DRUM_OUT`, ~58.5s),
 so the film opens and closes hot; sections differentiate by density via `section_gain()`, not by
 dropping the drums. Everything cuts out for half a beat before the share-card grid (`GAP`) —
 including the riser and the reverse crash — so the drop reads as −9 dB of silence followed by a
 +12 dB slam.
 
 The tempo is not arbitrary. `BAR` is derived so the bar grid — anchored at the drum entry —
-lands within ~0.15s of the two cuts that matter most: the drop at 41.6s and the end card at
-56.2s. Change a scene boundary in `launch.html` and the grid follows.
+lands within ~0.15s of the two cuts that matter most: the drop (0:39) and the end card (0:53).
+Change a scene boundary or `RUNTIME` in `launch.html` and the grid follows.
 
 Mastering notes, both learned the hard way:
 
 - **Master to true peak, not sample peak.** AAC reconstructs inter-sample peaks well above the
-  source; this mix reads 0.46 sample / 0.61 true, a 2.5 dB gap. `true_peak()` oversamples 4× and
-  the master normalizes against that, which is why the encoded file lands at 0.88 with no
+  source; this mix reads 0.46 sample / 0.64 true, a ~2.9 dB gap. `true_peak()` oversamples 4× and
+  the master normalizes against that, which is why the encoded file lands at 0.90 with no
   clipped samples instead of 1.10 with clipping.
 - **Roll off above ~13 kHz.** The noise voices are tilted bright by repeated `diff()`, which
   piles energy exactly where AAC quantizes coarsest — that was most of the overshoot, and the
@@ -65,18 +75,18 @@ Mastering notes, both learned the hard way:
   The bass register moved up an octave and the kick's sub tail came down; it now sits at ~75%,
   with the melodic band roughly tripled.
 
-Sits at about −14.2 dBFS RMS, peaking at 0.90 after encode with no clipped samples.
+Sits at about −13.9 dBFS RMS, peaking at 0.90 after encode with no clipped samples.
 
 ## Re-rendering
 
 ```bash
 node video/capture.mjs     # refresh the product screenshots from the current site
 python3 video/score.py     # ~20 s → video/score.wav  (needs numpy)
-node video/render.mjs      # ~4 min → video/ai-blog-explainers-launch.mp4
+node video/render.mjs      # ~4 min of machine time → video/ai-blog-explainers-launch.mp4
 ```
 
 `render.mjs` picks up `score.wav` automatically when it exists, and falls back to a silent
-track otherwise. To re-score without re-rendering 1,920 frames, just remux:
+track otherwise. To re-score without re-rendering all 1,800 frames, just remux:
 
 ```bash
 ffmpeg -i video/ai-blog-explainers-launch.mp4 -i video/score.wav \

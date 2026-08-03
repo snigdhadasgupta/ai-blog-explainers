@@ -253,7 +253,14 @@ body{font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:g
    Timeline. Everything is a pure function of t (seconds),
    so any frame can be rendered in any order, deterministically.
    ========================================================= */
-const DURATION = 64;
+// Everything below is authored against TIMELINE seconds. RUNTIME is what the
+// film actually lasts — seek() maps between them, so changing RUNTIME
+// compresses or stretches the whole piece (scenes, crossfades, the animations
+// inside each scene, the background drift) with one number.
+const TIMELINE = 64;
+const RUNTIME = 60;
+const TS = RUNTIME / TIMELINE;
+const DURATION = RUNTIME;
 
 const SCENES = [
   ['s1', 0,    6.0],
@@ -486,14 +493,14 @@ const RUNNERS={s1:scene1,s2:scene2,s3:scene3,s6:scene6,s7:scene7,s8:scene8};
 
 /* ---------- master seek ---------- */
 function seek(t){
-  t=clamp(t,0,DURATION);
+  t=clamp(t,0,RUNTIME)/TS;      // real seconds -> authoring seconds
 
   // ambient background motion, continuous across the whole film
   const g=$('glow');
   g.style.transform=`translate3d(${(Math.sin(t*0.22)*70).toFixed(2)}px,${(Math.cos(t*0.17)*46).toFixed(2)}px,0) scale(${(1+Math.sin(t*.13)*.07).toFixed(4)})`;
   g.style.opacity=(0.72+Math.sin(t*.31)*0.12).toFixed(3);
   $('grain').style.transform=`translate3d(${((t*37)%320).toFixed(1)}px,${((t*23)%320).toFixed(1)}px,0)`;
-  $('pbar').style.width=(t/DURATION*1920).toFixed(1)+'px';
+  $('pbar').style.width=(t/TIMELINE*1920).toFixed(1)+'px';
   $('fade').style.opacity=(1-clamp(t/0.8)).toFixed(3);   // fade up from black
 
   for(let si=0;si<SCENES.length;si++){

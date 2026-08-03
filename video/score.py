@@ -23,14 +23,22 @@ from pathlib import Path
 import numpy as np
 
 SR = 44100
-DUR = 64.0
+
+# Must match TIMELINE / RUNTIME in launch.html: the film is authored against
+# TIMELINE seconds and played back over RUNTIME. Because BAR is derived from
+# the scene boundaries below, compressing the film also raises the tempo.
+TIMELINE = 64.0
+RUNTIME = 60.0
+TS = RUNTIME / TIMELINE
+
+DUR = RUNTIME
 N = int(SR * DUR)
 
 OUT = Path(__file__).resolve().parent / 'score.wav'
 
 # Scene boundaries, mirroring SCENES in launch.html
 S_OPEN, S_PROBLEM, S_PIPE, S_HOME, S_EXPL, S_CARDS, S_STATS, S_CTA, S_END = (
-    0.0, 6.0, 15.0, 23.6, 32.8, 41.6, 50.4, 56.2, 64.0)
+    x * TS for x in (0.0, 6.0, 15.0, 23.6, 32.8, 41.6, 50.4, 56.2, 64.0))
 
 # Grid anchored where the drums enter, so downbeats hit the cuts that matter.
 ANCHOR = S_PIPE
@@ -483,9 +491,10 @@ def main():
     fo = int(1.3 * SR)          # short — the last hit rings, it does not drift out
     stereo[:, -fo:] *= np.cos(np.linspace(0, np.pi / 2, fo)) ** 1.4
 
-    for label, a, b in (('open', 0, 6), ('build', 6, 15), ('beat in', 15, 23.6),
-                        ('product', 23.6, 41.6), ('DROP', 41.6, 50.4),
-                        ('stats', 50.4, 56.2), ('end card', 56.2, 64)):
+    for label, a, b in (('open', S_OPEN, S_PROBLEM), ('build', S_PROBLEM, S_PIPE),
+                        ('beat in', S_PIPE, S_HOME), ('product', S_HOME, S_CARDS),
+                        ('DROP', S_CARDS, S_STATS), ('stats', S_STATS, S_CTA),
+                        ('end card', S_CTA, S_END)):
         seg = stereo[:, int(a * SR):int(b * SR)]
         rms = np.sqrt((seg ** 2).mean())
         print(f'  {label:9s} rms {rms:.3f} {"#" * int(rms * 150)}')
