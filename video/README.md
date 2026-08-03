@@ -32,15 +32,32 @@ Opened in a normal browser, `launch.html` plays itself on a loop for previewing.
 
 ## Music
 
-`score.py` synthesizes the soundtrack from scratch — oscillators, envelopes and a
-Schroeder reverb, no samples and no library tracks — so there is nothing to license and no
-attribution to carry. Warm editorial ambient in F major at 82 BPM, arranged against the same
-scene boundaries as the film: sparse under the cold open, tense under "nobody has time to read
-it all", a pulse when the pipeline appears, a lift into the share-card grid, and a resolve on the
-end card.
+`score.py` synthesizes the soundtrack from scratch — oscillators, envelopes, drum synthesis
+and a Schroeder reverb, no samples and no library tracks — so there is nothing to license and no
+attribution to carry.
 
-It masters to about −16 dBFS RMS with ~1 dB of true headroom, because AAC reconstructs
-inter-sample peaks above the source level — mastering hot here comes back clipping.
+A driving major-key anthem at ~117 BPM: four-on-the-floor from the moment the pipeline
+appears, claps on 2 and 4, octave bass in eighths, 16th-note arps, and a sidechain pump against
+the kick. Strictly major harmony (F / Bb / C) voiced high and open — the minor sevenths and low
+pads are what made an earlier pass sound wistful. The arrangement is keyed to the film: impact
+on the logo, an accelerating snare roll under the problem statement, the beat landing with the
+pipeline, a full drop on the share-card grid, peak on the stats, and a final hit on the end card.
+
+The tempo is not arbitrary. `BAR` is derived so the bar grid — anchored at the drum entry —
+lands within ~0.15s of the two cuts that matter most: the drop at 41.6s and the end card at
+56.2s. Change a scene boundary in `launch.html` and the grid follows.
+
+Mastering notes, both learned the hard way:
+
+- **Master to true peak, not sample peak.** AAC reconstructs inter-sample peaks well above the
+  source; this mix reads 0.46 sample / 0.61 true, a 2.5 dB gap. `true_peak()` oversamples 4× and
+  the master normalizes against that, which is why the encoded file lands at 0.88 with no
+  clipped samples instead of 1.10 with clipping.
+- **Roll off above ~13 kHz.** The noise voices are tilted bright by repeated `diff()`, which
+  piles energy exactly where AAC quantizes coarsest — that was most of the overshoot, and the
+  hats sound better for it.
+
+Sits at about −14.5 dBFS RMS: present, but still a bed rather than a lead.
 
 ## Re-rendering
 

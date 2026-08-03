@@ -5,13 +5,18 @@ nothing to license and nothing to attribute.
 
     python3 video/score.py            # -> video/score.wav
 
-Warm editorial ambient in F major, 82 BPM. The arrangement is keyed to the
-same scene boundaries as launch.html: it thins out under the cold open, adds a
-pulse when the pipeline appears, lifts under the share-card grid, peaks on the
-stats, and resolves on the call to action.
+Driving major-key anthem, ~117 BPM. Four-on-the-floor from the moment the
+pipeline appears, 16th-note arps, octave bass, claps on 2 and 4, and a
+sidechain pump against the kick. The arrangement is keyed to launch.html:
+impact on the logo, an accelerating build under the problem statement, the
+beat landing with the pipeline, a full drop on the share-card grid, peak on
+the stats, and a final hit on the call to action.
+
+The tempo is chosen so the bar grid — anchored at the moment the beat enters
+(15.0s) — lands within ~0.15s of the two cuts that matter most: the drop at
+41.6s and the end card at 56.2s.
 """
 import math
-import struct
 import wave
 from pathlib import Path
 
@@ -20,15 +25,23 @@ import numpy as np
 SR = 44100
 DUR = 64.0
 N = int(SR * DUR)
-BPM = 82.0
-BEAT = 60.0 / BPM          # 0.7317 s
-BAR = 4 * BEAT             # 2.927 s
 
 OUT = Path(__file__).resolve().parent / 'score.wav'
 
 # Scene boundaries, mirroring SCENES in launch.html
 S_OPEN, S_PROBLEM, S_PIPE, S_HOME, S_EXPL, S_CARDS, S_STATS, S_CTA, S_END = (
     0.0, 6.0, 15.0, 23.6, 32.8, 41.6, 50.4, 56.2, 64.0)
+
+# Grid anchored where the drums enter, so downbeats hit the cuts that matter.
+ANCHOR = S_PIPE
+BAR = (S_CTA - S_PIPE) / 20.0      # 2.06 s -> ~116.5 BPM
+BEAT = BAR / 4
+SIX = BEAT / 4                     # sixteenth
+
+def bar_at(k):
+    """Downbeat of bar k, counting from the drum entry (k may be negative)."""
+    return ANCHOR + k * BAR
+
 
 # ----------------------------------------------------------------------------
 # pitch
@@ -50,14 +63,14 @@ def hz(name: str) -> float:
 # ----------------------------------------------------------------------------
 # buses
 # ----------------------------------------------------------------------------
-music_l = np.zeros(N, dtype=np.float64)   # goes to reverb
-music_r = np.zeros(N, dtype=np.float64)
-dry_l = np.zeros(N, dtype=np.float64)     # percussion, mostly dry
-dry_r = np.zeros(N, dtype=np.float64)
+music_l = np.zeros(N)      # pumped by the kick, sent to reverb
+music_r = np.zeros(N)
+drum_l = np.zeros(N)       # dry, not ducked
+drum_r = np.zeros(N)
+kick_times = []
 
 
 def add(bl, br, sig, t0, pan=0.5, gain=1.0):
-    """Mix a mono signal in at t0 with equal-power panning."""
     i = int(t0 * SR)
     if i >= N:
         return
@@ -73,185 +86,276 @@ def t_axis(dur):
     return np.arange(int(dur * SR)) / SR
 
 
+def noise(dur, seed, hp=1):
+    rng = np.random.default_rng(seed)
+    x = rng.standard_normal(int(dur * SR))
+    for _ in range(hp):                     # each diff tilts it brighter
+        x = np.diff(x, prepend=0.0)
+    return x
+
+
 # ----------------------------------------------------------------------------
 # voices
 # ----------------------------------------------------------------------------
-def pad(freq, dur, attack=1.4, release=2.2, detune=0.004, bright=0.5):
-    """Slow, breathing chord voice: three detuned saw-ish layers, softened."""
+def pad(freq, dur, attack=0.4, release=1.2, detune=0.005, bright=0.85):
+    """Bright supersaw-ish chord layer."""
     t = t_axis(dur)
     sig = np.zeros_like(t)
-    for k, det in enumerate((-detune, 0.0, detune)):
+    for k, det in enumerate((-detune, 0.0, detune, detune * 2)):
         f = freq * (1 + det)
-        # a few harmonics with 1/n rolloff, tilted by `bright`
-        for h in (1, 2, 3, 4, 5):
-            amp = (1.0 / h ** (2.0 - bright)) * (0.6 if k != 1 else 1.0)
-            sig += amp * np.sin(2 * np.pi * f * h * t + k * 1.7 + h * 0.3)
-    sig /= 9.0
-    # slow vibrato keeps a synth pad from sounding static
-    sig *= 1 + 0.02 * np.sin(2 * np.pi * 0.23 * t + freq % 3)
-
+        for h in (1, 2, 3, 4, 5, 6, 7):
+            sig += (1.0 / h ** (2.0 - bright)) * np.sin(2 * np.pi * f * h * t + k * 1.7 + h * .3)
+    sig /= 16.0
     env = np.ones_like(t)
     a = min(int(attack * SR), len(t))
     r = min(int(release * SR), len(t) - a) if len(t) > a else 0
-    env[:a] = np.sin(np.linspace(0, np.pi / 2, a)) ** 2
+    env[:a] = np.linspace(0, 1, a) ** 0.7
     if r > 0:
-        env[len(t) - r:] = np.cos(np.linspace(0, np.pi / 2, r)) ** 2
+        env[len(t) - r:] = np.cos(np.linspace(0, np.pi / 2, r)) ** 1.4
     return sig * env
 
 
-def bell(freq, dur=3.2, decay=1.5, bright=1.0):
-    """Struck tone — inharmonic partials, fast attack, long tail."""
+def stab(freq, dur=0.55, decay=0.16):
+    """Short chord hit — the brass-ish punch on downbeats."""
     t = t_axis(dur)
     sig = np.zeros_like(t)
-    for ratio, amp, dk in ((1.0, 1.0, 1.0), (2.01, 0.42 * bright, 0.62),
-                           (3.02, 0.20 * bright, 0.42), (4.98, 0.08 * bright, 0.3)):
-        sig += amp * np.sin(2 * np.pi * freq * ratio * t) * np.exp(-t / (decay * dk))
-    click = np.exp(-t * 260) * np.sin(2 * np.pi * freq * 6 * t) * 0.15
-    return (sig / 1.7 + click) * (1 - np.exp(-t * 900))
+    for h in (1, 2, 3, 4, 5, 6):
+        sig += (1.0 / h ** 1.15) * np.sin(2 * np.pi * freq * h * t + h)
+    return sig / 2.6 * np.exp(-t / decay) * (1 - np.exp(-t * 1400))
 
 
-def pluck(freq, dur=0.9, decay=0.34):
-    """Soft mallet for the arpeggio."""
+def pluck(freq, dur=0.6, decay=0.13):
+    """Bright 16th-note arp voice."""
     t = t_axis(dur)
     sig = (np.sin(2 * np.pi * freq * t)
-           + 0.34 * np.sin(2 * np.pi * freq * 2 * t) * np.exp(-t / (decay * 0.5))
-           + 0.12 * np.sin(2 * np.pi * freq * 3 * t) * np.exp(-t / (decay * 0.3)))
-    return sig * np.exp(-t / decay) * (1 - np.exp(-t * 700)) / 1.4
+           + 0.5 * np.sin(2 * np.pi * freq * 2 * t) * np.exp(-t / (decay * .6))
+           + 0.22 * np.sin(2 * np.pi * freq * 3 * t) * np.exp(-t / (decay * .35))
+           + 0.1 * np.sin(2 * np.pi * freq * 4.02 * t) * np.exp(-t / (decay * .25)))
+    return sig / 1.6 * np.exp(-t / decay) * (1 - np.exp(-t * 2200))
 
 
-def kick(dur=0.42):
-    """Low heartbeat, not a dance kick."""
+def bass(freq, dur, decay=0.22):
+    """Driving octave bass with a filter-ish brightness decay."""
     t = t_axis(dur)
-    f = 105 * np.exp(-t * 26) + 44
-    return np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 8.5)
+    sig = np.zeros_like(t)
+    for h in (1, 2, 3, 4, 5):
+        sig += (1.0 / h) * np.sin(2 * np.pi * freq * h * t) * np.exp(-t / (decay / (h * .45)))
+    body = np.sin(2 * np.pi * freq * t) * np.exp(-t / (decay * 1.9))
+    return (sig / 2.2 + body * 0.7) * (1 - np.exp(-t * 900))
 
 
-def tick(dur=0.09, seed=0):
-    rng = np.random.default_rng(seed)
+def kick(dur=0.36):
     t = t_axis(dur)
-    noise = rng.standard_normal(len(t))
-    noise = np.diff(noise, prepend=0.0)          # crude high-pass -> airy
-    return noise * np.exp(-t * 62)
+    f = 150 * np.exp(-t * 34) + 47
+    body = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 9.5)
+    click = noise(dur, 7, hp=2)[:len(t)] * np.exp(-t * 420) * 0.35
+    return body + click
 
 
-def riser(dur=1.8, seed=1):
-    """Noise swell into a downbeat."""
-    rng = np.random.default_rng(seed)
+def clap(seed=3):
+    """Three quick noise bursts plus a short tail."""
+    dur = 0.34
     t = t_axis(dur)
-    noise = rng.standard_normal(len(t))
-    noise = np.diff(noise, prepend=0.0)
-    shape = (t / dur) ** 2.6
-    wobble = 1 + 0.3 * np.sin(2 * np.pi * 5 * t * (t / dur))
-    return noise * shape * wobble * 0.5
+    out = np.zeros_like(t)
+    for off, amp in ((0.0, 1.0), (0.011, 0.85), (0.023, 0.7)):
+        i = int(off * SR)
+        seg = noise(dur - off, seed + int(off * 1000), hp=2)
+        out[i:i + len(seg)] += amp * seg * np.exp(-t_axis(dur - off) * 130)
+    out += noise(dur, seed + 9, hp=2) * np.exp(-t * 26) * 0.32
+    return out * 0.5
 
 
-def sub_drop(freq=48.0, dur=2.6):
+def hat(open_=False, seed=5):
+    dur = 0.26 if open_ else 0.075
     t = t_axis(dur)
-    return np.sin(2 * np.pi * freq * t) * np.exp(-t * 1.5) * (1 - np.exp(-t * 40))
+    return noise(dur, seed, hp=2) * np.exp(-t * (13 if open_ else 78)) * 0.5
+
+
+def crash(seed=11):
+    dur = 2.4
+    t = t_axis(dur)
+    return noise(dur, seed, hp=1) * np.exp(-t * 2.1) * (1 - np.exp(-t * 900)) * 0.4
+
+
+def riser(dur, seed=1, tone=True):
+    """Noise sweep, optionally with a pitch riser under it."""
+    t = t_axis(dur)
+    x = noise(dur, seed, hp=2) * (t / dur) ** 2.2
+    if tone:
+        f = 180 * 2 ** (2.6 * (t / dur))
+        x += np.sin(2 * np.pi * np.cumsum(f) / SR) * (t / dur) ** 3.4 * 0.5
+    return x * 0.5
+
+
+def impact(seed=21):
+    """Downbeat boom for section starts."""
+    dur = 2.0
+    t = t_axis(dur)
+    sweep = np.sin(2 * np.pi * np.cumsum(70 * np.exp(-t * 5) + 38) / SR) * np.exp(-t * 3.0)
+    return sweep + noise(dur, seed, hp=1) * np.exp(-t * 9) * 0.35
 
 
 # ----------------------------------------------------------------------------
-# arrangement
+# harmony — major-key only, voiced high and open
 # ----------------------------------------------------------------------------
-# (start, chord tones low->high, pad gain)
-CHORDS = [
-    (S_OPEN,      ['F2', 'C3', 'F3', 'A3', 'C4', 'E4'], 0.55),   # Fmaj7  — cold open
-    (S_PROBLEM,   ['D2', 'A2', 'D3', 'F3', 'A3', 'C4'], 0.70),   # Dm7    — the problem
-    (S_PROBLEM + 3 * BAR, ['Bb2', 'F3', 'Bb3', 'D4', 'F4'], 0.72),  # Bbmaj7
-    (S_PIPE,      ['F2', 'C3', 'F3', 'A3', 'C4', 'G4'], 0.80),   # Fmaj9  — pipeline
-    (S_PIPE + 3 * BAR, ['C3', 'G3', 'C4', 'E4', 'G4'], 0.80),    # C
-    (S_HOME,      ['Bb2', 'F3', 'Bb3', 'D4', 'F4'], 0.78),       # Bbmaj7 — homepage
-    (S_HOME + 3 * BAR, ['A2', 'E3', 'A3', 'C4', 'E4'], 0.78),    # Am7
-    (S_EXPL,      ['F2', 'C3', 'F3', 'A3', 'C4', 'E4'], 0.78),   # Fmaj7  — explainer
-    (S_EXPL + 3 * BAR, ['G2', 'D3', 'G3', 'Bb3', 'D4'], 0.78),   # Gm7
-    (S_CARDS,     ['Bb2', 'F3', 'Bb3', 'D4', 'F4', 'A4'], 0.92),  # Bbmaj7 — lift
-    (S_CARDS + 3 * BAR, ['C3', 'G3', 'C4', 'E4', 'G4', 'C5'], 0.92),  # C
-    (S_STATS,     ['D3', 'A3', 'D4', 'F4', 'A4'], 0.95),         # Dm     — stats
-    (S_STATS + 2 * BAR, ['C3', 'G3', 'C4', 'E4', 'G4'], 0.95),   # C
-    (S_CTA,       ['F2', 'C3', 'F3', 'A3', 'C4', 'G4'], 0.85),   # Fmaj9  — resolve
+CH = {
+    'F':    (['F1', 'F2'], ['F3', 'A3', 'C4', 'F4', 'A4'], ['F4', 'A4', 'C5', 'F5']),
+    'Bb':   (['Bb1', 'Bb2'], ['Bb3', 'D4', 'F4', 'Bb4', 'D5'], ['Bb4', 'D5', 'F5', 'Bb5']),
+    'C':    (['C2', 'C3'], ['C4', 'E4', 'G4', 'C5', 'E5'], ['C5', 'E5', 'G5', 'C6']),
+    'Dm':   (['D2', 'D3'], ['D4', 'F4', 'A4', 'D5', 'F5'], ['D5', 'F5', 'A5', 'D6']),
+    'Csus': (['C2', 'C3'], ['C4', 'F4', 'G4', 'C5', 'F5'], ['C5', 'F5', 'G5', 'C6']),
+}
+
+# (bar index from the drum entry, chord) — two bars each
+PROG = [
+    (-4, 'Bb'), (-2, 'C'),                                  # build
+    (0, 'F'), (2, 'C'), (4, 'Bb'), (6, 'F'),                # pipeline / homepage
+    (8, 'Bb'), (10, 'F'), (12, 'C'),                        # explainer
+    (13, 'Bb'), (15, 'C'), (17, 'F'), (19, 'Csus'),         # drop + stats
+    (20, 'F'), (22, 'Bb'), (24, 'F'),                       # end card
 ]
 
 
+def chord_at(t):
+    cur = PROG[0]
+    for p in PROG:
+        if bar_at(p[0]) <= t + 1e-6:
+            cur = p
+    return CH[cur[1]]
+
+
 def build():
-    # ---- pads -------------------------------------------------------------
-    for idx, (t0, tones, gain) in enumerate(CHORDS):
-        nxt = CHORDS[idx + 1][0] if idx + 1 < len(CHORDS) else S_END
-        dur = nxt - t0 + 2.6                      # overlap so chords bleed
-        bright = 0.42 if t0 < S_PIPE else (0.62 if t0 < S_CARDS else 0.74)
-        for vi, name in enumerate(tones):
-            pan = 0.5 + (0.22 * math.sin(vi * 1.9 + idx))
-            v = pad(hz(name), dur, attack=1.3 if t0 else 2.4,
-                    release=2.4, bright=bright)
-            add(music_l, music_r, v, t0 - 0.35, pan, 0.115 * gain)
+    # ---- pads / chord bed -------------------------------------------------
+    for i, (bk, name) in enumerate(PROG):
+        t0 = bar_at(bk)
+        t1 = bar_at(PROG[i + 1][0]) if i + 1 < len(PROG) else S_END
+        if t1 <= 0:
+            continue
+        tones = CH[name][1]
+        gain = 0.55 if t0 < S_PIPE else (0.8 if t0 < S_CARDS else 1.0)
+        for vi, nm in enumerate(tones):
+            pan = 0.5 + 0.26 * math.sin(vi * 2.1 + i)
+            add(music_l, music_r, pad(hz(nm), t1 - t0 + 0.9), t0, pan, 0.075 * gain)
 
-    # ---- opening bell + logo hit -----------------------------------------
-    add(music_l, music_r, bell(hz('F4'), 5.0, decay=2.2), 0.55, 0.5, 0.34)
-    add(music_l, music_r, bell(hz('C5'), 4.5, decay=1.9), 1.25, 0.42, 0.20)
-    add(music_l, music_r, bell(hz('A4'), 4.0, decay=1.7), 2.45, 0.6, 0.15)
+    # ---- cold open: impact + swell ---------------------------------------
+    add(drum_l, drum_r, impact(), 0.5, 0.5, 0.80)
+    add(music_l, music_r, crash(), 0.5, 0.5, 0.44)
+    for nm, t0, g in (('F3', 0.55, .30), ('F4', 0.55, .46), ('C5', 0.55, .34), ('A4', 0.55, .28),
+                      ('F5', 2.6, .26), ('C5', 3.6, .20), ('F5', 4.6, .18)):
+        add(music_l, music_r, stab(hz(nm), 2.4, decay=0.9), t0, 0.5, g)
+    # heartbeat under the open so it never sits still
+    for k in range(4):
+        add(drum_l, drum_r, kick(), 2.0 + k * 1.0, 0.5, 0.30 + 0.05 * k)
 
-    # ---- arpeggio ---------------------------------------------------------
-    # eighth notes; density and octave follow the section
-    def chord_at(t):
-        cur = CHORDS[0]
-        for c in CHORDS:
-            if c[0] <= t + 1e-6:
-                cur = c
-        return cur[1]
-
-    step = BEAT / 2
-    k = 0
-    t = S_PROBLEM
-    while t < S_CTA:
-        tones = chord_at(t)
-        if t < S_PIPE:
-            gain, oct_up, skip = 0.185, 0, 2      # sparse under the problem
-        elif t < S_HOME:
-            gain, oct_up, skip = 0.24, 0, 1
-        elif t < S_CARDS:
-            gain, oct_up, skip = 0.21, 0, 1
-        elif t < S_STATS:
-            gain, oct_up, skip = 0.30, 1, 1       # lift: octave up
-        else:
-            gain, oct_up, skip = 0.32, 1, 1
-        if k % skip == 0:
-            name = tones[2 + (k // skip) % (len(tones) - 2)]
-            f = hz(name) * (2 ** oct_up)
-            accent = 1.0 if k % 4 == 0 else (0.62 if k % 2 == 0 else 0.44)
-            pan = 0.5 + 0.3 * math.sin(k * 0.8)
-            add(music_l, music_r, pluck(f), t, pan, gain * accent)
-        k += 1
+    # ---- build under the problem statement --------------------------------
+    # sixteenth pluck pattern, thinning up into the drop
+    t, i = S_PROBLEM, 0
+    while t < S_PIPE:
+        tones = chord_at(t)[2]
+        dens = (t - S_PROBLEM) / (S_PIPE - S_PROBLEM)       # 0 -> 1
+        if i % 2 == 0 or dens > 0.45:
+            g = 0.17 + 0.20 * dens
+            add(music_l, music_r, pluck(hz(tones[i % len(tones)])), t,
+                0.5 + 0.3 * math.sin(i * .9), g)
+        i += 1
+        t += SIX * 2
+    # accelerating snare roll into the beat
+    t, i = S_PIPE - 4 * BEAT, 0
+    while t < S_PIPE - 0.02:
+        step = BEAT / (2 if i < 4 else (3 if i < 9 else 4))
+        add(drum_l, drum_r, clap(seed=40 + i), t, 0.5, 0.10 + 0.26 * (t - (S_PIPE - 4 * BEAT)) / (4 * BEAT))
+        i += 1
         t += step
+    t, i = bar_at(-4), 0
+    while t < S_PIPE:
+        roots = chord_at(t)[0]
+        add(music_l, music_r, bass(hz(roots[0]), BEAT), t, 0.5, 0.26)
+        add(drum_l, drum_r, hat(False, seed=60 + i % 5), t, 0.5, 0.05)
+        add(drum_l, drum_r, hat(False, seed=64 + i % 5), t + BEAT / 2, 0.5, 0.035)
+        i += 1
+        t += BEAT
+    add(music_l, music_r, riser(3.4, seed=2), S_PIPE - 3.4, 0.5, 0.34)
+    add(music_l, music_r, riser(2.6, seed=4), S_CARDS - 2.6, 0.5, 0.34)
+    add(music_l, music_r, riser(1.9, seed=6, tone=False), S_STATS - 1.9, 0.5, 0.22)
 
-    # ---- pulse ------------------------------------------------------------
+    # ---- the groove -------------------------------------------------------
+    def section_gain(t):
+        if t < S_HOME:
+            return 0.92
+        if t < S_EXPL:
+            return 0.80          # ease off under the first product shot
+        if t < S_CARDS:
+            return 0.90
+        return 1.0               # drop
+
+    # kick: four on the floor
     t = S_PIPE
-    while t < S_CTA - 0.2:
-        beat_in_bar = round(((t - S_PIPE) / BEAT)) % 4
-        if beat_in_bar in (0, 2):
-            g = 0.19 if t < S_CARDS else 0.25
-            if beat_in_bar == 0:
-                g *= 1.2
-            add(dry_l, dry_r, kick(), t, 0.5, g)
+    while t < S_CTA + 2 * BAR:
+        g = 0.62 * (1.0 if t < S_CARDS else 1.12)
+        if t > S_CTA + 2 * BAR - 0.1:
+            break
+        add(drum_l, drum_r, kick(), t, 0.5, g)
+        kick_times.append(t)
         t += BEAT
 
-    # ---- shaker ticks -----------------------------------------------------
-    t, i = S_HOME, 0
-    while t < S_STATS + 4 * BEAT:
-        g = 0.055 if i % 2 == 0 else 0.030
-        add(dry_l, dry_r, tick(seed=i), t, 0.5 + 0.25 * math.sin(i), g)
+    # claps on 2 and 4
+    t = S_PIPE + BEAT
+    while t < S_CTA + 2 * BAR:
+        add(drum_l, drum_r, clap(), t, 0.5, 0.34 * section_gain(t))
+        t += 2 * BEAT
+
+    # hats: eighths, open on the offbeat once the drop lands
+    t, i = S_PIPE, 0
+    while t < S_CTA + 2 * BAR:
+        op = t >= S_CARDS and i % 4 == 2
+        add(drum_l, drum_r, hat(op, seed=50 + i % 7), t,
+            0.5 + 0.2 * math.sin(i), (0.10 if op else 0.06) * section_gain(t))
         i += 1
         t += BEAT / 2
 
-    # ---- transitions ------------------------------------------------------
-    for t0, g in ((S_PIPE, 0.14), (S_CARDS, 0.20), (S_CTA, 0.15)):
-        add(music_l, music_r, riser(1.8, seed=int(t0)), t0 - 1.8, 0.5, g)
-    add(dry_l, dry_r, sub_drop(), S_CARDS, 0.5, 0.24)
-    add(dry_l, dry_r, sub_drop(44.0, 3.0), S_CTA, 0.5, 0.20)
+    # bass: driving eighths with octave jumps
+    t, i = S_PIPE, 0
+    while t < S_CTA + 2 * BAR:
+        roots = chord_at(t)[0]
+        f = hz(roots[1] if i % 4 == 3 else roots[0])
+        add(music_l, music_r, bass(f, BEAT), t, 0.5, 0.34 * section_gain(t))
+        i += 1
+        t += BEAT / 2
 
-    # ---- resolve ----------------------------------------------------------
-    add(music_l, music_r, bell(hz('F4'), 6.5, decay=2.6), S_CTA + 0.15, 0.5, 0.30)
-    add(music_l, music_r, bell(hz('A4'), 6.0, decay=2.4), S_CTA + 1.35, 0.4, 0.19)
-    add(music_l, music_r, bell(hz('C5'), 6.0, decay=2.4), S_CTA + 2.4, 0.62, 0.15)
-    add(music_l, music_r, bell(hz('F5'), 7.0, decay=3.0), S_CTA + 3.6, 0.5, 0.13)
+    # arp: sixteenths, octave up after the drop
+    t, i = S_PIPE, 0
+    while t < S_CTA + BAR:
+        tones = chord_at(t)[2 if t >= S_CARDS else 1]
+        f = hz(tones[i % len(tones)])
+        accent = 1.0 if i % 4 == 0 else (0.6 if i % 2 == 0 else 0.45)
+        g = (0.15 if t < S_CARDS else 0.20) * accent * section_gain(t)
+        add(music_l, music_r, pluck(f), t, 0.5 + 0.32 * math.sin(i * .7), g)
+        i += 1
+        t += SIX
+
+    # chord stabs on downbeats, harder after the drop
+    k = -4
+    while bar_at(k) < S_END:
+        t0 = bar_at(k)
+        if t0 >= S_PIPE:
+            tones = chord_at(t0)[1]
+            g = 0.10 if t0 < S_CARDS else 0.17
+            for nm in tones:
+                add(music_l, music_r, stab(hz(nm)), t0, 0.5, g)
+        k += 1
+
+    # ---- section markers --------------------------------------------------
+    for t0, g in ((S_PIPE, .30), (S_HOME, .18), (S_EXPL, .18),
+                  (S_CARDS, .40), (S_STATS, .30), (S_CTA, .42)):
+        add(drum_l, drum_r, crash(seed=int(t0) + 11), t0, 0.5, g)
+    add(drum_l, drum_r, impact(seed=31), S_CARDS, 0.5, 0.42)
+    add(drum_l, drum_r, impact(seed=33), S_CTA, 0.5, 0.50)
+
+    # ---- end card: last hit, then let it ring -----------------------------
+    for nm in CH['F'][1] + ['F5', 'C6']:
+        add(music_l, music_r, pad(hz(nm), 7.0, attack=0.05, release=4.5), S_CTA, 0.5, 0.055)
+    for nm, off, g in (('F5', 0.0, .26), ('C6', 0.9, .17), ('A5', 1.7, .13)):
+        add(music_l, music_r, stab(hz(nm), 3.0, decay=1.1), S_CTA + off, 0.5, g)
 
 
 # ----------------------------------------------------------------------------
@@ -272,59 +376,86 @@ def allpass(x, delay, gain=0.5):
     return out + gain * y
 
 
-def reverb(x, room=0.84, damp=0.28):
-    combs = (1557, 1617, 1491, 1422, 1277, 1356)
+def onepole_lp(x, a):
+    """One-pole lowpass via FFT convolution with a truncated exponential."""
+    k = int(min(len(x), max(64, 8 / (1 - a))))
+    imp = (1 - a) * a ** np.arange(k)
+    n = 1 << (len(x) + k - 1).bit_length()
+    y = np.fft.irfft(np.fft.rfft(x, n) * np.fft.rfft(imp, n), n)[:len(x)]
+    return y
+
+
+def true_peak(x, os=4, chunk=1 << 17, ov=2048):
+    """Inter-sample (true) peak, via 4x oversampling. Sample peak alone
+    under-reads what a lossy decoder will reconstruct."""
+    pk = 0.0
+    for i in range(0, len(x), chunk):
+        seg = x[max(0, i - ov):i + chunk + ov]
+        if len(seg) < 16:
+            continue
+        up = np.fft.irfft(np.fft.rfft(seg), len(seg) * os) * os
+        pk = max(pk, np.abs(up).max())
+    return pk
+
+def reverb(x, room=0.78, damp=0.42):
     wet = np.zeros_like(x)
-    for d in combs:
+    for d in (1557, 1617, 1491, 1422, 1277, 1356):
         wet += comb(x, d, room)
-    wet /= len(combs)
+    wet /= 6.0
     for d in (225, 556, 441):
         wet = allpass(wet, d, 0.5)
-    # one-pole lowpass so the tail stays warm instead of hissy
-    a = damp
-    out = np.empty_like(wet)
-    acc = 0.0
-    block = 4096
-    for s in range(0, len(wet), block):
-        seg = wet[s:s + block]
-        # per-sample IIR, done blockwise to stay reasonably quick
-        for n in range(len(seg)):
-            acc = a * acc + (1 - a) * seg[n]
-            out[s + n] = acc
-    return out
+    return onepole_lp(wet, damp)
+
+
+def sidechain():
+    """Classic pump: duck the music bus on every kick."""
+    env = np.ones(N)
+    t = t_axis(0.34)
+    shape = 1 - 0.42 * np.exp(-t / 0.075)
+    for tk in kick_times:
+        i = int(tk * SR)
+        j = min(N, i + len(shape))
+        env[i:j] = np.minimum(env[i:j], shape[:j - i])
+    return onepole_lp(env, 0.55)
 
 
 def main():
     build()
 
+    duck = sidechain()
+    ml, mr = music_l * duck, music_r * duck
+
     print('rendering reverb…')
-    wet_l = reverb(music_l)
-    wet_r = reverb(music_r * 1.0)
-    left = music_l * 0.78 + wet_l * 0.34 + dry_l
-    right = music_r * 0.78 + wet_r * 0.34 + dry_r
+    left = ml * 0.86 + reverb(ml) * 0.22 + drum_l
+    right = mr * 0.86 + reverb(mr) * 0.22 + drum_r
 
     stereo = np.stack([left, right])
+    raw = np.abs(stereo).max()
+    print(f'  pre-limiter peak {raw:.2f}')
+    stereo *= 0.95 / raw
+    # Roll off the extreme top before limiting: the diff()-tilted noise sources
+    # pile energy at 15-20 kHz, which is exactly where AAC overshoots worst.
+    for ch in (0, 1):
+        stereo[ch] = onepole_lp(onepole_lp(stereo[ch], 0.157), 0.157)
+    stereo *= 0.95 / np.abs(stereo).max()
+    stereo = np.tanh(stereo * 2.1) / 2.1            # drives the mix harder = louder
+    # AAC reconstructs inter-sample peaks well above the source on dense,
+    # brickwalled material — mastering above ~0.62 here comes back clipping.
+    tp = max(true_peak(stereo[0]), true_peak(stereo[1]))
+    print(f'  true peak before master {tp:.2f} (sample peak {np.abs(stereo).max():.2f})')
+    stereo *= 0.72 / tp
 
-    # trim to a sane working level first, then soft-knee limit, then normalize
-    raw_peak = np.abs(stereo).max()
-    print(f'  pre-limiter peak {raw_peak:.2f}')
-    stereo *= 0.85 / raw_peak
-    stereo = np.tanh(stereo * 1.3) / 1.3
-    # Leave real headroom: AAC reconstructs inter-sample peaks above the source
-    # level, so mastering to ~0.9 here comes back clipping on the other side.
-    stereo *= 0.70 / np.abs(stereo).max()
-
-    # fades: up under the cold open, out under the end card
-    fi = int(0.5 * SR)
+    fi = int(0.35 * SR)
     stereo[:, :fi] *= np.linspace(0, 1, fi) ** 1.5
-    fo = int(2.6 * SR)
-    stereo[:, -fo:] *= np.cos(np.linspace(0, np.pi / 2, fo)) ** 1.6
+    fo = int(2.2 * SR)
+    stereo[:, -fo:] *= np.cos(np.linspace(0, np.pi / 2, fo)) ** 1.5
 
-    for label, a, b in (('open', 0, 6), ('problem', 6, 15), ('pipeline', 15, 23.6),
-                        ('product', 23.6, 41.6), ('cards', 41.6, 50.4),
-                        ('stats', 50.4, 56.2), ('cta', 56.2, 64)):
+    for label, a, b in (('open', 0, 6), ('build', 6, 15), ('beat in', 15, 23.6),
+                        ('product', 23.6, 41.6), ('DROP', 41.6, 50.4),
+                        ('stats', 50.4, 56.2), ('end card', 56.2, 64)):
         seg = stereo[:, int(a * SR):int(b * SR)]
-        print(f'  {label:9s} rms {np.sqrt((seg ** 2).mean()):.3f}  peak {np.abs(seg).max():.3f}')
+        rms = np.sqrt((seg ** 2).mean())
+        print(f'  {label:9s} rms {rms:.3f} {"#" * int(rms * 150)}')
 
     pcm = (np.clip(stereo.T, -1, 1) * 32767).astype('<i2')
     with wave.open(str(OUT), 'wb') as w:
@@ -332,7 +463,8 @@ def main():
         w.setsampwidth(2)
         w.setframerate(SR)
         w.writeframes(pcm.tobytes())
-    print(f'✓ {OUT}  ({OUT.stat().st_size / 1e6:.1f} MB, {DUR:.0f}s)')
+    print(f'✓ {OUT}  ({OUT.stat().st_size / 1e6:.1f} MB, {DUR:.0f}s, '
+          f'{240 / BAR:.1f} BPM, {len(kick_times)} kicks)')
 
 
 if __name__ == '__main__':
