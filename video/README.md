@@ -36,12 +36,16 @@ Opened in a normal browser, `launch.html` plays itself on a loop for previewing.
 and a Schroeder reverb, no samples and no library tracks — so there is nothing to license and no
 attribution to carry.
 
-A driving major-key anthem at ~117 BPM: four-on-the-floor from the moment the pipeline
-appears, claps on 2 and 4, octave bass in eighths, 16th-note arps, and a sidechain pump against
-the kick. Strictly major harmony (F / Bb / C) voiced high and open — the minor sevenths and low
-pads are what made an earlier pass sound wistful. The arrangement is keyed to the film: impact
-on the logo, an accelerating snare roll under the problem statement, the beat landing with the
-pipeline, a full drop on the share-card grid, peak on the stats, and a final hit on the end card.
+A driving major-key anthem at ~117 BPM: four-on-the-floor, claps on 2 and 4, octave bass in
+eighths, 16th-note arps, and a sidechain pump against the kick. Strictly major harmony
+(F / Bb / C) voiced high and open — the minor sevenths and low pads are what made an earlier
+pass sound wistful.
+
+The beat runs from the logo hit (`DRUM_IN`, ~0.6s) to the last downbeat (`DRUM_OUT`, ~62.4s),
+so the film opens and closes hot; sections differentiate by density via `section_gain()`, not by
+dropping the drums. Everything cuts out for half a beat before the share-card grid (`GAP`) —
+including the riser and the reverse crash — so the drop reads as −9 dB of silence followed by a
++12 dB slam.
 
 The tempo is not arbitrary. `BAR` is derived so the bar grid — anchored at the drum entry —
 lands within ~0.15s of the two cuts that matter most: the drop at 41.6s and the end card at
@@ -56,8 +60,12 @@ Mastering notes, both learned the hard way:
 - **Roll off above ~13 kHz.** The noise voices are tilted bright by repeated `diff()`, which
   piles energy exactly where AAC quantizes coarsest — that was most of the overshoot, and the
   hats sound better for it.
+- **Watch the band balance.** A heavier kick plus a bass sitting at F1 once put 93% of the total
+  energy below 140 Hz, which would have played as a muffled thud on laptop and phone speakers.
+  The bass register moved up an octave and the kick's sub tail came down; it now sits at ~75%,
+  with the melodic band roughly tripled.
 
-Sits at about −14.5 dBFS RMS: present, but still a bed rather than a lead.
+Sits at about −14.2 dBFS RMS, peaking at 0.90 after encode with no clipped samples.
 
 ## Re-rendering
 

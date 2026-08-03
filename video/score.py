@@ -141,15 +141,19 @@ def bass(freq, dur, decay=0.22):
     for h in (1, 2, 3, 4, 5):
         sig += (1.0 / h) * np.sin(2 * np.pi * freq * h * t) * np.exp(-t / (decay / (h * .45)))
     body = np.sin(2 * np.pi * freq * t) * np.exp(-t / (decay * 1.9))
-    return (sig / 2.2 + body * 0.7) * (1 - np.exp(-t * 900))
+    return (sig / 2.2 + body * 0.34) * (1 - np.exp(-t * 900))
 
 
-def kick(dur=0.36):
+def kick(dur=0.52, weight=1.0):
+    """Heavy kick: long pitch sweep, a sub tail under it, and a hard beater."""
     t = t_axis(dur)
-    f = 150 * np.exp(-t * 34) + 47
-    body = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 9.5)
-    click = noise(dur, 7, hp=2)[:len(t)] * np.exp(-t * 420) * 0.35
-    return body + click
+    f = 168 * np.exp(-t * 38) + 41
+    body = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 7.6)
+    sub = np.sin(2 * np.pi * 43 * t + 0.4) * np.exp(-t * 6.2) * 0.34 * weight
+    beater = noise(dur, 7, hp=2)[:len(t)] * np.exp(-t * 300) * 0.42
+    punch = np.sin(2 * np.pi * 128 * t) * np.exp(-t * 46) * 0.5
+    x = body + sub + beater + punch
+    return np.tanh(x * 1.5) / 1.5           # saturation = more apparent weight
 
 
 def clap(seed=3):
@@ -199,11 +203,11 @@ def impact(seed=21):
 # harmony — major-key only, voiced high and open
 # ----------------------------------------------------------------------------
 CH = {
-    'F':    (['F1', 'F2'], ['F3', 'A3', 'C4', 'F4', 'A4'], ['F4', 'A4', 'C5', 'F5']),
-    'Bb':   (['Bb1', 'Bb2'], ['Bb3', 'D4', 'F4', 'Bb4', 'D5'], ['Bb4', 'D5', 'F5', 'Bb5']),
-    'C':    (['C2', 'C3'], ['C4', 'E4', 'G4', 'C5', 'E5'], ['C5', 'E5', 'G5', 'C6']),
-    'Dm':   (['D2', 'D3'], ['D4', 'F4', 'A4', 'D5', 'F5'], ['D5', 'F5', 'A5', 'D6']),
-    'Csus': (['C2', 'C3'], ['C4', 'F4', 'G4', 'C5', 'F5'], ['C5', 'F5', 'G5', 'C6']),
+    'F':    (['F2', 'F3'], ['F3', 'A3', 'C4', 'F4', 'A4'], ['F4', 'A4', 'C5', 'F5']),
+    'Bb':   (['Bb2', 'Bb3'], ['Bb3', 'D4', 'F4', 'Bb4', 'D5'], ['Bb4', 'D5', 'F5', 'Bb5']),
+    'C':    (['C3', 'C4'], ['C4', 'E4', 'G4', 'C5', 'E5'], ['C5', 'E5', 'G5', 'C6']),
+    'Dm':   (['D3', 'D4'], ['D4', 'F4', 'A4', 'D5', 'F5'], ['D5', 'F5', 'A5', 'D6']),
+    'Csus': (['C3', 'C4'], ['C4', 'F4', 'G4', 'C5', 'F5'], ['C5', 'F5', 'G5', 'C6']),
 }
 
 # (bar index from the drum entry, chord) — two bars each
@@ -235,7 +239,7 @@ def build():
         gain = 0.55 if t0 < S_PIPE else (0.8 if t0 < S_CARDS else 1.0)
         for vi, nm in enumerate(tones):
             pan = 0.5 + 0.26 * math.sin(vi * 2.1 + i)
-            add(music_l, music_r, pad(hz(nm), t1 - t0 + 0.9), t0, pan, 0.075 * gain)
+            add(music_l, music_r, pad(hz(nm), t1 - t0 + 0.9), t0, pan, 0.105 * gain)
 
     # ---- cold open: impact + swell ---------------------------------------
     add(drum_l, drum_r, impact(), 0.5, 0.5, 0.80)
@@ -243,10 +247,6 @@ def build():
     for nm, t0, g in (('F3', 0.55, .30), ('F4', 0.55, .46), ('C5', 0.55, .34), ('A4', 0.55, .28),
                       ('F5', 2.6, .26), ('C5', 3.6, .20), ('F5', 4.6, .18)):
         add(music_l, music_r, stab(hz(nm), 2.4, decay=0.9), t0, 0.5, g)
-    # heartbeat under the open so it never sits still
-    for k in range(4):
-        add(drum_l, drum_r, kick(), 2.0 + k * 1.0, 0.5, 0.30 + 0.05 * k)
-
     # ---- build under the problem statement --------------------------------
     # sixteenth pluck pattern, thinning up into the drop
     t, i = S_PROBLEM, 0
@@ -259,97 +259,130 @@ def build():
                 0.5 + 0.3 * math.sin(i * .9), g)
         i += 1
         t += SIX * 2
-    # accelerating snare roll into the beat
-    t, i = S_PIPE - 4 * BEAT, 0
-    while t < S_PIPE - 0.02:
-        step = BEAT / (2 if i < 4 else (3 if i < 9 else 4))
-        add(drum_l, drum_r, clap(seed=40 + i), t, 0.5, 0.10 + 0.26 * (t - (S_PIPE - 4 * BEAT)) / (4 * BEAT))
-        i += 1
-        t += step
-    t, i = bar_at(-4), 0
-    while t < S_PIPE:
-        roots = chord_at(t)[0]
-        add(music_l, music_r, bass(hz(roots[0]), BEAT), t, 0.5, 0.26)
-        add(drum_l, drum_r, hat(False, seed=60 + i % 5), t, 0.5, 0.05)
-        add(drum_l, drum_r, hat(False, seed=64 + i % 5), t + BEAT / 2, 0.5, 0.035)
-        i += 1
-        t += BEAT
     add(music_l, music_r, riser(3.4, seed=2), S_PIPE - 3.4, 0.5, 0.34)
-    add(music_l, music_r, riser(2.6, seed=4), S_CARDS - 2.6, 0.5, 0.34)
+    add(music_l, music_r, riser(2.32, seed=4), S_CARDS - 2.6, 0.5, 0.40)
     add(music_l, music_r, riser(1.9, seed=6, tone=False), S_STATS - 1.9, 0.5, 0.22)
 
     # ---- the groove -------------------------------------------------------
-    def section_gain(t):
-        if t < S_HOME:
-            return 0.92
-        if t < S_EXPL:
-            return 0.80          # ease off under the first product shot
-        if t < S_CARDS:
-            return 0.90
-        return 1.0               # drop
+    # The beat runs from the logo hit to the end card — the film opens and
+    # closes hot, and the sections differentiate by density, not by silence.
+    DRUM_IN = bar_at(-7)          # ~0.6 s, right under the opening impact
+    DRUM_OUT = bar_at(23)         # ~62.4 s, final hit rings over the fade
+    # Everything cuts out for half a beat before the drop, so it lands harder.
+    GAP = (S_CARDS - 0.55 * BEAT, S_CARDS - 0.01)
 
-    # kick: four on the floor
-    t = S_PIPE
-    while t < S_CTA + 2 * BAR:
-        g = 0.62 * (1.0 if t < S_CARDS else 1.12)
-        if t > S_CTA + 2 * BAR - 0.1:
-            break
-        add(drum_l, drum_r, kick(), t, 0.5, g)
-        kick_times.append(t)
+    def in_gap(t):
+        return GAP[0] <= t < GAP[1]
+
+    def section_gain(t):
+        if t < S_PROBLEM:
+            return 0.66          # cold open: driving, but the logo still reads
+        if t < S_PIPE:
+            return 0.80          # build
+        if t < S_HOME:
+            return 0.95
+        if t < S_EXPL:
+            return 0.84          # ease off under the first product shot
+        if t < S_CARDS:
+            return 0.92
+        return 1.0               # drop, stats, end card
+
+    # kick: four on the floor, all the way through
+    t = DRUM_IN
+    while t < DRUM_OUT:
+        if not in_gap(t):
+            g = 0.80 * (0.86 if t < S_PIPE else 1.0) * (1.0 if t < S_CARDS else 1.28)
+            add(drum_l, drum_r, kick(weight=1.0 if t < S_CARDS else 1.25), t, 0.5, g)
+            kick_times.append(t)
         t += BEAT
 
-    # claps on 2 and 4
-    t = S_PIPE + BEAT
-    while t < S_CTA + 2 * BAR:
-        add(drum_l, drum_r, clap(), t, 0.5, 0.34 * section_gain(t))
+    # claps on 2 and 4; doubled onto the offbeats once the drop lands
+    t = bar_at(-6) + BEAT
+    while t < DRUM_OUT:
+        if not in_gap(t):
+            add(drum_l, drum_r, clap(), t, 0.5, 0.46 * section_gain(t))
+        if t >= S_CARDS and not in_gap(t + BEAT):
+            add(drum_l, drum_r, clap(seed=17), t + BEAT, 0.5, 0.16)
         t += 2 * BEAT
 
     # hats: eighths, open on the offbeat once the drop lands
-    t, i = S_PIPE, 0
-    while t < S_CTA + 2 * BAR:
+    t, i = DRUM_IN, 0
+    while t < DRUM_OUT:
         op = t >= S_CARDS and i % 4 == 2
-        add(drum_l, drum_r, hat(op, seed=50 + i % 7), t,
-            0.5 + 0.2 * math.sin(i), (0.10 if op else 0.06) * section_gain(t))
+        if not in_gap(t):
+            add(drum_l, drum_r, hat(op, seed=50 + i % 7), t,
+                0.5 + 0.2 * math.sin(i), (0.17 if op else 0.10) * section_gain(t))
         i += 1
         t += BEAT / 2
 
-    # bass: driving eighths with octave jumps
-    t, i = S_PIPE, 0
-    while t < S_CTA + 2 * BAR:
+    # bass: driving eighths with octave jumps, sixteenth pickups after the drop
+    t, i = bar_at(-4), 0
+    while t < DRUM_OUT:
         roots = chord_at(t)[0]
         f = hz(roots[1] if i % 4 == 3 else roots[0])
-        add(music_l, music_r, bass(f, BEAT), t, 0.5, 0.34 * section_gain(t))
+        if not in_gap(t):
+            g = (0.26 if t < S_CARDS else 0.33) * section_gain(t)
+            add(music_l, music_r, bass(f, BEAT), t, 0.5, g)
+            if t >= S_CARDS and i % 2 == 1:
+                add(music_l, music_r, bass(hz(roots[1]), BEAT / 2, decay=0.12),
+                    t + BEAT / 4, 0.5, g * 0.5)
         i += 1
         t += BEAT / 2
 
     # arp: sixteenths, octave up after the drop
     t, i = S_PIPE, 0
-    while t < S_CTA + BAR:
+    while t < DRUM_OUT:
         tones = chord_at(t)[2 if t >= S_CARDS else 1]
         f = hz(tones[i % len(tones)])
         accent = 1.0 if i % 4 == 0 else (0.6 if i % 2 == 0 else 0.45)
-        g = (0.15 if t < S_CARDS else 0.20) * accent * section_gain(t)
-        add(music_l, music_r, pluck(f), t, 0.5 + 0.32 * math.sin(i * .7), g)
+        g = (0.26 if t < S_CARDS else 0.38) * accent * section_gain(t)
+        if not in_gap(t):
+            add(music_l, music_r, pluck(f), t, 0.5 + 0.32 * math.sin(i * .7), g)
         i += 1
         t += SIX
 
-    # chord stabs on downbeats, harder after the drop
-    k = -4
+    # chord stabs: downbeats, then every beat through the drop and stats
+    k = -7
     while bar_at(k) < S_END:
         t0 = bar_at(k)
-        if t0 >= S_PIPE:
-            tones = chord_at(t0)[1]
-            g = 0.10 if t0 < S_CARDS else 0.17
+        tones = chord_at(t0)[1]
+        hits = [0.0] if t0 < S_CARDS else [0.0, 2 * BEAT, 3.5 * BEAT]
+        for off in hits:
+            th = t0 + off
+            if th < DRUM_IN or th >= DRUM_OUT or in_gap(th):
+                continue
+            g = (0.17 if th < S_PIPE else 0.20) if th < S_CARDS else 0.30
+            if off:
+                g *= 0.7
             for nm in tones:
-                add(music_l, music_r, stab(hz(nm)), t0, 0.5, g)
+                add(music_l, music_r, stab(hz(nm)), th, 0.5, g)
         k += 1
 
+    # rolls into the two biggest moments
+    for target, n, g0 in ((S_PIPE, 4, 0.10), (S_CARDS, 6, 0.14)):
+        t, i = target - 4 * BEAT, 0
+        while t < target - 0.02:
+            step = BEAT / (2 if i < 4 else (3 if i < 9 else 4))
+            frac = (t - (target - 4 * BEAT)) / (4 * BEAT)
+            if not in_gap(t):
+                add(drum_l, drum_r, clap(seed=70 + i), t, 0.5, g0 + 0.30 * frac)
+            i += 1
+            t += step
+        if i > n:                       # reverse-crash suck into the downbeat
+            end = GAP[0] if target == S_CARDS else target
+            add(music_l, music_r, np.flip(crash(seed=int(target))), end - 2.4, 0.5, 0.26)
+
     # ---- section markers --------------------------------------------------
-    for t0, g in ((S_PIPE, .30), (S_HOME, .18), (S_EXPL, .18),
-                  (S_CARDS, .40), (S_STATS, .30), (S_CTA, .42)):
+    for t0, g in ((S_OPEN + 0.5, .34), (S_PIPE, .32), (S_HOME, .18), (S_EXPL, .18),
+                  (S_CARDS, .58), (S_STATS, .32), (S_CTA, .46)):
         add(drum_l, drum_r, crash(seed=int(t0) + 11), t0, 0.5, g)
-    add(drum_l, drum_r, impact(seed=31), S_CARDS, 0.5, 0.42)
-    add(drum_l, drum_r, impact(seed=33), S_CTA, 0.5, 0.50)
+    add(drum_l, drum_r, impact(seed=31), S_CARDS, 0.5, 0.72)
+    add(drum_l, drum_r, impact(seed=33), S_CTA, 0.5, 0.56)
+    # final hit — lands on the last downbeat and rings out over the fade
+    add(drum_l, drum_r, crash(seed=77), DRUM_OUT, 0.5, 0.52)
+    add(drum_l, drum_r, impact(seed=79), DRUM_OUT, 0.5, 0.62)
+    for nm in CH['F'][1] + ['F5', 'C6']:
+        add(music_l, music_r, stab(hz(nm), 2.4, decay=0.9), DRUM_OUT, 0.5, 0.16)
 
     # ---- end card: last hit, then let it ring -----------------------------
     for nm in CH['F'][1] + ['F5', 'C6']:
@@ -411,7 +444,7 @@ def sidechain():
     """Classic pump: duck the music bus on every kick."""
     env = np.ones(N)
     t = t_axis(0.34)
-    shape = 1 - 0.42 * np.exp(-t / 0.075)
+    shape = 1 - 0.56 * np.exp(-t / 0.095)
     for tk in kick_times:
         i = int(tk * SR)
         j = min(N, i + len(shape))
@@ -443,12 +476,12 @@ def main():
     # brickwalled material — mastering above ~0.62 here comes back clipping.
     tp = max(true_peak(stereo[0]), true_peak(stereo[1]))
     print(f'  true peak before master {tp:.2f} (sample peak {np.abs(stereo).max():.2f})')
-    stereo *= 0.72 / tp
+    stereo *= 0.80 / tp
 
     fi = int(0.35 * SR)
     stereo[:, :fi] *= np.linspace(0, 1, fi) ** 1.5
-    fo = int(2.2 * SR)
-    stereo[:, -fo:] *= np.cos(np.linspace(0, np.pi / 2, fo)) ** 1.5
+    fo = int(1.3 * SR)          # short — the last hit rings, it does not drift out
+    stereo[:, -fo:] *= np.cos(np.linspace(0, np.pi / 2, fo)) ** 1.4
 
     for label, a, b in (('open', 0, 6), ('build', 6, 15), ('beat in', 15, 23.6),
                         ('product', 23.6, 41.6), ('DROP', 41.6, 50.4),
