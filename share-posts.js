@@ -1,5 +1,13 @@
 window.__POSTS__ = [
   {
+    "slug": "continuous-voice-interaction-with-gpt-live",
+    "source": "OpenAI",
+    "category": "Product",
+    "date": "2026-08-03",
+    "hook": "No turn, no wait",
+    "body": "GPT-Live drops the turn detector for a full-duplex voice model, delegates deep reasoning to a frontier model in the background, and starts a call in a single round trip."
+  },
+  {
     "slug": "the-next-measure-of-ai-momentum-is-work-transformed",
     "source": "Microsoft 365",
     "category": "Enterprise AI",
