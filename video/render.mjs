@@ -7,6 +7,7 @@
 //   node video/render.mjs --start 41 --end 50      # render one section only
 //
 import { chromium } from './pw.mjs';
+import { writeStats } from './stats.mjs';
 import { spawn } from 'node:child_process';
 import { mkdirSync, existsSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -53,6 +54,10 @@ function findFfmpeg() {
   for (const p of candidates) if (existsSync(p)) return p;
   throw new Error('No ffmpeg with libx264 found. Set FFMPEG=/path/to/ffmpeg.');
 }
+
+/* ---------- refresh on-screen numbers from the live site ---------- */
+const stats = writeStats();
+if (!QUIET) console.log(`stats: ${stats.posts} posts -> "${stats.bucket}+", ${stats.sources} sources`);
 
 /* ---------- browser ---------- */
 const browser = await chromium.launch({
@@ -151,7 +156,9 @@ process.stdout.write('\n');
 
 /* ---------- poster frame ---------- */
 await page.evaluate(() => window.seek(4.0));   // title card makes the better poster
-await page.screenshot({ path: resolve(here, 'poster.png') });
+// poster.jpg is what the landing-page player loads — keep it in step with the
+// film automatically, or it quietly drifts from whatever was rendered by hand.
+await page.screenshot({ path: resolve(here, 'poster.jpg'), type: 'jpeg', quality: 82 });
 
 await browser.close();
 console.log(`\n✓ ${OUT}`);

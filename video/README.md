@@ -3,7 +3,7 @@
 A 60-second launch film for **AI Blog Explainers**, rendered from HTML — no video editor, no external footage. The product shots are real screenshots of the live pages, and the share cards in the montage are the actual PNGs from `share-cards/`.
 
 **Output:** `ai-blog-explainers-launch.mp4` — 1920×1080, 30 fps, H.264 + AAC, 60.0s, ~15 MB.
-**Poster frame:** `poster.jpg` (43 KB, used by the player on the landing page) and `poster.png`.
+**Poster frame:** `poster.jpg` (~44 KB) — the title card, used by the player on the landing page.
 
 ## Storyboard
 
@@ -15,7 +15,7 @@ A 60-second launch film for **AI Blog Explainers**, rendered from HTML — no vi
 | 0:22 | The homepage, scrolling, with callouts |
 | 0:31 | An explainer page, scrolling |
 | 0:39 | The share-card grid |
-| 0:47 | Stats — 23 explainers, 7 sources, 0 manual steps, 24h cycle |
+| 0:47 | Stats — explainers live, sources tracked, 0 manual steps, 24h cycle |
 | 0:53 | Call to action + URL |
 
 ## Length
@@ -108,8 +108,18 @@ will **not** work — it only ships the VP8/WebM encoder.
 ## Updating the copy
 
 Facts shown on screen live at the top of the `<script>` in `launch.html`: `HEADLINES` (the
-streaming titles), `CARDS` (which share cards appear in the grid), and the stat numbers in the
-`#s7` markup. When the site's post count changes, update the `23` in `#s7` and re-render.
+streaming titles) and `CARDS` (which share cards appear in the grid).
+
+**The stat numbers look after themselves.** `stats.mjs` parses the `POSTS` array out of
+`index.html` and writes `stats.js`, which `launch.html` loads; `render.mjs` runs it on every
+render, so the film always reflects the site as it stands.
+
+The explainer count is shown as **"N+"**, floored to a round number, and that is the important
+part. The pipeline adds a post most days, so a bare count is wrong within 24 hours of every
+render — while `20+` stays true as the archive grows, because it only ever grows. If `stats.js`
+is missing the markup falls back to the same form, which understates but can never be false.
+
+`node video/stats.mjs` prints what it found without rendering anything.
 
 ## Files
 
@@ -120,4 +130,5 @@ streaming titles), `CARDS` (which share cards appear in the grid), and the stat 
 - `pw.mjs` — resolves Playwright from a local or global install.
 - `fonts/`, `fonts.css` — Inter + Source Serif 4 (latin subset), vendored so renders are
   reproducible on any machine.
-- `assets/`, `probe/`, `score.wav` — generated, git-ignored. Recreate with the commands above.
+- `stats.mjs` — reads the live post/source counts off `index.html` into `stats.js`.
+- `assets/`, `probe/`, `score.wav`, `stats.js` — generated, git-ignored. Recreate with the commands above.
