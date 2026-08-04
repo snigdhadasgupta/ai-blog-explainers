@@ -39,8 +39,8 @@
   .brand .gbrand{color:#8A5F1C;}
   .toplinks a{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--clay-dark);font-weight:700;text-decoration:none;}
   .toplinks a:hover{color:var(--clay);}
-  .hero{background:linear-gradient(155deg,#2A211C 0%,#4A342A 55%,var(--clay-deep) 100%);color:#F5EFE7;padding:66px 0 60px;}
-  .hero .wrap{max-width:900px;}
+  .hero{background:linear-gradient(155deg,#2A211C 0%,#4A342A 55%,var(--clay-deep) 100%);color:#F5EFE7;padding:52px 0 54px;}
+  .hero .wrap{max-width:1120px;}
   .hero .tag{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#E9C6B5;border:1px solid rgba(233,198,181,.4);padding:5px 13px;border-radius:100px;margin-bottom:20px;}
   .hero h1{font-family:var(--serif);font-size:clamp(34px,5.4vw,56px);line-height:1.06;font-weight:700;margin-bottom:16px;}
   .hero p{font-size:clamp(16px,2.1vw,20px);color:#EADFD3;max-width:640px;}
@@ -126,6 +126,14 @@
     .fitem{width:auto;border:1px solid var(--line);border-radius:100px;background:var(--paper);}
     .fitem>span:not(.fdot):not(.fcount){white-space:normal;}
   }
+  /* launch video, in the hero */
+  .herogrid{display:grid;grid-template-columns:1.02fr .98fr;gap:46px;align-items:center;}
+  .herofilm .film{display:block;width:100%;aspect-ratio:16/9;border-radius:13px;border:1px solid rgba(245,239,231,.22);background:#1B1512;box-shadow:0 26px 54px -26px rgba(0,0,0,.8);}
+  .herofilm .filmcap{margin-top:11px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#C9B4A6;font-weight:700;}
+  @media(max-width:920px){
+    .herogrid{grid-template-columns:1fr;gap:30px;}
+    .hero .wrap{max-width:900px;}
+  }
   .subscribe{border-top:1px solid var(--line);background:linear-gradient(135deg,#2A211C 0%,#4A342A 55%,var(--clay-deep) 100%);color:#F5EFE7;}
   .subscribe .wrap{padding:50px 24px;text-align:center;}
   .subscribe h2{font-family:var(--serif);font-size:28px;margin-bottom:8px;color:#fff;}
@@ -152,11 +160,23 @@
 
 <header class="hero">
   <div class="wrap">
-    <span class="tag">Editorial &middot; Updated daily</span>
-    <h1>AI Blog Explainers</h1>
-    <p>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google &mdash; turned into visual explainers.</p>
-    <p class="about">A daily digest for people who work with AI: enterprise, product, agentic-AI, and AI-governance news from these companies&rsquo; blogs, each distilled into a one-page visual explainer. Filter by company, topic, or month.</p>
-    <p style="margin-top:18px;"><a href="this-week.html" style="display:inline-block;background:#CC785C;color:#fff;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.02em;padding:11px 22px;border-radius:100px;">This Week in Enterprise AI &rarr;</a></p>
+    <div class="herogrid">
+      <div class="herocopy">
+        <span class="tag">Editorial &middot; Updated daily</span>
+        <h1>AI Blog Explainers</h1>
+        <p>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google &mdash; turned into visual explainers.</p>
+        <p class="about">A daily digest for people who work with AI: enterprise, product, agentic-AI, and AI-governance news from these companies&rsquo; blogs, each distilled into a one-page visual explainer. Filter by company, topic, or month.</p>
+        <p style="margin-top:18px;"><a href="this-week.html" style="display:inline-block;background:#CC785C;color:#fff;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.02em;padding:11px 22px;border-radius:100px;">This Week in Enterprise AI &rarr;</a></p>
+      </div>
+      <div class="herofilm">
+        <video class="film" controls preload="none" playsinline poster="video/poster.jpg">
+          <source src="video/ai-blog-explainers-launch.mp4" type="video/mp4">
+          Your browser can&rsquo;t play this video &mdash;
+          <a href="video/ai-blog-explainers-launch.mp4">download it instead</a>.
+        </video>
+        <p class="filmcap">Watch the 60-second tour</p>
+      </div>
+    </div>
   </div>
 </header>
 
