@@ -3,7 +3,7 @@
 A 60-second launch film for **AI Blog Explainers**, rendered from HTML — no video editor, no external footage. The product shots are real screenshots of the live pages, and the share cards in the montage are the actual PNGs from `share-cards/`.
 
 **Output:** `ai-blog-explainers-launch.mp4` — 1920×1080, 30 fps, H.264 + AAC, 60.0s, ~15 MB.
-**Poster frame:** `poster.png`.
+**Poster frame:** `poster.jpg` (43 KB, used by the player on the landing page) and `poster.png`.
 
 ## Storyboard
 

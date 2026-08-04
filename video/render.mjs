@@ -150,7 +150,7 @@ await done;
 process.stdout.write('\n');
 
 /* ---------- poster frame ---------- */
-await page.evaluate(() => window.seek(58.6));
+await page.evaluate(() => window.seek(4.0));   // title card makes the better poster
 await page.screenshot({ path: resolve(here, 'poster.png') });
 
 await browser.close();
