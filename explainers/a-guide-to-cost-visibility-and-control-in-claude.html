@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Guide to Cost Visibility and Control in Claude">
+<meta property="og:description" content="How IT admins see and manage what Claude costs: cost-per-outcome thinking, model matching, spend caps, usage analytics, and API levers like prompt caching and batch.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/a-guide-to-cost-visibility-and-control-in-claude.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/a-guide-to-cost-visibility-and-control-in-claude.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/a-guide-to-cost-visibility-and-control-in-claude.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A Guide to Cost Visibility and Control in Claude">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/a-guide-to-cost-visibility-and-control-in-claude.png">
+<title>Cost Visibility and Control in Claude — Explainer</title>
+<style>
+  :root{
+    --clay:#CC785C;--clay-dark:#A8543C;--clay-deep:#7A3B29;--ink:#1F1B18;--slate:#3D3733;--stone:#6B6259;--cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--line:#DED6C7;
+    --accent:#CC785C;--accent-deep:#7A3B29;
+    --serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
+  .hero{background:linear-gradient(160deg,#1B1310 0%,#5A2E20 52%,var(--accent-deep) 100%);color:#F7EEEA;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent);}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#F0C9BB;border:1px solid rgba(240,201,187,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#F3E0D9;max-width:720px;}
+  .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(247,238,234,.18);font-size:13px;}
+  .meta .m span{display:block;color:#E0A793;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#FBF1ED;font-size:14px;}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16px;color:var(--slate);margin-bottom:12px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:stretch;}
+  @media(max-width:820px){.flow{grid-template-columns:1fr 1fr;}}
+  .fstep{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+  .fstep .n{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .fstep h4{font-size:12.5px;margin-bottom:4px;color:var(--ink);line-height:1.2;}
+  .fstep p{font-size:11px;color:var(--stone);line-height:1.35;}
+  .loopnote{text-align:center;margin-top:14px;font-size:13px;color:var(--accent-deep);font-weight:600;font-style:italic;}
+  .scard-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  @media(max-width:820px){.scard-grid{grid-template-columns:1fr;}}
+  .scard{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:18px 20px;}
+  .scard .big{font-family:var(--serif);font-size:34px;font-weight:700;color:var(--accent-deep);line-height:1;}
+  .scard .lbl{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--stone);margin:8px 0 4px;}
+  .scard .ctx{font-size:13px;color:var(--slate);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr;}}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:13.5px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);background:#F3E0D9;border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .rows{display:flex;flex-direction:column;gap:10px;}
+  .row{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 18px;border-left:6px solid var(--accent);}
+  .row .rt{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .row .rn{font-family:var(--serif);font-size:17px;color:var(--accent-deep);font-weight:700;}
+  .row .rtag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .row p{font-size:13.5px;color:var(--slate);margin-top:5px;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#F7EEEA;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#F3E0D9;font-size:15px;max-width:560px;}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--accent-deep);}
+  .src{margin-top:8px;}
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent);color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep);}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:22px 26px;margin:26px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span class="dot">&#10039;</span> AI Blog Explainer</a>
+    <div class="srcbadge">Claude</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><rect x="250" y="300" width="46" height="80" rx="8" fill="#fff" fill-opacity=".16"/><rect x="316" y="250" width="46" height="130" rx="8" fill="#fff" fill-opacity=".22"/><rect x="382" y="190" width="46" height="190" rx="8" fill="#fff" fill-opacity=".3"/><rect x="448" y="120" width="46" height="260" rx="8" class="hnode"/><line x1="238" y1="381" x2="512" y2="381" stroke="#fff" stroke-opacity=".25" stroke-width="2"/></svg>
+  </div>
+  <div class="wrap">
+    <span class="tag">Claude &middot; Enterprise AI &middot; August 4, 2026</span>
+    <h1>Seeing &mdash; and controlling &mdash; what Claude costs</h1>
+    <p class="lede">Businesses run Claude across thousands of employees and inside their own applications, and cost matters to all of them. Anthropic&rsquo;s guide walks IT admins through the controls that exist today: think in cost-per-outcome, match the model to the work, cap the spend, and pull the API levers that quietly cut a production bill.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>Claude</strong></div>
+      <div class="m"><span>Topic</span><strong>Enterprise AI &middot; Cost control</strong></div>
+      <div class="m"><span>Theme</span><strong>Cost-per-outcome</strong></div>
+      <div class="m"><span>Reading time</span><strong>5 min</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
+  <div class="wrap">
+    <div class="tldr" data-tier-anchor>
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li><strong>Measure cost-per-outcome</strong> &mdash; not tokens: ask what the work would have cost without AI, and whether the task needs judgment or is just high-volume.</li>
+        <li><strong>Match the model to the work</strong> &mdash; Fable for the hardest problems, Opus for long-horizon and coding, Sonnet for everyday analysis, Haiku for routine volume &mdash; with effort dials and the advisor tool.</li>
+        <li><strong>Admin controls for Enterprise</strong> &mdash; access gating, model entitlements and defaults, and hard spend caps that bind immediately.</li>
+        <li><strong>Observe usage three ways</strong> &mdash; the analytics dashboard, the Analytics API into BI and finance systems, and analytics chat you can ask in plain language.</li>
+        <li><strong>API levers stack</strong> &mdash; prompt caching (about 10% of the input rate on hits), batch processing at half price, the effort parameter, and the advisor strategy.</li>
+      </ul>
+    </div>
+    <div class="sowhat">
+      <div class="kick">So what for you</div>
+      <p>If you&rsquo;re rolling Claude out, <strong>start with one team and watch a month of real usage before you set caps</strong>. Default most people to a mid-tier model like Sonnet, entitle only your hardest work to frontier models, and reconcile the exported usage data against your invoice so cost stays legible as you expand.</p>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The reframe</div>
+    <h2>Cost-per-outcome, not cost-per-token</h2>
+    <p class="body">The most useful measure of AI&rsquo;s cost is the outcome it produces, not the tokens it burns. Two questions clarify almost any project: what would this work have cost without AI &mdash; in resources, in time, or in never attempting it at all &mdash; and is the model doing work that&rsquo;s genuinely hard and needs judgment, or work that&rsquo;s merely large?</p>
+    <p class="lead-quote">Put a cheap model on complex reasoning and it often costs more &mdash; it burns tokens on retries and needs human correction. Put a frontier model on basic document processing and you pay for capability the task never uses.</p>
+    <p class="body">The first question only your business can answer. The second you address by matching the model to the work &mdash; and Claude&rsquo;s family is built to give you that choice.</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">Match the model</div>
+    <h2>Four tiers, one project</h2>
+    <div class="figure">
+      <div class="cap">Figure 1 &middot; Match model capability to the shape of the work</div>
+      <div class="flow">
+        <div class="fstep"><div class="n">F</div><h4>Fable</h4><p>The hardest problems that demand the deepest reasoning.</p></div>
+        <div class="fstep"><div class="n">O</div><h4>Opus</h4><p>Long-horizon work and coding that runs over many steps.</p></div>
+        <div class="fstep"><div class="n">S</div><h4>Sonnet</h4><p>Everyday work and analysis &mdash; a sensible default.</p></div>
+        <div class="fstep"><div class="n">H</div><h4>Haiku</h4><p>High-volume, routine tasks like tagging and triage.</p></div>
+      </div>
+      <div class="loopnote">&#8635; Effort controls dial how much a model &ldquo;thinks&rdquo;; the advisor tool lets a smaller model consult a frontier model only when it hits a wall.</div>
+    </div>
+    <p class="body">Many organizations use several models on the same project. An insurer might put a frontier model beside an adjuster evaluating a complex commercial claim, while Haiku tags and triages the documents feeding into it &mdash; each token spent where its capability is actually needed.</p>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">Controls for Claude Enterprise</div>
+    <h2>Gate access, control models, cap spend</h2>
+    <p class="body">Where Claude runs as a product for employees, the controls sit with the admin. Work through them roughly in order &mdash; it&rsquo;s hard to set a sensible limit before you&rsquo;ve seen a month of real usage.</p>
+    <div class="rows">
+      <div class="row"><div class="rt"><span class="rn">Access gating</span><span class="rtag">Roll out gradually</span></div><p>Decide which groups and custom roles can use products like Claude Code and Cowork &mdash; not an all-at-once switch. Start with one team, watch the results, and expand department by department.</p></div>
+      <div class="row"><div class="rt"><span class="rn">Model controls</span><span class="rtag">Entitlements + defaults</span></div><p>Entitlements set which models a team can reach; defaults set which model a new conversation starts on. Entitle your hardest work to the most capable models and default everyone else to Sonnet.</p></div>
+      <div class="row"><div class="rt"><span class="rn">Hard spend caps</span><span class="rtag">Bind immediately</span></div><p>Place ceilings on the whole org, individual users, or a group (where each member gets the limit). Set them once you know your baseline; caps take effect right away.</p></div>
+    </div>
+    <p class="body" style="margin-top:18px;">Admins can also automate review of spend-limit-increase requests, flag members close to their limit, and surface members whose usage is changing fast.</p>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">See the spend &middot; Build on the API</div>
+    <h2>Observe usage, then pull the levers</h2>
+    <div class="grid3">
+      <div class="card"><span class="pill">Observe</span><h3>Usage analytics</h3><p>Break spend down by person, team, and model in the admin dashboard. Exports closely match invoices so you can reconcile usage with the bill.</p></div>
+      <div class="card"><span class="pill">Observe</span><h3>Analytics API</h3><p>Feed the same data to the systems a team already uses &mdash; BI tools, finance systems, internal dashboards &mdash; so Claude spend sits beside other costs in budgeting and forecasting.</p></div>
+      <div class="card"><span class="pill">Observe</span><h3>Analytics chat</h3><p>Ask about usage in plain language: &ldquo;Who are our top spenders this month?&rdquo; or &ldquo;Which team grew fastest this quarter?&rdquo; &mdash; no full report required.</p></div>
+    </div>
+    <div class="figure" style="margin-top:22px;">
+      <div class="cap">Figure 2 &middot; Platform cost levers that stack</div>
+      <div class="scard-grid">
+        <div class="scard"><div class="big">~10%</div><div class="lbl">Prompt caching</div><div class="ctx">Reused reference content can cost about a tenth of the normal input rate on a cache hit.</div></div>
+        <div class="scard"><div class="big">&frac12; price</div><div class="lbl">Batch processing</div><div class="ctx">Jobs that don&rsquo;t need an immediate answer run at half price &mdash; and batch discounts stack with caching.</div></div>
+        <div class="scard"><div class="big">Effort</div><div class="lbl">Per-call reasoning</div><div class="ctx">Dial reasoning down for routing and extraction; turn it up only for the final recommendation.</div></div>
+        <div class="scard"><div class="big">Advisor</div><div class="lbl">Escalate on demand</div><div class="ctx">Run most of a task on a smaller model and pay for a frontier model only where its judgment is applied.</div></div>
+      </div>
+    </div>
+    <p class="body" style="margin-top:8px;">Used together, these features routinely cut the cost of a production workload substantially &mdash; before anyone touches a budget line.</p>
+  </div>
+</section>
+
+<section style="border-bottom:none;" data-depth="manager">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>Where to start</h2>
+        <p>Pilot one team, watch a month of usage, then set defaults and caps from a real baseline. Match models to work rather than defaulting everyone to the most capable one, and wire the Analytics API into finance so AI spend is forecast like any other cost. Cost controls are available in Claude Enterprise today.</p>
+      </div>
+      <a class="btn" href="https://claude.com/blog/a-guide-to-cost-visibility-and-control-in-claude">Read the post &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){var l=it.querySelector("link");return l?l.textContent.trim():"";}).filter(Boolean);
+    var mine=location.href.split("#")[0].split("?")[0].split("/").pop();
+    var i=-1; for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the Claude blog &middot; AI Blog Explainers house style (Claude clay palette).</p>
+    <p class="src">Source: <a href="https://claude.com/blog/a-guide-to-cost-visibility-and-control-in-claude">A guide to cost visibility and control in Claude</a> &mdash; claude.com/blog, August 4, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://claude.com/blog/a-guide-to-cost-visibility-and-control-in-claude" target="_blank" rel="noopener" title="Read the original article"
+     style="background:#7A3B29;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:#CC785C;color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={
+    tldr:"Just the five-line summary + the takeaway.",
+    manager:"Summary, why it matters, and what to do — no deep internals.",
+    tech:"Everything, including admin controls and API levers."
+  };
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>

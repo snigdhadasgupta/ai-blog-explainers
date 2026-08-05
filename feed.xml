@@ -5,7 +5,23 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Aug 2026 07:15:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2026 14:16:46 +0000</lastBuildDate>
+    <item>
+      <title>A Guide to Cost Visibility and Control in Claude</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/a-guide-to-cost-visibility-and-control-in-claude.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/a-guide-to-cost-visibility-and-control-in-claude.html</guid>
+      <category>Claude</category>
+      <pubDate>Tue, 04 Aug 2026 16:00:00 +0000</pubDate>
+      <description>Anthropic's playbook for IT admins to see and manage what Claude costs — think cost-per-outcome, match the model to the work, gate access and cap spend, and stack API levers like prompt caching and batch processing.</description>
+    </item>
+    <item>
+      <title>Advance Zero Trust for AI: Securing Agents and DevSecOps</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/advance-zero-trust-for-ai-new-tools-and-guidance-to-secure-ai-agents-and-devsecops.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/advance-zero-trust-for-ai-new-tools-and-guidance-to-secure-ai-agents-and-devsecops.html</guid>
+      <category>Microsoft Security</category>
+      <pubDate>Tue, 04 Aug 2026 15:00:00 +0000</pubDate>
+      <description>Microsoft moves Zero Trust for AI from architecture to implementation with a new AI Assessment pillar, a DevSecOps Workshop pillar of 15 control groups and 91 tasks, AI-memory guidance, and a practical e-book.</description>
+    </item>
     <item>
       <title>How OpenAI Built Realtime Voice for GPT-Live</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/continuous-voice-interaction-with-gpt-live.html</link>
@@ -13,6 +29,22 @@
       <category>OpenAI</category>
       <pubDate>Mon, 03 Aug 2026 13:00:00 +0000</pubDate>
       <description>GPT-Live drops the turn detector for a full-duplex voice model, splits talking from thinking with async delegation to frontier models, and collapses WebRTC startup from six round trips to one.</description>
+    </item>
+    <item>
+      <title>Agentic Guardrails: The Next Stage of AI Governance Is Control</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/agentic-guardrails-next-stage-ai-governance-control.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/agentic-guardrails-next-stage-ai-governance-control.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 30 Jul 2026 15:30:00 +0000</pubDate>
+      <description>Once an agent can act, governance shifts from how it answers to what it did. Box makes the case for guardrails an agent can't bypass, human review scaled to impact, and session governance as the auditable agentic record.</description>
+    </item>
+    <item>
+      <title>Adaptive Intelligence Beats a Single Frontier Model</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/future-ai-agents-isnt-single-frontier-model-its-adaptive-intelligence.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/future-ai-agents-isnt-single-frontier-model-its-adaptive-intelligence.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 30 Jul 2026 14:30:00 +0000</pubDate>
+      <description>Box pairs a recursive parent-child agent with model-selection middleware that spends frontier reasoning only where it changes the outcome — cutting inference cost about 25% across ~400 enterprise tasks at equal or better task success.</description>
     </item>
     <item>
       <title>The Next Measure of AI Momentum Is Work Transformed</title>
@@ -29,6 +61,14 @@
       <category>OpenAI</category>
       <pubDate>Thu, 30 Jul 2026 12:00:00 +0000</pubDate>
       <description>OpenAI passes its GPT-5.6 efficiency gains to customers — Luna drops 80%, Terra 20%, and a new Fast mode runs Sol 2.5x faster — so high-volume enterprise workloads become economical to run at scale.</description>
+    </item>
+    <item>
+      <title>Box Admin AI Insights: From Tokenmaxxing to Optimization</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-admin-ai-insights.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-admin-ai-insights.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 29 Jul 2026 15:00:00 +0000</pubDate>
+      <description>Box's new Admin AI Insights gives admins a consumption dashboard and AI Unit report — five charts covering queries, products, agents, units over time, and top users — so AI budgeting becomes predictable and the goal shifts to optimization.</description>
     </item>
     <item>
       <title>How GPT-5.6 Fuses Frontier Intelligence with Efficiency</title>

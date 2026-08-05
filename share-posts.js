@@ -1,11 +1,43 @@
 window.__POSTS__ = [
   {
+    "slug": "a-guide-to-cost-visibility-and-control-in-claude",
+    "source": "Claude",
+    "category": "Enterprise AI",
+    "date": "2026-08-04",
+    "hook": "Cost-per-outcome, not tokens.",
+    "body": "Anthropic's guide for IT admins: match the model to the work, gate access, cap spend, and stack API levers like caching and batch to cut a Claude bill before you touch a budget line."
+  },
+  {
+    "slug": "advance-zero-trust-for-ai-new-tools-and-guidance-to-secure-ai-agents-and-devsecops",
+    "source": "Microsoft Security",
+    "category": "AI Governance",
+    "date": "2026-08-04",
+    "hook": "Zero Trust, operationalized.",
+    "body": "Microsoft moves Zero Trust for AI from architecture to action — an AI Assessment pillar, a DevSecOps Workshop pillar with 91 tasks, and AI-memory guidance to secure agents, code, and pipelines."
+  },
+  {
     "slug": "continuous-voice-interaction-with-gpt-live",
     "source": "OpenAI",
     "category": "Product",
     "date": "2026-08-03",
     "hook": "No turn, no wait",
     "body": "GPT-Live drops the turn detector for a full-duplex voice model, delegates deep reasoning to a frontier model in the background, and starts a call in a single round trip."
+  },
+  {
+    "slug": "agentic-guardrails-next-stage-ai-governance-control",
+    "source": "Box",
+    "category": "AI Governance",
+    "date": "2026-07-30",
+    "hook": "What did the agent do?",
+    "body": "Box argues the next stage of AI governance is control: guardrails an agent can't bypass, human review scaled to impact, and session governance that records who did what, on whose behalf."
+  },
+  {
+    "slug": "future-ai-agents-isnt-single-frontier-model-its-adaptive-intelligence",
+    "source": "Box",
+    "category": "Agents",
+    "date": "2026-07-30",
+    "hook": "Frontier brains, where they count.",
+    "body": "Box's recursive agent plus model-selection middleware spends frontier reasoning only where it changes the outcome — cutting inference cost ~25% across 400 enterprise tasks at equal or better success."
   },
   {
     "slug": "the-next-measure-of-ai-momentum-is-work-transformed",
@@ -22,6 +54,14 @@ window.__POSTS__ = [
     "date": "2026-07-30",
     "hook": "80% cheaper, same brains",
     "body": "OpenAI passes GPT-5.6 efficiency gains to customers: Luna drops 80%, Terra 20%, and a new Fast mode runs Sol 2.5x faster — making high-volume AI economical to run at scale."
+  },
+  {
+    "slug": "introducing-admin-ai-insights",
+    "source": "Box",
+    "category": "Enterprise AI",
+    "date": "2026-07-29",
+    "hook": "Tokens, optimized.",
+    "body": "Box Admin AI Insights gives admins a consumption dashboard and AI Unit report — five charts to see where AI spend goes, so budgeting is predictable and the goal shifts to optimization, not cuts."
   },
   {
     "slug": "gpt-5-6-frontier-intelligence-efficiency",

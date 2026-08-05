@@ -39,8 +39,8 @@
   .brand .gbrand{color:#8A5F1C;}
   .toplinks a{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--clay-dark);font-weight:700;text-decoration:none;}
   .toplinks a:hover{color:var(--clay);}
-  .hero{background:linear-gradient(155deg,#2A211C 0%,#4A342A 55%,var(--clay-deep) 100%);color:#F5EFE7;padding:52px 0 54px;}
-  .hero .wrap{max-width:1120px;}
+  .hero{background:linear-gradient(155deg,#2A211C 0%,#4A342A 55%,var(--clay-deep) 100%);color:#F5EFE7;padding:66px 0 60px;}
+  .hero .wrap{max-width:900px;}
   .hero .tag{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#E9C6B5;border:1px solid rgba(233,198,181,.4);padding:5px 13px;border-radius:100px;margin-bottom:20px;}
   .hero h1{font-family:var(--serif);font-size:clamp(34px,5.4vw,56px);line-height:1.06;font-weight:700;margin-bottom:16px;}
   .hero p{font-size:clamp(16px,2.1vw,20px);color:#EADFD3;max-width:640px;}
@@ -126,14 +126,6 @@
     .fitem{width:auto;border:1px solid var(--line);border-radius:100px;background:var(--paper);}
     .fitem>span:not(.fdot):not(.fcount){white-space:normal;}
   }
-  /* launch video, in the hero */
-  .herogrid{display:grid;grid-template-columns:1.02fr .98fr;gap:46px;align-items:center;}
-  .herofilm .film{display:block;width:100%;aspect-ratio:16/9;border-radius:13px;border:1px solid rgba(245,239,231,.22);background:#1B1512;box-shadow:0 26px 54px -26px rgba(0,0,0,.8);}
-  .herofilm .filmcap{margin-top:11px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#C9B4A6;font-weight:700;}
-  @media(max-width:920px){
-    .herogrid{grid-template-columns:1fr;gap:30px;}
-    .hero .wrap{max-width:900px;}
-  }
   .subscribe{border-top:1px solid var(--line);background:linear-gradient(135deg,#2A211C 0%,#4A342A 55%,var(--clay-deep) 100%);color:#F5EFE7;}
   .subscribe .wrap{padding:50px 24px;text-align:center;}
   .subscribe h2{font-family:var(--serif);font-size:28px;margin-bottom:8px;color:#fff;}
@@ -160,26 +152,11 @@
 
 <header class="hero">
   <div class="wrap">
-    <div class="herogrid">
-      <div class="herocopy">
-        <span class="tag">Editorial &middot; Updated daily</span>
-        <h1>AI Blog Explainers</h1>
-        <p>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google &mdash; turned into visual explainers.</p>
-        <p class="about">A daily digest for people who work with AI: enterprise, product, agentic-AI, and AI-governance news from these companies&rsquo; blogs, each distilled into a one-page visual explainer. Filter by company, topic, or month.</p>
-        <p style="margin-top:18px;"><a href="this-week.html" style="display:inline-block;background:#CC785C;color:#fff;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.02em;padding:11px 22px;border-radius:100px;">This Week in Enterprise AI &rarr;</a></p>
-      </div>
-      <!-- LAUNCH VIDEO — permanent. Do not remove when regenerating this page.
-           Source and re-render instructions: video/README.md -->
-      <div class="herofilm">
-        <video class="film" controls preload="none" playsinline poster="video/poster.jpg">
-          <source src="video/ai-blog-explainers-launch.mp4" type="video/mp4">
-          Your browser can&rsquo;t play this video &mdash;
-          <a href="video/ai-blog-explainers-launch.mp4">download it instead</a>.
-        </video>
-        <p class="filmcap">Watch the 60-second tour</p>
-      </div>
-      <!-- /LAUNCH VIDEO -->
-    </div>
+    <span class="tag">Editorial &middot; Updated daily</span>
+    <h1>AI Blog Explainers</h1>
+    <p>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google &mdash; turned into visual explainers.</p>
+    <p class="about">A daily digest for people who work with AI: enterprise, product, agentic-AI, and AI-governance news from these companies&rsquo; blogs, each distilled into a one-page visual explainer. Filter by company, topic, or month.</p>
+    <p style="margin-top:18px;"><a href="this-week.html" style="display:inline-block;background:#CC785C;color:#fff;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.02em;padding:11px 22px;border-radius:100px;">This Week in Enterprise AI &rarr;</a></p>
   </div>
 </header>
 
@@ -297,9 +274,14 @@ const SOURCE_COLORS = {
 const NEW_DAYS = 3;
 
 const POSTS = [
+  {slug:"a-guide-to-cost-visibility-and-control-in-claude",title:"A Guide to Cost Visibility and Control in Claude",date:"2026-08-04",source:"Claude",category:"Enterprise AI",readingTime:"5 min",summary:"Anthropic's playbook for IT admins to see and manage what Claude costs — think cost-per-outcome, match the model to the work, gate access and cap spend, and stack API levers like prompt caching and batch processing."},
+  {slug:"advance-zero-trust-for-ai-new-tools-and-guidance-to-secure-ai-agents-and-devsecops",title:"Advance Zero Trust for AI: Securing Agents and DevSecOps",date:"2026-08-04",source:"Microsoft Security",category:"AI Governance",readingTime:"6 min",summary:"Microsoft moves Zero Trust for AI from architecture to implementation with a new AI Assessment pillar, a DevSecOps Workshop pillar of 15 control groups and 91 tasks, AI-memory guidance, and a practical e-book."},
   {slug:"continuous-voice-interaction-with-gpt-live",title:"How OpenAI Built Realtime Voice for GPT-Live",date:"2026-08-03",source:"OpenAI",category:"Product",readingTime:"6 min",summary:"GPT-Live drops the turn detector for a full-duplex voice model that listens and speaks at once, splits talking from thinking with async delegation to frontier models, and collapses WebRTC startup from six round trips to one."},
+  {slug:"agentic-guardrails-next-stage-ai-governance-control",title:"Agentic Guardrails: The Next Stage of AI Governance Is Control",date:"2026-07-30",source:"Box",category:"AI Governance",readingTime:"5 min",summary:"Once an agent can act, governance shifts from how it answers to what it did. Box makes the case for guardrails an agent can't bypass, human review scaled to impact, and session governance as the auditable agentic record."},
+  {slug:"future-ai-agents-isnt-single-frontier-model-its-adaptive-intelligence",title:"Adaptive Intelligence Beats a Single Frontier Model",date:"2026-07-30",source:"Box",category:"Agents",readingTime:"6 min",summary:"Box pairs a recursive parent-child agent with model-selection middleware that spends frontier reasoning only where it changes the outcome — cutting inference cost about 25% across ~400 enterprise tasks at equal or better task success."},
   {slug:"the-next-measure-of-ai-momentum-is-work-transformed",title:"The Next Measure of AI Momentum Is Work Transformed",date:"2026-07-30",source:"Microsoft 365",category:"Enterprise AI",readingTime:"6 min",summary:"Microsoft 365 Copilot passed 30M paid seats — but Microsoft argues the metric that now matters is work transformed: agents that finish multi-step workflows, tailored to how specific roles actually work, with named results from Eaton, Premera, Levi’s, and EY."},
   {slug:"advancing-the-price-performance-frontier-with-gpt-5-6",title:"Advancing the Price-Performance Frontier with GPT-5.6",date:"2026-07-30",source:"OpenAI",category:"Model Launch",readingTime:"5 min",summary:"OpenAI passes its GPT-5.6 efficiency gains to customers — Luna drops 80%, Terra 20%, and a new Fast mode runs Sol 2.5x faster — so high-volume enterprise workloads become economical to run at scale."},
+  {slug:"introducing-admin-ai-insights",title:"Box Admin AI Insights: From Tokenmaxxing to Optimization",date:"2026-07-29",source:"Box",category:"Enterprise AI",readingTime:"4 min",summary:"Box's new Admin AI Insights gives admins a consumption dashboard and AI Unit report — five charts covering queries, products, agents, units over time, and top users — so AI budgeting becomes predictable and the goal shifts to optimization."},
   {slug:"gpt-5-6-frontier-intelligence-efficiency",title:"How GPT-5.6 Fuses Frontier Intelligence with Efficiency",date:"2026-07-29",source:"OpenAI",category:"Model Launch",readingTime:"6 min",summary:"OpenAI's GPT-5.6 family is engineered for intelligence-per-dollar — a tiered lineup (Sol, Terra, Luna) plus deep inference and agentic-harness optimizations, many of them landed by GPT-5.6 Sol itself running inside Codex."},
   {slug:"bringing-mcp-2026-07-28-to-claude",title:"MCP 2026-07-28: A Stateless Core Comes to Claude",date:"2026-07-28",source:"Claude",category:"Agents",readingTime:"5 min",summary:"The fifth MCP spec moves the protocol to a stateless request/response core, graduates MCP Apps and Tasks as versioned extensions, and hardens auth for enterprise identity — now rolling out across Claude products."},
   {slug:"enhancing-ai-security-through-global-ai-red-teaming",title:"Enhancing AI Security Through Global Red Teaming",date:"2026-07-27",source:"Microsoft Security",category:"AI Governance",readingTime:"5 min",summary:"Microsoft's External Red Team Alliance (EXTRA) funds 18 university labs on six continents and builds a distributed specialist network — because the hardest AI failure modes need multilingual, regional, and domain expertise no single team has."},
