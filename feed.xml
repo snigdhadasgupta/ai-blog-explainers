@@ -5,7 +5,15 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Aug 2026 14:16:46 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2026 23:42:02 +0000</lastBuildDate>
+    <item>
+      <title>Box Certified AI Strategist: Lead the Rollout, Not Just the Tool</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/go-simply-using-ai-leading-its-rollout-box-certified-ai-strategist.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/go-simply-using-ai-leading-its-rollout-box-certified-ai-strategist.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 05 Aug 2026 16:00:00 +0000</pubDate>
+      <description>Box's new free, self-paced certification trains the layer between using AI and scaling it — assess readiness, design team solutions, run a phased rollout, and govern responsibly, across four short courses.</description>
+    </item>
     <item>
       <title>A Guide to Cost Visibility and Control in Claude</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/a-guide-to-cost-visibility-and-control-in-claude.html</link>
@@ -21,6 +29,14 @@
       <category>Microsoft Security</category>
       <pubDate>Tue, 04 Aug 2026 15:00:00 +0000</pubDate>
       <description>Microsoft moves Zero Trust for AI from architecture to implementation with a new AI Assessment pillar, a DevSecOps Workshop pillar of 15 control groups and 91 tasks, AI-memory guidance, and a practical e-book.</description>
+    </item>
+    <item>
+      <title>Building a Company Brain That Learns From Every Incident</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-company-brain-learns-every-incident.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-company-brain-learns-every-incident.html</guid>
+      <category>Box</category>
+      <pubDate>Tue, 04 Aug 2026 12:00:00 +0000</pubDate>
+      <description>An event-driven Box agent turns resolved incidents into reviewed, reusable knowledge — extract structured facts, compare them to a trusted Hub, draft an update, and a human approves before anything publishes.</description>
     </item>
     <item>
       <title>How OpenAI Built Realtime Voice for GPT-Live</title>
@@ -63,6 +79,14 @@
       <description>OpenAI passes its GPT-5.6 efficiency gains to customers — Luna drops 80%, Terra 20%, and a new Fast mode runs Sol 2.5x faster — so high-volume enterprise workloads become economical to run at scale.</description>
     </item>
     <item>
+      <title>Orchestrating Deep Research with Temporal, OpenAI &amp;amp; Box AI</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/orchestrating-deep-research-temporal-openai-and-box-ai.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/orchestrating-deep-research-temporal-openai-and-box-ai.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 30 Jul 2026 12:00:00 +0000</pubDate>
+      <description>A durable research agent turns one cross-market question into multilingual retrieval, cited synthesis, and localized briefs — OpenAI reasons, Temporal keeps recoverable state, and Box AI grounds the answer in permissioned content.</description>
+    </item>
+    <item>
       <title>Box Admin AI Insights: From Tokenmaxxing to Optimization</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-admin-ai-insights.html</link>
       <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-admin-ai-insights.html</guid>
@@ -77,6 +101,14 @@
       <category>OpenAI</category>
       <pubDate>Wed, 29 Jul 2026 12:00:00 +0000</pubDate>
       <description>OpenAI's GPT-5.6 family is engineered for intelligence-per-dollar — a tiered lineup (Sol, Terra, Luna) plus deep inference and agentic-harness optimizations, many landed by GPT-5.6 Sol itself inside Codex.</description>
+    </item>
+    <item>
+      <title>July Workspace Drops: Faster Decks, Docs &amp;amp; Meetings</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/july-2026-workspace-feature-drop.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/july-2026-workspace-feature-drop.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Wed, 29 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Google's July drop leans into AI creation — generate on-brand decks in Slides, scripted avatar videos in Vids, diagrams and comment actions in Docs, and hands-free Meet on Android Auto.</description>
     </item>
     <item>
       <title>MCP 2026-07-28: A Stateless Core Comes to Claude</title>

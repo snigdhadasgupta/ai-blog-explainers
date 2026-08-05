@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Building a Company Brain That Learns From Every Incident">
+<meta property="og:description" content="A Box developer built an event-driven agent that turns resolved incidents into reviewed, reusable knowledge — extract, compare, propose, and a human approves before anything publishes.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-company-brain-learns-every-incident.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/building-company-brain-learns-every-incident.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/building-company-brain-learns-every-incident.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Building a Company Brain That Learns From Every Incident">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/building-company-brain-learns-every-incident.png">
+<title>Building a Company Brain That Learns From Every Incident — Explainer</title>
+<style>
+  :root{
+    --clay:#CC785C;--clay-dark:#A8543C;--clay-deep:#7A3B29;--ink:#1F1B18;--slate:#3D3733;--stone:#6B6259;--cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--line:#DED6C7;
+    --accent:#3D3AAE;--accent-deep:#29277A;
+    --serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
+  .hero{background:linear-gradient(160deg,#17152E 0%,#2B2870 55%,var(--accent-deep) 100%);color:#E7E6F7;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent);}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#B9B6E8;border:1px solid rgba(255,255,255,.3);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#DEDCF3;max-width:720px;}
+  .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);font-size:13px;}
+  .meta .m span{display:block;color:#A9A6D8;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#EFF3FB;font-size:14px;}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16px;color:var(--slate);margin-bottom:12px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:stretch;}
+  @media(max-width:820px){.flow{grid-template-columns:1fr 1fr;}}
+  .flow6{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;align-items:stretch;}
+  @media(max-width:820px){.flow6{grid-template-columns:1fr 1fr 1fr;}}
+  @media(max-width:520px){.flow6{grid-template-columns:1fr 1fr;}}
+  .fstep{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+  .fstep .n{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .fstep h4{font-size:12.5px;margin-bottom:4px;color:var(--ink);line-height:1.2;}
+  .fstep p{font-size:11px;color:var(--stone);line-height:1.35;}
+  .loopnote{text-align:center;margin-top:14px;font-size:13px;color:var(--accent-deep);font-weight:600;font-style:italic;}
+  .scard-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media(max-width:820px){.scard-grid{grid-template-columns:1fr 1fr;}}
+  .scard{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:18px 16px;text-align:center;}
+  .scard .big{font-family:var(--serif);font-size:32px;font-weight:700;color:var(--accent-deep);line-height:1;margin-bottom:8px;}
+  .scard .lab{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--stone);margin-bottom:4px;}
+  .scard .ctx{font-size:12px;color:var(--stone);line-height:1.35;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr;}}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:13.5px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);background:#E6E5F5;border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#EAF0F7;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#DCE4F5;font-size:15px;max-width:560px;}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--accent-deep);}
+  .src{margin-top:8px;}
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent);color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep);}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:22px 26px;margin:26px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span class="dot">&#10039;</span> AI Blog Explainer</a>
+    <div class="srcbadge">Box</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><g stroke="#fff" stroke-opacity=".18" stroke-width="1.5"><line x1="380" y1="230" x2="250" y2="118"/><line x1="380" y1="230" x2="520" y2="118"/><line x1="380" y1="230" x2="250" y2="342"/><line x1="380" y1="230" x2="520" y2="342"/><line x1="380" y1="230" x2="558" y2="230"/><line x1="380" y1="230" x2="228" y2="230"/></g><circle cx="380" cy="230" r="40" class="hnode"/><circle cx="380" cy="230" r="40" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/><circle cx="380" cy="230" r="6" fill="#fff"/><g fill="#fff"><circle cx="250" cy="118" r="8" fill-opacity=".8"/><circle cx="520" cy="118" r="8" fill-opacity=".8"/><circle cx="250" cy="342" r="8" fill-opacity=".8"/><circle cx="520" cy="342" r="8" fill-opacity=".8"/><circle cx="558" cy="230" r="7" fill-opacity=".7"/><circle cx="228" cy="230" r="7" fill-opacity=".7"/></g></svg>
+  </div>
+  <div class="wrap">
+    <span class="tag">Box &middot; Agents &middot; August 4, 2026</span>
+    <h1>Building a Company Brain That Learns From Every Incident</h1>
+    <p class="lede">Every incident report hides a lesson that usually dies in the ticket. A Box developer built an event-driven agent that extracts the reusable parts, compares them with trusted knowledge, drafts an update, and routes it for human approval.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>Box</strong></div>
+      <div class="m"><span>Topic</span><strong>Agentic workflows &middot; Knowledge</strong></div>
+      <div class="m"><span>Theme</span><strong>Self-updating knowledge</strong></div>
+      <div class="m"><span>Reading time</span><strong>6 min</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
+  <div class="wrap">
+    <div class="tldr" data-tier-anchor>
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li><strong>Knowledge that updates itself</strong> &mdash; a company brain shouldn&rsquo;t only answer questions; it should keep the underlying knowledge current.</li>
+        <li><strong>Triggered by a status change</strong> &mdash; when an incident&rsquo;s metadata flips to Resolved, a Box webhook kicks off the workflow.</li>
+        <li><strong>Extract, compare, decide</strong> &mdash; Box AI pulls structured facts, compares them to a trusted Hub, then recommends update, create, or no change.</li>
+        <li><strong>AI drafts, a human approves</strong> &mdash; nothing publishes to shared knowledge without a Box review task and a person&rsquo;s sign-off.</li>
+        <li><strong>The engineering is the point</strong> &mdash; dedup, version-safety, and recoverable state carry more value than the model calls themselves.</li>
+      </ul>
+    </div>
+    <div class="sowhat">
+      <div class="kick">So what for you</div>
+      <p>The reusable pattern isn&rsquo;t &ldquo;incidents&rdquo; &mdash; it&rsquo;s any place work produces knowledge: support cases, RFPs, investigations, HR questions. <strong>Point an extract-compare-review loop at that exhaust</strong> and your knowledge base improves itself instead of decaying.</p>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The problem</div>
+    <h2>The lesson usually dies in the ticket</h2>
+    <p class="body">Most incident reports contain at least one thing that would help the next engineer &mdash; the misleading symptom, the diagnostic step that finally narrowed it down, the undocumented dependency that turned out to be the culprit. The trouble is that those details stay in the report. The team restores service, closes the incident, and moves on. Months later someone hits the same issue and reconstructs the fix from old reports, Slack threads, and whoever happens to remember.</p>
+    <p class="body">A Box developer advocate built a small Node.js app to make that handoff automatic: it watches for resolved incidents in Box, pulls out the reusable operational details, compares them with an existing knowledge Hub, and drafts a proposed documentation update &mdash; which a human reviews before anything publishes.</p>
+    <p class="lead-quote">A company brain shouldn&rsquo;t only answer questions from what you already know. It should help you keep that knowledge up to date.</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The shape</div>
+    <h2>A feedback loop, not a search box</h2>
+    <div class="figure">
+      <div class="cap">Figure 1 &middot; From new evidence to trusted knowledge</div>
+      <div class="flow6">
+        <div class="fstep"><div class="n">1</div><h4>New evidence</h4><p>A resolved incident flips its metadata status.</p></div>
+        <div class="fstep"><div class="n">2</div><h4>Extract</h4><p>Box AI pulls a defined set of structured facts.</p></div>
+        <div class="fstep"><div class="n">3</div><h4>Compare</h4><p>Match facts against the trusted Hub.</p></div>
+        <div class="fstep"><div class="n">4</div><h4>Propose</h4><p>Recommend update, create, or no change.</p></div>
+        <div class="fstep"><div class="n">5</div><h4>Review</h4><p>A Box task routes it to a human.</p></div>
+        <div class="fstep"><div class="n">6</div><h4>Publish</h4><p>Approved content flows back to the Hub.</p></div>
+      </div>
+      <div class="loopnote">&#8635; The same loop fits resolved escalations, security investigations, RFP answers, and repeated HR questions.</div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">The controls</div>
+    <h2>Three decisions that keep it trustworthy</h2>
+    <div class="grid3">
+      <div class="card"><span class="pill">Restraint</span><h3>NO_CHANGE is an option</h3><p>The compare step can answer UPDATE_EXISTING, CREATE_NEW, or NO_CHANGE. Without that third choice, every incident spawns near-duplicate articles until the knowledge base is noise.</p></div>
+      <div class="card"><span class="pill">Grounding</span><h3>Cite a real article</h3><p>When the model recommends an update, it must cite a target file that actually appears in the Hub results &mdash; the app rejects a filename that exists only in the model&rsquo;s answer.</p></div>
+      <div class="card"><span class="pill">Safety</span><h3>Don&rsquo;t clobber edits</h3><p>It saves the target&rsquo;s version at review time and re-checks before publishing. If someone edited the article meanwhile, it stops and asks for another look instead of overwriting.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">The engineering</div>
+    <h2>Keep the model calls small, the workflow boring</h2>
+    <p class="body">The webhook endpoint stays intentionally tiny: verify the Box signature, store the event, enqueue a job, and return <strong>202 Accepted</strong>. It doesn&rsquo;t call Box AI, upload files, or wait on Slack &mdash; those are slow, and webhook deliveries get retried. A small worker pulls jobs from a queue, deduplicates by event ID, and saves each completed step so a restart resumes from where it stopped rather than starting over.</p>
+    <p class="body">The first AI request doesn&rsquo;t ask for an article; it asks for a fixed set of fields (symptoms, root cause, resolution steps, whether it&rsquo;s safe to reuse). Structured extraction gives the later steps cleaner input and a natural place to add redaction rules. The takeaway: the individual model calls were concise &mdash; most of the value came from the surrounding evidence checks, version safety, state management, and human review.</p>
+  </div>
+</section>
+
+<section style="border-bottom:none;" data-depth="manager">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>Point the loop at your knowledge exhaust</h2>
+        <p>Your teams already produce reusable knowledge every day &mdash; incidents, support cases, investigations, project work. An extract-compare-review loop with a human in the seat turns that exhaust into documentation that improves itself, instead of decaying in closed tickets.</p>
+      </div>
+      <a class="btn" href="https://blog.box.com/building-company-brain-learns-every-incident">Read the post &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){var l=it.querySelector("link");return l?l.textContent.trim():"";}).filter(Boolean);
+    var mine=location.href.split("#")[0].split("?")[0].split("/").pop();
+    var i=-1; for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the Box blog &middot; AI Blog Explainers house style (Claude clay palette, Box accent).</p>
+    <p class="src">Source: <a href="https://blog.box.com/building-company-brain-learns-every-incident">Building a company brain that learns from every incident</a> &mdash; blog.box.com, August 4, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://blog.box.com/building-company-brain-learns-every-incident" target="_blank" rel="noopener" title="Read the original article"
+     style="background:#7A3B29;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:#CC785C;color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={
+    tldr:"Just the five-line summary + the takeaway.",
+    manager:"Summary, why it matters, and what to do — no deep internals.",
+    tech:"Everything, including the full playbook and mechanics."
+  };
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>

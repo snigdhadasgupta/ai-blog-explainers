@@ -1,5 +1,37 @@
 window.__POSTS__ = [
   {
+    "slug": "go-simply-using-ai-leading-its-rollout-box-certified-ai-strategist",
+    "source": "Box",
+    "category": "Enterprise AI",
+    "date": "2026-08-05",
+    "hook": "Lead the rollout.",
+    "body": "Box's free AI Strategist certification trains the layer between using AI and scaling it — readiness, solution design, phased rollout, and governance, across four self-paced courses."
+  },
+  {
+    "slug": "building-company-brain-learns-every-incident",
+    "source": "Box",
+    "category": "Agents",
+    "date": "2026-08-04",
+    "hook": "Knowledge that updates itself.",
+    "body": "A Box agent watches for resolved incidents, extracts the reusable lessons, compares them to trusted docs, and drafts an update — but a human approves before anything publishes."
+  },
+  {
+    "slug": "orchestrating-deep-research-temporal-openai-and-box-ai",
+    "source": "Box",
+    "category": "Agents",
+    "date": "2026-07-30",
+    "hook": "Durable by design.",
+    "body": "Temporal, OpenAI, and Box AI turn one cross-market question into multilingual research, cited synthesis, and a governed research pack — with recoverable state so failures don't lose work."
+  },
+  {
+    "slug": "july-2026-workspace-feature-drop",
+    "source": "Google Workspace",
+    "category": "Productivity",
+    "date": "2026-07-29",
+    "hook": "Creation moves in-app.",
+    "body": "Google's July drop generates on-brand decks in Slides, scripted avatar videos in Vids, and diagrams plus comment actions in Docs — and puts Meet hands-free on Android Auto."
+  },
+  {
     "slug": "a-guide-to-cost-visibility-and-control-in-claude",
     "source": "Claude",
     "category": "Enterprise AI",
