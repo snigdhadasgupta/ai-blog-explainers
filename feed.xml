@@ -5,7 +5,31 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Aug 2026 23:42:02 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2026 23:19:46 +0000</lastBuildDate>
+    <item>
+      <title>Box + ServiceNow: A Governed Content Layer for Agents</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/unlocking-autonomous-ai-and-content-intelligence-box-and-servicenow-deepen-partnership.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/unlocking-autonomous-ai-and-content-intelligence-box-and-servicenow-deepen-partnership.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 06 Aug 2026 16:00:00 +0000</pubDate>
+      <description>Box deepens its ServiceNow partnership — a vetted MCP registry, classification-aware AI agents, and Spoke automation that keep unstructured content governed as agents put it to work across the Now Platform.</description>
+    </item>
+    <item>
+      <title>Why Data Fragmentation Stalls Enterprise Agentic AI</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/why-does-data-fragmentation-prevent-enterprises-scaling-agentic-ai.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/why-does-data-fragmentation-prevent-enterprises-scaling-agentic-ai.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 06 Aug 2026 15:00:00 +0000</pubDate>
+      <description>83% of enterprises run AI agents but only 19% at scale. Box's State of AI 2026 argues the blocker isn't the model — it's fragmented content agents can't reach — and lays out a five-step fix.</description>
+    </item>
+    <item>
+      <title>Inference Hooks: Inline DLP for Claude Enterprise</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-enterprise-inference-hooks.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-enterprise-inference-hooks.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 05 Aug 2026 17:00:00 +0000</pubDate>
+      <description>Claude Enterprise routes every prompt and tool-call response through your own DLP server before it reaches the model — one webhook-based enforcement layer across chat, Claude Code, and Cowork.</description>
+    </item>
     <item>
       <title>Box Certified AI Strategist: Lead the Rollout, Not Just the Tool</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/go-simply-using-ai-leading-its-rollout-box-certified-ai-strategist.html</link>
@@ -45,6 +69,14 @@
       <category>OpenAI</category>
       <pubDate>Mon, 03 Aug 2026 13:00:00 +0000</pubDate>
       <description>GPT-Live drops the turn detector for a full-duplex voice model, splits talking from thinking with async delegation to frontier models, and collapses WebRTC startup from six round trips to one.</description>
+    </item>
+    <item>
+      <title>Browserbase + Box: Reach and Memory for Agents</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/browserbase-box-give-agents-reach-they-need-reason.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/browserbase-box-give-agents-reach-they-need-reason.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 30 Jul 2026 16:00:00 +0000</pubDate>
+      <description>Agents can reason but stall without reach. Browserbase gives them the live web (85% of which has no API); Box gives them a governed place to preserve evidence and hand off to a human.</description>
     </item>
     <item>
       <title>Agentic Guardrails: The Next Stage of AI Governance Is Control</title>

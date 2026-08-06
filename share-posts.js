@@ -1,5 +1,29 @@
 window.__POSTS__ = [
   {
+      "slug": "unlocking-autonomous-ai-and-content-intelligence-box-and-servicenow-deepen-partnership",
+      "source": "Box",
+      "category": "Agents",
+      "date": "2026-08-06",
+      "hook": "Content Meets Process",
+      "body": "Box deepens its ServiceNow partnership with a vetted MCP registry, classification-aware AI agents, and Spoke automation — keeping enterprise content governed as agents put it to work."
+  },
+  {
+      "slug": "why-does-data-fragmentation-prevent-enterprises-scaling-agentic-ai",
+      "source": "Box",
+      "category": "Enterprise AI",
+      "date": "2026-08-06",
+      "hook": "83% Run, 19% Scale",
+      "body": "Box's State of AI 2026 says the blocker to scaling agentic AI isn't the model — it's fragmented content agents can't reach. The fix is a permission-aware content layer."
+  },
+  {
+      "slug": "claude-enterprise-inference-hooks",
+      "source": "Claude",
+      "category": "AI Governance",
+      "date": "2026-08-05",
+      "hook": "Every Prompt, Inspected",
+      "body": "Inference hooks routes every prompt and tool-call response through your own DLP server before it reaches Claude — one enforcement layer across chat, Claude Code, and Cowork."
+  },
+  {
     "slug": "go-simply-using-ai-leading-its-rollout-box-certified-ai-strategist",
     "source": "Box",
     "category": "Enterprise AI",
@@ -54,6 +78,14 @@ window.__POSTS__ = [
     "date": "2026-08-03",
     "hook": "No turn, no wait",
     "body": "GPT-Live drops the turn detector for a full-duplex voice model, delegates deep reasoning to a frontier model in the background, and starts a call in a single round trip."
+  },
+  {
+      "slug": "browserbase-box-give-agents-reach-they-need-reason",
+      "source": "Box",
+      "category": "Agents",
+      "date": "2026-07-30",
+      "hook": "Reach, Then Reason",
+      "body": "85% of the web has no API. Browserbase gives agents a real browser to reach it; Box gives them a governed place to preserve what they find and hand off to a human."
   },
   {
     "slug": "agentic-guardrails-next-stage-ai-governance-control",
