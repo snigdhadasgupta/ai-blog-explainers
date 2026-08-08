@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Self-Hosted Environments for Claude Code">
+<meta property="og:description" content="Now in public beta: run Claude Code sessions inside your own network, next to internal services and security controls, so source code and build artifacts stay on infrastructure you control.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/run-claude-code-sessions-on-your-own-compute.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/run-claude-code-sessions-on-your-own-compute.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/run-claude-code-sessions-on-your-own-compute.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Self-Hosted Environments for Claude Code">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/run-claude-code-sessions-on-your-own-compute.png">
+<title>Self-Hosted Environments for Claude Code — Explainer</title>
+<style>
+  :root{
+    --clay:#CC785C;--clay-dark:#A8543C;--clay-deep:#7A3B29;--ink:#1F1B18;--slate:#3D3733;--stone:#6B6259;--cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--line:#DED6C7;
+    --accent:#CC785C;--accent-deep:#7A3B29;
+    --serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
+  .hero{background:linear-gradient(160deg,#241813 0%,#5E2E20 55%,var(--accent-deep) 100%);color:#F6ECE6;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent);}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#EBC3B3;border:1px solid rgba(235,195,179,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#F0DED5;max-width:720px;}
+  .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(246,236,230,.18);font-size:13px;}
+  .meta .m span{display:block;color:#DCA891;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#F8EFE9;font-size:14px;}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16px;color:var(--slate);margin-bottom:12px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:720px){.split{grid-template-columns:1fr;}}
+  .splitcol{border:1px solid var(--line);border-radius:12px;padding:18px 18px 8px;}
+  .splitcol.local{background:#F3EDE3;}
+  .splitcol.cloud{background:var(--cream);}
+  .splitcol h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:12px;}
+  .splitcol ul{list-style:none;}
+  .splitcol li{font-size:13.5px;color:var(--slate);padding:7px 0 7px 20px;position:relative;border-top:1px solid var(--line);}
+  .splitcol li:first-of-type{border-top:none;}
+  .splitcol li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:8px;border-radius:50%;background:var(--accent);}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:13.5px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);background:#F3E0D7;border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#F6ECE6;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#F0DED5;font-size:15px;max-width:560px;}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--accent-deep);}
+  .src{margin-top:8px;}
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent);color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep);}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:22px 26px;margin:26px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span class="dot">&#10039;</span> AI Blog Explainer</a>
+    <div class="srcbadge">Claude</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><circle cx="380" cy="230" r="224" fill="none" stroke="#fff" stroke-opacity=".09" stroke-width="1.5"/><circle cx="380" cy="230" r="170" fill="none" stroke="#fff" stroke-opacity=".15" stroke-width="1.5"/><circle cx="380" cy="230" r="116" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/><circle cx="380" cy="230" r="64" class="hnode"/><circle cx="380" cy="230" r="64" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2"/><circle cx="380" cy="230" r="7" fill="#fff"/><circle cx="550" cy="230" r="5" fill="#fff" fill-opacity=".6"/><circle cx="210" cy="230" r="5" fill="#fff" fill-opacity=".6"/></svg>
+  </div>
+  <div class="wrap">
+    <span class="tag">Claude &middot; Enterprise AI &middot; August 6, 2026</span>
+    <h1>Self-Hosted Environments for Claude Code</h1>
+    <p class="lede">Now in public beta, self-hosted environments let Claude Code sessions run on your own infrastructure &mdash; inside your network, next to your internal services and security controls &mdash; so repository checkouts, build artifacts, and secrets never leave infrastructure you control.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>Claude</strong></div>
+      <div class="m"><span>Topic</span><strong>Deployment &middot; Compliance</strong></div>
+      <div class="m"><span>Status</span><strong>Public beta</strong></div>
+      <div class="m"><span>Reading time</span><strong>5 min</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
+  <div class="wrap">
+    <div class="tldr" data-tier-anchor>
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li><strong>Run agents on your own compute</strong> &mdash; a public beta that executes Claude Code sessions inside your network rather than on Anthropic-hosted infrastructure.</li>
+        <li><strong>Built for three needs</strong> &mdash; reaching internal services without public exposure, pre-installing your toolchain, and keeping source code and build artifacts on infrastructure you control.</li>
+        <li><strong>Code stays, conversation travels</strong> &mdash; checkouts, artifacts, and secrets stay local; prompts, responses, and tool results (which can include code Claude reads) still go to Anthropic for inference.</li>
+        <li><strong>Runners do the work</strong> &mdash; long-lived processes pick up sessions in fixed or on-demand modes, each session isolated in its own checkout.</li>
+        <li><strong>Not the default choice</strong> &mdash; Anthropic still recommends its hosted option for most enterprises; self-hosting is for network, tooling, or compliance requirements and needs a team to own it.</li>
+      </ul>
+    </div>
+    <div class="sowhat">
+      <div class="kick">So what for you</div>
+      <p>If your blocker to adopting coding agents is &ldquo;our code and build systems can&rsquo;t leave our network,&rdquo; this removes it &mdash; but <strong>budget for a platform team to build and maintain the runner image and orchestration.</strong> If you don&rsquo;t have that constraint, the managed hosted option is simpler and the recommended path.</p>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">Why it exists</div>
+    <h2>When agent execution has to stay inside your walls</h2>
+    <p class="body">Some teams can&rsquo;t send agent execution to a vendor&rsquo;s cloud &mdash; their network, tooling, or compliance rules require keeping it on infrastructure they operate. Self-hosted environments answer that: a session started from web, mobile, desktop, or a routine runs next to your internal services, toolchains, and security controls. Anthropic is explicit that this isn&rsquo;t the path for everyone &mdash; most enterprises should take the hosted offering for operational simplicity &mdash; but for the teams that need it, it closes a real gap.</p>
+    <div class="grid3">
+      <div class="card"><span class="pill">Network</span><h3>Reach internal systems</h3><p>Sessions run inside your network and can reach internal services, databases, and registries without exposing them to the public internet.</p></div>
+      <div class="card"><span class="pill">Customizability</span><h3>Pre-loaded toolchain</h3><p>Pre-install compilers, SDKs, and internal CLIs so every session starts ready to build in your environment.</p></div>
+      <div class="card"><span class="pill">Compliance</span><h3>Artifacts stay put</h3><p>Source code and build artifacts remain on infrastructure you control, satisfying data-residency and compliance requirements.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The honest boundary</div>
+    <h2>What stays local &mdash; and what still leaves</h2>
+    <div class="figure">
+      <div class="cap">Figure 1 &middot; Where each piece lives</div>
+      <div class="split">
+        <div class="splitcol local">
+          <h4>Stays on your infrastructure</h4>
+          <ul>
+            <li>Repository checkouts</li>
+            <li>Build artifacts</li>
+            <li>Secrets</li>
+            <li>Any files a session creates or modifies</li>
+          </ul>
+        </div>
+        <div class="splitcol cloud">
+          <h4>Sent to Anthropic for inference</h4>
+          <ul>
+            <li>Prompts and responses</li>
+            <li>Tool results &mdash; which can include code Claude reads</li>
+            <li>The stored session transcript (so a session resumes from any surface)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="body">The distinction matters for a compliance review: self-hosting controls where your <em>code and build outputs</em> live and run, not whether the model sees the text of a conversation. The transcript is retained so work can be picked up from web, mobile, or desktop.</p>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2>Runners, in two modes</h2>
+    <p class="body">You deploy a set of <em>runners</em> &mdash; long-lived processes that pick up sessions and start a Claude Code process for each one. A runner can serve more than one session, but each session runs in its own checkout, so work stays isolated between developers and accounts. Sessions from every supported surface route to the same environment, so you set it up once.</p>
+    <div class="grid2">
+      <div class="card"><span class="pill">Mode 1</span><h3>Fixed</h3><p>You keep a set number of runners running and sessions are distributed across them &mdash; simple and predictable capacity.</p></div>
+      <div class="card"><span class="pill">Mode 2</span><h3>On-demand</h3><p>An orchestrator watches for queued sessions, starts a runner as work arrives, and stops it when work finishes &mdash; so capacity tracks demand.</p></div>
+    </div>
+    <p class="body" style="margin-top:18px;">This differs from <strong>Remote Control</strong>, which lets a developer continue a session running on their own machine from a phone or browser and ends when that machine stops. Self-hosted environments run on shared infrastructure your platform team operates and can be used by any user.</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">Before you turn it on</div>
+    <h2>What availability and ownership look like</h2>
+    <p class="body">Self-hosted environments are available in public beta to organizations on Claude Team and Enterprise plans. They&rsquo;re off by default and not available for organizations using zero-data-retention (ZDR). Plan for a platform, developer-experience, or developer-productivity team to own setup and ongoing operation &mdash; building and maintaining the runner image, updating runners, and running the orchestrator if you use on-demand mode.</p>
+    <p class="lead-quote">Self-hosted environments let us integrate Claude Code into our existing workflows while maintaining our security and operational controls. &mdash; George Jacob, Senior Engineering Manager, Faire</p>
+  </div>
+</section>
+
+<section style="border-bottom:none;" data-depth="manager">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>What to do about it</h2>
+        <p>Map your requirement first: if a compliance or network rule blocks vendor-hosted agent execution, pilot self-hosted environments and staff a platform owner for the runner image and orchestration. If not, default to the managed hosted offering &mdash; it&rsquo;s the simpler, recommended route with nothing to maintain.</p>
+      </div>
+      <a class="btn" href="https://claude.com/blog/run-claude-code-sessions-on-your-own-compute">Read the post &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){var l=it.querySelector("link");return l?l.textContent.trim():"";}).filter(Boolean);
+    var mine=location.href.split("#")[0].split("?")[0].split("/").pop();
+    var i=-1; for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the Claude blog &middot; AI Blog Explainers house style (Claude clay palette).</p>
+    <p class="src">Source: <a href="https://claude.com/blog/run-claude-code-sessions-on-your-own-compute">Run Claude Code sessions on your own compute</a> &mdash; claude.com/blog, August 6, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://claude.com/blog/run-claude-code-sessions-on-your-own-compute" target="_blank" rel="noopener" title="Read the original article"
+     style="background:#7A3B29;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:#CC785C;color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={
+    tldr:"Just the five-line summary + the takeaway.",
+    manager:"Summary, why it matters, and what to do — no deep internals.",
+    tech:"Everything, including runner modes and data boundaries."
+  };
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>

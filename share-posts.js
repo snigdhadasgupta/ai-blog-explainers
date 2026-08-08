@@ -1,5 +1,29 @@
 window.__POSTS__ = [
   {
+      "slug": "auto-mode-default-in-claude-code",
+      "source": "Claude",
+      "category": "AI Governance",
+      "date": "2026-08-07",
+      "hook": "Safer Than Clicking Yes",
+      "body": "Claude Code makes auto mode the default for Pro, Max, and Team plans. A safety classifier caught 89% of dangerous commands in testing — versus 13.6% for human review."
+  },
+  {
+      "slug": "millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude",
+      "source": "Claude",
+      "category": "Case Study",
+      "date": "2026-08-06",
+      "hook": "AI On The Risk Desk",
+      "body": "Anthropic and Millennium are co-developing a digital risk analyst that explains daily risk changes across asset classes — with human managers validating and approving every call."
+  },
+  {
+      "slug": "run-claude-code-sessions-on-your-own-compute",
+      "source": "Claude",
+      "category": "Enterprise AI",
+      "date": "2026-08-06",
+      "hook": "Your Network, Your Compute",
+      "body": "Claude Code sessions can now run inside your own network, next to internal services and security controls — so source code and build artifacts never leave infrastructure you control."
+  },
+  {
       "slug": "unlocking-autonomous-ai-and-content-intelligence-box-and-servicenow-deepen-partnership",
       "source": "Box",
       "category": "Agents",
