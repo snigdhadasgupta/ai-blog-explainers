@@ -1,5 +1,13 @@
 window.__POSTS__ = [
   {
+      "slug": "auto-mode-in-production",
+      "source": "Claude",
+      "category": "Case Study",
+      "date": "2026-08-07",
+      "hook": "Proven In Production",
+      "body": "Nuro, Gusto, and Garner Health made Claude Code's auto mode their daily driver — a safety classifier vets every command, keeping sessions running 9x longer between interruptions while deny-lists and human review guard the irreversible."
+  },
+  {
       "slug": "auto-mode-default-in-claude-code",
       "source": "Claude",
       "category": "AI Governance",

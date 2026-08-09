@@ -5,7 +5,15 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Aug 2026 02:29:14 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Auto Mode in Production: Nuro, Gusto &amp; Garner Health</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/auto-mode-in-production.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/auto-mode-in-production.html</guid>
+      <category>Claude</category>
+      <pubDate>Fri, 07 Aug 2026 17:00:00 +0000</pubDate>
+      <description>Three engineering teams run Claude Code's auto mode as their daily driver — a safety classifier vets every command, sessions run 9x longer between interruptions, and deny-lists plus human review still guard production infrastructure.</description>
+    </item>
     <item>
       <title>Auto Mode Becomes Claude Code's Default</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/auto-mode-default-in-claude-code.html</link>
