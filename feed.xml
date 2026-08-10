@@ -5,7 +5,15 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Aug 2026 09:15:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2026 15:45:00 +0000</lastBuildDate>
+    <item>
+      <title>Multi-Agent Orchestration, Explained</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/multi-agent-orchestration-explained.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/multi-agent-orchestration-explained.html</guid>
+      <category>Box</category>
+      <pubDate>Fri, 07 Aug 2026 17:00:00 +0000</pubDate>
+      <description>How coordinated AI agents split a job, hand off to each other, and finish complex enterprise content workflows — Box&apos;s take: it only scales on governed, permission-aware content, with guardrails and an audit trail.</description>
+    </item>
     <item>
       <title>Auto Mode Becomes Claude Code's Default</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/auto-mode-default-in-claude-code.html</link>

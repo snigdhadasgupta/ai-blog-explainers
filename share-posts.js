@@ -1,5 +1,13 @@
 window.__POSTS__ = [
   {
+      "slug": "multi-agent-orchestration-explained",
+      "source": "Box",
+      "category": "Agentic AI",
+      "date": "2026-08-07",
+      "hook": "One Job, Many Agents",
+      "body": "Multi-agent orchestration splits a task across specialized agents that hand off to each other. Box's point: it only scales when they run on governed, permission-aware content."
+  },
+  {
       "slug": "auto-mode-default-in-claude-code",
       "source": "Claude",
       "category": "AI Governance",
