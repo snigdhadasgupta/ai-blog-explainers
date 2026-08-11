@@ -5,7 +5,15 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Aug 2026 18:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Aug 2026 07:15:00 +0000</lastBuildDate>
+    <item>
+      <title>OpenAI’s Daybreak Cyber Models Land on AWS</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/daybreak-models-are-now-available-on-aws.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/daybreak-models-are-now-available-on-aws.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Tue, 11 Aug 2026 20:00:00 +0000</pubDate>
+      <description>OpenAI’s Daybreak Blue and Red cybersecurity models are now available through Amazon Bedrock, letting authorized defenders run frontier cyber AI inside the AWS security, governance, and access controls they already operate.</description>
+    </item>
     <item>
       <title>Agents Will Route Around Your Guardrails</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/your-ai-agents-will-do-whatever-it-takes-achieve-their-goal-plan-accordingly.html</link>

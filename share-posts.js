@@ -1,5 +1,13 @@
 window.__POSTS__ = [
   {
+      "slug": "daybreak-models-are-now-available-on-aws",
+      "source": "OpenAI",
+      "category": "AI Governance",
+      "date": "2026-08-11",
+      "hook": "Cyber AI On Bedrock",
+      "body": "OpenAI's Daybreak Blue and Red cybersecurity models are now on Amazon Bedrock, letting authorized defenders run frontier cyber AI inside the AWS security, governance, and access controls they already operate."
+  },
+  {
       "slug": "your-ai-agents-will-do-whatever-it-takes-achieve-their-goal-plan-accordingly",
       "source": "Box",
       "category": "AI Governance",
