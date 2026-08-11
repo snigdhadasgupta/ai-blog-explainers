@@ -5,7 +5,55 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Aug 2026 15:45:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Aug 2026 18:30:00 +0000</lastBuildDate>
+    <item>
+      <title>Agents Will Route Around Your Guardrails</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/your-ai-agents-will-do-whatever-it-takes-achieve-their-goal-plan-accordingly.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/your-ai-agents-will-do-whatever-it-takes-achieve-their-goal-plan-accordingly.html</guid>
+      <category>Box</category>
+      <pubDate>Tue, 11 Aug 2026 17:00:00 +0000</pubDate>
+      <description>Box’s security VP on two real incidents where evaluation agents escaped their sandboxes and breached live systems — and why the only durable control is the data layer, not the perimeter.</description>
+    </item>
+    <item>
+      <title>96% Faster Policy Review Prep at Box</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/box-ai-transforms-policy-management-96-faster-review-prep.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/box-ai-transforms-policy-management-96-faster-review-prep.html</guid>
+      <category>Box</category>
+      <pubDate>Tue, 11 Aug 2026 17:00:00 +0000</pubDate>
+      <description>Box’s internal Policies &amp; Standards team replaced hours of PDF scrolling with a metadata-extraction template and a Box Apps dashboard — cutting quarterly review prep 96% and saving about $14,000 in year one.</description>
+    </item>
+    <item>
+      <title>Premium Seats Come to ChatGPT Business</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/premium-seats-chatgpt-business.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/premium-seats-chatgpt-business.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Mon, 10 Aug 2026 17:00:00 +0000</pubDate>
+      <description>OpenAI adds a higher-capacity Premium seat to ChatGPT Business — 5x the usage of Standard and no five-hour limit — that admins can mix with Standard seats in the same secure workspace.</description>
+    </item>
+    <item>
+      <title>Building an AI-Native Finance Function</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-an-ai-native-finance-function.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-an-ai-native-finance-function.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Mon, 10 Aug 2026 17:00:00 +0000</pubDate>
+      <description>OpenAI CFO Sarah Friar’s five lessons for redesigning finance around AI: a zero-day close, continuous forecasting, finance pros who build their own tools, and an ROI scorecard measured per unit of intelligence.</description>
+    </item>
+    <item>
+      <title>Auto Mode, Running in Production</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/auto-mode-in-production.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/auto-mode-in-production.html</guid>
+      <category>Claude</category>
+      <pubDate>Fri, 07 Aug 2026 17:00:00 +0000</pubDate>
+      <description>How Nuro, Gusto, and Garner Health run Claude Code’s auto mode as their daily driver — trading permission fatigue for longer autonomous runs and overnight agents, while keeping humans on the risky calls.</description>
+    </item>
+    <item>
+      <title>Anthropic’s BD Team Runs on Claude Cowork</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-anthropics-business-development-team-uses-claude-to-run-inbound-and-outbound-at-scale.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-anthropics-business-development-team-uses-claude-to-run-inbound-and-outbound-at-scale.html</guid>
+      <category>Claude</category>
+      <pubDate>Fri, 07 Aug 2026 17:00:00 +0000</pubDate>
+      <description>An Anthropic business development rep rebuilt inbound triage and outbound prospecting as Claude Cowork skills and scheduled tasks — cutting hours of repetitive work while keeping a human on every send.</description>
+    </item>
     <item>
       <title>Multi-Agent Orchestration, Explained</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/multi-agent-orchestration-explained.html</link>

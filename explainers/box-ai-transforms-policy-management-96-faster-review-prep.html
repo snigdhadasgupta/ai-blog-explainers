@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="96% Faster Policy Review Prep at Box">
+<meta property="og:description" content="Box's internal team replaced quarterly PDF scrolling with a metadata-extraction template and a Box Apps dashboard — cutting policy review prep 96% and saving about $14,000 in year one.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/box-ai-transforms-policy-management-96-faster-review-prep.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/box-ai-transforms-policy-management-96-faster-review-prep.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/box-ai-transforms-policy-management-96-faster-review-prep.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="96% Faster Policy Review Prep at Box">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/box-ai-transforms-policy-management-96-faster-review-prep.png">
+<title>Box Policy Management, 96% Faster — Explainer</title>
+<style>
+  :root{
+    --clay:#CC785C;--clay-dark:#A8543C;--clay-deep:#7A3B29;--ink:#1F1B18;--slate:#3D3733;--stone:#6B6259;--cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--line:#DED6C7;
+    --accent:#3D3AAE;--accent-deep:#2A2882;
+    --serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--accent);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--accent);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
+  .hero{background:linear-gradient(160deg,#14131F 0%,#232066 55%,#2A2882 100%);color:#F3EEE7;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent);}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#ECE3DA;border:1px solid rgba(255,255,255,.34);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#E9E1D7;max-width:720px;}
+  .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);font-size:13px;}
+  .meta .m span{display:block;color:rgba(255,255,255,.62);letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#FBF7F2;font-size:14px;}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16px;color:var(--slate);margin-bottom:12px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:stretch;}
+  @media(max-width:820px){.flow{grid-template-columns:1fr 1fr;}}
+  .fstep{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+  .fstep .n{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .fstep h4{font-size:12.5px;margin-bottom:4px;color:var(--ink);line-height:1.2;}
+  .fstep p{font-size:11px;color:var(--stone);line-height:1.35;}
+  .loopnote{text-align:center;margin-top:14px;font-size:13px;color:var(--accent-deep);font-weight:600;font-style:italic;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr;}}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:13.5px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);background:var(--sand);border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .scards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+  @media(max-width:820px){.scards{grid-template-columns:1fr;}}
+  .scard{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px 22px;}
+  .scard .big{font-family:var(--serif);font-size:34px;font-weight:700;color:var(--accent-deep);line-height:1;margin-bottom:8px;}
+  .scard .meas{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--stone);margin-bottom:6px;}
+  .scard .bench{font-size:13px;color:var(--ink);font-weight:600;margin-bottom:4px;}
+  .scard .ctx{font-size:12.5px;color:var(--stone);line-height:1.4;}
+  .tnrow{border-top:1px solid var(--line);padding:14px 0;}
+  .tnrow:first-child{border-top:none;}
+  .tnrow .lbl{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--ink);font-size:14px;}
+  .tnrow .lbl .rule{flex:1;height:1px;background:var(--line);}
+  .tnrow .lbl .tag2{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);background:var(--sand);border-radius:100px;padding:3px 10px;}
+  .tnrow p{font-size:13.5px;color:var(--stone);margin-top:6px;max-width:760px;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#F1ECE4;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#ECE6DE;font-size:15px;max-width:560px;}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--accent-deep);}
+  .src{margin-top:8px;}
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent);color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep);}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:22px 26px;margin:26px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span class="dot">&#10039;</span> AI Blog Explainer</a>
+    <div class="srcbadge">Box</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><path d="M 258 320 A 140 140 0 1 1 502 320" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="16" stroke-linecap="round"/><g stroke="#fff" stroke-opacity=".3" stroke-width="3"><line x1="380" y1="196" x2="380" y2="172"/><line x1="300" y1="228" x2="278" y2="220"/><line x1="460" y1="228" x2="482" y2="220"/></g><line x1="380" y1="300" x2="330" y2="228" stroke="#fff" stroke-opacity=".6" stroke-width="7" stroke-linecap="round"/><circle cx="380" cy="300" r="16" class="hnode"/></svg>
+  </div>
+  <div class="wrap">
+    <span class="tag">Box &middot; Case Study &middot; August 11, 2026</span>
+    <h1>96% Faster Policy Review Prep at Box</h1>
+    <p class="lede">Box&rsquo;s internal Policies &amp; Standards team replaced hours of PDF scrolling with a metadata-extraction template and a Box Apps dashboard &mdash; cutting quarterly review prep 96% and saving roughly $14,000 in year one.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>Box</strong></div>
+      <div class="m"><span>Topic</span><strong>AI Research &middot; Compliance</strong></div>
+      <div class="m"><span>Theme</span><strong>Content-to-metadata automation</strong></div>
+      <div class="m"><span>Reading time</span><strong>5 min</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
+  <div class="wrap">
+    <div class="tldr" data-tier-anchor>
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li><strong>Nearly 100 policies</strong> &mdash; once needed manual PDF scrolling every quarter to pull owners, sign-off dates, and approvers.</li>
+        <li><strong>A metadata template</strong> &mdash; extracts the key fields straight from each PDF into a searchable Box Apps dashboard.</li>
+        <li><strong>Prep dropped 96%</strong> &mdash; a quarter&rsquo;s setup fell from about 12 hours to roughly 2, saving an estimated $14,000 in year one.</li>
+        <li><strong>A self-service Box Hub</strong> &mdash; lets employees find and ask policies directly &mdash; over 6,200 views since launch.</li>
+        <li><strong>Box Automate is next</strong> &mdash; triggering review tickets and assigning owners from the same metadata, with people still in control.</li>
+      </ul>
+    </div>
+    <div class="sowhat">
+      <div class="kick">So what for you</div>
+      <p>For any recurring compliance task buried in documents, the reframe that pays off is &ldquo;how do we make our content answer this itself?&rdquo; <strong>Extract structured metadata once</strong> and let a dashboard stay current instead of re-typing spreadsheets each quarter.</p>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The invisible quarterly grind</div>
+    <h2>Work that&rsquo;s costly only when it goes wrong</h2>
+    <p class="body">Every quarter, Box&rsquo;s Policies &amp; Standards team manually opened each of nearly 100 policies, scrolled to signature pages, and pulled the details that mattered: who owned it, when it was last signed, and whether it was due for review. Ownership data lived across PDFs, Box Notes, spreadsheets, and someone&rsquo;s memory &mdash; there was no single source of truth.</p><p class="body">The stakes were real: a missed review could jeopardize a certification renewal or shake a customer&rsquo;s confidence that Box meets its compliance obligations. So the team built a metadata template that turns every policy PDF into structured, searchable data feeding a reliable inventory dashboard.</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The payoff</div>
+    <h2>By the numbers</h2>
+    <div class="figure"><div class="cap">Figure 1 &middot; Year-one results</div><div class="scards"><div class="scard"><div class="big">96%</div><div class="meas">Less prep time</div><div class="bench">Annual review setup</div><div class="ctx">Repetitive PDF lookups replaced by automated metadata extraction.</div></div><div class="scard"><div class="big">12h &rarr; 2h</div><div class="meas">Per quarter</div><div class="bench">A ~25-policy batch</div><div class="ctx">Each policy once needed 15&ndash;30 minutes of manual research to verify.</div></div><div class="scard"><div class="big">$14K</div><div class="meas">Saved, year one</div><div class="bench">~$12K from lookups alone</div><div class="ctx">Plus fewer transcription errors, since data comes straight from the source document.</div></div><div class="scard"><div class="big">6,200+</div><div class="meas">Box Hub views</div><div class="bench">Since the April 2025 launch</div><div class="ctx">A self-service portal employees use to find and ask about policies.</div></div></div></div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">Then &amp; now</div>
+    <h2>One reframe changed the whole job</h2>
+    <div class="tnrow"><div class="lbl"><span class="tag2">Before</span> Manual tracking<span class="rule"></span></div><p>Excel plus the policy PDFs themselves &mdash; scroll each document, extract the last-update date, owner, and approver names by hand. By the time it was done, it was already out of date.</p></div><div class="tnrow"><div class="lbl"><span class="tag2">After</span> A single source of truth<span class="rule"></span></div><p>A metadata template pulls the most accurate data straight from each PDF into a Box Apps dashboard that stays current in real time &mdash; the team&rsquo;s most reliable policy inventory.</p></div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">How the template works</div>
+    <h2>From PDF to dashboard to self-service</h2>
+    <p class="body">The template tells the system exactly what to pull from each document, and where:</p><div class="grid3"><div class="card"><span class="pill">Extract</span><h3>Fields, by location</h3><p>Policy ID from the header, organization from the footer, policy name from the title page, change and reason from the revision-history table, and owner, approvers, and last signature date from the final approvals page.</p></div><div class="card"><span class="pill">Organize</span><h3>Box Apps dashboard</h3><p>Extracted metadata feeds a custom dashboard that sorts ~100 policies by quarter and by org &mdash; no manual sorting, and the data updates in real time.</p></div><div class="card"><span class="pill">Self-serve</span><h3>Box Hub + AI answers</h3><p>Employees search and read policies directly, and ask the AI agent a plain question &mdash; e.g., the policy on traveling with company equipment &mdash; getting an answer pulled straight from the relevant policy.</p></div></div><p class="body" style="margin-top:22px;">Next up, in pilot: a Box Automate workflow that triggers each review and assigns ownership automatically from the same metadata &mdash; turning error-prone busywork into a workflow the team can trust, with people still owning key decisions.</p>
+  </div>
+</section>
+
+<section style="border-bottom:none;" data-depth="manager">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>The lesson beyond the tooling</h2>
+        <p>Instead of asking &ldquo;how do we hire more people to keep up with this?&rdquo; the team asked &ldquo;how do we make our existing content answer these questions itself?&rdquo; That reframe turned a recurring quarterly headache into a problem that largely solves itself &mdash; a template other teams can copy.</p>
+      </div>
+      <a class="btn" href="https://blog.box.com/box-ai-transforms-policy-management-96-faster-review-prep">Read the case study &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:var(--accent-deep);text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:var(--accent-deep);text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:var(--accent-deep);text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){var l=it.querySelector("link");return l?l.textContent.trim():"";}).filter(Boolean);
+    var mine=location.href.split("#")[0].split("?")[0].split("/").pop();
+    var i=-1; for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the Box post &middot; AI Blog Explainers house style.</p>
+    <p class="src">Source: <a href="https://blog.box.com/box-ai-transforms-policy-management-96-faster-review-prep">Box AI transforms policy management with 96% faster review prep</a> &mdash; blog.box.com, August 11, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://blog.box.com/box-ai-transforms-policy-management-96-faster-review-prep" target="_blank" rel="noopener" title="Read the original article"
+     style="background:var(--accent-deep);color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={
+    tldr:"Just the five-line summary + the takeaway.",
+    manager:"Summary, why it matters, and what to do — no deep internals.",
+    tech:"Everything, including the full playbook and details."
+  };
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>

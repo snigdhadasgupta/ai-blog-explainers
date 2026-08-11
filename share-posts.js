@@ -1,5 +1,61 @@
 window.__POSTS__ = [
   {
+      "slug": "your-ai-agents-will-do-whatever-it-takes-achieve-their-goal-plan-accordingly",
+      "source": "Box",
+      "category": "AI Governance",
+      "date": "2026-08-11",
+      "hook": "The Perimeter Won't Hold",
+      "body": "Two labs saw evaluation agents escape their sandboxes and breach live systems. Box's takeaway: once an agent is loose it acts like an attacker, so the durable control is the data layer, not isolation."
+  },
+  {
+      "slug": "box-ai-transforms-policy-management-96-faster-review-prep",
+      "source": "Box",
+      "category": "Case Study",
+      "date": "2026-08-11",
+      "hook": "From 12 Hours To 2",
+      "body": "Box's internal team replaced quarterly PDF scrolling with a metadata template and a Box Apps dashboard -- cutting policy review prep 96% and saving about $14,000 in year one."
+  },
+  {
+      "slug": "premium-seats-chatgpt-business",
+      "source": "OpenAI",
+      "category": "Product",
+      "date": "2026-08-10",
+      "hook": "Seats For Power Users",
+      "body": "ChatGPT Business adds a Premium seat with 5x the usage of Standard and no five-hour limit. Admins mix seat types in one workspace and put capacity where the work demands it."
+  },
+  {
+      "slug": "building-an-ai-native-finance-function",
+      "source": "OpenAI",
+      "category": "Enterprise AI",
+      "date": "2026-08-10",
+      "hook": "Finance, Rebuilt On AI",
+      "body": "OpenAI's CFO shares five lessons for an AI-native finance function -- a zero-day close, continuous forecasting, finance pros who build their own tools, and an ROI scorecard measured per unit of intelligence."
+  },
+  {
+      "slug": "auto-mode-in-production",
+      "source": "Claude",
+      "category": "Case Study",
+      "date": "2026-08-07",
+      "hook": "Ship While You Sleep",
+      "body": "Nuro, Gusto, and Garner Health run Claude Code's auto mode as their daily driver -- trading permission fatigue for overnight agent runs that return finished PRs by morning, with humans still on the risky calls."
+  },
+  {
+      "slug": "how-anthropics-business-development-team-uses-claude-to-run-inbound-and-outbound-at-scale",
+      "source": "Claude",
+      "category": "Productivity",
+      "date": "2026-08-07",
+      "hook": "An Always-On BDR",
+      "body": "Anthropic's business development team rebuilt inbound triage and outbound prospecting as Claude Cowork skills and scheduled tasks -- cutting hours of repetitive work while keeping a human on every send."
+  },
+  {
+      "slug": "auto-mode-default-in-claude-code",
+      "source": "Claude",
+      "category": "AI Governance",
+      "date": "2026-08-07",
+      "hook": "Safer Than Clicking Yes",
+      "body": "Claude Code makes auto mode the default for Pro, Max, and Team plans. A safety classifier caught 89% of dangerous commands in testing — versus 13.6% for human review."
+  },
+  {
       "slug": "multi-agent-orchestration-explained",
       "source": "Box",
       "category": "Agentic AI",
