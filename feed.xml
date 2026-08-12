@@ -5,7 +5,23 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 Aug 2026 07:15:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 07:15:00 +0000</lastBuildDate>
+    <item>
+      <title>From Assistance to Execution: How Enterprises Put AI to Work</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-enterprises-put-ai-to-work.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-enterprises-put-ai-to-work.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Wed, 12 Aug 2026 16:00:00 +0000</pubDate>
+      <description>OpenAI&amp;#8217;s two studies show enterprise AI shifting from asking to doing &amp;#8212; Codex now generates 64% of enterprise output tokens, and top-10% frontier firms produce 8.3&amp;#215; the output per active user of typical firms.</description>
+    </item>
+    <item>
+      <title>Compliance API Now Covers Cowork &amp; Claude Code</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/compliance-api-cowork-and-claude-code.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/compliance-api-cowork-and-claude-code.html</guid>
+      <category>Claude</category>
+      <pubDate>Tue, 11 Aug 2026 21:00:00 +0000</pubDate>
+      <description>Claude&amp;#8217;s Compliance API now pulls Cowork and Claude Code sessions through the same interface teams already use for chats &amp;#8212; full transcripts plus verified user metadata, additive and in beta for Claude Enterprise.</description>
+    </item>
     <item>
       <title>OpenAI’s Daybreak Cyber Models Land on AWS</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/daybreak-models-are-now-available-on-aws.html</link>

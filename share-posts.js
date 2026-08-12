@@ -1,5 +1,21 @@
 window.__POSTS__ = [
   {
+      "slug": "how-enterprises-put-ai-to-work",
+      "source": "OpenAI",
+      "category": "Enterprise AI",
+      "date": "2026-08-12",
+      "hook": "The Frontier Gap Widens",
+      "body": "OpenAI's data shows enterprise AI shifting from asking to doing. Top-10% firms now generate 8.3x the output per user of typical firms -- the divider is agents wired to real context and tools."
+  },
+  {
+      "slug": "compliance-api-cowork-and-claude-code",
+      "source": "Claude",
+      "category": "AI Governance",
+      "date": "2026-08-11",
+      "hook": "Audit Trail For Agents",
+      "body": "Claude's Compliance API now pulls Cowork and Claude Code sessions -- transcripts, tool calls, and verified user metadata -- through the same interface teams already use for chats. Additive, and in beta for Enterprise."
+  },
+  {
       "slug": "daybreak-models-are-now-available-on-aws",
       "source": "OpenAI",
       "category": "AI Governance",
