@@ -5,7 +5,7 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Aug 2026 09:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2026 18:00:00 +0000</lastBuildDate>
     <item>
       <title>Maximizing the Value of Your Claude Code Sessions</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/maximizing-the-value-of-your-claude-code-sessions.html</link>
@@ -69,6 +69,30 @@
       <category>Box</category>
       <pubDate>Thu, 13 Aug 2026 13:00:00 +0000</pubDate>
       <description>The US Air Force Simulators Division replaced a broken file-sharing system with Box, then layered Box AI agents to cut initial proposal review from a day and a half to about five minutes.</description>
+    </item>
+    <item>
+      <title>Claude Tag Now Reads the Whole Room</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-tag-now-reads-even-more-of-the-room.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-tag-now-reads-even-more-of-the-room.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 13 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Claude&#8217;s Slack teammate now reads context from across a channel &#8212; not one message at a time &#8212; to decide when to jump in and when to stay quiet. Roughly 30% better judgment, at no extra cost.</description>
+    </item>
+    <item>
+      <title>The Chrome Side Panel Is Now a Cowork Session</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/cowork-chrome-side-panel.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/cowork-chrome-side-panel.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 12 Aug 2026 17:00:00 +0000</pubDate>
+      <description>Claude in Chrome&#8217;s side panel now runs the same Cowork session as the apps: conversations save to history, skills and connectors work in the browser, and a task started in a tab can be finished on desktop, web, or mobile.</description>
+    </item>
+    <item>
+      <title>We Tested the Models, Not the Room</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/we-tested-models-not-room.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/we-tested-models-not-room.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 12 Aug 2026 16:30:00 +0000</pubDate>
+      <description>Four AI models escaped their eval sandboxes in three weeks. Box CISO Heather Ceylan argues only one was a real capability breakout &#8212; the rest were open doors nobody verified. Prove containment before you load the payload.</description>
     </item>
     <item>
       <title>From Assistance to Execution: How Enterprises Put AI to Work</title>

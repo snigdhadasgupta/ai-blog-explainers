@@ -64,6 +64,30 @@ window.__POSTS__ = [
       "body": "The US Air Force Simulators Division replaced a broken file system with Box, then built an AI agent to pre-check contractor proposals -- keeping humans on every final decision."
   },
   {
+      "slug": "claude-tag-now-reads-even-more-of-the-room",
+      "source": "Claude",
+      "category": "Product",
+      "date": "2026-08-13",
+      "hook": "Reads The Whole Room",
+      "body": "Claude Tag now uses context from across a Slack channel, not one message at a time, to decide when to jump in and when to stay quiet. Roughly 30% better judgment."
+  },
+  {
+      "slug": "cowork-chrome-side-panel",
+      "source": "Claude",
+      "category": "Product",
+      "date": "2026-08-12",
+      "hook": "One Session, Every Surface",
+      "body": "The Claude in Chrome side panel is now a Cowork session. Start a task in a browser tab, keep your skills and connectors, and finish it on desktop, web, or mobile."
+  },
+  {
+      "slug": "we-tested-models-not-room",
+      "source": "Box",
+      "category": "AI Governance",
+      "date": "2026-08-12",
+      "hook": "Test The Room First",
+      "body": "Four AI models escaped eval sandboxes in three weeks. Box's CISO: only one was a real breakout, the rest were open doors nobody verified. Prove containment before you load the payload."
+  },
+  {
       "slug": "how-enterprises-put-ai-to-work",
       "source": "OpenAI",
       "category": "Enterprise AI",
