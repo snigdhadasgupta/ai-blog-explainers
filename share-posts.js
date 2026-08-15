@@ -1,5 +1,69 @@
 window.__POSTS__ = [
   {
+      "slug": "maximizing-the-value-of-your-claude-code-sessions",
+      "source": "Claude",
+      "category": "Claude Code",
+      "date": "2026-08-14",
+      "hook": "Spend Tokens On Purpose",
+      "body": "The same fix can cost wildly different amounts in Claude Code. Anthropic's guide: keep sessions short, @-mention files, quiet noisy output, and don't bust the prompt cache mid-run."
+  },
+  {
+      "slug": "ai-consumption-based-pricing-explained",
+      "source": "Box",
+      "category": "Enterprise AI",
+      "date": "2026-08-14",
+      "hook": "AI Bills Like Electricity",
+      "body": "Per-seat budgeting breaks when one task can cost pennies or hundreds. Box's guide: four variables drive spend, forecasts keep moving, and the goal is value per unit, not the lowest token count."
+  },
+  {
+      "slug": "self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions",
+      "source": "Claude",
+      "category": "Case Study",
+      "date": "2026-08-13",
+      "hook": "Analytics In Slack",
+      "body": "Anthropic put its governed data model behind a Slack agent so anyone can ask. The lessons: treat skills as served content, scope the service account tightly, and instrument every answer."
+  },
+  {
+      "slug": "how-jetbrains-evaluates-and-deploys-claude-fable-5",
+      "source": "Claude",
+      "category": "Case Study",
+      "date": "2026-08-13",
+      "hook": "Vet It On Your Code",
+      "body": "JetBrains runs new models against its private monorepo before trusting them. Fable 5 lifted Python pass rates 16 points and cost less per task despite a higher token price."
+  },
+  {
+      "slug": "builders-guide-to-gpt-5-6",
+      "source": "OpenAI",
+      "category": "Product",
+      "date": "2026-08-13",
+      "hook": "Stop Overpaying For Agents",
+      "body": "OpenAI's field notes: right-size the model, reuse reasoning across turns, and push deterministic work into code. Smaller GPT-5.6 models now match last-gen flagships at a fraction of the cost."
+  },
+  {
+      "slug": "previewing-ultrafast",
+      "source": "OpenAI",
+      "category": "Product",
+      "date": "2026-08-13",
+      "hook": "Frontier Speed, No Trade-off",
+      "body": "OpenAI's Ultrafast tier runs GPT-5.6 Sol up to 14x faster -- 750 tokens per second on Cerebras -- so real-time work no longer means dropping to a weaker model."
+  },
+  {
+      "slug": "gemini-37-flash-real-enterprise-knowledge-work",
+      "source": "Box",
+      "category": "Enterprise AI",
+      "date": "2026-08-13",
+      "hook": "Tested On Real Work",
+      "body": "Box graded Gemini 3.7 Flash on complex, multi-document business tasks. It scored 67% to 3.6's 62%, jumped 18 points in financial services, and finished about a third faster."
+  },
+  {
+      "slug": "air-force-simulators-division-cut-proposal-review-day-and-half-5-minutes-box-ai",
+      "source": "Box",
+      "category": "Case Study",
+      "date": "2026-08-13",
+      "hook": "1.5 Days To 5 Minutes",
+      "body": "The US Air Force Simulators Division replaced a broken file system with Box, then built an AI agent to pre-check contractor proposals -- keeping humans on every final decision."
+  },
+  {
       "slug": "how-enterprises-put-ai-to-work",
       "source": "OpenAI",
       "category": "Enterprise AI",

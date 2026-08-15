@@ -5,7 +5,71 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Aug 2026 07:15:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2026 09:30:00 +0000</lastBuildDate>
+    <item>
+      <title>Maximizing the Value of Your Claude Code Sessions</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/maximizing-the-value-of-your-claude-code-sessions.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/maximizing-the-value-of-your-claude-code-sessions.html</guid>
+      <category>Claude</category>
+      <pubDate>Fri, 14 Aug 2026 15:00:00 +0000</pubDate>
+      <description>With agentic coding, the same fix can cost wildly different amounts. Anthropic's guide to lean Claude Code sessions: clear between tasks, @-mention files, quiet noisy commands, and don't bust the prompt cache mid-run.</description>
+    </item>
+    <item>
+      <title>AI Consumption-Based Pricing, Explained</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ai-consumption-based-pricing-explained.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ai-consumption-based-pricing-explained.html</guid>
+      <category>Box</category>
+      <pubDate>Fri, 14 Aug 2026 14:00:00 +0000</pubDate>
+      <description>AI breaks per-seat budgeting. Box explains the four variables that drive consumption, why forecasts keep moving, and how to optimize for value per unit, not the lowest token count.</description>
+    </item>
+    <item>
+      <title>Self-Service Analytics in Slack: How Anthropic Deploys Claude Tag</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 13 Aug 2026 18:00:00 +0000</pubDate>
+      <description>How Anthropic put its governed data model behind a Slack agent so anyone can ask data questions - treating skills as served content, scoping the service account tightly, and instrumenting every answer.</description>
+    </item>
+    <item>
+      <title>How JetBrains Evaluates and Deploys Claude Fable 5</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-jetbrains-evaluates-and-deploys-claude-fable-5.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-jetbrains-evaluates-and-deploys-claude-fable-5.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 13 Aug 2026 17:00:00 +0000</pubDate>
+      <description>JetBrains vets frontier models against its private monorepo. Claude Fable 5 lifted Python pass rates 16 points to 44.3%, needed ~22% fewer steps, and cost less per task despite a higher token price.</description>
+    </item>
+    <item>
+      <title>The Builder's Guide to GPT-5.6</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/builders-guide-to-gpt-5-6.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/builders-guide-to-gpt-5-6.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Thu, 13 Aug 2026 16:00:00 +0000</pubDate>
+      <description>OpenAI's field notes from startups: right-size the model, reuse reasoning across turns, and move deterministic work into code. Smaller GPT-5.6 models now match last-gen flagships at a fraction of the cost.</description>
+    </item>
+    <item>
+      <title>Previewing Ultrafast: GPT-5.6 Sol at Up to 14x Speed</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/previewing-ultrafast.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/previewing-ultrafast.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Thu, 13 Aug 2026 15:00:00 +0000</pubDate>
+      <description>OpenAI previews Ultrafast, an API tier running GPT-5.6 Sol up to 14x faster (up to 750 tokens/sec on Cerebras) so real-time work no longer means dropping to a smaller model.</description>
+    </item>
+    <item>
+      <title>Gemini 3.7 Flash on Real Enterprise Knowledge Work</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/gemini-37-flash-real-enterprise-knowledge-work.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/gemini-37-flash-real-enterprise-knowledge-work.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 13 Aug 2026 14:00:00 +0000</pubDate>
+      <description>Box graded Gemini 3.7 Flash on complex, multi-document business tasks: 67% versus 3.6 Flash's 62%, an 18-point jump in financial services, and about a third faster.</description>
+    </item>
+    <item>
+      <title>The Air Force Cut Proposal Review From 1.5 Days to 5 Minutes</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/air-force-simulators-division-cut-proposal-review-day-and-half-5-minutes-box-ai.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/air-force-simulators-division-cut-proposal-review-day-and-half-5-minutes-box-ai.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 13 Aug 2026 13:00:00 +0000</pubDate>
+      <description>The US Air Force Simulators Division replaced a broken file-sharing system with Box, then layered Box AI agents to cut initial proposal review from a day and a half to about five minutes.</description>
+    </item>
     <item>
       <title>From Assistance to Execution: How Enterprises Put AI to Work</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-enterprises-put-ai-to-work.html</link>
