@@ -5,7 +5,23 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Aug 2026 18:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2026 07:20:00 +0000</lastBuildDate>
+    <item>
+      <title>ABC Legal: Every Employee an Agent Builder</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents.html</guid>
+      <category>Claude</category>
+      <pubDate>Mon, 17 Aug 2026 16:00:00 +0000</pubDate>
+      <description>A 1,100-person legal document company moved AI off individual desktops into a governed fleet of 50+ always-on cloud agents &amp;mdash; each defined as code, versioned in git, and improved through the same pull requests its developers already use.</description>
+    </item>
+    <item>
+      <title>Rethinking What &quot;Secure&quot; Means in AI Systems</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/rethinking-what-secure-means-ai-systems.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/rethinking-what-secure-means-ai-systems.html</guid>
+      <category>Box</category>
+      <pubDate>Mon, 17 Aug 2026 15:00:00 +0000</pubDate>
+      <description>Box CISO Heather Ceylan on why AI that acts &amp;mdash; not just answers &amp;mdash; breaks the security model built for deterministic software, and a testable four-part definition of &quot;secure&quot;.</description>
+    </item>
     <item>
       <title>Maximizing the Value of Your Claude Code Sessions</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/maximizing-the-value-of-your-claude-code-sessions.html</link>

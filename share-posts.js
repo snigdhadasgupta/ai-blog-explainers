@@ -1,5 +1,21 @@
 window.__POSTS__ = [
   {
+      "slug": "how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents",
+      "source": "Claude",
+      "category": "Case Study",
+      "date": "2026-08-17",
+      "hook": "Every Employee A Builder",
+      "body": "ABC Legal moved AI off desktops into a governed fleet of 50+ cloud agents -- each defined as code, versioned in git, and improved through the same pull requests its developers already use."
+  },
+  {
+      "slug": "rethinking-what-secure-means-ai-systems",
+      "source": "Box",
+      "category": "AI Governance",
+      "date": "2026-08-17",
+      "hook": "Secure Means Something New",
+      "body": "Box's CISO: when AI acts instead of answers, a bad decision has a real blast radius. The new bar -- resist manipulation, constrain behavior, see failures, and align identity with intent at the point of action."
+  },
+  {
       "slug": "maximizing-the-value-of-your-claude-code-sessions",
       "source": "Claude",
       "category": "Claude Code",

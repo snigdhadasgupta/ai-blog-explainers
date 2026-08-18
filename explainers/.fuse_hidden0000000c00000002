@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rethinking What 'Secure' Means in AI Systems">
+<meta property="og:description" content="Box's CISO on why AI that acts breaks the security model built for deterministic software — and a testable four-part definition of 'secure' for systems that decide and act.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/rethinking-what-secure-means-ai-systems.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/rethinking-what-secure-means-ai-systems.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/rethinking-what-secure-means-ai-systems.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rethinking What 'Secure' Means in AI Systems">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/rethinking-what-secure-means-ai-systems.png">
+<title>Rethinking What 'Secure' Means in AI Systems — Explainer</title>
+<style>
+  :root{
+    --clay:#CC785C;--clay-dark:#A8543C;--clay-deep:#7A3B29;--ink:#1F1B18;--slate:#3D3733;--stone:#6B6259;--cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--line:#DED6C7;
+    --accent:#3D3AAE;--accent-deep:#2A2880;
+    --serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
+  .hero{background:linear-gradient(160deg,#14132E 0%,#26246E 55%,var(--accent-deep) 100%);color:#ECEBF9;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent);}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#B9B7EE;border:1px solid rgba(185,183,238,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#DAD9F4;max-width:720px;}
+  .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(236,235,249,.18);font-size:13px;}
+  .meta .m span{display:block;color:#9F9DDD;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#F1F0FB;font-size:14px;}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16px;color:var(--slate);margin-bottom:12px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:stretch;}
+  @media(max-width:820px){.flow{grid-template-columns:1fr 1fr;}}
+  .fstep{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+  .fstep .n{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .fstep h4{font-size:12.5px;margin-bottom:4px;color:var(--ink);line-height:1.2;}
+  .fstep p{font-size:11px;color:var(--stone);line-height:1.35;}
+  .loopnote{text-align:center;margin-top:14px;font-size:13px;color:var(--accent-deep);font-weight:600;font-style:italic;}
+  .chain{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:8px 0 4px;}
+  .chain .ck{flex:1;min-width:120px;background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:12px 10px;text-align:center;}
+  .chain .ck b{display:block;font-size:13px;color:var(--ink);margin-bottom:2px;}
+  .chain .ck span{font-size:11px;color:var(--stone);line-height:1.3;}
+  .chain .arw{display:flex;align-items:center;color:var(--accent);font-weight:700;font-size:18px;}
+  @media(max-width:640px){.chain .arw{display:none;}.chain .ck{min-width:44%;}}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr;}}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:13.5px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);background:#DEDDF3;border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#ECEBF9;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#D6D5F1;font-size:15px;max-width:560px;}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--accent-deep);}
+  .src{margin-top:8px;}
+
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent);color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep);}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:22px 26px;margin:26px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span class="dot">&#10039;</span> AI Blog Explainer</a>
+    <div class="srcbadge">Box</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="herobg" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="tag">Box &middot; AI Governance &middot; August 17, 2026</span>
+    <h1>Rethinking What &ldquo;Secure&rdquo; Means in AI Systems</h1>
+    <p class="lede">For two decades, &ldquo;secure&rdquo; meant defended boundaries and controlled access. Box&rsquo;s CISO argues that AI which <em>acts</em> &mdash; not just answers &mdash; breaks that model, and needs a new, testable definition built around behavior, intent, and runtime control.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>Box</strong></div>
+      <div class="m"><span>Author</span><strong>Heather Ceylan, CISO</strong></div>
+      <div class="m"><span>Topic</span><strong>Securing AI &amp; agents</strong></div>
+      <div class="m"><span>Reading time</span><strong>6 min</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
+  <div class="wrap">
+    <div class="tldr" data-tier-anchor>
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li><strong>AI that acts changes the problem</strong> &mdash; when a system retrieves data, calls tools, and takes actions, a bad decision has a far larger blast radius than a bad answer.</li>
+        <li><strong>Inputs are now the control plane</strong> &mdash; prompts, retrieved documents, and tool outputs shape behavior at runtime, so prompt injection is a takeover, not an input-validation bug.</li>
+        <li><strong>Privilege drifts from the user</strong> &mdash; the model interprets intent and often acts through a shared, over-privileged identity, so identity alone is no longer enough.</li>
+        <li><strong>Failures are outliers, not constants</strong> &mdash; AI can work most of the time yet fail rarely, unpredictably, and expensively, which point-in-time testing misses.</li>
+        <li><strong>A new bar for &ldquo;secure&rdquo;</strong> &mdash; resist manipulation, constrain behavior, make failures visible, and keep identity and intent aligned at the point of action.</li>
+      </ul>
+    </div>
+    <div class="sowhat">
+      <div class="kick">So what for you</div>
+      <p>Before you let an AI feature take real actions, ask the practical version of the question: <strong>&ldquo;if the model gets it wrong, how much damage can it actually do?&rdquo;</strong> If the only thing stopping a bad action is a well-written prompt, you don't have a control &mdash; you have a hope. Put hard limits on the tools, data, and actions it can reach.</p>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">Why the old model breaks</div>
+    <h2>From AI that answers to AI that acts</h2>
+    <p class="body">For most of the last two decades, &ldquo;secure&rdquo; wasn't absolute, but it was reasonable: defined boundaries, strong identity and access controls, known failure modes, and layered defenses to keep risk within tolerance. AI doesn't erase those fundamentals &mdash; it deploys systems that generate behavior dynamically, from inputs you don't fully control. And increasingly those systems aren't generating responses; they're retrieving information, using tools, and taking actions on a user's behalf.</p>
+    <p class="lead-quote">A bad output is one thing. A bad decision connected to sensitive content, privileged tools, or a downstream action can have a very different blast radius.</p>
+    <p class="body">That shift changes the control plane, not just the risk. Boundaries get less clear, behavior gets less predictable, and the link between identity, intent, and action starts to break down &mdash; while teams keep applying security approaches designed for deterministic systems to ones that aren't.</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">What actually changes</div>
+    <h2>Three shifts that show up in practice</h2>
+    <div class="grid3">
+      <div class="card"><span class="pill">Shift 1</span><h3>Inputs join the control plane</h3><p>Prompts, retrieved documents, system instructions, tool outputs, and memory directly influence what the system does next. Treat all inputs &mdash; including retrieved content and outputs &mdash; as untrusted, and test for adversarial manipulation, not just validation.</p></div>
+      <div class="card"><span class="pill">Shift 2</span><h3>Actions can exceed user privilege</h3><p>The path becomes user &rarr; model &rarr; system identity &rarr; action, often executed with a shared or over-privileged identity. Authorize at the point of action, scope to least privilege, and validate intent &mdash; not just identity.</p></div>
+      <div class="card"><span class="pill">Shift 3</span><h3>Failures are probabilistic</h3><p>AI can behave correctly most of the time and still fail rarely, hard-to-reproduce, and high-impact. The question moves from &ldquo;is this secure?&rdquo; to &ldquo;how often does it fail under adversarial conditions, and how bad is it when it does?&rdquo;</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">A working definition</div>
+    <h2>Four things you can actually measure</h2>
+    <p class="body">If the control plane has changed, the definition of &ldquo;secure&rdquo; has to change with it. Ceylan's reframing: an AI system is secure if it resists manipulation, enforces constraints on behavior, and makes failures visible &mdash; with identity and intent consistently aligned at the point of action.</p>
+    <div class="figure">
+      <div class="cap">Figure 1 &middot; The four testable properties</div>
+      <div class="flow">
+        <div class="fstep"><div class="n">1</div><h4>Resilient to manipulation</h4><p>Red-team your own system: how easily can it be steered, and how fast do you detect drift?</p></div>
+        <div class="fstep"><div class="n">2</div><h4>Constrained in behavior</h4><p>Separate decision from enforcement &mdash; hard limits on tools, data, and actions, not a prompt.</p></div>
+        <div class="fstep"><div class="n">3</div><h4>Observable in failure</h4><p>See inputs, context, outputs, and actions; detect misuse proactively, since users won't report it.</p></div>
+        <div class="fstep"><div class="n">4</div><h4>Identity + intent aligned</h4><p>Trace user input &rarr; interpretation &rarr; action, enforced where the action actually happens.</p></div>
+      </div>
+      <div class="loopnote">&#8635; The practical test for constraint: if the model behaves incorrectly, how much damage can it actually do?</div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">The subtle risk</div>
+    <h2>Where identity and intent come apart</h2>
+    <p class="body">In a traditional system, identity and action are tightly linked: a user authenticates, attempts an action, and the system enforces whether they're allowed. AI inserts a translation layer in the middle &mdash; and that's where things drift. The model may misinterpret intent or be manipulated into interpreting it differently, and if the action runs under a shared or over-privileged identity, the system can do something the user never meant or shouldn't be allowed to do.</p>
+    <div class="figure">
+      <div class="cap">Figure 2 &middot; The chain you have to be able to trace</div>
+      <div class="chain">
+        <div class="ck"><b>User input</b><span>What was actually asked for</span></div>
+        <div class="arw">&rarr;</div>
+        <div class="ck"><b>Model interpretation</b><span>Imperfect, context-sensitive, manipulable</span></div>
+        <div class="arw">&rarr;</div>
+        <div class="ck"><b>System identity</b><span>Often shared or over-privileged</span></div>
+        <div class="arw">&rarr;</div>
+        <div class="ck"><b>Action</b><span>Authorized &mdash; but maybe not intended</span></div>
+      </div>
+      <div class="loopnote">&#8635; Actions can be technically authorized yet still incorrect or unsafe &mdash; a failure mode traditional access control doesn't catch.</div>
+    </div>
+    <p class="body">The fixes are concrete: avoid shared, overly broad identities for AI-driven actions; enforce authorization at the point where actions happen; introduce friction for high-risk operations (confirmation, step-up auth, or both); and make sure you can compare what the user asked for with what the system is about to do.</p>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">How programs evolve</div>
+    <h2>Control moves to behavior and runtime</h2>
+    <p class="body">Taking those four properties seriously isn't about bolting on a few controls; it's a change in where control lives. Behavior today is implicit &mdash; scattered across prompts, application logic, and whatever guardrails the model provides. That becomes a problem the moment you assume the model can be wrong or manipulated.</p>
+    <div class="grid2">
+      <div class="card"><span class="pill">Behavior</span><h3>A control plane outside the model</h3><p>Define what actions are allowed and disallowed, with enforcement points that sit outside the model. It can suggest and interpret, but it shouldn't be the final authority on what happens. The question shifts from &ldquo;what can this system access?&rdquo; to &ldquo;what is it actually capable of doing?&rdquo;</p></div>
+      <div class="card"><span class="pill">Runtime</span><h3>Security shifts to production</h3><p>These systems evolve after deployment &mdash; new prompts, data, integrations, even model changes. Point-in-time assessments no longer suffice; you need continuous evaluation, behavioral monitoring, drift detection, and ways to respond that don't mean shutting everything down.</p></div>
+    </div>
+    <p class="body" style="margin-top:22px;">Metrics have to follow. You can have clean patching, good access hygiene, and passing audits and still run an AI system that can be steered into unsafe behavior. The more accurate measures are probabilistic and directional: how often the system can be pushed off its intended behavior, how well guardrails hold under adversarial pressure, how often it violates policy, and how quickly those issues are detected and addressed.</p>
+  </div>
+</section>
+
+<section style="border-bottom:none;" data-depth="manager">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>The shift, in one sentence</h2>
+        <p>The risk is no longer just that someone gets access they shouldn't &mdash; it's that the system does something it shouldn't, even when access controls are working exactly as designed. &ldquo;Secure&rdquo; now has to account for how systems behave under real, adversarial conditions.</p>
+      </div>
+      <a class="btn" href="https://blog.box.com/rethinking-what-secure-means-ai-systems">Read the post &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){var l=it.querySelector("link");return l?l.textContent.trim():"";}).filter(Boolean);
+    var mine=location.href.split("#")[0].split("?")[0].split("/").pop();
+    var i=-1; for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the Box blog &middot; AI Blog Explainers house style (Claude clay palette, Box indigo accent).</p>
+    <p class="src">Source: <a href="https://blog.box.com/rethinking-what-secure-means-ai-systems">Rethinking what &ldquo;secure&rdquo; means in AI systems</a> &mdash; blog.box.com, August 17, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://blog.box.com/rethinking-what-secure-means-ai-systems" target="_blank" rel="noopener" title="Read the original article"
+     style="background:#2A2880;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:#3D3AAE;color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={
+    tldr:"Just the five-line summary + the takeaway.",
+    manager:"Summary, why it matters, and what to do — no deep internals.",
+    tech:"Everything, including the identity chain and program-level changes."
+  };
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>

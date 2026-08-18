@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ABC Legal: Every Employee an Agent Builder">
+<meta property="og:description" content="ABC Legal moved AI adoption from scattered desktop scripts to a governed fleet of 50+ cloud agents — every agent defined as code, versioned, and improved through pull requests.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ABC Legal: Every Employee an Agent Builder">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents.png">
+<title>ABC Legal: Every Employee an Agent Builder — Explainer</title>
+<style>
+  :root{
+    --clay:#CC785C;--clay-dark:#A8543C;--clay-deep:#7A3B29;--ink:#1F1B18;--slate:#3D3733;--stone:#6B6259;--cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--line:#DED6C7;
+    --accent:#CC785C;--accent-deep:#A8543C;
+    --serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
+  .hero{background:linear-gradient(160deg,#221712 0%,#5A2E20 55%,var(--accent-deep) 100%);color:#F6EEE9;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent);}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#EAC0AF;border:1px solid rgba(234,192,175,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#EEDACF;max-width:720px;}
+  .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(246,238,233,.18);font-size:13px;}
+  .meta .m span{display:block;color:#DBA88F;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#F8F0EB;font-size:14px;}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16px;color:var(--slate);margin-bottom:12px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:stretch;}
+  @media(max-width:820px){.flow{grid-template-columns:1fr 1fr;}}
+  .fstep{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+  .fstep .n{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .fstep h4{font-size:12.5px;margin-bottom:4px;color:var(--ink);line-height:1.2;}
+  .fstep p{font-size:11px;color:var(--stone);line-height:1.35;}
+  .loopnote{text-align:center;margin-top:14px;font-size:13px;color:var(--accent-deep);font-weight:600;font-style:italic;}
+  .scorecard{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  @media(max-width:820px){.scorecard{grid-template-columns:1fr 1fr;}}
+  .scard{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:18px 16px;text-align:center;}
+  .scard .big{font-family:var(--serif);font-size:34px;font-weight:700;color:var(--accent);line-height:1;margin-bottom:8px;}
+  .scard .msr{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--ink);margin-bottom:5px;}
+  .scard .ctx{font-size:11.5px;color:var(--stone);line-height:1.35;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr;}}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:13.5px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);background:#F3DFD5;border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#F6EEE9;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#EEDACF;font-size:15px;max-width:560px;}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--accent-deep);}
+  .src{margin-top:8px;}
+
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent);color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep);}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:22px 26px;margin:26px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span class="dot">&#10039;</span> AI Blog Explainer</a>
+    <div class="srcbadge">Claude</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><g stroke="#fff" stroke-opacity=".18" stroke-width="1.5"><line x1="380" y1="230" x2="250" y2="118"/><line x1="380" y1="230" x2="520" y2="118"/><line x1="380" y1="230" x2="250" y2="342"/><line x1="380" y1="230" x2="520" y2="342"/><line x1="380" y1="230" x2="558" y2="230"/><line x1="380" y1="230" x2="228" y2="230"/></g><circle cx="380" cy="230" r="40" class="hnode"/><circle cx="380" cy="230" r="40" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/><circle cx="380" cy="230" r="6" fill="#fff"/><g fill="#fff"><circle cx="250" cy="118" r="8" fill-opacity=".8"/><circle cx="520" cy="118" r="8" fill-opacity=".8"/><circle cx="250" cy="342" r="8" fill-opacity=".8"/><circle cx="520" cy="342" r="8" fill-opacity=".8"/><circle cx="558" cy="230" r="7" fill-opacity=".7"/><circle cx="228" cy="230" r="7" fill-opacity=".7"/></g></svg>
+  </div>
+  <div class="wrap">
+    <span class="tag">Claude &middot; Case Study &middot; August 17, 2026</span>
+    <h1>ABC Legal: Every Employee an Agent Builder</h1>
+    <p class="lede">A 1,100-person legal document company moved AI from scattered desktop scripts to a governed fleet of 50+ always-on cloud agents &mdash; each one defined as code, versioned in git, and improved through the same pull requests its developers already use.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>Claude (Anthropic)</strong></div>
+      <div class="m"><span>Company</span><strong>ABC Legal &middot; 1,100 staff</strong></div>
+      <div class="m"><span>Product</span><strong>Claude Managed Agents</strong></div>
+      <div class="m"><span>Reading time</span><strong>5 min</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
+  <div class="wrap">
+    <div class="tldr" data-tier-anchor>
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li><strong>Adoption came first</strong> &mdash; teams across ABC Legal started automating their own daily tasks the moment Claude Enterprise landed, without being asked.</li>
+        <li><strong>Then came the infrastructure</strong> &mdash; agents were moved off personal laptops into Claude Managed Agents: always-on, in the cloud, with one audit and billing surface.</li>
+        <li><strong>Every agent is code</strong> &mdash; prompt, tools, schedule, and credentials live in a git repo, so nothing changes except through a reviewed pull request.</li>
+        <li><strong>Non-developers built the fleet</strong> &mdash; a 15-person committee with no engineers each shipped a working agent in a week; 50+ were running within a month.</li>
+        <li><strong>Agents improve themselves</strong> &mdash; a harvester turns Slack reactions into labeled feedback and a weekly tuner drafts prompt changes as PRs a human approves.</li>
+      </ul>
+    </div>
+    <div class="sowhat">
+      <div class="kick">So what for you</div>
+      <p>If your teams are spinning up AI automations, <strong>get them out of individual desktops and into a shared, version-controlled home before the fleet grows</strong>. The value isn't a clever prompt &mdash; it's being able to see every agent, review changes, and roll one back when it misbehaves.</p>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">From enthusiasm to engineering</div>
+    <h2>Treat every agent like software</h2>
+    <p class="body">When CTO Brandon Fuller rolled out Claude Enterprise to all 1,100 employees, people across service of process, eFiling, marketing, compliance, and finance began automating the tasks that ate up their days &mdash; on their own. The problem wasn't enthusiasm; it was that early agents lived wherever their builder happened to put them, as scheduled tasks on individual desktops.</p>
+    <p class="lead-quote">An agent is really just structured text &mdash; a prompt plus configuration &mdash; and anything that is text can live in a repository where the whole company can see it, review it, and improve it.</p>
+    <p class="body">So ABC Legal defined every agent as code. An agent's prompt, tool list, schedule, credentials, and memory all go into config files in a git repository alongside the company's software. Nothing changes except through an approved pull request &mdash; which hands every agent version history, code review, rollback, and an audit trail for free. A one-week starter kit with two templates (event-driven and scheduled) means a builder never writes software: they clone the repo, copy a template, tell Claude Code what the agent should do, and merging to main deploys it automatically.</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The numbers</div>
+    <h2>What a governed fleet delivered</h2>
+    <div class="figure">
+      <div class="cap">Figure 1 &middot; ABC Legal, as of July 2026 (directional, self-reported)</div>
+      <div class="scorecard">
+        <div class="scard"><div class="big">50+</div><div class="msr">Agents in production</div><div class="ctx">Built on Managed Agents across nearly every department</div></div>
+        <div class="scard"><div class="big">~50%</div><div class="msr">Task cost cut</div><div class="ctx">Reduction in the human-task cost some agents cover, before heavy optimization</div></div>
+        <div class="scard"><div class="big">~310</div><div class="msr">Daily Claude users</div><div class="ctx">Employees across every department using Claude for daily work</div></div>
+        <div class="scard"><div class="big">1 wk</div><div class="msr">Non-devs to shipping</div><div class="ctx">15-person committee, none engineers, each built a working agent</div></div>
+      </div>
+      <div class="loopnote">&#8635; Spend climbed as the fleet went live, then fell in July while usage kept growing &mdash; the result of moving to cheaper models and trimming tokens.</div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The fleet</div>
+    <h2>An agent at most stages of the work</h2>
+    <p class="body">Each agent has a name, an owner, and a single job. They post what they did or recommend to Slack, where people reply in threads and react with emoji &mdash; keeping a human in the loop before anything is acted on.</p>
+    <div class="grid3">
+      <div class="card"><span class="pill">Engineering</span><h3>AI Code Reviewer</h3><p>Reviews every pull request across four codebases with multi-model analysis, catching security bugs, performance regressions, and committed credentials. Engineers wait for its review before merging.</p></div>
+      <div class="card"><span class="pill">Operations</span><h3>eFiling Rejection Diagnoser</h3><p>Fires when a court rejects a filing, reads the job, checks the court's rules, and posts a diagnosis to Slack in about a minute &mdash; work that used to consume hours.</p></div>
+      <div class="card"><span class="pill">Customer</span><h3>EvidenceChain Delivery Agent</h3><p>Pulls matching records, retrieves each PDF with a built-in browser, and delivers to a customer's FTP daily. Built in about an hour by an account manager who'd never automated anything.</p></div>
+      <div class="card"><span class="pill">Compliance</span><h3>Charvis, the service reviewer</h3><p>Checks completed service jobs and now agrees with the compliance team about 98% of the time &mdash; earning trust before it acts alone.</p></div>
+      <div class="card"><span class="pill">Finance</span><h3>AR-remittance agent</h3><p>Parses a remittance email, builds the NetSuite payment-application file, and posts to Slack for one-click approval before importing it.</p></div>
+      <div class="card"><span class="pill">Marketing</span><h3>Google Ads analyst</h3><p>Posts a weekly recommendation for the channel lead &mdash; a horizontal analysis task kept broad while operational agents carry the measurable ROI.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">The mechanism</div>
+    <h2>How the agents get smarter without retraining</h2>
+    <p class="body">Fuller saw Slack reaction data as a training signal going to waste. For the agents that collect graded feedback, ABC Legal uses a three-role architecture: separate agents that share one workspace, environment, and credential vault but run on different schedules. The loop turns messages in Slack into versioned, human-approved changes &mdash; it tunes the prompt and config, never the model's weights.</p>
+    <div class="figure">
+      <div class="cap">Figure 2 &middot; The self-improving agent loop</div>
+      <div class="flow">
+        <div class="fstep"><div class="n">1</div><h4>Initial Agent</h4><p>Does the work in real time as a job arrives, recording an audit trail of each action.</p></div>
+        <div class="fstep"><div class="n">2</div><h4>Harvester</h4><p>Runs hourly or daily, sweeping Slack thread replies and emoji into labeled data points.</p></div>
+        <div class="fstep"><div class="n">3</div><h4>Tuner</h4><p>Runs weekly, looks across everything, and drafts a prompt or config change &mdash; only drafts.</p></div>
+        <div class="fstep"><div class="n">4</div><h4>Human PR</h4><p>A person reviews and merges the pull request. The review is the only manual step.</p></div>
+      </div>
+      <div class="loopnote">&#8635; An emoji reaction flagging a mis-routed delivery can become a merged change to that delivery's routing rules within the week.</div>
+    </div>
+    <p class="body">Not every agent needs the signal: most of the fleet are single-task runners whose output no one grades. The pattern also drives "deliveries-as-code" at Docketly, ABC Legal's 50-person sister company, where all ~145 routing rulesets are single YAML files in git &mdash; so tuning a delivery means editing a file and opening a PR.</p>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">Why Claude Managed Agents</div>
+    <h2>The division of responsibility that made it work</h2>
+    <p class="body">Fuller's criteria were specific: versioning, observable sessions, workspace billing, model selection, memory primitives, MCP wiring, and &mdash; most critically &mdash; no infrastructure to babysit. Anthropic's managed layer owns the execution loop, sessions, memory, console, and models; ABC Legal owns the prompt, tool list, trigger logic, audit trail, and feedback loop.</p>
+    <div class="grid2">
+      <div class="card"><span class="pill">At scale</span><h3>Versioning &amp; model flexibility</h3><p>Every push creates a new version with optimistic locking, so rollback is trivial. Sonnet is the default, Haiku handles high-volume fast tasks, and Opus is reserved for deeper reasoning &mdash; swapping models is a one-line change.</p></div>
+      <div class="card"><span class="pill">Wiring</span><h3>MCP tools &amp; scheduling</h3><p>Agents connect to ABC Legal's own platform (100+ tools), Metabase, Slack, and Atlassian through credential vaults. Recurring agents run on cron via Bitbucket Pipelines, which already handles repo access, secrets, and billing.</p></div>
+    </div>
+    <p class="body" style="margin-top:22px;">Cost is governed by an efficiency ratio &mdash; value delivered against what an agent costs to run, reported back to a data warehouse in hours and dollars on every run. Agents follow a J-curve: often underwater when new and running larger models, then flipping positive as the team writes evals, moves to cheaper models, and trims tokens. Fuller's blunt advice: the hard part was the git hurdle, not the AI &mdash; and not every task deserves an agent.</p>
+  </div>
+</section>
+
+<section style="border-bottom:none;" data-depth="manager">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>The playbook, in one line each</h2>
+        <p>Turn as much of the business into text in a repo as you can; start every agent with a human in the loop and let it earn autonomy; make the decision look like a pull request; invest in the feedback loop; and skip the scheduled-tasks detour &mdash; go straight to managed, governed agents.</p>
+      </div>
+      <a class="btn" href="https://claude.com/blog/how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents">Read the post &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){var l=it.querySelector("link");return l?l.textContent.trim():"";}).filter(Boolean);
+    var mine=location.href.split("#")[0].split("?")[0].split("/").pop();
+    var i=-1; for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the Claude blog &middot; AI Blog Explainers house style (Claude clay palette).</p>
+    <p class="src">Source: <a href="https://claude.com/blog/how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents">How ABC Legal turned every employee into a builder with Claude Managed Agents</a> &mdash; claude.com/blog, August 17, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://claude.com/blog/how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents" target="_blank" rel="noopener" title="Read the original article"
+     style="background:#7A3B29;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:#CC785C;color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={
+    tldr:"Just the five-line summary + the takeaway.",
+    manager:"Summary, why it matters, and what to do — no deep internals.",
+    tech:"Everything, including the self-improving loop and platform internals."
+  };
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>
