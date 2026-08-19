@@ -1,5 +1,45 @@
 window.__POSTS__ = [
   {
+      "slug": "offering-zero-data-retention-for-frontier-models",
+      "source": "OpenAI",
+      "category": "AI Governance",
+      "date": "2026-08-19",
+      "hook": "Safety Without Seeing",
+      "body": "OpenAI reaffirms Zero Data Retention and previews Private Safety Processing -- catching misuse across many interactions while customer content stays encrypted under keys only the customer holds."
+  },
+  {
+      "slug": "what-happens-when-onboarding-documents-tell-different-stories",
+      "source": "Box",
+      "category": "Enterprise AI",
+      "date": "2026-08-19",
+      "hook": "Let Code Decide",
+      "body": "A Box AI app extracts fields from onboarding documents, checks them with plain application logic, and routes only the flagged exceptions to a human -- so a model never renders the final verdict."
+  },
+  {
+      "slug": "why-your-content-infrastructure-matters-more-ever-0",
+      "source": "Box",
+      "category": "AI Governance",
+      "date": "2026-08-19",
+      "hook": "Agents Need A Workspace",
+      "body": "As enterprises deploy millions of AI agents, what scales AI isn't the flashiest model -- it's a governed content layer where every agent action inherits the same permissions, audit, and lineage as a human's."
+  },
+  {
+      "slug": "ai-ci-cd-on-call",
+      "source": "Claude",
+      "category": "Case Study",
+      "date": "2026-08-18",
+      "hook": "First Responder",
+      "body": "Anthropic's CI team put Claude Tag on the on-call rotation. It watches every alert, chases leads in parallel, and posts an evidence-grounded incident report in a median of 14 minutes."
+  },
+  {
+      "slug": "build-sourced-investment-memo-pipeline-box-and-snowflake",
+      "source": "Box",
+      "category": "Enterprise AI",
+      "date": "2026-08-18",
+      "hook": "Filings To Datasets",
+      "body": "A Box and Snowflake pipeline extracts financials from 10-Ks and earnings decks, generates a sourced one-page memo, and turns every quarter into queryable history -- with references preserved back to source."
+  },
+  {
       "slug": "how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents",
       "source": "Claude",
       "category": "Case Study",

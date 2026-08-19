@@ -5,7 +5,47 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Aug 2026 07:20:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 20 Aug 2026 08:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Zero Data Retention, Without Blind Safety</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/offering-zero-data-retention-for-frontier-models.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/offering-zero-data-retention-for-frontier-models.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Wed, 19 Aug 2026 17:00:00 +0000</pubDate>
+      <description>OpenAI reaffirms Zero Data Retention for eligible API customers and previews Private Safety Processing &amp;mdash; cross-interaction misuse detection that keeps content encrypted under customer-held keys and never exposes it to OpenAI staff.</description>
+    </item>
+    <item>
+      <title>When Onboarding Documents Disagree</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/what-happens-when-onboarding-documents-tell-different-stories.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/what-happens-when-onboarding-documents-tell-different-stories.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 19 Aug 2026 16:00:00 +0000</pubDate>
+      <description>A small Box AI app extracts fields from ID, utility, and tax documents, checks them with plain application logic, and routes only the flagged exceptions to a human &amp;mdash; so a model never renders the final verdict.</description>
+    </item>
+    <item>
+      <title>Content Is the Agent’s Workspace</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/why-your-content-infrastructure-matters-more-ever-0.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/why-your-content-infrastructure-matters-more-ever-0.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 19 Aug 2026 15:00:00 +0000</pubDate>
+      <description>Box’s case that the platforms scaling AI aren’t the flashiest models but governed content layers &amp;mdash; where every agent action inherits the same permissions, audit, and lineage as a human’s, at machine scale.</description>
+    </item>
+    <item>
+      <title>Claude on Call: An AI First Responder for CI/CD</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ai-ci-cd-on-call.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ai-ci-cd-on-call.html</guid>
+      <category>Claude</category>
+      <pubDate>Tue, 18 Aug 2026 17:00:00 +0000</pubDate>
+      <description>Anthropic’s CI team rebuilt the on-call rotation around Claude Tag &amp;mdash; it vets every alert, spins up subagents to investigate systems in parallel, and posts an evidence-grounded incident report in a median of 14 minutes.</description>
+    </item>
+    <item>
+      <title>From 10-K to Sourced Memo to Warehouse</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/build-sourced-investment-memo-pipeline-box-and-snowflake.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/build-sourced-investment-memo-pipeline-box-and-snowflake.html</guid>
+      <category>Box</category>
+      <pubDate>Tue, 18 Aug 2026 16:00:00 +0000</pubDate>
+      <description>A Box developer wires document extraction to a warehouse: pull financials from a 10-K and earnings deck, generate a sourced one-page memo with Box Doc Gen, and push structured results to Snowflake for cross-period analysis.</description>
+    </item>
     <item>
       <title>ABC Legal: Every Employee an Agent Builder</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents.html</link>
