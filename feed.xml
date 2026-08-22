@@ -5,7 +5,31 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Aug 2026 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 08:00:00 +0000</lastBuildDate>
+    <item>
+      <title>The AI-Native SDLC Playbook</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-ai-native-sdlc-playbook.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-ai-native-sdlc-playbook.html</guid>
+      <category>Claude</category>
+      <pubDate>Fri, 21 Aug 2026 17:00:00 +0000</pubDate>
+      <description>When agents write most of the diff, the bottleneck moves to plan, review, and deploy. Anthropic's Applied AI team rebuilds the software lifecycle into a loop where each stage commits an artifact — intent, spec, plan, PR — that doubles as the audit trail.</description>
+    </item>
+    <item>
+      <title>Bringing Claude Mythos 5 to More Defenders</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/bringing-claude-mythos-5-to-more-defenders.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/bringing-claude-mythos-5-to-more-defenders.html</guid>
+      <category>Claude</category>
+      <pubDate>Fri, 21 Aug 2026 16:00:00 +0000</pubDate>
+      <description>Anthropic widens access to its most capable cyber model by exposing only defensive results — patches and alerts — not the raw model, adds Mythos 5 scans to Claude Security, and launches a $35M fund to secure open-source software.</description>
+    </item>
+    <item>
+      <title>How monday.com Became an Agent-First Product</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-monday-com-transformed-its-platform-into-an-agent-first-product-where-humans-and-agents-collaborate.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-monday-com-transformed-its-platform-into-an-agent-first-product-where-humans-and-agents-collaborate.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 20 Aug 2026 17:00:00 +0000</pubDate>
+      <description>After add-on AI features hit a ceiling, monday.com rebuilt its platform around Claude — agents with names, avatars, and permissions that teammates assign like coworkers. Two months in: more than five million agent interactions.</description>
+    </item>
     <item>
       <title>Zero Data Retention, Without Blind Safety</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/offering-zero-data-retention-for-frontier-models.html</link>
@@ -63,6 +87,14 @@
       <description>Box CISO Heather Ceylan on why AI that acts &amp;mdash; not just answers &amp;mdash; breaks the security model built for deterministic software, and a testable four-part definition of &quot;secure&quot;.</description>
     </item>
     <item>
+      <title>The Defender's Window</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-defenders-window.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-defenders-window.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Mon, 17 Aug 2026 14:00:00 +0000</pubDate>
+      <description>AI can now automate real cyberattacks, but the same capability hands defenders a bigger edge. Greg Brockman's playbook: give your security team an agent, run assessments now, and clear the vulnerability backlog before attackers do.</description>
+    </item>
+    <item>
       <title>Maximizing the Value of Your Claude Code Sessions</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/maximizing-the-value-of-your-claude-code-sessions.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/maximizing-the-value-of-your-claude-code-sessions.html</guid>
@@ -77,6 +109,14 @@
       <category>Box</category>
       <pubDate>Fri, 14 Aug 2026 14:00:00 +0000</pubDate>
       <description>AI breaks per-seat budgeting. Box explains the four variables that drive consumption, why forecasts keep moving, and how to optimize for value per unit, not the lowest token count.</description>
+    </item>
+    <item>
+      <title>How Claude's Text Watermark Works</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-text-watermark.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-text-watermark.html</guid>
+      <category>Anthropic</category>
+      <pubDate>Fri, 14 Aug 2026 13:00:00 +0000</pubDate>
+      <description>Future Claude models embed a statistical watermark in word choices to meet the EU AI Act — invisible to readers, no extra tokens or cost, carrying no user identity, and detectable only with a key. A detection API is coming.</description>
     </item>
     <item>
       <title>Self-Service Analytics in Slack: How Anthropic Deploys Claude Tag</title>

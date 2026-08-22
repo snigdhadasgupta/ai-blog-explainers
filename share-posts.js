@@ -1,5 +1,45 @@
 window.__POSTS__ = [
   {
+      "slug": "the-ai-native-sdlc-playbook",
+      "source": "Claude",
+      "category": "Enterprise AI",
+      "date": "2026-08-21",
+      "hook": "Code Isn't The Bottleneck",
+      "body": "When agents write most of the diff, plan, review and deploy become the constraint. Anthropic's AI-native SDLC turns each stage into a committed artifact -- intent, spec, plan, PR -- that is also the audit trail."
+  },
+  {
+      "slug": "bringing-claude-mythos-5-to-more-defenders",
+      "source": "Claude",
+      "category": "AI Governance",
+      "date": "2026-08-21",
+      "hook": "Frontier Defense, Safely",
+      "body": "Anthropic opens its most capable cyber model to more defenders by exposing only the results -- patches and alerts -- not the raw model, plus a $35M fund to help secure open-source software."
+  },
+  {
+      "slug": "how-monday-com-transformed-its-platform-into-an-agent-first-product-where-humans-and-agents-collaborate",
+      "source": "Claude",
+      "category": "Case Study",
+      "date": "2026-08-20",
+      "hook": "AI Dust To Agent-First",
+      "body": "After add-on AI features stalled, monday.com rebuilt its platform around Claude -- agents with names, avatars and permissions that teammates assign like coworkers. Five million agent interactions in two months."
+  },
+  {
+      "slug": "the-defenders-window",
+      "source": "OpenAI",
+      "category": "AI Governance",
+      "date": "2026-08-17",
+      "hook": "The Window Is Open",
+      "body": "AI now automates real cyberattacks, but hands defenders a bigger edge. OpenAI's playbook: give your security team an agent, run assessments today, and clear the vulnerability backlog before attackers do."
+  },
+  {
+      "slug": "claude-text-watermark",
+      "source": "Anthropic",
+      "category": "AI Governance",
+      "date": "2026-08-14",
+      "hook": "Invisible By Design",
+      "body": "Future Claude models embed a statistical watermark in word choices to comply with the EU AI Act -- undetectable to readers, no extra tokens or cost, and carrying zero information about who used it."
+  },
+  {
       "slug": "offering-zero-data-retention-for-frontier-models",
       "source": "OpenAI",
       "category": "AI Governance",
