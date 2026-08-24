@@ -5,7 +5,15 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Aug 2026 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 02:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Retrieval-Augmented Generation (RAG), Explained</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/retrieval-augmented-generation-rag-explained.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/retrieval-augmented-generation-rag-explained.html</guid>
+      <category>Box</category>
+      <pubDate>Fri, 21 Aug 2026 18:00:00 +0000</pubDate>
+      <description>RAG lets enterprise AI look up proprietary, current, and citable content instead of relying on training data. Box's guide walks the full workflow, advanced architectures, and why content quality and permissions — not the model — decide accuracy.</description>
+    </item>
     <item>
       <title>The AI-Native SDLC Playbook</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-ai-native-sdlc-playbook.html</link>
@@ -21,6 +29,14 @@
       <category>Claude</category>
       <pubDate>Fri, 21 Aug 2026 16:00:00 +0000</pubDate>
       <description>Anthropic widens access to its most capable cyber model by exposing only defensive results — patches and alerts — not the raw model, adds Mythos 5 scans to Claude Security, and launches a $35M fund to secure open-source software.</description>
+    </item>
+    <item>
+      <title>Build Production Agents: Computer Use, Skills API &amp; Files API</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/computer-use-skills-api-files-api.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/computer-use-skills-api-files-api.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 20 Aug 2026 16:00:00 +0000</pubDate>
+      <description>Three capabilities go GA on the Claude Platform: computer use (plus a new browser use tool) to operate software an agent can see, the Skills API to apply your team's expertise on demand, and the Files API for durable inputs and outputs.</description>
     </item>
     <item>
       <title>How monday.com Became an Agent-First Product</title>
@@ -85,6 +101,14 @@
       <category>Box</category>
       <pubDate>Mon, 17 Aug 2026 15:00:00 +0000</pubDate>
       <description>Box CISO Heather Ceylan on why AI that acts &amp;mdash; not just answers &amp;mdash; breaks the security model built for deterministic software, and a testable four-part definition of &quot;secure&quot;.</description>
+    </item>
+    <item>
+      <title>How Slack Builds Human-Agent Teams</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/turning-conversation-into-knowledge-how-slack-builds-human-agent-teams.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/turning-conversation-into-knowledge-how-slack-builds-human-agent-teams.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 19 Aug 2026 16:00:00 +0000</pubDate>
+      <description>Slack CPO Jaime DeLanghe on turning conversation into knowledge: keep channels public so agents can learn, run the work as human-agent handoffs with human review, give agents clear roles, and measure outcomes — not token counts.</description>
     </item>
     <item>
       <title>The Defender's Window</title>

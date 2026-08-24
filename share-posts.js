@@ -1,5 +1,29 @@
 window.__POSTS__ = [
   {
+      "slug": "retrieval-augmented-generation-rag-explained",
+      "source": "Box",
+      "category": "Enterprise AI",
+      "date": "2026-08-21",
+      "hook": "Grounded, not guessed",
+      "body": "RAG lets enterprise AI look up proprietary, current, and citable content instead of guessing from training data. The catch: retrieval and content quality decide accuracy, not the model."
+  },
+  {
+      "slug": "computer-use-skills-api-files-api",
+      "source": "Claude",
+      "category": "Agents",
+      "date": "2026-08-20",
+      "hook": "Agents that finish work",
+      "body": "Computer use, the Skills API, and the Files API are now GA on the Claude Platform -- the loop agents need to operate software, apply your expertise, and return finished files."
+  },
+  {
+      "slug": "turning-conversation-into-knowledge-how-slack-builds-human-agent-teams",
+      "source": "Claude",
+      "category": "Case Study",
+      "date": "2026-08-19",
+      "hook": "Work in the open",
+      "body": "Slack's CPO on building human-agent teams: keep channels public so agents can learn, run the work as human-agent handoffs, and measure outcomes -- not token counts."
+  },
+  {
       "slug": "the-ai-native-sdlc-playbook",
       "source": "Claude",
       "category": "Enterprise AI",
