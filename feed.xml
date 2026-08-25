@@ -5,7 +5,31 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Aug 2026 02:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 01:15:28 +0000</lastBuildDate>
+    <item>
+      <title>How a Field Marketer Automated Weekly Sales Briefings</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-an-anthropic-field-marketer-uses-claude-code-to-send-weekly-personalized-updates-to-every-sales-rep.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-an-anthropic-field-marketer-uses-claude-code-to-send-weekly-personalized-updates-to-every-sales-rep.html</guid>
+      <category>Claude</category>
+      <pubDate>Mon, 24 Aug 2026 18:00:00 +0000</pubDate>
+      <description>A non-technical marketer rebuilt a manual Sunday slide ritual into a personalized Monday Slack briefing for every account exec &amp; manager — one hour in a Claude Code hackathon, wired to the CRM over MCP, hardened one seller-correction-as-rule at a time.</description>
+    </item>
+    <item>
+      <title>GPT-5.6 Comes to Kiro</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/gpt-5-6-in-kiro.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/gpt-5-6-in-kiro.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Mon, 24 Aug 2026 17:00:00 +0000</pubDate>
+      <description>OpenAI’s GPT-5.6 family lands in Kiro, AWS’s spec-driven coding agent. On Terminal-Bench 2.1, GPT-5.6 Terra completed successful tasks at roughly 82% lower cost — with a spec layer that grounds the model and checkpoints that keep humans in.</description>
+    </item>
+    <item>
+      <title>A Voice-First Insurance Claim, Grounded in Box</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/smart-insurance-claims-with-box-and-twilio-agent-connect.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/smart-insurance-claims-with-box-and-twilio-agent-connect.html</guid>
+      <category>Box</category>
+      <pubDate>Mon, 24 Aug 2026 16:00:00 +0000</pubDate>
+      <description>Box’s Harbor Home demo: a homeowner reports damage by phone, Twilio Agent Connect runs the intake, OpenAI extracts facts, Box AI checks the policy in place, and every claim routes to a human adjuster — with Box as the durable record and no separate database.</description>
+    </item>
     <item>
       <title>Retrieval-Augmented Generation (RAG), Explained</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/retrieval-augmented-generation-rag-explained.html</link>

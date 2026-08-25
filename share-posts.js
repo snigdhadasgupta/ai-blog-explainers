@@ -1,5 +1,29 @@
 window.__POSTS__ = [
   {
+      "slug": "how-an-anthropic-field-marketer-uses-claude-code-to-send-weekly-personalized-updates-to-every-sales-rep",
+      "source": "Claude",
+      "category": "Claude Code",
+      "date": "2026-08-24",
+      "hook": "Explain, don't code",
+      "body": "A non-technical marketer rebuilt his Sunday slide ritual into a personalized Monday Slack briefing for every sales rep -- one hour in a hackathon, wired to the CRM with Claude Code."
+  },
+  {
+      "slug": "gpt-5-6-in-kiro",
+      "source": "OpenAI",
+      "category": "Product",
+      "date": "2026-08-24",
+      "hook": "Cheaper per finished task",
+      "body": "GPT-5.6's Sol, Terra, and Luna tiers land in Kiro. On Terminal-Bench 2.1, GPT-5.6 Terra completed successful tasks at roughly 82% lower cost -- spec-driven context does the grounding."
+  },
+  {
+      "slug": "smart-insurance-claims-with-box-and-twilio-agent-connect",
+      "source": "Box",
+      "category": "Agents",
+      "date": "2026-08-24",
+      "hook": "A call becomes a claim",
+      "body": "Harbor Home turns a homeowner's phone call into a policy-checked insurance claim -- Twilio runs the call, OpenAI extracts facts, Box AI checks the policy, and a human adjuster decides."
+  },
+  {
       "slug": "retrieval-augmented-generation-rag-explained",
       "source": "Box",
       "category": "Enterprise AI",
