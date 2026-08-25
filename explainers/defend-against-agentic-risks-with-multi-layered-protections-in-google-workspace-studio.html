@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Four Layers of Defense for Agentic Flows in Workspace Studio">
+<meta property="og:description" content="Google Workspace Studio secures no-code agent flows with abuse mitigations, per-flow OAuth identity isolation, human approvals, and DLP tied to your data labels.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/defend-against-agentic-risks-with-multi-layered-protections-in-google-workspace-studio.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/defend-against-agentic-risks-with-multi-layered-protections-in-google-workspace-studio.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/defend-against-agentic-risks-with-multi-layered-protections-in-google-workspace-studio.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Four Layers of Defense for Agentic Flows in Workspace Studio">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/defend-against-agentic-risks-with-multi-layered-protections-in-google-workspace-studio.png">
+<title>Securing Agentic Flows in Workspace Studio — Explainer</title>
+<style>
+  :root{
+    --clay:#CC785C;--clay-dark:#A8543C;--clay-deep:#7A3B29;--ink:#1F1B18;--slate:#3D3733;--stone:#6B6259;--cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--line:#DED6C7;
+    --accent:#4285F4;--accent-deep:#1B4DB0;
+    --serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
+  .hero{background:linear-gradient(160deg,#111726 0%,#123A82 55%,var(--accent-deep) 100%);color:#EAF1FD;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent);}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#A9C7F5;border:1px solid rgba(169,199,245,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#D5E4FB;max-width:720px;}
+  .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(234,241,253,.18);font-size:13px;}
+  .meta .m span{display:block;color:#8FB4F0;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#EFF5FE;font-size:14px;}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16px;color:var(--slate);margin-bottom:12px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .laystack{display:flex;flex-direction:column;gap:8px;}
+  .layer{display:flex;align-items:flex-start;gap:16px;background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:16px 18px;border-left:4px solid var(--accent);}
+  .layer .ln{flex:0 0 auto;width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);}
+  .layer .lt{flex:1;}
+  .layer h4{font-size:15px;color:var(--ink);margin-bottom:3px;}
+  .layer p{font-size:13px;color:var(--stone);line-height:1.45;}
+  .laynote{text-align:center;margin-top:14px;font-size:13px;color:var(--accent-deep);font-weight:600;font-style:italic;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr;}}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:13.5px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);background:#D9E6FC;border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#EAF1FD;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#D5E4FB;font-size:15px;max-width:560px;}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--accent-deep);}
+  .src{margin-top:8px;}
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent);color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep);}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:22px 26px;margin:26px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span class="dot">&#10039;</span> AI Blog Explainer</a>
+    <div class="srcbadge">Google Workspace</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><g stroke="#fff" stroke-opacity=".18" stroke-width="1.5"><line x1="380" y1="230" x2="250" y2="118"/><line x1="380" y1="230" x2="520" y2="118"/><line x1="380" y1="230" x2="250" y2="342"/><line x1="380" y1="230" x2="520" y2="342"/><line x1="380" y1="230" x2="558" y2="230"/><line x1="380" y1="230" x2="228" y2="230"/></g><circle cx="380" cy="230" r="40" class="hnode"/><circle cx="380" cy="230" r="40" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/><circle cx="380" cy="230" r="6" fill="#fff"/><g fill="#fff"><circle cx="250" cy="118" r="8" fill-opacity=".8"/><circle cx="520" cy="118" r="8" fill-opacity=".8"/><circle cx="250" cy="342" r="8" fill-opacity=".8"/><circle cx="520" cy="342" r="8" fill-opacity=".8"/><circle cx="558" cy="230" r="7" fill-opacity=".7"/><circle cx="228" cy="230" r="7" fill-opacity=".7"/></g></svg>
+  </div>
+  <div class="wrap">
+    <span class="tag">Google Workspace &middot; AI Governance &middot; August 26, 2026</span>
+    <h1>Four Layers of Defense for Agent Flows</h1>
+    <p class="lede">When a no-code flow has the context, authority, and privileges to act on your behalf, it becomes a target. Google Workspace Studio wraps every flow in four built-in layers &mdash; abuse mitigations, identity isolation, human approvals, and runtime DLP &mdash; so teams can adopt agents without inheriting their blast radius.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>Google Workspace</strong></div>
+      <div class="m"><span>Topic</span><strong>AI Governance &middot; Agent security</strong></div>
+      <div class="m"><span>Theme</span><strong>Defense in depth</strong></div>
+      <div class="m"><span>Reading time</span><strong>5 min</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
+  <div class="wrap">
+    <div class="tldr" data-tier-anchor>
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li><strong>Acting agents need agent-grade defense</strong> &mdash; Studio flows carry context, authority, and privilege to act for a user, which makes them prime targets for prompt injection and data exposure.</li>
+        <li><strong>Four layers, secure by default</strong> &mdash; abuse mitigations, identity isolation, admin controls with user confirmation, and runtime protections work together on every flow.</li>
+        <li><strong>Least privilege via OAuth</strong> &mdash; each flow gets its own client ID scoped to a minimal permission subset, so a compromised Gmail flow simply cannot reach Drive or Chat.</li>
+        <li><strong>Humans gate the risky moves</strong> &mdash; high-risk or external-facing actions wait for approval in a dedicated approvals hub, configurable in the Admin Console.</li>
+        <li><strong>DLP that understands flows</strong> &mdash; Gemini DLP walls off labeled Drive files, while Studio DLP blocks or requires confirmation based on the data a flow touches.</li>
+      </ul>
+    </div>
+    <div class="sowhat">
+      <div class="kick">So what for you</div>
+      <p>If your org is turning on no-code agent flows, the safe rollout isn&rsquo;t &ldquo;trust the prompt.&rdquo; It&rsquo;s <strong>least-privilege scopes per flow, human approval on external actions, and DLP tied to your data labels</strong>. Map those controls to your existing Admin Console policies before you let flows scale across teams.</p>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">Why it matters</div>
+    <h2>An agent with authority is an attack surface</h2>
+    <p class="body">Agentic flows boost productivity by automating routine daily work with intelligent steps. But the very thing that makes them useful &mdash; context, authority, and the privilege to act for a user &mdash; also makes them worth attacking, whether through unauthorized actions or sensitive-data exposure. Studio&rsquo;s answer is defense in depth: native threat defenses plus deep ecosystem visibility, built on Google&rsquo;s secure-by-design architecture, so multi-step workflows are constrained rather than trusted.</p>
+    <p class="lead-quote">Studio combines native threat defenses with deep ecosystem visibility to secure multi-step agentic workflows &mdash; secure by default, not secure by prompt.</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The model</div>
+    <h2>Four layers on every flow</h2>
+    <div class="figure">
+      <div class="cap">Figure 1 &middot; Studio&rsquo;s built-in defense stack</div>
+      <div class="laystack">
+        <div class="layer"><div class="ln">1</div><div class="lt"><h4>Abuse mitigations</h4><p>A cascading classifier system &mdash; including a self-reflection check &mdash; watches the full prompt&ndash;context&ndash;output cycle for injected instructions and halts the flow when it detects drift.</p></div></div>
+        <div class="layer"><div class="ln">2</div><div class="lt"><h4>Identity isolation</h4><p>Each flow runs under its own OAuth client ID with a least-privileged subset of the owner&rsquo;s scopes &mdash; not the owner&rsquo;s full credentials &mdash; so impact is contained to exactly the apps the flow needs.</p></div></div>
+        <div class="layer"><div class="ln">3</div><div class="lt"><h4>Admin controls &amp; user confirmation</h4><p>A human-in-the-loop approvals setting requires explicit sign-off before high-risk or out-of-domain actions run, surfaced in a dedicated approvals hub.</p></div></div>
+        <div class="layer"><div class="ln">4</div><div class="lt"><h4>Runtime protections</h4><p>Gemini DLP and Studio DLP operationalize written data policies &mdash; blocking protected content or forcing confirmation based on what a flow actually touches.</p></div></div>
+      </div>
+      <div class="laynote">The first three layers are on by default; the fourth lets teams encode their own risk and compliance rules.</div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The standout control</div>
+    <h2>Least privilege, enforced by identity</h2>
+    <p class="body">Rather than impersonating the owner and running with their full credentials, Studio generates a dedicated OAuth client ID for each flow, restricted to the minimum scopes the flow&rsquo;s tasks require. A flow built to send email through Gmail gets no access to Drive or Chat &mdash; so even if a prompt-injection attack compromises it, the reachable data and possible damage are strictly bounded to the Gmail corpus and Gmail actions.</p>
+    <p class="body">Attribution is configurable, too: admins choose whether an action is credited to the flow or to its owner across Workspace surfaces, and revealing the flow&rsquo;s name gives collaborators clear signal that automation acted. Regardless of that choice, audit logs always capture that the flow performed the action and under whose authority.</p>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">Under the hood</div>
+    <h2>Catching injection, enforcing data policy</h2>
+    <div class="grid2">
+      <div class="card"><span class="pill">Layer 1</span><h3>Self-reflection vs. prompt injection</h3><p>Beyond content classifiers, a self-reflection assessment tracks the full operational cycle &mdash; prompt, context, output &mdash; to spot execution drift caused by malicious intent. If fetched content tries to smuggle in harmful instructions that manipulate the model, Studio detects the abuse and instantly halts flow execution.</p></div>
+      <div class="card"><span class="pill">Layer 4</span><h3>Gemini DLP + Studio DLP</h3><p>Gemini DLP rules stop Studio steps from referencing protected Drive items &mdash; an admin rule blocking files labeled &ldquo;Financial&rdquo; prevents an injected flow from retrieving them. Studio DLP evaluates the data a flow accesses and the visibility of step outputs, then either allows, blocks, or requires user confirmation based on defined criteria.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">Visibility &amp; control</div>
+    <h2>When something looks wrong, act fast</h2>
+    <p class="body">Alongside the four defense layers, Studio gives administrators the tooling to investigate and intervene without waiting on engineering.</p>
+    <div class="grid2">
+      <div class="card"><span class="pill">Observe</span><h3>Flow-aware audit logging</h3><p>Audit events capture both configuration and execution activity, and app-specific events &mdash; modifying Drive files, sending Gmail &mdash; carry key flow details like owner and a unique flow ID, so investigators can reconstruct exactly what ran.</p></div>
+      <div class="card"><span class="pill">Contain</span><h3>Agent access management dashboard</h3><p>Admins can pause all flows or selectively revoke specific OAuth scopes (say, Drive access) for a single flow &mdash; and jump straight from an audit-log entry in the security investigation tool to the dashboard to mitigate an issue.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:none;" data-depth="manager">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>Before you scale flows</h2>
+        <p>Decide your approval rules for external actions, set Gemini and Studio DLP against the Drive labels you already use, and confirm who can pause or revoke a flow. The defenses are on by default &mdash; the runtime policy is where your organization&rsquo;s judgment lives.</p>
+      </div>
+      <a class="btn" href="https://workspace.google.com/blog/identity-and-security/defend-against-agentic-risks-with-multi-layered-protections-in-google-workspace-studio">Read the post &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){var l=it.querySelector("link");return l?l.textContent.trim():"";}).filter(Boolean);
+    var mine=location.href.split("#")[0].split("?")[0].split("/").pop();
+    var i=-1; for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the Google Workspace blog &middot; AI Blog Explainers house style (Claude clay palette, Google Workspace accent).</p>
+    <p class="src">Source: <a href="https://workspace.google.com/blog/identity-and-security/defend-against-agentic-risks-with-multi-layered-protections-in-google-workspace-studio">Defend against agentic risks with multi-layered protections in Google Workspace Studio</a> &mdash; workspace.google.com/blog, August 26, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://workspace.google.com/blog/identity-and-security/defend-against-agentic-risks-with-multi-layered-protections-in-google-workspace-studio" target="_blank" rel="noopener" title="Read the original article"
+     style="background:#7A3B29;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:#CC785C;color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={
+    tldr:"Just the five-line summary + the takeaway.",
+    manager:"Summary, why it matters, and what to do — no deep internals.",
+    tech:"Everything, including the mechanisms and admin tooling."
+  };
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>

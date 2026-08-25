@@ -1,5 +1,21 @@
 window.__POSTS__ = [
   {
+      "slug": "defend-against-agentic-risks-with-multi-layered-protections-in-google-workspace-studio",
+      "source": "Google Workspace",
+      "category": "AI Governance",
+      "date": "2026-08-26",
+      "hook": "Trust the flow, not the prompt",
+      "body": "Google Workspace Studio wraps every agent flow in four defenses: abuse mitigations, per-flow OAuth identity isolation, human approvals, and DLP tied to your data labels -- so a compromised flow can't reach beyond its scope."
+  },
+  {
+      "slug": "introducing-admin-plugin",
+      "source": "OpenAI",
+      "category": "AI Governance",
+      "date": "2026-08-25",
+      "hook": "Admin, in one chat",
+      "body": "OpenAI's Admin plugin lets IT analyze usage, manage members and permissions, adjust limits, and act on requests inside ChatGPT Work and Codex -- within existing roles, never granting broader access."
+  },
+  {
       "slug": "how-an-anthropic-field-marketer-uses-claude-code-to-send-weekly-personalized-updates-to-every-sales-rep",
       "source": "Claude",
       "category": "Claude Code",

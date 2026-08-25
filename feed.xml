@@ -5,7 +5,23 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Aug 2026 01:15:28 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 23:13:09 +0000</lastBuildDate>
+    <item>
+      <title>Four Layers of Defense for Agent Flows</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/defend-against-agentic-risks-with-multi-layered-protections-in-google-workspace-studio.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/defend-against-agentic-risks-with-multi-layered-protections-in-google-workspace-studio.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Wed, 26 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Google Workspace Studio secures no-code agent flows with four built-in layers — abuse mitigations, per-flow OAuth identity isolation, human-in-the-loop approvals, and Gemini/Studio DLP — so a compromised flow stays bounded to its minimal scope and admins can pause or revoke it fast.</description>
+    </item>
+    <item>
+      <title>OpenAI's Admin Plugin for ChatGPT Work</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-admin-plugin.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-admin-plugin.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Tue, 25 Aug 2026 12:00:00 +0000</pubDate>
+      <description>OpenAI's new Admin plugin lets IT analyze workspace usage, manage members and permissions, adjust limits, and act on requests in one ChatGPT Work or Codex conversation — working strictly within the admin's existing role, never granting broader access, and mapping each instruction to a supported read or write action.</description>
+    </item>
     <item>
       <title>How a Field Marketer Automated Weekly Sales Briefings</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-an-anthropic-field-marketer-uses-claude-code-to-send-weekly-personalized-updates-to-every-sales-rep.html</link>
