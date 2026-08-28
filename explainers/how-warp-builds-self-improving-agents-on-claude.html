@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How Warp Builds Self-Improving Agents">
+<meta property="og:description" content="Warp turned disappearing session feedback into a compounding loop: a base skill does the work, humans leave feedback where they already are, and an improver skill rewrites the base skill through normal PR review.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-warp-builds-self-improving-agents-on-claude.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/how-warp-builds-self-improving-agents-on-claude.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/how-warp-builds-self-improving-agents-on-claude.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Warp Builds Self-Improving Agents">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/how-warp-builds-self-improving-agents-on-claude.png">
+<title>How Warp Builds Self-Improving Agents — Explainer</title>
+<style>
+  :root{
+    --clay:#CC785C;--clay-dark:#A8543C;--clay-deep:#7A3B29;--ink:#1F1B18;--slate:#3D3733;--stone:#6B6259;--cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--line:#DED6C7;
+    --accent:#CC785C;--accent-deep:#7A3B29;
+    --serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
+  .hero{background:linear-gradient(160deg,#211610 0%,#5A2E1E 55%,var(--accent-deep) 100%);color:#F7ECE4;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent);}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#EAC9B6;border:1px solid rgba(234,201,182,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#F0DBCE;max-width:720px;}
+  .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(247,236,228,.18);font-size:13px;}
+  .meta .m span{display:block;color:#D9A98F;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#FBF1EA;font-size:14px;}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16px;color:var(--slate);margin-bottom:12px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:stretch;}
+  @media(max-width:820px){.flow{grid-template-columns:1fr 1fr;}}
+  .fstep{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+  .fstep .n{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .fstep h4{font-size:12.5px;margin-bottom:4px;color:var(--ink);line-height:1.2;}
+  .fstep p{font-size:11px;color:var(--stone);line-height:1.35;}
+  .loopnote{text-align:center;margin-top:14px;font-size:13px;color:var(--accent-deep);font-weight:600;font-style:italic;}
+  .scardgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px;}
+  @media(max-width:820px){.scardgrid{grid-template-columns:1fr;}}
+  .scard{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:18px 20px;}
+  .scard .big{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--accent,var(--clay));line-height:1;}
+  .scard .measure{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--stone);margin:9px 0 4px;}
+  .scard .ctx{font-size:12.5px;color:var(--slate);line-height:1.4;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr;}}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:13.5px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);background:#F3E2D8;border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .rowset{margin-top:8px;}
+  .row{border-bottom:1px solid var(--line);padding:13px 0;}
+  .row:last-child{border-bottom:none;}
+  .row .rl{display:flex;align-items:baseline;gap:10px;}
+  .row .rl b{font-size:15px;color:var(--ink);white-space:nowrap;}
+  .row .rl .rule{flex:1;height:1px;background:var(--line);}
+  .row p{font-size:13.5px;color:var(--stone);margin-top:5px;max-width:820px;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#F7ECE4;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#F0DBCE;font-size:15px;max-width:560px;}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--accent-deep);}
+  .src{margin-top:8px;}
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent);color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep);}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:22px 26px;margin:26px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span class="dot">&#10039;</span> AI Blog Explainer</a>
+    <div class="srcbadge">Claude</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><g stroke="#fff" stroke-opacity=".18" stroke-width="1.5"><line x1="380" y1="230" x2="250" y2="118"/><line x1="380" y1="230" x2="520" y2="118"/><line x1="380" y1="230" x2="250" y2="342"/><line x1="380" y1="230" x2="520" y2="342"/><line x1="380" y1="230" x2="558" y2="230"/><line x1="380" y1="230" x2="228" y2="230"/></g><circle cx="380" cy="230" r="40" class="hnode"/><circle cx="380" cy="230" r="40" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/><circle cx="380" cy="230" r="6" fill="#fff"/><g fill="#fff"><circle cx="250" cy="118" r="8" fill-opacity=".8"/><circle cx="520" cy="118" r="8" fill-opacity=".8"/><circle cx="250" cy="342" r="8" fill-opacity=".8"/><circle cx="520" cy="342" r="8" fill-opacity=".8"/><circle cx="558" cy="230" r="7" fill-opacity=".7"/><circle cx="228" cy="230" r="7" fill-opacity=".7"/></g></svg>
+  </div>
+  <div class="wrap">
+    <span class="tag">Claude &middot; Agents &middot; August 26, 2026</span>
+    <h1>How Warp Builds Self-Improving Agents</h1>
+    <p class="lede">Feedback to an agent normally vanishes when the session ends. Warp&rsquo;s fix is a two-skill loop: a base skill does the work, humans leave feedback where they already are, and an &ldquo;improver&rdquo; skill rewrites the base skill through a normal pull request &mdash; so the agent compounds instead of plateauing.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>Claude</strong></div>
+      <div class="m"><span>Topic</span><strong>Agents &middot; Skills</strong></div>
+      <div class="m"><span>Pattern</span><strong>Self-improvement loop</strong></div>
+      <div class="m"><span>Reading time</span><strong>5 min</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
+  <div class="wrap">
+    <div class="tldr" data-tier-anchor>
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li><strong>Feedback usually vanishes</strong> &mdash; when an agent session ends, the corrections humans made disappear, so the agent repeats the same mistakes forever.</li>
+        <li><strong>Two skills, one loop</strong> &mdash; a base skill holds the domain knowledge; an improver skill observes accumulated feedback and proposes a small edit to the base.</li>
+        <li><strong>Humans stay in control</strong> &mdash; the improver opens a normal PR; a person reviews, approves, and merges, and the next run inherits the change.</li>
+        <li><strong>Skills are just files</strong> &mdash; because knowledge lives in plain files rather than the prompt, agents are good at editing them and updates flow through code review.</li>
+        <li><strong>Any agent can compound</strong> &mdash; Warp now runs spec-writing, review, and triage agents that each carry their own self-improvement loop across its open-source repo.</li>
+      </ul>
+    </div>
+    <div class="sowhat">
+      <div class="kick">So what for you</div>
+      <p>If you run an agent on a recurring task, <strong>add a lightweight way to capture feedback where people already work</strong> (a PR comment, a thumbs-up) and a scheduled job that turns that feedback into reviewable edits. That loop is the difference between an agent stuck at &ldquo;80% right and annoying&rdquo; and one that quietly gets better every week.</p>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The problem</div>
+    <h2>An 80% agent is a noisy agent</h2>
+    <p class="body">Warp &mdash; the AI-powered terminal and agentic development environment &mdash; hit this wall with its internal code-review agent. Engineers complained it left unhelpful comments and produced low-quality output. A first pass that gets 80% of a recurring task right still creates a noisy, annoying experience for the person on the other end.</p>
+    <p class="body">The team tried the obvious stopgaps: manually rewriting the prompt after each observed failure, and improving context files like AGENTS.md. Both helped; neither scaled. The real issue was deeper &mdash; feedback to an agent typically disappears when the session ends, stripping the most valuable context out of the loop.</p>
+    <p class="lead-quote">The framework is really simple: there&rsquo;s the base domain-specific skill, and then there&rsquo;s the improver skill that refines it. That simplicity is the beauty of the approach. &mdash; Zach Lloyd, Warp CEO</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The mechanism</div>
+    <h2>Two skills with a human in between</h2>
+    <div class="figure">
+      <div class="cap">Figure 1 &middot; The self-improvement loop</div>
+      <div class="flow">
+        <div class="fstep"><div class="n">1</div><h4>Base skill acts</h4><p>The inner skill holds domain knowledge; the agent runs it to produce its output (e.g. a code review).</p></div>
+        <div class="fstep"><div class="n">2</div><h4>Human feedback</h4><p>A person affirms or corrects the output where the work happens &mdash; ideally with the reason why.</p></div>
+        <div class="fstep"><div class="n">3</div><h4>Improver proposes</h4><p>A scheduled observer skill reads accumulated feedback and drafts the smallest edit to the base skill.</p></div>
+        <div class="fstep"><div class="n">4</div><h4>PR merges in</h4><p>The edit goes through normal code review; once merged, the next run inherits the improvement.</p></div>
+      </div>
+      <div class="loopnote">&#8635; The inner skill does the job; the outer skill runs on a schedule and refines it &mdash; a person approves every change.</div>
+    </div>
+    <p class="body">Skills are file-based encodings of knowledge that keep instructions out of the raw prompt. Because they are plain files, agents are extremely good at updating them, and those updates are reviewable, approvable, and mergeable like any other code change. That final human step is what keeps a person in control of what actually changes.</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The scale it runs at</div>
+    <h2>Warp, by the numbers</h2>
+    <div class="scardgrid">
+      <div class="scard"><div class="big">800K</div><div class="measure">Monthly developers</div><div class="ctx">Build on Warp each month; 56% of the Fortune 500 uses it.</div></div>
+      <div class="scard"><div class="big">10M</div><div class="measure">Claude Code sessions</div><div class="ctx">Run inside Warp to date &mdash; 400K+ every week.</div></div>
+      <div class="scard"><div class="big">40M</div><div class="measure">Warp Agent conversations</div><div class="ctx">Total agent conversations handled across the platform.</div></div>
+      <div class="scard"><div class="big">$73M</div><div class="measure">Raised</div><div class="ctx">Founded 2020 by Zach Lloyd; stack is Rust, Go, and the Claude Platform.</div></div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">The playbook</div>
+    <h2>How to write self-improving skills</h2>
+    <div class="grid3">
+      <div class="card"><span class="pill">Principle</span><h3>Write principles, not rules</h3><p>Instruct the agent like a smart colleague. &ldquo;Look for repeated code&rdquo; generalizes better than exhaustive variable-naming rules &mdash; and explain the <em>why</em> so it can reason.</p></div>
+      <div class="card"><span class="pill">Signal</span><h3>Make feedback effortless</h3><p>Capture it where people already work &mdash; a PR or issue comment &mdash; with no extra submission step. Low friction is what keeps the signal flowing.</p></div>
+      <div class="card"><span class="pill">Structure</span><h3>Keep skills small</h3><p>Use progressive disclosure: a good skill references resource files and scripts rather than dumping everything into context at once.</p></div>
+      <div class="card"><span class="pill">Quality</span><h3>Depth beats volume</h3><p>A little detailed, domain-specific feedback from a senior engineer beats lots of binary thumbs up/down &mdash; because thumbs don&rsquo;t say <em>why</em>. More quality signal still helps.</p></div>
+      <div class="card"><span class="pill">Reuse</span><h3>Invest in the improver</h3><p>The improver (observer) skill is largely reusable across use cases &mdash; the improver for a code-review agent isn&rsquo;t that different from one for any other agent.</p></div>
+      <div class="card"><span class="pill">Guard</span><h3>Assume feedback is wrong</h3><p>Give the agent context to sanity-check input, filter whose feedback counts, and keep a human at the filtering or final-review stage.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">The loop in action</div>
+    <h2>Warp&rsquo;s issue-triage agent</h2>
+    <p class="body">When someone files a GitHub issue, a GitHub Action fires an agent that analyzes complexity and feasibility, assigns labels, and suggests a direction. It runs off an inner skill holding domain knowledge about what each label means. On a sample issue it did a solid job but missed one label &mdash; <em>ready to spec</em> &mdash; and a maintainer left feedback directly on the issue, explaining both what he expected and why.</p>
+    <p class="body">The outer improver runs in Oz, Warp&rsquo;s orchestration platform, as a scheduled &ldquo;update triage&rdquo; agent. It authenticates to GitHub, runs a bundled Python script to pull issues carrying feedback, summarizes them into JSON, and reads that back into context. It then identifies the concrete signals and opens a PR making the smallest edit that captures them. A human reviews, approves, and merges &mdash; and the next triage run inherits the new knowledge.</p>
+    <div class="rowset">
+      <div class="row"><div class="rl"><b>Skills &ne; memory</b><span class="rule"></span></div><p>Skills are procedural and stable &mdash; &ldquo;how to do X,&rdquo; changed deliberately. Memory is auto-written at inference time and never stops changing. Don&rsquo;t conflate them.</p></div>
+      <div class="row"><div class="rl"><b>One improver, or one per agent?</b><span class="rule"></span></div><p>Meet in the middle: a templated base loop captures the overlap, with domain-specific weights layered on. A handful of agents can each own an improver; a hundred should share.</p></div>
+      <div class="row"><div class="rl"><b>Is your domain verifiable?</b><span class="rule"></span></div><p>If so, build the verification harness first, then let the agent tune against a reference corpus. If not, lean on deterministic evals against golden outputs and restrict human feedback to domain experts.</p></div>
+      <div class="row"><div class="rl"><b>Is the whole system improving?</b><span class="rule"></span></div><p>Track the global metrics humans already eyeball &mdash; time to merge, contributor count, cost &mdash; and feed them back into the improver agents. Go crawl-walk-run on deployment.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:none;" data-depth="manager">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>Build the loop in from the start</h2>
+        <p>Any agent gets better over time if you capture human feedback signals, turn them into skill updates, and keep a person approving each change &mdash; expanding one-off helpers into systems that compound across your org. Pick one recurring agent task and add a base skill, a feedback channel, and a scheduled improver.</p>
+      </div>
+      <a class="btn" href="https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude">Read the post &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){var l=it.querySelector("link");return l?l.textContent.trim():"";}).filter(Boolean);
+    var mine=location.href.split("#")[0].split("?")[0].split("/").pop();
+    var i=-1; for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the Claude blog &middot; AI Blog Explainers house style (Claude clay palette).</p>
+    <p class="src">Source: <a href="https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude">How Warp builds self-improving agents on Claude</a> &mdash; claude.com/blog, August 26, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude" target="_blank" rel="noopener" title="Read the original article"
+     style="background:#7A3B29;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:#CC785C;color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={
+    tldr:"Just the five-line summary + the takeaway.",
+    manager:"Summary, why it matters, and what to do — no deep internals.",
+    tech:"Everything, including the full playbook and the triage example."
+  };
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>

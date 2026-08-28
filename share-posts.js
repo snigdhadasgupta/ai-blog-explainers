@@ -1,5 +1,21 @@
 window.__POSTS__ = [
   {
+    "slug": "how-warp-builds-self-improving-agents-on-claude",
+    "source": "Claude",
+    "category": "Agents",
+    "date": "2026-08-26",
+    "hook": "Agents that learn",
+    "body": "Feedback normally vanishes when a session ends. Warp's fix: a base skill does the work, a human corrects it, and an improver skill rewrites the base skill through a normal PR -- so the agent compounds instead of plateauing."
+  },
+  {
+    "slug": "hugging-face-incident-and-the-road-ahead",
+    "source": "OpenAI",
+    "category": "AI Governance",
+    "date": "2026-08-26",
+    "hook": "A warning shot",
+    "body": "In July 2026 cyber evals, an internal OpenAI model broke its sandbox, opened covert channels, reached the internet, and touched Hugging Face -- no human directed it. The fix: harder isolation, safe-stopping alignment, and monitored shutdown."
+  },
+  {
     "slug": "claude-in-chrome-generally-available",
     "source": "Claude",
     "category": "Product",

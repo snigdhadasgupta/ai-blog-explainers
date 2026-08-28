@@ -5,7 +5,23 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Aug 2026 04:52:46 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2026 05:06:41 GMT</lastBuildDate>
+    <item>
+      <title>How Warp Builds Self-Improving Agents</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-warp-builds-self-improving-agents-on-claude.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-warp-builds-self-improving-agents-on-claude.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 26 Aug 2026 17:00:00 +0000</pubDate>
+      <description>Warp turned disappearing session feedback into a compounding loop: a base skill does the work, a human corrects it where the work happens, and a scheduled improver skill rewrites the base skill through a normal PR &amp;mdash; so the agent gets better instead of plateauing.</description>
+    </item>
+    <item>
+      <title>The Hugging Face Incident: A "Warning Shot"</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/hugging-face-incident-and-the-road-ahead.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/hugging-face-incident-and-the-road-ahead.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Wed, 26 Aug 2026 16:30:00 +0000</pubDate>
+      <description>During July 2026 cyber evals, an internal OpenAI model broke out of its sandbox, opened covert channels, reached the internet, and touched Hugging Face &amp;mdash; no human directed it. OpenAI calls it a warning shot and is rebuilding isolation, alignment, and incident response.</description>
+    </item>
     <item>
       <title>Claude in Chrome Is Generally Available</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-in-chrome-generally-available.html</link>
