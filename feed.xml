@@ -5,7 +5,47 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Aug 2026 23:13:09 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2026 04:52:46 +0000</lastBuildDate>
+    <item>
+      <title>Claude in Chrome Is Generally Available</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-in-chrome-generally-available.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-in-chrome-generally-available.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 26 Aug 2026 15:00:00 +0000</pubDate>
+      <description>Claude in Chrome reaches general availability on every paid plan and can now act autonomously in the browser, with a safety classifier vetting each action against your request — on the current red-team eval no attacks succeeded against Sonnet 5 or Opus 5, and 0.3% against Fable 5.</description>
+    </item>
+    <item>
+      <title>Claude Cowork Gets Its Own Browser</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/cowork-built-in-browser.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/cowork-built-in-browser.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 26 Aug 2026 14:30:00 +0000</pubDate>
+      <description>Claude Cowork gets a browser built into the desktop app: it opens sites, reads pages, clicks, and fills forms in a side panel while you keep working — no extension, and your own tabs, bookmarks, and passwords never come along unless you bring logins over site by site.</description>
+    </item>
+    <item>
+      <title>When AI Infrastructure Becomes the Target</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/when-ai-infrastructure-becomes-target-securing-gateways-control-points.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/when-ai-infrastructure-becomes-target-securing-gateways-control-points.html</guid>
+      <category>Microsoft Security</category>
+      <pubDate>Wed, 26 Aug 2026 14:00:00 +0000</pubDate>
+      <description>Microsoft Threat Intelligence found attackers treating AI gateways, retrieval platforms, and orchestrators as a control plane — compromising a LiteLLM gateway, a RAGFlow deployment, and a Kestra workflow to steal credentials, persist, and mine crypto — and lays out conventional controls for this new surface.</description>
+    </item>
+    <item>
+      <title>Agentic AI in Financial Services, Grounded in Content</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/agentic-ai-and-intelligent-content-management-financial-services-use-cases-capabilities-and.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/agentic-ai-and-intelligent-content-management-financial-services-use-cases-capabilities-and.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 26 Aug 2026 13:30:00 +0000</pubDate>
+      <description>How financial institutions move from chatbots to autonomous, content-grounded agents across onboarding, claims, compliance, and capital markets — and why Box positions Intelligent Content Management, metadata extraction, and permissions-aware RAG as the prerequisite for putting agents into production.</description>
+    </item>
+    <item>
+      <title>Trademark Property Turns Leases Into Data in Minutes</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/trademark-property-uses-box-apis-turn-thousands-lease-documents-actionable-data-minutes.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/trademark-property-uses-box-apis-turn-thousands-lease-documents-actionable-data-minutes.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 26 Aug 2026 13:00:00 +0000</pubDate>
+      <description>Trademark Property replaced a 48-hour, $150-200-per-document offshore lease-abstraction process with Box Extract and Box Apps — now running in minutes at near-zero cost, with cross-portfolio clause search across 13 metadata templates and projected savings of $450K-800K.</description>
+    </item>
     <item>
       <title>Four Layers of Defense for Agent Flows</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/defend-against-agentic-risks-with-multi-layered-protections-in-google-workspace-studio.html</link>
@@ -13,6 +53,22 @@
       <category>Google Workspace</category>
       <pubDate>Wed, 26 Aug 2026 12:00:00 +0000</pubDate>
       <description>Google Workspace Studio secures no-code agent flows with four built-in layers — abuse mitigations, per-flow OAuth identity isolation, human-in-the-loop approvals, and Gemini/Studio DLP — so a compromised flow stays bounded to its minimal scope and admins can pause or revoke it fast.</description>
+    </item>
+    <item>
+      <title>One Claude Memory, Everywhere You Work</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claudes-memory-works-everywhere-and-you-decide-whats-in-it.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claudes-memory-works-everywhere-and-you-decide-whats-in-it.html</guid>
+      <category>Claude</category>
+      <pubDate>Tue, 25 Aug 2026 15:30:00 +0000</pubDate>
+      <description>The memory Claude uses in chat is now the same one it uses in Cowork — visible and editable topic by topic, updated live as you chat, and off by default for sensitive subjects like health and beliefs, with some data never stored at all.</description>
+    </item>
+    <item>
+      <title>Give the Agent a Map, Not a Pile of Documents</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/i-built-claude-skill-helps-agent-not-get-lost-knowledge-base.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/i-built-claude-skill-helps-agent-not-get-lost-knowledge-base.html</guid>
+      <category>Box</category>
+      <pubDate>Tue, 25 Aug 2026 15:00:00 +0000</pubDate>
+      <description>A Box developer's Claude Skill, the Knowledge Router, reads a routing map stored in Box instead of letting an agent wander a folder tree — it classifies a plain-language request, links back to the right source docs, and saves new drafts into the workspace rather than into chat.</description>
     </item>
     <item>
       <title>OpenAI's Admin Plugin for ChatGPT Work</title>
@@ -71,20 +127,20 @@
       <description>Anthropic widens access to its most capable cyber model by exposing only defensive results — patches and alerts — not the raw model, adds Mythos 5 scans to Claude Security, and launches a $35M fund to secure open-source software.</description>
     </item>
     <item>
-      <title>Build Production Agents: Computer Use, Skills API &amp; Files API</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/computer-use-skills-api-files-api.html</link>
-      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/computer-use-skills-api-files-api.html</guid>
-      <category>Claude</category>
-      <pubDate>Thu, 20 Aug 2026 16:00:00 +0000</pubDate>
-      <description>Three capabilities go GA on the Claude Platform: computer use (plus a new browser use tool) to operate software an agent can see, the Skills API to apply your team's expertise on demand, and the Files API for durable inputs and outputs.</description>
-    </item>
-    <item>
       <title>How monday.com Became an Agent-First Product</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-monday-com-transformed-its-platform-into-an-agent-first-product-where-humans-and-agents-collaborate.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-monday-com-transformed-its-platform-into-an-agent-first-product-where-humans-and-agents-collaborate.html</guid>
       <category>Claude</category>
       <pubDate>Thu, 20 Aug 2026 17:00:00 +0000</pubDate>
       <description>After add-on AI features hit a ceiling, monday.com rebuilt its platform around Claude — agents with names, avatars, and permissions that teammates assign like coworkers. Two months in: more than five million agent interactions.</description>
+    </item>
+    <item>
+      <title>Build Production Agents: Computer Use, Skills API &amp; Files API</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/computer-use-skills-api-files-api.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/computer-use-skills-api-files-api.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 20 Aug 2026 16:00:00 +0000</pubDate>
+      <description>Three capabilities go GA on the Claude Platform: computer use (plus a new browser use tool) to operate software an agent can see, the Skills API to apply your team's expertise on demand, and the Files API for durable inputs and outputs.</description>
     </item>
     <item>
       <title>Zero Data Retention, Without Blind Safety</title>
@@ -101,6 +157,14 @@
       <category>Box</category>
       <pubDate>Wed, 19 Aug 2026 16:00:00 +0000</pubDate>
       <description>A small Box AI app extracts fields from ID, utility, and tax documents, checks them with plain application logic, and routes only the flagged exceptions to a human &amp;mdash; so a model never renders the final verdict.</description>
+    </item>
+    <item>
+      <title>How Slack Builds Human-Agent Teams</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/turning-conversation-into-knowledge-how-slack-builds-human-agent-teams.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/turning-conversation-into-knowledge-how-slack-builds-human-agent-teams.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 19 Aug 2026 16:00:00 +0000</pubDate>
+      <description>Slack CPO Jaime DeLanghe on turning conversation into knowledge: keep channels public so agents can learn, run the work as human-agent handoffs with human review, give agents clear roles, and measure outcomes — not token counts.</description>
     </item>
     <item>
       <title>Content Is the Agent’s Workspace</title>
@@ -141,14 +205,6 @@
       <category>Box</category>
       <pubDate>Mon, 17 Aug 2026 15:00:00 +0000</pubDate>
       <description>Box CISO Heather Ceylan on why AI that acts &amp;mdash; not just answers &amp;mdash; breaks the security model built for deterministic software, and a testable four-part definition of &quot;secure&quot;.</description>
-    </item>
-    <item>
-      <title>How Slack Builds Human-Agent Teams</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/turning-conversation-into-knowledge-how-slack-builds-human-agent-teams.html</link>
-      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/turning-conversation-into-knowledge-how-slack-builds-human-agent-teams.html</guid>
-      <category>Claude</category>
-      <pubDate>Wed, 19 Aug 2026 16:00:00 +0000</pubDate>
-      <description>Slack CPO Jaime DeLanghe on turning conversation into knowledge: keep channels public so agents can learn, run the work as human-agent handoffs with human review, give agents clear roles, and measure outcomes — not token counts.</description>
     </item>
     <item>
       <title>The Defender's Window</title>
@@ -559,70 +615,6 @@
       <description>Claude voice mode now runs on Opus and Sonnet, reaches connected tools like Gmail and Slack, and speaks many more languages.</description>
     </item>
     <item>
-      <title>Safety and Alignment in an Era of Long-Horizon Models</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/safety-alignment-long-horizon-models.html</link>
-      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/safety-alignment-long-horizon-models.html</guid>
-      <category>OpenAI</category>
-      <pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
-      <description>What OpenAI learned deploying a long-running agentic model — sandbox escapes, scanner evasion, and trajectory-level monitoring.</description>
-    </item>
-    <item>
-      <title>Least Privilege for AI Agents: Identity, Access &amp; Tool Binding</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/least-privilege-for-ai-agents-identity-access-and-tool-binding.html</link>
-      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/least-privilege-for-ai-agents-identity-access-and-tool-binding.html</guid>
-      <category>Microsoft Security</category>
-      <pubDate>Thu, 16 Jul 2026 00:00:00 +0000</pubDate>
-      <description>Agents chain actions across systems with no human approving each step. Microsoft's playbook: treat every agent as a first-class principal.</description>
-    </item>
-    <item>
-      <title>UST is Bringing Claude to Physical AI</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ust-claude.html</link>
-      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ust-claude.html</guid>
-      <category>Anthropic</category>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0000</pubDate>
-      <description>UST is embedding Claude Code into the engineering pipelines behind chips, cars, and connected devices &amp;mdash; cutting validation cycles 50&amp;ndash;70% &amp;mdash; plus healthcare, telecom, and banking, with 20,000 engineers trained.</description>
-    </item>
-    <item>
-      <title>Securing Agentic Workflows with Box MCP Server Guardrails</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/securing-agentic-workflows-box-mcp-server-guardrails.html</link>
-      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/securing-agentic-workflows-box-mcp-server-guardrails.html</guid>
-      <category>Box</category>
-      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
-      <description>Box&amp;#39;s new MCP server Admin Controls give IT teams granular guardrails over how AI agents interact with enterprise content &amp;mdash; access tiers, per-tool config, invisible guardrails, and full audit logging.</description>
-    </item>
-    <item>
-      <title>Microsoft Agent 365: A Control Plane to Govern Your AI Agents</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations.html</link>
-      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations.html</guid>
-      <category>Microsoft Security</category>
-      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
-      <description>Agent 365 is an enterprise control plane to observe, govern, and secure AI agents — tackling agent sprawl and shadow AI.</description>
-    </item>
-    <item>
-      <title>June Workspace Drops: New AI Features for Drive, Sheets &amp; Gmail</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/june-2026-workspace-feature-drop.html</link>
-      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/june-2026-workspace-feature-drop.html</guid>
-      <category>Google Workspace</category>
-      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
-      <description>Google's June Workspace drop adds AI to auto-organize Drive files, fix Sheets formula errors, and refine Gmail drafts.</description>
-    </item>
-    <item>
-      <title>Introducing the ChatGPT for Small Business Program</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-chatgpt-small-business-program.html</link>
-      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-chatgpt-small-business-program.html</guid>
-      <category>OpenAI</category>
-      <pubDate>Tue, 21 Jul 2026 00:00:00 +0000</pubDate>
-      <description>OpenAI's new program helps small businesses build AI skills and automate work with ChatGPT Work.</description>
-    </item>
-    <item>
-      <title>Introducing Workspace Intelligence</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-workspace-intelligence.html</link>
-      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-workspace-intelligence.html</guid>
-      <category>Google Workspace</category>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
-      <description>Google's Workspace Intelligence gives Gemini a unified, real-time understanding of your apps, projects, and colleagues to power agentic work.</description>
-    </item>
-    <item>
       <title>Building Verification Loops in Claude Code with Skills</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-verification-loops-in-claude-code-with-skills.html</link>
       <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-verification-loops-in-claude-code-with-skills.html</guid>
@@ -647,12 +639,76 @@
       <description>A battle-tested enterprise product for putting AI agents to work across customer and internal workflows.</description>
     </item>
     <item>
+      <title>Introducing the ChatGPT for Small Business Program</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-chatgpt-small-business-program.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-chatgpt-small-business-program.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Tue, 21 Jul 2026 00:00:00 +0000</pubDate>
+      <description>OpenAI's new program helps small businesses build AI skills and automate work with ChatGPT Work.</description>
+    </item>
+    <item>
+      <title>Safety and Alignment in an Era of Long-Horizon Models</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/safety-alignment-long-horizon-models.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/safety-alignment-long-horizon-models.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
+      <description>What OpenAI learned deploying a long-running agentic model — sandbox escapes, scanner evasion, and trajectory-level monitoring.</description>
+    </item>
+    <item>
+      <title>Least Privilege for AI Agents: Identity, Access &amp; Tool Binding</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/least-privilege-for-ai-agents-identity-access-and-tool-binding.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/least-privilege-for-ai-agents-identity-access-and-tool-binding.html</guid>
+      <category>Microsoft Security</category>
+      <pubDate>Thu, 16 Jul 2026 00:00:00 +0000</pubDate>
+      <description>Agents chain actions across systems with no human approving each step. Microsoft's playbook: treat every agent as a first-class principal.</description>
+    </item>
+    <item>
+      <title>UST is Bringing Claude to Physical AI</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ust-claude.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ust-claude.html</guid>
+      <category>Anthropic</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0000</pubDate>
+      <description>UST is embedding Claude Code into the engineering pipelines behind chips, cars, and connected devices &amp;mdash; cutting validation cycles 50&amp;ndash;70% &amp;mdash; plus healthcare, telecom, and banking, with 20,000 engineers trained.</description>
+    </item>
+    <item>
+      <title>June Workspace Drops: New AI Features for Drive, Sheets &amp; Gmail</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/june-2026-workspace-feature-drop.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/june-2026-workspace-feature-drop.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Google's June Workspace drop adds AI to auto-organize Drive files, fix Sheets formula errors, and refine Gmail drafts.</description>
+    </item>
+    <item>
       <title>Copilot in Excel: Built for the Era of Frontier Finance</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/copilot-in-excel-frontier-finance.html</link>
       <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/copilot-in-excel-frontier-finance.html</guid>
       <category>Microsoft 365</category>
       <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
       <description>New skills, financial connectors, and traceability bring finance-grade AI to Excel.</description>
+    </item>
+    <item>
+      <title>Securing Agentic Workflows with Box MCP Server Guardrails</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/securing-agentic-workflows-box-mcp-server-guardrails.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/securing-agentic-workflows-box-mcp-server-guardrails.html</guid>
+      <category>Box</category>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <description>Box&amp;#39;s new MCP server Admin Controls give IT teams granular guardrails over how AI agents interact with enterprise content &amp;mdash; access tiers, per-tool config, invisible guardrails, and full audit logging.</description>
+    </item>
+    <item>
+      <title>Microsoft Agent 365: A Control Plane to Govern Your AI Agents</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations.html</guid>
+      <category>Microsoft Security</category>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <description>Agent 365 is an enterprise control plane to observe, govern, and secure AI agents — tackling agent sprawl and shadow AI.</description>
+    </item>
+    <item>
+      <title>Introducing Workspace Intelligence</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-workspace-intelligence.html</link>
+      <guid isPermaLink="true">https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-workspace-intelligence.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Google's Workspace Intelligence gives Gemini a unified, real-time understanding of your apps, projects, and colleagues to power agentic work.</description>
     </item>
   </channel>
 </rss>
