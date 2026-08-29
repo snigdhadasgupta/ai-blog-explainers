@@ -5,7 +5,31 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Aug 2026 05:06:41 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2026 00:13:32 GMT</lastBuildDate>
+    <item>
+      <title>Valmark Turns Dark Data Into Advisor Agility</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/valmark-financial-group-turns-dark-data-advisor-agility-box-extract.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/valmark-financial-group-turns-dark-data-advisor-agility-box-extract.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 27 Aug 2026 12:00:00 GMT</pubDate>
+      <description>A 60-year-old broker-dealer serving ~400 advisors made Box its governed system of record, then layered AI on top — going from ~4,000 to 240,000+ data points extracted a year and cutting up to 48 hours of manual rekeying per task.</description>
+    </item>
+    <item>
+      <title>Invisible Guardrails: Securing Autonomous Agents</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/invisible-guardrails-infinite-velocity-how-modern-cisos-secure-autonomous-agents-without-slowing.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/invisible-guardrails-infinite-velocity-how-modern-cisos-secure-autonomous-agents-without-slowing.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 26 Aug 2026 12:00:00 GMT</pubDate>
+      <description>Box's Manoj Asnani and Bain Capital CISO Mark Sutton argue blocking AI only creates shadow AI. Safe speed for autonomous agents comes from the content layer: classify crown jewels, make every agent inherit the user's permissions, and contain the blast radius against prompt injection.</description>
+    </item>
+    <item>
+      <title>August Workspace Drops: Meet, Forms &amp; Skills</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/august-2026-workspace-feature-drop.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/august-2026-workspace-feature-drop.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Wed, 26 Aug 2026 12:00:00 GMT</pubDate>
+      <description>Google Workspace's August drop adds slide screenshots to Meet notes, auto-organizes every meeting artifact into one Drive folder, generates quizzes in Forms, and turns team rules into reusable Gemini skills — with new admin guardrails for no-code agents.</description>
+    </item>
     <item>
       <title>How Warp Builds Self-Improving Agents</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-warp-builds-self-improving-agents-on-claude.html</link>

@@ -1,5 +1,29 @@
 window.__POSTS__ = [
   {
+    "slug": "valmark-financial-group-turns-dark-data-advisor-agility-box-extract",
+    "source": "Box",
+    "category": "Case Study",
+    "date": "2026-08-27",
+    "hook": "4K to 240K",
+    "body": "A 60-year financial-services firm made Box its governed content layer, then layered AI on top — extracting 240,000+ data points a year and cutting up to 48 hours of manual rekeying per task."
+  },
+  {
+    "slug": "invisible-guardrails-infinite-velocity-how-modern-cisos-secure-autonomous-agents-without-slowing",
+    "source": "Box",
+    "category": "AI Governance",
+    "date": "2026-08-26",
+    "hook": "Stop saying no",
+    "body": "Blocking AI just creates shadow AI. Box and Bain Capital's CISO argue safe speed for autonomous agents comes from the content layer: classify crown jewels, inherit user permissions, contain the blast radius."
+  },
+  {
+    "slug": "august-2026-workspace-feature-drop",
+    "source": "Google Workspace",
+    "category": "Product",
+    "date": "2026-08-26",
+    "hook": "Less meeting busywork",
+    "body": "Google Workspace's August drop adds slide screenshots to Meet notes, auto-files every meeting artifact, generates quizzes in Forms, and turns team rules into reusable Gemini skills — with new admin guardrails."
+  },
+  {
     "slug": "how-warp-builds-self-improving-agents-on-claude",
     "source": "Claude",
     "category": "Agents",
