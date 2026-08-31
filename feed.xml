@@ -5,7 +5,31 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Aug 2026 00:13:32 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2026 10:00:00 +0000</lastBuildDate>
+    <item>
+      <title>How Anthropic Employees Use Claude Tag</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-anthropic-employees-use-claude-tag.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-anthropic-employees-use-claude-tag.html</guid>
+      <category>Claude</category>
+      <pubDate>Fri, 28 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Anthropic employees delegate to @Claude inside Slack like a colleague — a messy thread becomes a review-ready customer brief in 45 minutes, scattered feature requests consolidate in 26, and marketing legal review drops from a day-plus to about 30 minutes per asset, all with scoped access and human sign-off.</description>
+    </item>
+    <item>
+      <title>Frontier Capability Without a Frontier Dependency</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-we-got-frontier-level-capability-without-frontier-dependency.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-we-got-frontier-level-capability-without-frontier-dependency.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 27 Aug 2026 13:00:00 +0000</pubDate>
+      <description>Box's security team built an agentic, multi-model pen-testing engine that proves deep logic flaws its scanners can't catch — running on a laptop, gated by an enforced boundary and a deterministic oracle, with an open-weight model out-producing the top frontier reasoner about 7-to-1.</description>
+    </item>
+    <item>
+      <title>What's New in Microsoft Security: August 2026</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/whats-new-in-microsoft-security-august-2026.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/whats-new-in-microsoft-security-august-2026.html</guid>
+      <category>Microsoft Security</category>
+      <pubDate>Thu, 27 Aug 2026 11:00:00 +0000</pubDate>
+      <description>August's Microsoft Security drop reorganizes around AI agents: Secure Now guidance to contain unapproved agent actions, Entra Tenant Governance to unify identity, Defender Experts MDR coverage for third-party data via Sentinel, and Purview auto-labeling scaled to 500K files a day for Copilot readiness.</description>
+    </item>
     <item>
       <title>Valmark Turns Dark Data Into Advisor Agility</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/valmark-financial-group-turns-dark-data-advisor-agility-box-extract.html</link>
@@ -221,6 +245,14 @@
       <category>Claude</category>
       <pubDate>Tue, 18 Aug 2026 17:00:00 +0000</pubDate>
       <description>Anthropic’s CI team rebuilt the on-call rotation around Claude Tag &amp;mdash; it vets every alert, spins up subagents to investigate systems in parallel, and posts an evidence-grounded incident report in a median of 14 minutes.</description>
+    </item>
+    <item>
+      <title>What's New in Box This Quarter</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/elevating-team-collaboration-and-productivity-whats-new-box-quarter.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/elevating-team-collaboration-and-productivity-whats-new-box-quarter.html</guid>
+      <category>Box</category>
+      <pubDate>Tue, 18 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Box's quarterly update targets everyday friction — a unified commenting pane for all feedback, a modern video player with timestamped review and frame guides, Box AI in mobile search, and a single continuous AI session in Box Notes.</description>
     </item>
     <item>
       <title>From 10-K to Sourced Memo to Warehouse</title>

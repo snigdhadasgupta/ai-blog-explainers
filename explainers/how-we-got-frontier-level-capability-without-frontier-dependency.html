@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Frontier Capability Without a Frontier Dependency">
+<meta property="og:description" content="How Box built an agentic, multi-model pen-testing engine that proves logic flaws — on a laptop, with an open-weight model doing most of the work.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-we-got-frontier-level-capability-without-frontier-dependency.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/how-we-got-frontier-level-capability-without-frontier-dependency.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/how-we-got-frontier-level-capability-without-frontier-dependency.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Frontier Capability Without a Frontier Dependency">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/how-we-got-frontier-level-capability-without-frontier-dependency.png">
+<title>Frontier Capability Without a Frontier Dependency — Explainer</title>
+<style>
+  :root{
+    --clay:#3D3AAE;--clay-dark:#302C8A;--clay-deep:#24216B;--ink:#1A1826;--slate:#37344A;--stone:#5F5C74;--cream:#F4F3F9;--paper:#FBFAFE;--sand:#E6E4F2;--line:#D6D3E7;
+    --accent:#3D3AAE;--accent-deep:#2A2780;
+    --serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
+  .hero{background:linear-gradient(160deg,#161425 0%,#24216B 60%,#3D3AAE 100%);color:#ECEBF8;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent);}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#BFBDEB;border:1px solid rgba(191,189,235,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#DEDDF3;max-width:720px;}
+  .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(236,235,248,.18);font-size:13px;}
+  .meta .m span{display:block;color:#A6A3DE;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#F1F0FB;font-size:14px;}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16px;color:var(--slate);margin-bottom:12px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .flow{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;align-items:stretch;}
+  @media(max-width:820px){.flow{grid-template-columns:1fr 1fr 1fr;}}
+  @media(max-width:520px){.flow{grid-template-columns:1fr 1fr;}}
+  .fstep{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+  .fstep .n{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .fstep h4{font-size:12px;margin-bottom:4px;color:var(--ink);line-height:1.2;}
+  .fstep p{font-size:10.5px;color:var(--stone);line-height:1.35;}
+  .loopnote{text-align:center;margin-top:14px;font-size:13px;color:var(--accent-deep);font-weight:600;font-style:italic;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr;}}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:13.5px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);background:#DEDDF3;border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .scards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px;}
+  @media(max-width:820px){.scards{grid-template-columns:1fr 1fr;}}
+  .scard{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 18px;}
+  .scard .big{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--accent-deep);line-height:1;}
+  .scard .measure{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);font-weight:700;margin:8px 0 5px;}
+  .scard .ctx{font-size:12.5px;color:var(--slate);line-height:1.4;}
+  .rowset{margin-top:8px;}
+  .trow{display:flex;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);}
+  .trow:last-child{border-bottom:none;}
+  .trow .lab{font-weight:700;color:var(--ink);font-size:15px;min-width:180px;}
+  .trow .det{font-size:14px;color:var(--slate);}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#ECEBF8;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#D9D8F0;font-size:15px;max-width:560px;}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--accent-deep);}
+  .src{margin-top:8px;}
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent);color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep);}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:22px 26px;margin:26px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span class="dot">&#10039;</span> AI Blog Explainer</a>
+    <div class="srcbadge">Box</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><rect x="250" y="300" width="270" height="52" rx="12" fill="#fff" fill-opacity=".12"/><rect x="272" y="238" width="270" height="52" rx="12" fill="#fff" fill-opacity=".18"/><rect x="294" y="176" width="270" height="52" rx="12" fill="#fff" fill-opacity=".26"/><rect x="316" y="114" width="270" height="52" rx="12" class="hnode"/></svg>
+  </div>
+  <div class="wrap">
+    <span class="tag">Box &middot; AI Governance &middot; August 27, 2026</span>
+    <h1>Frontier Capability, Without a Frontier Dependency</h1>
+    <p class="lede">Box&rsquo;s security team built an agentic pen-testing engine that finds deep logic flaws its scanners were never designed to catch &mdash; running on a laptop, with a dozen models from six vendors, and an open-weight model producing most of the validated findings.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>Box</strong></div>
+      <div class="m"><span>Topic</span><strong>AI Governance &middot; Agentic security</strong></div>
+      <div class="m"><span>Theme</span><strong>Grounding beats raw capability</strong></div>
+      <div class="m"><span>Reading time</span><strong>6 min</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
+  <div class="wrap">
+    <div class="tldr" data-tier-anchor>
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li><strong>The threat changed</strong> &mdash; finding a deep logic flaw used to cost weeks of expert time; AI collapsed that cost for defenders and attackers at the same moment.</li>
+        <li><strong>Box chose constraint over horsepower</strong> &mdash; not one all-powerful agent roaming the platform, but a grounded ensemble scoped by architecture and checked by deterministic code.</li>
+        <li><strong>Build the boundary first</strong> &mdash; every action runs through one policy-gated, rate-limited core writing only to disposable canary objects in non-production; the scope lives in code, not a prompt.</li>
+        <li><strong>A non-AI oracle is the judge</strong> &mdash; a finding only ships when deterministic code independently reproduces the exploit end to end and re-runs it; a model&rsquo;s confident guess never reaches the report.</li>
+        <li><strong>The best model wasn&rsquo;t the best here</strong> &mdash; an open-weight model out-produced the top frontier reasoner ~7&times; on validated leads; benchmark rank barely predicted results.</li>
+      </ul>
+    </div>
+    <div class="sowhat">
+      <div class="kick">So what for you</div>
+      <p>If your teams are pointing autonomous agents at real systems, <strong>the model is rarely the hard part &mdash; grounding and proof are</strong>. Before you buy the most capable model, decide what enforces the blast radius and what independently verifies a claim, because those are what make an agent&rsquo;s output something you can act on.</p>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">Why it matters</div>
+    <h2>Scanners find what they were told to look for</h2>
+    <p class="body">Traditional scanners are excellent at matching known patterns, signatures, and bad payloads. But the most dangerous flaws in a multi-tenant platform are different: valid requests, correct syntax, an authorization decision made on the wrong basis. There&rsquo;s no signature to match. Finding them means understanding what the system is supposed to permit, forming a theory about where it permits more, and testing it &mdash; work whose expense used to deter attackers. It doesn&rsquo;t anymore.</p>
+    <p class="lead-quote">None of what we built came from trying to spend less. It came from realizing the model was never the bottleneck. Grounding and proof were &mdash; and those get built, not bought.</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The architecture choice</div>
+    <h2>Two credible designs; one you can rely on</h2>
+    <div class="grid2">
+      <div class="card"><span class="pill">Rejected</span><h3>The maximalist agent</h3><p>One very capable agent, broad latitude, unlimited compute, left to roam. Minimal engineering and it improves as models do &mdash; but it&rsquo;s opaque (findings arrive as assertions), unconstrained (a big compute bill and an undefined blast radius), and spends its budget rediscovering what your own architecture docs already state.</p></div>
+      <div class="card"><span class="pill">Chosen</span><h3>The constrained ensemble</h3><p>Grounded in real source. Discovery spread across a dozen-plus models from six vendors. Every claim terminates at a deterministic oracle that reproduces or discards it. Cheap enough to run on a cadence, small enough to audit line by line, scoped by architecture rather than by prompt.</p></div>
+    </div>
+    <p class="body" style="margin-top:20px;">The bet: a smarter model doesn&rsquo;t make an unproven finding actionable, and no amount of reasoning substitutes for reading the authorization path. So the effort went into scaffolding, not procuring the single best brain.</p>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">The pipeline</div>
+    <h2>Six stages, one enforced boundary</h2>
+    <p class="body">The most important piece isn&rsquo;t exciting: every path to a target runs through a single policy-gated execution core &mdash; rate-limited, writing only to disposable canary objects it created, restricted to non-production. Production is strictly read-only. It&rsquo;s the only code path that exists. Inside that boundary, the pipeline runs six stages; the two that touch recon and verification are deliberately model-free.</p>
+    <div class="figure">
+      <div class="cap">Figure 1 &middot; From deterministic recon to a reproducible finding</div>
+      <div class="flow">
+        <div class="fstep"><div class="n">1</div><h4>Recon</h4><p>Map the full callable surface and fire cheap probes &mdash; no model needed.</p></div>
+        <div class="fstep"><div class="n">2</div><h4>Scout</h4><p>Agents read the source and authorization path, not just the API.</p></div>
+        <div class="fstep"><div class="n">3</div><h4>Exploit</h4><p>A skeptical model &mdash; never the proposer &mdash; tries to prove the claim.</p></div>
+        <div class="fstep"><div class="n">4</div><h4>Verify</h4><p>A non-AI oracle reproduces it end to end, several times, or discards it.</p></div>
+        <div class="fstep"><div class="n">5</div><h4>By-design check</h4><p>A model panel weighs it against design docs, source, and a live probe.</p></div>
+        <div class="fstep"><div class="n">6</div><h4>Report</h4><p>Ships remediation: source path, severity, fix, and a replayable proof.</p></div>
+      </div>
+      <div class="loopnote">&#8635; Diversity is a precision tool: a hypothesis raised independently by two different vendors&rsquo; models gets corroborated and sorted first.</div>
+    </div>
+    <div class="grid2">
+      <div class="card"><span class="pill">Anti-pattern</span><h3>Don&rsquo;t scale one strong model</h3><p>Blind spots correlate inside a model family, so parallel agents with identical instincts walk past the same flaw at high confidence. Coverage looks like a compute problem but is really a diversity problem.</p></div>
+      <div class="card"><span class="pill">Where FPs die</span><h3>The oracle can throw AI work away</h3><p>A claim the oracle can&rsquo;t reproduce is demoted to a labeled lead, duplicates collapse into one finding, and a &ldquo;leak&rdquo; only counts if a benign request doesn&rsquo;t produce the same error. Demoted, never silently dropped.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">What the runs taught</div>
+    <h2>Benchmark rank didn&rsquo;t predict results</h2>
+    <div class="scards">
+      <div class="scard"><div class="big">~7&times;</div><div class="measure">Open-weight vs. frontier</div><div class="ctx">Validated leads the top open-weight model surfaced over the primary frontier reasoner.</div></div>
+      <div class="scard"><div class="big">~50&times;</div><div class="measure">Top vs. weakest model</div><div class="ctx">Spread in validated findings across the pool &mdash; unpredictable from the outside.</div></div>
+      <div class="scard"><div class="big">12+ / 6</div><div class="measure">Models / vendors</div><div class="ctx">Enough diversity that no single vendor&rsquo;s blind spot or policy becomes your own.</div></div>
+      <div class="scard"><div class="big">89</div><div class="measure">Recovered in one run</div><div class="ctx">Refused or failed attempts re-dispatched to an open-weight backstop (64 were policy refusals).</div></div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">The operational catch</div>
+    <h2>A refusal looks exactly like a clean result</h2>
+    <p class="body">Several frontier providers filter offensive-security work &mdash; including authorized, owner-initiated testing of your own systems. That&rsquo;s a reasonable product decision. The problem is how refusals surface: nothing crashes, the run completes, and the only trace is an absence. A result that produced nothing looks identical to a result that found nothing.</p>
+    <div class="rowset">
+      <div class="trow"><div class="lab">Frontier &mdash; for depth</div><div class="det">Stronger when an agent holds one theory and must chain three conditions to prove it, and at reading unfamiliar code and reasoning about an unfamiliar weakness.</div></div>
+      <div class="trow"><div class="lab">Open-weight &mdash; for breadth</div><div class="det">Produced the bulk of validated leads at a fraction of the cost, ran under terms that permit authorized testing, and held the single highest-yield exploit slot.</div></div>
+      <div class="trow"><div class="lab">The backstop rule</div><div class="det">Every declined unit is detected, logged, and re-dispatched to an open-weight model &mdash; and the refusal rate is surfaced in run health, so coverage is a number you can claim.</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:none;" data-depth="manager">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>If you&rsquo;re building something like this</h2>
+        <p>Start with one weakness class your team understands and wire one oracle for it. Prove a single bug end to end &mdash; hypothesis, exploit, independent reproduction, a ticket an engineer closes. Then add lenses and models to a machine that already knows how to tell proof from suspicion. Build the boundary and the oracle first, and the models become interchangeable.</p>
+      </div>
+      <a class="btn" href="https://blog.box.com/how-we-got-frontier-level-capability-without-frontier-dependency">Read the post &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #D6D3E7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:#2A2780;text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:#2A2780;text-decoration:none;border:1px solid #D6D3E7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:#2A2780;text-decoration:none;border:1px solid #D6D3E7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){var l=it.querySelector("link");return l?l.textContent.trim():"";}).filter(Boolean);
+    var mine=location.href.split("#")[0].split("?")[0].split("/").pop();
+    var i=-1; for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the Box blog &middot; AI Blog Explainers house style (Box indigo accent).</p>
+    <p class="src">Source: <a href="https://blog.box.com/how-we-got-frontier-level-capability-without-frontier-dependency">How we got frontier-level capability without a frontier dependency</a> &mdash; blog.box.com, August 27, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://blog.box.com/how-we-got-frontier-level-capability-without-frontier-dependency" target="_blank" rel="noopener" title="Read the original article"
+     style="background:#24216B;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:#3D3AAE;color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1A1826;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={
+    tldr:"Just the five-line summary + the takeaway.",
+    manager:"Summary, why it matters, and what to do — no deep internals.",
+    tech:"Everything, including the pipeline and model-selection findings."
+  };
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>

@@ -1,5 +1,29 @@
 window.__POSTS__ = [
   {
+    "slug": "how-anthropic-employees-use-claude-tag",
+    "source": "Claude",
+    "category": "Enterprise AI",
+    "date": "2026-08-28",
+    "hook": "Tag @Claude, Get Work Back",
+    "body": "Anthropic employees turn tangled Slack threads into finished briefs, request lists, and legal reviews \u2014 tagging Claude like a colleague and getting hours of work back in minutes."
+  },
+  {
+    "slug": "how-we-got-frontier-level-capability-without-frontier-dependency",
+    "source": "Box",
+    "category": "AI Governance",
+    "date": "2026-08-27",
+    "hook": "Grounding Beats The Frontier",
+    "body": "Box built an agentic pen-testing engine that proves real logic flaws on a laptop \u2014 and an open-weight model out-found the top frontier reasoner about seven to one."
+  },
+  {
+    "slug": "whats-new-in-microsoft-security-august-2026",
+    "source": "Microsoft Security",
+    "category": "AI Governance",
+    "date": "2026-08-27",
+    "hook": "Secure The Agent Sprawl",
+    "body": "Microsoft's August security drop centers on agents: contain unapproved agent actions, unify tenant identity, extend detection to third-party data, and scale labeling for Copilot."
+  },
+  {
     "slug": "valmark-financial-group-turns-dark-data-advisor-agility-box-extract",
     "source": "Box",
     "category": "Case Study",
@@ -214,6 +238,14 @@ window.__POSTS__ = [
     "date": "2026-08-18",
     "hook": "First Responder",
     "body": "Anthropic's CI team put Claude Tag on the on-call rotation. It watches every alert, chases leads in parallel, and posts an evidence-grounded incident report in a median of 14 minutes."
+  },
+  {
+    "slug": "elevating-team-collaboration-and-productivity-whats-new-box-quarter",
+    "source": "Box",
+    "category": "Product",
+    "date": "2026-08-18",
+    "hook": "One Pane For Feedback",
+    "body": "Box's quarterly update pulls comments, annotations, and video review into a single pane, adds Box AI to mobile search, and gives Box Notes one continuous AI session."
   },
   {
     "slug": "build-sourced-investment-memo-pipeline-box-and-snowflake",
