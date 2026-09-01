@@ -1,5 +1,29 @@
 window.__POSTS__ = [
   {
+    "slug": "creating-company-brain-box-and-hermes-agent",
+    "source": "Box",
+    "category": "Agents",
+    "date": "2026-08-31",
+    "hook": "Give Agents A Brain",
+    "body": "Box's official skill now ships with every Hermes Agent, turning governed enterprise content into a company brain agents can read, act on, and write back to — inside your existing permissions."
+  },
+  {
+    "slug": "shelter-insurance-combines-content-ai-across-business",
+    "source": "Box",
+    "category": "Case Study",
+    "date": "2026-08-31",
+    "hook": "Two Weeks To Hours",
+    "body": "Shelter Insurance runs claims, billing and policy on Box across 15 states — now layering Box AI to pull facts from demand packets and cut claim payouts from weeks to hours."
+  },
+  {
+    "slug": "expanding-access-to-ai-with-chatgpt-ads",
+    "source": "OpenAI",
+    "category": "Product",
+    "date": "2026-08-31",
+    "hook": "ChatGPT Ads Hit $1B",
+    "body": "In under 200 days ChatGPT Ads reached a $1B annualized run rate and is going self-serve across India, Europe and beyond — with a free tier funding a billion weekly users."
+  },
+  {
     "slug": "how-anthropic-employees-use-claude-tag",
     "source": "Claude",
     "category": "Enterprise AI",

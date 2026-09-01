@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ChatGPT Ads Hits $1B — and Goes Global">
+<meta property="og:description" content="In under 200 days, ChatGPT Ads hit a $1B annualized run rate with tens of thousands of advertisers. OpenAI is opening self-service buying across India, Europe, the Middle East and North Africa — funding a free tier for 1B+ weekly users.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/expanding-access-to-ai-with-chatgpt-ads.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/expanding-access-to-ai-with-chatgpt-ads.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/expanding-access-to-ai-with-chatgpt-ads.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ChatGPT Ads Hits $1B — and Goes Global">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/expanding-access-to-ai-with-chatgpt-ads.png">
+<title>ChatGPT Ads Hits $1B, and Goes Global &mdash; Explainer</title>
+<style>
+  :root{
+    --clay:#0F9D77;--clay-dark:#0C7E5F;--clay-deep:#0A5E48;--ink:#1F1B18;--slate:#3D3733;--stone:#6B6259;--cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--line:#DED6C7;
+    --accent:#0F9D77;--accent-deep:#0A5E48;
+    --serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
+  .hero{background:linear-gradient(160deg,#0E1614 0%,#0B3A2C 55%,var(--accent-deep) 100%);color:#F3EEFB;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent);}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#E6DBFA;border:1px solid rgba(230,219,250,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;color:#fff;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#EFE9FB;max-width:720px;}
+  .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(243,238,251,.18);font-size:13px;}
+  .meta .m span{display:block;color:#CDBDF0;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#F6F1FE;font-size:14px;}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16px;color:var(--slate);margin-bottom:12px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:stretch;}
+  @media(max-width:820px){.flow{grid-template-columns:1fr 1fr;}}
+  .fstep{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+  .fstep .n{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .fstep h4{font-size:12.5px;margin-bottom:4px;color:var(--ink);line-height:1.2;}
+  .fstep p{font-size:11px;color:var(--stone);line-height:1.35;}
+  .loopnote{text-align:center;margin-top:14px;font-size:13px;color:var(--accent-deep);font-weight:600;font-style:italic;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr;}}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:13.5px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);background:var(--sand);border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .scardwrap{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px;}
+  @media(max-width:820px){.scardwrap{grid-template-columns:1fr 1fr;}}
+  .scard{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:18px 20px;}
+  .scard .big{font-family:var(--serif);font-size:34px;font-weight:700;color:var(--accent-deep);line-height:1;}
+  .scard .lbl{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--stone);margin:8px 0 4px;}
+  .scard .ctx{font-size:13px;color:var(--slate);}
+  .trow{border-top:1px solid var(--line);padding:14px 0;}
+  .trow:first-child{border-top:none;padding-top:2px;}
+  .trow .rl{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+  .trow .rl b{font-size:15.5px;color:var(--ink);}
+  .trow .rl .tag2{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);white-space:nowrap;}
+  .trow p{font-size:13.5px;color:var(--stone);margin-top:5px;max-width:770px;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#F0EAFA;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#E4DAF5;font-size:15px;max-width:560px;}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--accent-deep);}
+  .src{margin-top:8px;}
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent);color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep);}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:22px 26px;margin:26px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span class="dot">&#10039;</span> AI Blog Explainer</a>
+    <div class="srcbadge">OpenAI</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><rect x="250" y="300" width="46" height="80" rx="8" fill="#fff" fill-opacity=".16"/><rect x="316" y="250" width="46" height="130" rx="8" fill="#fff" fill-opacity=".22"/><rect x="382" y="190" width="46" height="190" rx="8" fill="#fff" fill-opacity=".3"/><rect x="448" y="120" width="46" height="260" rx="8" class="hnode"/><line x1="238" y1="381" x2="512" y2="381" stroke="#fff" stroke-opacity=".25" stroke-width="2"/></svg>
+  </div>
+  <div class="wrap">
+    <span class="tag">OpenAI &middot; Product &middot; August 31, 2026</span>
+    <h1>ChatGPT Ads Hits $1B &mdash; and Goes Global</h1>
+    <p class="lede">In under 200 days, ChatGPT Ads reached a $1&nbsp;billion annualized run rate with tens of thousands of advertisers. OpenAI is now opening self-service buying across India, Europe, the Middle East, and North Africa &mdash; funding a free tier for more than a billion weekly users.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>OpenAI</strong></div>
+      <div class="m"><span>Topic</span><strong>Product &middot; Monetization</strong></div>
+      <div class="m"><span>Theme</span><strong>Ad-supported access</strong></div>
+      <div class="m"><span>Reading time</span><strong>4 min</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
+  <div class="wrap">
+    <div class="tldr" data-tier-anchor>
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li><strong>$1B run rate in &lt;200 days</strong> &mdash; ChatGPT Ads is now a pillar of OpenAI&rsquo;s business alongside subscriptions, enterprise, and APIs.</li>
+        <li><strong>Ads fund free access</strong> &mdash; an ad-supported tier helps keep ChatGPT available to more than a billion weekly active users.</li>
+        <li><strong>Context-based and labeled</strong> &mdash; ads use the conversation&rsquo;s context, stay separate from answers, and don&rsquo;t change what ChatGPT says.</li>
+        <li><strong>Now self-service</strong> &mdash; Ads Manager opens across India, Europe, the Middle East, and North Africa; 40+ countries, 50+ partners.</li>
+        <li><strong>Real outcomes cited</strong> &mdash; one advertiser reported 3&times; ROAS over 28 days; a partner said 80%+ of ad-driven traffic was new customers.</li>
+      </ul>
+    </div>
+    <div class="sowhat">
+      <div class="kick">So what for you</div>
+      <p>If you own product or marketing, <strong>ChatGPT is becoming a discovery-and-decision surface, not just an answer box</strong> &mdash; worth watching how consideration-stage traffic behaves there, and noting that placements are context-based and kept separate from the model&rsquo;s answers.</p>
+    </div>
+  </div>
+</section>
+
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The shift</div>
+    <h2>ChatGPT as a decision surface</h2>
+    <p class="body">People arrive at ChatGPT with concrete goals &mdash; choosing business software, planning a renovation, looking for a job, learning a language. They lay out what they want, what matters, and their constraints, and ChatGPT helps them frame the decision, set criteria, weigh alternatives, and move toward action. Discovery, consideration, and decision now happen in one place.</p>
+    <p class="body">ChatGPT Ads inserts marketers into that flow: the system uses the context of the conversation (and, where enabled by country and settings, a user&rsquo;s broader ChatGPT context) to show a relevant ad. OpenAI frames advertising as one pillar of a diversified model alongside subscriptions, enterprise, and usage-based APIs &mdash; with an ad-supported free tier that helps keep ChatGPT available to more than a billion weekly users.</p>
+    <p class="lead-quote">The strategic read: ChatGPT is becoming a place where purchase decisions take shape, not just an answer box.</p>
+    <div class="figure">
+      <div class="cap">Scorecard &middot; ChatGPT Ads by the numbers</div>
+      <div class="scardwrap">
+        <div class="scard"><div class="big">$1B</div><div class="lbl">Annualized run rate</div><div class="ctx">Reached in under 200 days after launch.</div></div>
+        <div class="scard"><div class="big">1B+</div><div class="lbl">Weekly active users</div><div class="ctx">The free tier the ad model helps fund.</div></div>
+        <div class="scard"><div class="big">40+</div><div class="lbl">Countries available</div><div class="ctx">Via sales team, agencies, and partners.</div></div>
+        <div class="scard"><div class="big">50+</div><div class="lbl">Tech &amp; measurement partners</div><div class="ctx">Ecosystem around the platform.</div></div>
+        <div class="scard"><div class="big">3&times;</div><div class="lbl">ROAS example</div><div class="ctx">One ecommerce advertiser over 28 days.</div></div>
+        <div class="scard"><div class="big">80%+</div><div class="lbl">New customers</div><div class="ctx">Share of ad-driven traffic, per one partner.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">Guardrails</div>
+    <h2>Built to protect trust</h2>
+    <div class="grid2">
+      <div class="card"><span class="pill">Labeling</span><h3>Clearly marked, kept separate</h3><p>Ads are always labeled and separated from ChatGPT&rsquo;s answers &mdash; a visible boundary between editorial response and paid placement.</p></div>
+      <div class="card"><span class="pill">Independence</span><h3>Answers don&rsquo;t change</h3><p>Advertising does not influence the answers ChatGPT provides. The model&rsquo;s response is meant to stand on its own regardless of who is buying ads.</p></div>
+      <div class="card"><span class="pill">Privacy</span><h3>No access to conversations</h3><p>Advertisers do not receive access to people&rsquo;s private conversations; targeting works off context, not a handoff of chat content.</p></div>
+      <div class="card"><span class="pill">Control</span><h3>Users tune personalization</h3><p>People can control how their ad experience is personalized, and OpenAI says trust and relevance metrics have held through the rollout.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">Under the hood</div>
+    <h2>From managed pilot to self-serve platform</h2>
+    <p class="body">ChatGPT Ads began as a managed-sales, agency, and partner-led model. The introduction of Ads Manager in May opened it to small and medium-sized businesses, which now make up a material share of the base. Starting this rollout, self-service buying expands across India, Europe, the Middle East, and North Africa &mdash; on top of availability in 40-plus countries.</p>
+    <p class="body">The buying stack has matured too. CPC and outcome-optimized bidding now account for the majority of campaigns, while a Pixel and Conversions API have become the foundations for measurement and optimization. Product feeds, platform and geographic targeting, and custom audiences let advertisers narrow to the customers most relevant to them &mdash; the familiar toolkit of a modern ad platform, now attached to a conversational surface.</p>
+  </div>
+</section>
+
+<section style="border-bottom:none;" data-depth="manager">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>What to watch</h2>
+        <p>OpenAI says the next phase brings more markets plus new formats, objectives, buying options, and measurement &mdash; and &ldquo;more native&rdquo; ways for businesses to interact with people in ChatGPT. For product and marketing teams, the thing to track is how &ldquo;consideration&rdquo; traffic behaves on a surface where the answer and the ad sit side by side but separate.</p>
+      </div>
+      <a class="btn" href="https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads/">Read the post &rarr;</a>
+    </div>
+  </div>
+</section>
+
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:var(--accent-deep);text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:var(--accent-deep);text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:var(--accent-deep);text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){var l=it.querySelector("link");return l?l.textContent.trim():"";}).filter(Boolean);
+    var mine=location.href.split("#")[0].split("?")[0].split("/").pop();
+    var i=-1; for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the OpenAI newsroom &middot; AI Blog Explainers house style (OpenAI green accent).</p>
+    <p class="src">Source: <a href="https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads/">A milestone in expanding access to AI</a> &mdash; openai.com, August 31, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads/" target="_blank" rel="noopener" title="Read the original article"
+     style="background:var(--clay-deep);color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:var(--clay);color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" \u2014 Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={
+    tldr:"Just the five-line summary + the takeaway.",
+    manager:"Summary, why it matters, and what to do \u2014 no deep internals.",
+    tech:"Everything, including the full playbook and mechanics."
+  };
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>
