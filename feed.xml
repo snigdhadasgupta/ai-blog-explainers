@@ -5,7 +5,39 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Sep 2026 20:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 12:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Claude Fable 5.1 &amp; Mythos 5.1: A New Frontier</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-fable-and-mythos-5-1.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-fable-and-mythos-5-1.html</guid>
+      <category>Anthropic</category>
+      <pubDate>Tue, 01 Sep 2026 17:00:00 +0000</pubDate>
+      <description>Anthropic&apos;s most advanced models for coding and knowledge work arrive ~25% cheaper via a 75% cut to cache-read pricing, with zero-data-retention-grade privacy for enterprises and early real scientific results.</description>
+    </item>
+    <item>
+      <title>Enterprise Frontier Safeguards: Privacy Without Blind Spots</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/enterprise-frontier-safeguards.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/enterprise-frontier-safeguards.html</guid>
+      <category>Anthropic</category>
+      <pubDate>Tue, 01 Sep 2026 16:30:00 +0000</pubDate>
+      <description>EFS combines the privacy of zero data retention with misuse detection by keeping monitoring data in the customer&apos;s own cloud, under their keys — built with 100+ regulated enterprises and every US systemically important bank.</description>
+    </item>
+    <item>
+      <title>How AI-Native Companies Turn Workflows Into Capability</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ai-native-company-workflows.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ai-native-company-workflows.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Tue, 01 Sep 2026 16:00:00 +0000</pubDate>
+      <description>Basis, Clay, and Exa built agents into onboarding, sales, and developer growth. The pattern behind the widening frontier gap: teach a stable process, give it persistent context, then let it carry work into tested action.</description>
+    </item>
+    <item>
+      <title>Box Tests Claude Fable 5.1 on Enterprise Work</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/first-look-claude-fable-51-improves-accuracy-latency-and-efficiency-complex-enterprise-work.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/first-look-claude-fable-51-improves-accuracy-latency-and-efficiency-complex-enterprise-work.html</guid>
+      <category>Box</category>
+      <pubDate>Tue, 01 Sep 2026 15:30:00 +0000</pubDate>
+      <description>On Box&apos;s multi-document business benchmark, Claude Fable 5.1 jumped from 65% to 72% while cutting task time 23% and tokens 25%, with the biggest gains in analytical work where one early error cascades.</description>
+    </item>
     <item>
       <title>A Company Brain for Agents: Box + Hermes</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/creating-company-brain-box-and-hermes-agent.html</link>

@@ -1,5 +1,37 @@
 window.__POSTS__ = [
   {
+    "slug": "claude-fable-and-mythos-5-1",
+    "source": "Anthropic",
+    "category": "Model Launch",
+    "date": "2026-09-01",
+    "hook": "Smarter, And Cheaper",
+    "body": "Claude Fable 5.1 sets a new frontier for coding and knowledge work — roughly 25% cheaper, with zero-data-retention-grade privacy and early signs of real scientific discovery."
+  },
+  {
+    "slug": "enterprise-frontier-safeguards",
+    "source": "Anthropic",
+    "category": "AI Governance",
+    "date": "2026-09-01",
+    "hook": "Privacy Without Blind Spots",
+    "body": "Anthropic's Enterprise Frontier Safeguards keep misuse-monitoring data in the customer's own cloud, under their own keys — the privacy of zero retention, built with 100+ regulated enterprises."
+  },
+  {
+    "slug": "ai-native-company-workflows",
+    "source": "OpenAI",
+    "category": "Enterprise AI",
+    "date": "2026-09-01",
+    "hook": "Teach, Persist, Act",
+    "body": "Basis, Clay, and Exa built agents into onboarding, sales, and dev growth — teaching a stable process, giving it persistent context, then letting it carry work into tested action."
+  },
+  {
+    "slug": "first-look-claude-fable-51-improves-accuracy-latency-and-efficiency-complex-enterprise-work",
+    "source": "Box",
+    "category": "Enterprise AI",
+    "date": "2026-09-01",
+    "hook": "72% On Real Work",
+    "body": "On Box's multi-document business benchmark, Claude Fable 5.1 jumped from 65% to 72% — while cutting task time 23% and tokens 25%. Biggest gains where one early error cascades."
+  },
+  {
     "slug": "creating-company-brain-box-and-hermes-agent",
     "source": "Box",
     "category": "Agents",
