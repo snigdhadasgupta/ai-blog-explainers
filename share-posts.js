@@ -32,6 +32,14 @@ window.__POSTS__ = [
     "body": "Licensing AI isn't transforming work. Google Workspace's four-phase playbook crosses the adoption chasm, where 89% of transformed orgs see direct, measurable business growth."
   },
   {
+    "slug": "google-pics-brings-pro-level-ai-image-creation-and-editing-to-google-workspace",
+    "source": "Google Workspace",
+    "category": "Product",
+    "date": "2026-09-01",
+    "hook": "Pro images, no designer",
+    "body": "Google Pics puts AI image generation and object-level editing natively inside Workspace — refine a graphic right in Docs or Slides, crop, upscale to 4K, and localize text without switching apps."
+  },
+  {
     "slug": "claude-fable-and-mythos-5-1",
     "source": "Anthropic",
     "category": "Model Launch",

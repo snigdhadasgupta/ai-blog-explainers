@@ -5,7 +5,7 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Sep 2026 01:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2026 08:00:00 +0000</lastBuildDate>
     <item>
       <title>The Anatomy of Effective Commerce Agents</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-anatomy-of-effective-commerce-agents.html</link>
@@ -37,6 +37,14 @@
       <category>Google Workspace</category>
       <pubDate>Wed, 02 Sep 2026 17:15:00 +0000</pubDate>
       <description>Licensing AI isn&apos;t transforming work. Google Workspace&apos;s four-phase playbook crosses the adoption chasm, where 89% of transformed organizations see direct business growth and users start by saving ~3 hours a week.</description>
+    </item>
+    <item>
+      <title>Google Pics: Pro-Level AI Images in Workspace</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/google-pics-brings-pro-level-ai-image-creation-and-editing-to-google-workspace.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/google-pics-brings-pro-level-ai-image-creation-and-editing-to-google-workspace.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Mon, 01 Sep 2026 23:00:00 +0000</pubDate>
+      <description>Google Pics brings native AI image generation and object-level editing to Workspace — generate or import, edit individual objects, translate text, crop, and upscale to 4K, with one-click editing inside Docs and Slides.</description>
     </item>
     <item>
       <title>Claude Fable 5.1 &amp; Mythos 5.1: A New Frontier</title>
