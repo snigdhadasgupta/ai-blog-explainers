@@ -1,5 +1,37 @@
 window.__POSTS__ = [
   {
+    "slug": "the-anatomy-of-effective-commerce-agents",
+    "source": "Claude",
+    "category": "Agents",
+    "date": "2026-09-02",
+    "hook": "One Agent, Not Ten",
+    "body": "The commerce agents that win are one model in a loop with skills, not a subagent swarm. The engineering is in latency, 90-99% prompt-cache rates, and safety enforced in the harness."
+  },
+  {
+    "slug": "claude-for-commerce-agents",
+    "source": "Claude",
+    "category": "Product",
+    "date": "2026-09-02",
+    "hook": "Carts 35% Bigger",
+    "body": "Anthropic's open commerce blueprint ships working shopping and merchant agents with guardrails built in. Retailers on Claude see carts up to 35% larger and shoppers 60% likelier to buy."
+  },
+  {
+    "slug": "securing-ai-agents-box-agent-guardrails-give-you-control-without-slowing-down-innovation",
+    "source": "Box",
+    "category": "AI Governance",
+    "date": "2026-09-02",
+    "hook": "Governance At Agent Speed",
+    "body": "Box guardrails set content scope, user scope, and human-in-the-loop once in the Admin Console, inherited by every agent and enforced before any action runs, not bolted on afterward."
+  },
+  {
+    "slug": "from-deployment-to-transformation-the-playbook-for-realizing-ai-value",
+    "source": "Google Workspace",
+    "category": "AI Adoption",
+    "date": "2026-09-02",
+    "hook": "Deployment Isn't Value",
+    "body": "Licensing AI isn't transforming work. Google Workspace's four-phase playbook crosses the adoption chasm, where 89% of transformed orgs see direct, measurable business growth."
+  },
+  {
     "slug": "claude-fable-and-mythos-5-1",
     "source": "Anthropic",
     "category": "Model Launch",

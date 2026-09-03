@@ -5,7 +5,39 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Sep 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2026 01:00:00 +0000</lastBuildDate>
+    <item>
+      <title>The Anatomy of Effective Commerce Agents</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-anatomy-of-effective-commerce-agents.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-anatomy-of-effective-commerce-agents.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 02 Sep 2026 18:00:00 +0000</pubDate>
+      <description>Anthropic&apos;s engineering guide to commerce agents: one model in a loop with skills, not a subagent swarm, tuned for 90-99% prompt-cache hit rates and with every irreversible action enforced in the harness.</description>
+    </item>
+    <item>
+      <title>Building Commerce Agents With Claude</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-for-commerce-agents.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-for-commerce-agents.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 02 Sep 2026 17:45:00 +0000</pubDate>
+      <description>Anthropic&apos;s open commerce blueprint ships working shopping and merchant agents with guardrails to deploy in days. Retailers on Claude report carts up to 35% larger and shoppers 60% likelier to buy.</description>
+    </item>
+    <item>
+      <title>Box Agent Guardrails: Governance at Agent Speed</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/securing-ai-agents-box-agent-guardrails-give-you-control-without-slowing-down-innovation.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/securing-ai-agents-box-agent-guardrails-give-you-control-without-slowing-down-innovation.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 02 Sep 2026 17:30:00 +0000</pubDate>
+      <description>Box guardrails set content scope, user scope, and human-in-the-loop once in the Admin Console, inherited by every agent and enforced before any action runs, with confidential files made invisible rather than filtered.</description>
+    </item>
+    <item>
+      <title>From Deployment to Transformation: The AI Value Playbook</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/from-deployment-to-transformation-the-playbook-for-realizing-ai-value.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/from-deployment-to-transformation-the-playbook-for-realizing-ai-value.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Wed, 02 Sep 2026 17:15:00 +0000</pubDate>
+      <description>Licensing AI isn&apos;t transforming work. Google Workspace&apos;s four-phase playbook crosses the adoption chasm, where 89% of transformed organizations see direct business growth and users start by saving ~3 hours a week.</description>
+    </item>
     <item>
       <title>Claude Fable 5.1 &amp; Mythos 5.1: A New Frontier</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-fable-and-mythos-5-1.html</link>
