@@ -5,7 +5,23 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Sep 2026 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Box Tests GPT-6 Astra on Enterprise Work</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/first-look-gpt-6-astra-frontier-complex-enterprise-work.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/first-look-gpt-6-astra-frontier-complex-enterprise-work.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 03 Sep 2026 17:00:00 +0000</pubDate>
+      <description>On Box&apos;s multi-document business benchmark, GPT-6 Astra scored 77% overall versus GPT-5.6 Sol&apos;s 74%, pulling far ahead on the hardest legal, energy, and technology tasks by labeling proxies, citing clauses, and flagging data-quality issues.</description>
+    </item>
+    <item>
+      <title>Box Agent in Apps: Deep Agents In-Platform</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-box-agent-apps-deep-agent-capability-across-your-workflows.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-box-agent-apps-deep-agent-capability-across-your-workflows.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 03 Sep 2026 16:30:00 +0000</pubDate>
+      <description>Box embedded an autonomous reasoning agent inside Box Apps that breaks a goal into subtasks, reads across dozens of documents, and returns a traceable, source-linked answer — all under existing Box permissions with no data movement.</description>
+    </item>
     <item>
       <title>The Anatomy of Effective Commerce Agents</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-anatomy-of-effective-commerce-agents.html</link>

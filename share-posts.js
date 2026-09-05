@@ -1,5 +1,21 @@
 window.__POSTS__ = [
   {
+    "slug": "first-look-gpt-6-astra-frontier-complex-enterprise-work",
+    "source": "Box",
+    "category": "Enterprise AI",
+    "date": "2026-09-03",
+    "hook": "77% on Real Work",
+    "body": "Box tested GPT-6 Astra on complex, multi-document business tasks. It scored 77% overall to GPT-5.6 Sol's 74% — and pulled far ahead on the hardest legal, energy, and technology workflows."
+  },
+  {
+    "slug": "introducing-box-agent-apps-deep-agent-capability-across-your-workflows",
+    "source": "Box",
+    "category": "Agents",
+    "date": "2026-09-03",
+    "hook": "The Agent Comes Inside",
+    "body": "Box Agent in Apps runs deep, multi-document reasoning where your content already lives — it searches, reads, and answers with linked sources, no file opening and no data movement, all under your existing permissions."
+  },
+  {
     "slug": "the-anatomy-of-effective-commerce-agents",
     "source": "Claude",
     "category": "Agents",

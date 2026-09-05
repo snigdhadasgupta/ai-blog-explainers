@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Box Tests GPT-6 Astra: 77% on Complex Enterprise Work">
+<meta property="og:description" content="On Box's multi-document business benchmark, GPT-6 Astra hit 77% overall vs GPT-5.6 Sol's 74% — and the gap widens sharply on the hardest tasks, where it labels proxies, cites clauses, and flags data-quality anomalies.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/first-look-gpt-6-astra-frontier-complex-enterprise-work.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/first-look-gpt-6-astra-frontier-complex-enterprise-work.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/first-look-gpt-6-astra-frontier-complex-enterprise-work.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Box Tests GPT-6 Astra: 77% on Complex Enterprise Work">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/first-look-gpt-6-astra-frontier-complex-enterprise-work.png">
+<title>Box Tests GPT-6 Astra on Enterprise Work — Explainer</title>
+<style>
+  :root{
+    --clay:#3D3AAE;--clay-dark:#2E2C86;--clay-deep:#211F62;--ink:#1F1B18;--slate:#3D3733;--stone:#6B6259;--cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--line:#DED6C7;
+    --accent:#3D3AAE;--accent-deep:#211F62;
+    --serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
+  .hero{background:linear-gradient(160deg,#12111F 0%,#221F5C 55%,var(--accent-deep) 100%);color:#ECEBF9;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent);}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#B9B7ED;border:1px solid rgba(185,183,237,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#DAD8F4;max-width:720px;}
+  .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(236,235,249,.18);font-size:13px;}
+  .meta .m span{display:block;color:#A5A2E0;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#F1F0FB;font-size:14px;}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16px;color:var(--slate);margin-bottom:12px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .scards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:820px){.scards{grid-template-columns:1fr;}}
+  .scard{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:18px;}
+  .scard .big{font-family:var(--serif);font-size:32px;font-weight:700;color:var(--accent-deep);line-height:1;}
+  .scard .measure{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--stone);margin:9px 0 5px;}
+  .scard .bench{font-size:13px;font-weight:700;color:var(--ink);}
+  .scard .ctx{font-size:12.5px;color:var(--stone);margin-top:4px;line-height:1.4;}
+  .cmprow{border-top:1px solid var(--line);padding:11px 0;}
+  .cmprow:first-child{border-top:none;}
+  .cmprow .lbl{display:flex;justify-content:space-between;gap:14px;font-size:14.5px;font-weight:700;color:var(--ink);}
+  .cmprow .lbl .val{color:var(--accent-deep);font-family:var(--serif);white-space:nowrap;}
+  .cmprow .det{font-size:13px;color:var(--stone);margin-top:3px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr;}}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:13.5px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);background:#DEDDF3;border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#ECEBF9;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#DAD8F4;font-size:15px;max-width:560px;}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--accent-deep);}
+  .src{margin-top:8px;}
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent);color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep);}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:22px 26px;margin:26px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span class="dot">&#10039;</span> AI Blog Explainer</a>
+    <div class="srcbadge">Box</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><rect x="250" y="300" width="270" height="52" rx="12" fill="#fff" fill-opacity=".12"/><rect x="272" y="238" width="270" height="52" rx="12" fill="#fff" fill-opacity=".18"/><rect x="294" y="176" width="270" height="52" rx="12" fill="#fff" fill-opacity=".26"/><rect x="316" y="114" width="270" height="52" rx="12" class="hnode"/></svg>
+  </div>
+  <div class="wrap">
+    <span class="tag">Box &middot; Enterprise AI &middot; September 3, 2026</span>
+    <h1>Box Puts GPT-6 Astra to Work</h1>
+    <p class="lede">Box benchmarks frontier models the way its customers actually use them &mdash; complex, multi-document business tasks run through an agent. On that eval, OpenAI&rsquo;s GPT-6 Astra reached 77% overall accuracy, ahead of GPT-5.6 Sol&rsquo;s 74% &mdash; and pulled far further ahead on the hardest workflows.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>Box</strong></div>
+      <div class="m"><span>Topic</span><strong>Enterprise AI &middot; Model eval</strong></div>
+      <div class="m"><span>Theme</span><strong>Decision-ready output</strong></div>
+      <div class="m"><span>Reading time</span><strong>5 min</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
+  <div class="wrap">
+    <div class="tldr" data-tier-anchor>
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li><strong>Box benchmarks real work</strong> &mdash; it scores models on complex, multi-document business tasks run through an agent harness, not trivia questions.</li>
+        <li><strong>Astra hits the frontier</strong> &mdash; GPT-6 Astra scored 77% overall accuracy against GPT-5.6 Sol&rsquo;s 74% on the same eval.</li>
+        <li><strong>The gap widens on hard tasks</strong> &mdash; on the most demanding workflows the jump is large, e.g. legal review 69% to 93% and energy reporting 82% to 97%.</li>
+        <li><strong>It knows what it doesn&rsquo;t know</strong> &mdash; Astra labels a derived figure a proxy, cites the governing clause, and flags a bad reading as a data-quality issue rather than missing data.</li>
+        <li><strong>Decision-ready, not just plausible</strong> &mdash; the payoff is less time checking the model and less risk of an early error cascading into a high-stakes call.</li>
+      </ul>
+    </div>
+    <div class="sowhat">
+      <div class="kick">So what for you</div>
+      <p>When you&rsquo;re choosing a model for document-heavy work, <strong>weight how it handles ambiguity and sourcing over the headline benchmark average</strong>. A three-point overall gap hides much bigger differences on exactly the tasks &mdash; contracts, reconciliations, audits &mdash; where a confident wrong answer costs the most.</p>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">Why this benchmark is different</div>
+    <h2>Graded on the work, not the quiz</h2>
+    <p class="body">Box evaluates models on tasks that mirror the workflows its customers run every day. Each one runs on Box&rsquo;s agent harness: the model has to find the right documents, reason across spreadsheets, PDFs, presentations and images, and produce a finished deliverable a knowledge worker could hand off &mdash; a cost analysis, a diligence findings list, a verification audit.</p>
+    <p class="body">On that eval, GPT-6 Astra reached 77% overall accuracy, ahead of GPT-5.6 Sol&rsquo;s 74%. The headline gap is modest &mdash; but the averages flatten a much bigger story hiding in the hardest tasks.</p>
+    <p class="lead-quote">The difference isn&rsquo;t an output that looks plausible; it&rsquo;s a deliverable a team can confidently act on.</p>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">Where Astra pulls ahead</div>
+    <h2>Four hard tasks, four bigger gaps</h2>
+    <p class="body">Astra&rsquo;s strength showed up where documents disagree with each other, where the deliverable needs a figure nobody handed you, and where quantitative data has to be reconciled with narrative, contractual or domain-specific source material. Task accuracy, GPT-5.6 Sol &rarr; GPT-6 Astra:</p>
+    <div class="figure">
+      <div class="cap">Figure 1 &middot; Per-task accuracy on Box's complex-work eval</div>
+      <div class="cmprow"><div class="lbl"><span>Media &amp; entertainment</span><span class="val">48% &rarr; 100%</span></div><div class="det">Ranking film genres and countries by profitability while applying the next year&rsquo;s tax-incentive corrections without double-counting. Astra was perfect every attempt; Sol had the rankings right but the ratios wrong.</div></div>
+      <div class="cmprow"><div class="lbl"><span>Technology</span><span class="val">69% &rarr; 97%</span></div><div class="det">Choosing which region to fund from documents that never state the metric the brief asks for. Astra flagged the gap, labelled its own figure a proxy, and caught a growth claim that didn&rsquo;t match the numbers. Sol reported the proxy as the real thing.</div></div>
+      <div class="cmprow"><div class="lbl"><span>Legal</span><span class="val">69% &rarr; 93%</span></div><div class="det">Reviewing an NDA against a contracting policy, where the verdict must cite the provision behind it. Only Astra separated whether the liability cap&rsquo;s structure was permissible from whether its amount was defensible, and pointed to the settling language.</div></div>
+      <div class="cmprow"><div class="lbl"><span>Energy</span><span class="val">82% &rarr; 97%</span></div><div class="det">Building a consumption report where only one of two sites is actually missing data. Astra drew the line most reviewers wouldn&rsquo;t: the other site&rsquo;s odd solar readings are a measurement problem to investigate, not a gap. Sol called both incomplete.</div></div>
+    </div>
+    <p class="body">The pattern underneath is consistent: Astra distinguishes a verified metric from a proxy, traces a conclusion to the governing source, and separates a data-quality anomaly from genuinely missing information &mdash; the judgment calls that decide whether an automated deliverable is trustworthy.</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">What it means for customers</div>
+    <h2>Less checking, less cascading risk</h2>
+    <div class="scards">
+      <div class="scard"><div class="big">77%</div><div class="measure">Overall &middot; was 74%</div><div class="bench">Box complex-work eval</div><div class="ctx">GPT-6 Astra ahead of GPT-5.6 Sol on multi-document business tasks.</div></div>
+      <div class="scard"><div class="big">4 / 4</div><div class="measure">Highlighted tasks</div><div class="bench">Double-digit gains</div><div class="ctx">Legal, energy, technology and media all jumped sharply versus Sol.</div></div>
+      <div class="scard"><div class="big">Soon</div><div class="measure">Availability</div><div class="bench">Box AI Studio</div><div class="ctx">Astra will be selectable for Box AI Agents in Studio.</div></div>
+    </div>
+    <p class="body" style="margin-top:22px;">For Box customers these aren&rsquo;t just benchmark points. A model that can tell a proxy from a verified metric, trace a legal conclusion to policy, and spot a measurement error means teams spend less time checking the model&rsquo;s work and carry fewer early mistakes into high-impact decisions &mdash; which is what makes it realistic to automate demanding workflows at scale.</p>
+  </div>
+</section>
+
+<section style="border-bottom:none;" data-depth="manager">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>What to do with this</h2>
+        <p>If you run document-heavy reviews on Box, plan to pilot GPT-6 Astra in Box AI Studio on your highest-stakes workflow &mdash; the one where a plausible-but-wrong answer is expensive &mdash; and compare its sourcing and proxy-labelling against your current model before rolling it out broadly.</p>
+      </div>
+      <a class="btn" href="https://blog.box.com/first-look-gpt-6-astra-frontier-complex-enterprise-work">Read the post &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:#2E2C86;text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:#2E2C86;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:#2E2C86;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){var l=it.querySelector("link");return l?l.textContent.trim():"";}).filter(Boolean);
+    var mine=location.href.split("#")[0].split("?")[0].split("/").pop();
+    var i=-1; for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the Box blog &middot; AI Blog Explainers house style (Claude clay palette, Box indigo accent).</p>
+    <p class="src">Source: <a href="https://blog.box.com/first-look-gpt-6-astra-frontier-complex-enterprise-work">First look: GPT 6 Astra is at the frontier of complex enterprise work</a> &mdash; blog.box.com, September 3, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://blog.box.com/first-look-gpt-6-astra-frontier-complex-enterprise-work" target="_blank" rel="noopener" title="Read the original article"
+     style="background:#211F62;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:#3D3AAE;color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={
+    tldr:"Just the five-line summary + the takeaway.",
+    manager:"Summary, why it matters, and what to do — no deep internals.",
+    tech:"Everything, including the full per-task breakdown."
+  };
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>
