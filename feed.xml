@@ -5,7 +5,95 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Sep 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>OpenAI&apos;s Agents API: Orchestration as a Service</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-the-agents-api.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-the-agents-api.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Thu, 10 Sep 2026 18:00:00 +0000</pubDate>
+      <description>OpenAI opened the orchestration engine behind Codex as the Agents API (public beta): define task, model, tools, and environment in one call, and it manages context compaction, hosted or self-hosted sandboxes, and parallel subagents. You pay only for tokens and tool use; early customers report up to 60% lower cost, 4× lower latency, and 86% fewer failed responses.</description>
+    </item>
+    <item>
+      <title>ChatGPT for Financial Services, Data Included</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-chatgpt-financial-services.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-chatgpt-financial-services.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Thu, 10 Sep 2026 17:55:00 +0000</pubDate>
+      <description>ChatGPT for Financial Services pairs GPT-6 Astra with built-in datasets (Daloopa, PitchBook, LSEG News, Crunchbase) and entitlement passthrough for sources firms already license, plus admin-published Office templates and SSO/SCIM/RBAC governance. GPT-6 Astra scores 69.9% on OfficeQA Pro versus 60.2% for GPT-5.6 Sol; design partners include Morgan Stanley and Evercore.</description>
+    </item>
+    <item>
+      <title>A Data Agent That Skips the SQL</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/put-data-to-work.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/put-data-to-work.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Thu, 10 Sep 2026 17:50:00 +0000</pubDate>
+      <description>ChatGPT Work&apos;s new Data agent lets non-technical users query warehouses (Snowflake, BigQuery, Databricks, Redshift) in plain language, investigate changes, and build interactive dashboards — no SQL. It runs inside governed BI tools (Tableau, Power BI, Sigma, ThoughtSpot) and grounds answers in company semantic layers and dbt metric definitions.</description>
+    </item>
+    <item>
+      <title>T. Rowe Price Puts Claude at the Core of Investing</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/t-rowe-price-brings-more-of-claude-to-its-investment-process.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/t-rowe-price-brings-more-of-claude-to-its-investment-process.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 10 Sep 2026 17:45:00 +0000</pubDate>
+      <description>T. Rowe Price expanded Claude across its investment organization — professionals use Cowork for research synthesis and multi-step operations, and developers build tools with Claude Code. AI leadership sits inside Investments and Global Distribution, T. Rowe Price Labs evaluates and scales applications, and each business unit owns its apps under responsible-use standards.</description>
+    </item>
+    <item>
+      <title>Describe an App, Copilot Builds It</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/build-apps-in-copilot-cowork-and-copilot-studio.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/build-apps-in-copilot-cowork-and-copilot-studio.html</guid>
+      <category>Microsoft 365</category>
+      <pubDate>Thu, 10 Sep 2026 17:40:00 +0000</pubDate>
+      <description>Microsoft&apos;s Copilot Cowork and Copilot Studio turn a plain-language description into a working full-stack business app via agentic coding — connected to org data through connectors and Work IQ, able to take actions and write back to Microsoft 365. Apps respect Entra identity and policy by default, and IT manages published apps from the Microsoft 365 admin center.</description>
+    </item>
+    <item>
+      <title>Box Content, Now Inside ChatGPT</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/box-chatgpt-enterprise-content-integration.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/box-chatgpt-enterprise-content-integration.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 10 Sep 2026 17:35:00 +0000</pubDate>
+      <description>Box and OpenAI embed Box content directly in ChatGPT: browse the folder hierarchy, @mention files as context, preview sources beside the chat, and edit Box Notes — without duplicating content. Existing Box permissions decide what&apos;s reachable and admins control which MCP server tools users can invoke; generally available now, rolling out to ChatGPT paid tiers.</description>
+    </item>
+    <item>
+      <title>Turn a Spreadsheet Into a Mini App</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/turn-your-data-into-action-6-mini-apps-you-can-create-with-sheets-canvas.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/turn-your-data-into-action-6-mini-apps-you-can-create-with-sheets-canvas.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Thu, 10 Sep 2026 17:30:00 +0000</pubDate>
+      <description>Google&apos;s Sheets canvas, powered by Gemini 3.8 Flash, turns spreadsheet rows into interactive mini apps from a plain-language prompt — Kanban boards, executive dashboards, financial scenario models, schedules, 2×2 matrices, and workshop boards. Visual edits sync back to the underlying data, and everything lives in the sheet and shares with normal file permissions.</description>
+    </item>
+    <item>
+      <title>Five Cross-App Agents Inside Google Workspace</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/less-switching-more-flow-5-new-agentic-capabilities-across-google-workspace-apps.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/less-switching-more-flow-5-new-agentic-capabilities-across-google-workspace-apps.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Wed, 09 Sep 2026 17:25:00 +0000</pubDate>
+      <description>Google Workspace added five agentic capabilities that finish cross-app tasks without switching apps: Chat to Slides, Drive to Sheets, Docs to Gmail, Gmail to Docs, and Docs to Slides. Each keeps you in the app you&apos;re in while Gemini carries the content across; available on Business/Enterprise Standard and Plus, AI Pro/Ultra, and Education plans.</description>
+    </item>
+    <item>
+      <title>Metadata: The Layer That Makes Enterprise AI Work</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/metadata-extraction-enterprise-guide-cdos-it-leaders.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/metadata-extraction-enterprise-guide-cdos-it-leaders.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 09 Sep 2026 17:20:00 +0000</pubDate>
+      <description>Box&apos;s guide for CDOs and IT leaders argues enterprise AI stalls on unreachable content, not models: 96% of organizations want agents to reach company content but only 36% of adopters have connected them. The fix is a governed five-stage extraction pipeline (ingest, classify, extract, validate, act) whose fields inherit source permissions and lineage — Barnett Capital cut underwriting 60× and Makena Capital search from ~1 hour to ~1 minute.</description>
+    </item>
+    <item>
+      <title>Cutting Claude Costs 50–73% Without Losing Quality</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/reducing-cost-and-improving-performance-with-claude-platform.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/reducing-cost-and-improving-performance-with-claude-platform.html</guid>
+      <category>Claude</category>
+      <pubDate>Tue, 08 Sep 2026 17:15:00 +0000</pubDate>
+      <description>Anthropic&apos;s platform team shows three levers cut Claude API costs 50–73% while holding or improving accuracy: byte-exact prompt caching, pruning instructions written for older models (14.6% cheaper and 5.3% more accurate on an Opus 4.8→5 migration), and calibrating effort per task. The automated cost-optimizer cut LegalBench 58%, tau2-bench retail 73%, and SWE-bench 55% with median steps dropping 29→17.</description>
+    </item>
+    <item>
+      <title>Box Mount: A Filesystem for Sandboxed Agents</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/meet-box-mount-box-workspace-sandboxed-ai-agents.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/meet-box-mount-box-workspace-sandboxed-ai-agents.html</guid>
+      <category>Box</category>
+      <pubDate>Tue, 08 Sep 2026 17:10:00 +0000</pubDate>
+      <description>Box Mount maps Box folders into sandboxed AI-agent environments as ordinary POSIX directories, so agents use standard filesystem APIs while Box handles two-way sync and stays the governed system of record — permissions, versions, retention, Shield, and audit intact. It&apos;s framework-agnostic (OpenAI, Anthropic, LangGraph, CrewAI, Python) and built for contract review, RFP drafting, and multi-agent document work; available in private preview.</description>
+    </item>
     <item>
       <title>Box Tests GPT-6 Astra on Enterprise Work</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/first-look-gpt-6-astra-frontier-complex-enterprise-work.html</link>

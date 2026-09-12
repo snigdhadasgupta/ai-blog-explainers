@@ -1,5 +1,93 @@
 window.__POSTS__ = [
   {
+    "slug": "introducing-the-agents-api",
+    "source": "OpenAI",
+    "category": "Agents",
+    "date": "2026-09-10",
+    "hook": "Orchestration As A Service",
+    "body": "OpenAI opened the engine behind Codex as the Agents API: define an agent in one call and get managed context, sandboxes, and subagents. Early customers report up to 60% lower cost."
+  },
+  {
+    "slug": "introducing-chatgpt-financial-services",
+    "source": "OpenAI",
+    "category": "Enterprise AI",
+    "date": "2026-09-10",
+    "hook": "The Data Comes Included",
+    "body": "ChatGPT for Financial Services pairs GPT-6 Astra with built-in market data, passthrough for licenses you already own, firm templates, and enterprise governance — built with Morgan Stanley and Evercore."
+  },
+  {
+    "slug": "put-data-to-work",
+    "source": "OpenAI",
+    "category": "Product",
+    "date": "2026-09-10",
+    "hook": "Ask Your Data In English",
+    "body": "ChatGPT's Data agent connects to Snowflake, BigQuery, and Databricks, then answers 'why did sales slow?' as a governed dashboard — grounded in your semantic layer, no SQL required."
+  },
+  {
+    "slug": "t-rowe-price-brings-more-of-claude-to-its-investment-process",
+    "source": "Claude",
+    "category": "Case Study",
+    "date": "2026-09-10",
+    "hook": "AI Where Analysts Decide",
+    "body": "T. Rowe Price put Claude into research, operations, and developer tooling — starting with the people who pick the securities, not the back office. Business units own each app; human judgment stays central."
+  },
+  {
+    "slug": "build-apps-in-copilot-cowork-and-copilot-studio",
+    "source": "Microsoft 365",
+    "category": "Product",
+    "date": "2026-09-10",
+    "hook": "Describe It, Copilot Builds It",
+    "body": "Copilot Cowork and Studio turn a plain-language description into a governed, full-stack business app — connected to your data via Work IQ, respecting Entra identity, and visible to IT."
+  },
+  {
+    "slug": "box-chatgpt-enterprise-content-integration",
+    "source": "Box",
+    "category": "Enterprise AI",
+    "date": "2026-09-10",
+    "hook": "Your Files, Inside ChatGPT",
+    "body": "Box and OpenAI put enterprise content into ChatGPT — browse, @mention, and preview files in chat. Existing Box permissions still decide what is reachable; nothing gets duplicated."
+  },
+  {
+    "slug": "turn-your-data-into-action-6-mini-apps-you-can-create-with-sheets-canvas",
+    "source": "Google Workspace",
+    "category": "Productivity",
+    "date": "2026-09-10",
+    "hook": "Your Spreadsheet, Now An App",
+    "body": "Sheets canvas turns rows into interactive mini apps from a prompt — Kanban boards, dashboards, scenario models — with visual edits syncing back to the data. Powered by Gemini 3.8 Flash."
+  },
+  {
+    "slug": "less-switching-more-flow-5-new-agentic-capabilities-across-google-workspace-apps",
+    "source": "Google Workspace",
+    "category": "Agents",
+    "date": "2026-09-09",
+    "hook": "Kill The App-Switch",
+    "body": "Five new Workspace agents carry work across apps — Chat to Slides, Drive to Sheets, Gmail to Docs — finishing the task in the app you are already in."
+  },
+  {
+    "slug": "metadata-extraction-enterprise-guide-cdos-it-leaders",
+    "source": "Box",
+    "category": "AI Governance",
+    "date": "2026-09-09",
+    "hook": "Models Are Ready, Data Isn't",
+    "body": "96% of firms want agents to reach company content; only 36% have connected them. Governed metadata extraction — ingest, classify, extract, validate, act — closes the gap without ungoverned copies."
+  },
+  {
+    "slug": "reducing-cost-and-improving-performance-with-claude-platform",
+    "source": "Claude",
+    "category": "Product",
+    "date": "2026-09-08",
+    "hook": "Half Your AI Bill Is Habit",
+    "body": "Prompt caching, deleting instructions written for old models, and dialing effort to the task cut Claude API costs 50–73% — and often improved accuracy at the same time."
+  },
+  {
+    "slug": "meet-box-mount-box-workspace-sandboxed-ai-agents",
+    "source": "Box",
+    "category": "Agents",
+    "date": "2026-09-08",
+    "hook": "A Filesystem For Agents",
+    "body": "Box Mount maps Box folders into agent sandboxes as ordinary directories. Agents use standard file APIs; Box stays the system of record — permissions, retention, and audit intact."
+  },
+  {
     "slug": "first-look-gpt-6-astra-frontier-complex-enterprise-work",
     "source": "Box",
     "category": "Enterprise AI",
