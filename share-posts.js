@@ -1,5 +1,13 @@
 window.__POSTS__ = [
   {
+    "slug": "practical-guide-building-gpt-6",
+    "source": "OpenAI",
+    "category": "Product",
+    "date": "2026-10-02",
+    "hook": "Build Right On GPT-6",
+    "body": "OpenAI's GPT-6 guide is about discipline, not horsepower: match Astra, Sol or Luna to the task, cache for up to 95% savings, specify outcomes over scripts, and steer long-running agents mid-flight."
+  },
+  {
     "slug": "claude-code-mods",
     "source": "Claude",
     "category": "Product",
@@ -56,6 +64,22 @@ window.__POSTS__ = [
     "body": "AI agents exfiltrate data just by reading it. Box Shield’s classification-based access policy governs Read as a separate, enforced action — so confidential content never leaves, whatever the access method. Monitor first, then enforce."
   },
   {
+    "slug": "agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude",
+    "source": "Claude",
+    "category": "Case Study",
+    "date": "2026-09-29",
+    "hook": "Coach, Don't Just Prompt",
+    "body": "Asana runs Claude agents as real teammates inside its Work Graph: named roles, scoped permissions, shared memory and visible work. The shift is from writing prompts to coaching an agent like a new hire."
+  },
+  {
+    "slug": "devday-2026-recap",
+    "source": "OpenAI",
+    "category": "Product",
+    "date": "2026-09-29",
+    "hook": "DevDay 2026, Unpacked",
+    "body": "OpenAI's DevDay spanned always-on Dots agents, GPT-6.1 Sol, an 8x-faster Ultrafast tier, an Agents API with computer use, team collaboration in ChatGPT, and a 32-partner enterprise marketplace."
+  },
+  {
     "slug": "introducing-gpt-6-1-sol",
     "source": "OpenAI",
     "category": "Model Launch",
@@ -86,6 +110,54 @@ window.__POSTS__ = [
     "date": "2026-09-29",
     "hook": "30 Minutes To Seconds",
     "body": "Box’s incident-response team cut phishing triage from 30 minutes to seconds with three parallel analyses, and now auto-closes 56% of phishing cases — reinvesting the hours in proactive threat hunting."
+  },
+  {
+    "slug": "giving-companies-more-control-over-their-ai-agents-with-nvidia",
+    "source": "Claude",
+    "category": "AI Governance",
+    "date": "2026-09-28",
+    "hook": "Limit, Review, Verify",
+    "body": "Claude Managed Agents and NVIDIA's open OpenShell add layered control around enterprise agents: vaulted credentials, default-deny policy, full audit logs, and a prover that mathematically verifies an agent's reach."
+  },
+  {
+    "slug": "claude-sonnet-55-real-enterprise-knowledge-work",
+    "source": "Box",
+    "category": "Enterprise AI",
+    "date": "2026-09-28",
+    "hook": "Trustworthy, And Worth Using",
+    "body": "On Box's real-workflow evaluation, Claude Sonnet 5.5 lifted accuracy to 65%, ran deliverables 2.4x faster and used 12% fewer tokens, with financial services jumping from 63% to 81%."
+  },
+  {
+    "slug": "build-plugins-for-claude",
+    "source": "Claude",
+    "category": "Product",
+    "date": "2026-09-25",
+    "hook": "One Way To Extend",
+    "body": "Plugins fold MCP connectors and Agent Skills into one extension type, and a new portal gives developers automated safety scanning, live review tracking and post-launch analytics across Claude and Claude Code."
+  },
+  {
+    "slug": "introducing-the-new-copilot-with-home-code-and-autopilot",
+    "source": "Microsoft 365",
+    "category": "Product",
+    "date": "2026-09-25",
+    "hook": "Home, Code, Autopilot",
+    "body": "Microsoft reorganized Copilot around three pillars: Home unifies asking and delegating, Code lets non-developers build apps in plain language, and Autopilot runs assigned tasks autonomously, even offline."
+  },
+  {
+    "slug": "muse-spark-13-comes-box-ai-and-it-does-hard-work-faster",
+    "source": "Box",
+    "category": "Enterprise AI",
+    "date": "2026-09-24",
+    "hook": "Hard Work, Done Faster",
+    "body": "Muse Spark 1.3 from Meta Superintelligence Labs lands in Box AI with a 13% accuracy edge over similarly priced models, 42% faster completion than 1.2, and about a third fewer tokens on complex work."
+  },
+  {
+    "slug": "box-and-salesforce-powering-headless-enterprise",
+    "source": "Box",
+    "category": "Enterprise AI",
+    "date": "2026-09-24",
+    "hook": "One Context, No Copies",
+    "body": "Box and Salesforce let AI agents reason across governed documents and structured CRM data over MCP, without moving files, so agents get full business context while existing permissions still hold."
   },
   {
     "slug": "the-5-ai-agents-i-tell-every-executive-to-build-first",

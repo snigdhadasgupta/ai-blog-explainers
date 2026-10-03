@@ -5,7 +5,15 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Oct 2026 00:34:36 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2026 01:10:11 +0000</lastBuildDate>
+    <item>
+      <title>A Practical Guide to Building with GPT-6</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/practical-guide-building-gpt-6.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/practical-guide-building-gpt-6.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Fri, 02 Oct 2026 15:00:00 +0000</pubDate>
+      <description>OpenAI's practical guide to GPT-6 focuses on production discipline: match Astra (hardest reasoning), Sol (near-Astra at a fifth the cost) or Luna (fast everyday) to the workload, cache input tokens for up to 95% savings, specify outcomes rather than rigid instructions, and use mid-turn steering and async tool calling to keep long-running agents productive and supervised.</description>
+    </item>
     <item>
       <title>Claude Code Mods: Customize the CLI in TypeScript</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-code-mods.html</link>
@@ -63,6 +71,22 @@
       <description>Box Shield’s classification-based access policy treats an AI agent reading a file as equivalent to downloading it, and governs Read and Download as separate, independently toggled actions. Every request is evaluated at request time against the file’s current classification and the caller’s integration ID, with restricted reads returning no content at all and every decision logged to the Event Stream API — deployable in monitor mode before enforcement.</description>
     </item>
     <item>
+      <title>How Asana Builds Human-Agent Teams with Claude</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude.html</guid>
+      <category>Claude</category>
+      <pubDate>Tue, 29 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Asana treats Claude-powered agents as members of the team inside its Work Graph, each with a role, scoped permissions, shared memory and visible output. The result is a shift from prompting agents to coaching them, grounded in three live workflows: Slack support, at-risk renewal briefings, and engineering cycle planning.</description>
+    </item>
+    <item>
+      <title>OpenAI DevDay 2026, Unpacked</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/devday-2026-recap.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/devday-2026-recap.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Tue, 29 Sep 2026 15:00:00 +0000</pubDate>
+      <description>OpenAI's DevDay 2026 pushed from chat to delegated, agentic work: always-on Dots agents, GPT-6.1 Sol, an Ultrafast tier up to 8x faster, an Agents API with computer use and managed infrastructure, team collaboration across ChatGPT (Space, Pages, Team Tasks, @ChatGPT in Slack and Teams), Private Intelligence security options, and a 32-partner enterprise marketplace atop 1.2 billion weekly users.</description>
+    </item>
+    <item>
       <title>GPT-6.1 Sol: Near-Flagship Intelligence at a Fifth of the Price</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-gpt-6-1-sol.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-gpt-6-1-sol.html</guid>
@@ -93,6 +117,54 @@
       <category>Box</category>
       <pubDate>Tue, 29 Sep 2026 15:00:00 +0000</pubDate>
       <description>Box’s Security Incident Response Team cut phishing investigation from 30 minutes to seconds by running header, body, and screenshot analyses in parallel, and now auto-closes 56% of phishing cases while escalating sensitive-data references to analysts. Phishing was about 40% of tickets; automation now covers 50–60% of total volume across roughly 20% of alert types, freeing analysts for proactive, hypothesis-driven threat hunting.</description>
+    </item>
+    <item>
+      <title>Giving Companies More Control Over Their AI Agents, with NVIDIA</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/giving-companies-more-control-over-their-ai-agents-with-nvidia.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/giving-companies-more-control-over-their-ai-agents-with-nvidia.html</guid>
+      <category>Claude</category>
+      <pubDate>Mon, 28 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Anthropic and NVIDIA combined Claude Managed Agents with NVIDIA's open-source OpenShell to give enterprises layered control over autonomous agents. Credentials stay vaulted, every action runs under default-deny policy with full logging, and OpenShell's policy prover mathematically verifies an agent's reach, so companies can limit what an agent does, review what it did, and prove the limits hold.</description>
+    </item>
+    <item>
+      <title>Claude Sonnet 5.5 on Real Enterprise Knowledge Work</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-sonnet-55-real-enterprise-knowledge-work.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-sonnet-55-real-enterprise-knowledge-work.html</guid>
+      <category>Box</category>
+      <pubDate>Mon, 28 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Box evaluated Claude Sonnet 5.5 on real customer workflows spanning spreadsheets, PDFs, slides and images. Accuracy rose from 61% to 65%, deliverables completed 2.4x faster, and token use fell 12%, with the largest gains in regulated industries, financial services climbed from 63% to 81%. The model fact-checks across documents, catching errors earlier versions propagated.</description>
+    </item>
+    <item>
+      <title>Build Plugins for Claude</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/build-plugins-for-claude.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/build-plugins-for-claude.html</guid>
+      <category>Claude</category>
+      <pubDate>Fri, 25 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Plugins are now the primary way to extend Claude, bundling MCP connectors, Agent Skills, or both. A new directory submission portal lets developers on paid plans submit, track and publish, with automated safety scanning on arrival and post-launch analytics on installs and discovery. The foundation is MCP 2.0, with MCP Apps for in-chat UI and Enterprise Managed Auth for zero-touch OAuth.</description>
+    </item>
+    <item>
+      <title>The New Microsoft Copilot: Home, Code and Autopilot</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-the-new-copilot-with-home-code-and-autopilot.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-the-new-copilot-with-home-code-and-autopilot.html</guid>
+      <category>Microsoft 365</category>
+      <pubDate>Fri, 25 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Microsoft reorganized Copilot around three pillars. Home unifies Chat for interactive work with Cowork for delegated tasks; Code, built on GitHub Copilot, lets non-developers build apps and automations in natural language; and Autopilot runs assigned work autonomously, even while the user is offline. Native Office editing, Fabric IQ and Work IQ grounding, and a new Plugin Registry round it out, with a gradual rollout through the Frontier program.</description>
+    </item>
+    <item>
+      <title>Muse Spark 1.3 Comes to Box AI</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/muse-spark-13-comes-box-ai-and-it-does-hard-work-faster.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/muse-spark-13-comes-box-ai-and-it-does-hard-work-faster.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 24 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Muse Spark 1.3, from Meta Superintelligence Labs, is now available in Box AI for complex enterprise document work. On Box's Complex Work Eval it posts a 13% accuracy edge over similarly priced models, 42% faster completion than version 1.2, and about a third fewer tokens, with financial services accuracy rising from 66% to 75%. It reads image-based tables, normalizes before comparing, and commits to a single interpretation.</description>
+    </item>
+    <item>
+      <title>Box and Salesforce: Powering the Headless Enterprise</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/box-and-salesforce-powering-headless-enterprise.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/box-and-salesforce-powering-headless-enterprise.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 24 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Box and Salesforce are building a 'headless enterprise' where governed content and structured business data flow into apps, workflows and AI agents without moving files from their source. Salesforce is the system of record exposed over MCP; Box is the governed filesystem for AI via its MCP server. Agents like Claude, Agentforce and Slack bots reason across both while respecting existing permissions, with Claudeforce adding 37 prebuilt sales skills.</description>
     </item>
     <item>
       <title>The 5 AI Agents Every Executive Should Build First</title>
