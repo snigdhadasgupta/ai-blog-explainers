@@ -5,7 +5,143 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Sep 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2026 00:34:36 +0000</lastBuildDate>
+    <item>
+      <title>Claude Code Mods: Customize the CLI in TypeScript</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-code-mods.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-code-mods.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 01 Oct 2026 15:00:00 +0000</pubDate>
+      <description>Mods are lightweight TypeScript functions that hook into Claude Code’s events to rewrite prompts, block tool calls, add UI, or replace built-ins — shipped inside plugins. On Team and Enterprise plans a built-in sec-default mod loads first so user mods can’t override security rules.</description>
+    </item>
+    <item>
+      <title>Barclays Scales Claude Across the Bank</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/barclays-scales-claude.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/barclays-scales-claude.html</guid>
+      <category>Anthropic</category>
+      <pubDate>Thu, 01 Oct 2026 15:00:00 +0000</pubDate>
+      <description>Barclays is expanding Claude across engineering, customer service, and Global Markets: Claude Code is expected to reach 50% of its developers by end of 2026, a knowledge assistant used by 16,000+ employees has run since 2025, and Claude classifies and routes roughly 120,000 client emails a day — all under robust governance and human oversight.</description>
+    </item>
+    <item>
+      <title>Albertsons Reimagines Retail with OpenAI</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/albertsons-reimagining-retail.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/albertsons-reimagining-retail.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Thu, 01 Oct 2026 15:00:00 +0000</pubDate>
+      <description>Albertsons is expanding OpenAI across 2,200+ stores (Albertsons, Safeway, Vons, Jewel-Osco, Shaw’s, ACME, Tom Thumb) serving 36 million weekly customers — pairing ChatGPT Enterprise for digital, operations, fulfillment, and merchandising teams with customer-facing apps on the OpenAI API, including a Safeway plugin that turns recipes, photos, or meal requests into a built cart with savings and checkout.</description>
+    </item>
+    <item>
+      <title>Google Workspace September Drop: Image AI and Interactive Data</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/september-2026-workspace-feature-drop.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/september-2026-workspace-feature-drop.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Thu, 01 Oct 2026 15:00:00 +0000</pubDate>
+      <description>Google Workspace’s September drop brings six AI updates: Google Pics for pro-level object-level image editing and 2K/4K upscaling inside Docs and Slides; Sheets canvas to turn data into one-click interactive mini-apps; Workspace Intelligence for cross-app task automation; a unified Ask Gemini in Chat; Google Vids document-to-video conversion; and Gemini-based data classification in Drive for DLP and retention.</description>
+    </item>
+    <item>
+      <title>Claude for Government Is Now Generally Available</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-for-government-is-now-generally-available.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-for-government-is-now-generally-available.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 30 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Claude for Government is generally available inside a FedRAMP High authorized environment, with usage-based pricing and hard caps instead of seat fees, tiered admin controls across departmental hierarchies, two-person approvals for sensitive actions, and audit logging. Claude Code and Claude for Microsoft 365 are in early access through the same environment.</description>
+    </item>
+    <item>
+      <title>How Anthropic's Sales Team Rebuilt Inbound with Managed Agents</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 30 Sep 2026 15:00:00 +0000</pubDate>
+      <description>A Claude-powered buying agent now handles thousands of inbound sales conversations a day across contact, pricing, and in-product surfaces — qualifying leads, answering on the spot, or handing complex deals to reps with full context. Agent-qualified leads convert to opportunities more than twice as often and close about five days faster.</description>
+    </item>
+    <item>
+      <title>Box Shield: Classification-Based Access Policy for AI Agents</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/securing-ai-agent-access-inside-architecture-classification-based-access-policy-box-shield.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/securing-ai-agent-access-inside-architecture-classification-based-access-policy-box-shield.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 30 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Box Shield’s classification-based access policy treats an AI agent reading a file as equivalent to downloading it, and governs Read and Download as separate, independently toggled actions. Every request is evaluated at request time against the file’s current classification and the caller’s integration ID, with restricted reads returning no content at all and every decision logged to the Event Stream API — deployable in monitor mode before enforcement.</description>
+    </item>
+    <item>
+      <title>GPT-6.1 Sol: Near-Flagship Intelligence at a Fifth of the Price</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-gpt-6-1-sol.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-gpt-6-1-sol.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Tue, 29 Sep 2026 15:00:00 +0000</pubDate>
+      <description>GPT-6.1 Sol is OpenAI’s new mid-tier model offering near-Astra intelligence for about a fifth of the price. It matches GPT-6 Astra on DeepSWE v1.1 coding at one-fifth the cost, beats Opus 5.5 on document analysis and automation benchmarks for less, cuts factual errors 32% at low reasoning effort, and is available now across ChatGPT tiers and the API as gpt-6-1-sol.</description>
+    </item>
+    <item>
+      <title>OpenAI's dots: Always-On Agents That Run With Your Projects</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-dots.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-dots.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Tue, 29 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Dots are frontier agents powered by GPT-6 Astra that work independently 24/7, each with its own sandboxed cloud computer and browser and connections to 4,000+ apps, reachable across ChatGPT, Slack, Teams, and voice. Enterprises can deploy ‘specialist dots’ with dedicated identities, credentials, and access — managed through Microsoft Agent 365 — with sandboxing, auto-review, and custom approval rules built in.</description>
+    </item>
+    <item>
+      <title>Making Unstructured Content Programmable with Jev</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/documents-decisions-making-unstructured-content-programmable-jev.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/documents-decisions-making-unstructured-content-programmable-jev.html</guid>
+      <category>Box</category>
+      <pubDate>Tue, 29 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Jev is a ‘System One’ model that returns typed values and probabilities instead of open-ended text, so software can consume its judgments directly — no JSON post-processing. Using three primitives (Choice, Score, and Noul), it routes documents to Escalate, Monitor, or Review based on severity, type, and escalation probability, attaching signals as Box metadata while thresholds and review tasks keep humans on consequential decisions.</description>
+    </item>
+    <item>
+      <title>Box AI Cuts Security Triage From 30 Minutes to Seconds</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/box-ai-cuts-security-triage-30-minutes-seconds.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/box-ai-cuts-security-triage-30-minutes-seconds.html</guid>
+      <category>Box</category>
+      <pubDate>Tue, 29 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Box’s Security Incident Response Team cut phishing investigation from 30 minutes to seconds by running header, body, and screenshot analyses in parallel, and now auto-closes 56% of phishing cases while escalating sensitive-data references to analysts. Phishing was about 40% of tickets; automation now covers 50–60% of total volume across roughly 20% of alert types, freeing analysts for proactive, hypothesis-driven threat hunting.</description>
+    </item>
+    <item>
+      <title>The 5 AI Agents Every Executive Should Build First</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-5-ai-agents-i-tell-every-executive-to-build-first.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-5-ai-agents-i-tell-every-executive-to-build-first.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Thu, 24 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Google’s executive productivity advisor Laura Mae Martin recommends five AI agents every leader should build first in Gemini Enterprise’s Agent Designer, no code required: a Sentiment Analyst for meeting transcripts, a Schedule Auditor that checks priorities against calendar time, a Daily Briefing agent, an Investor Relations Coach, and a Gratitude Reminder. The advice: start with one recurring task that adds little strategic value, then scale.</description>
+    </item>
+    <item>
+      <title>What's New in Microsoft Security: Governing AI Agents</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/whats-new-in-microsoft-security-september-2026.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/whats-new-in-microsoft-security-september-2026.html</guid>
+      <category>Microsoft Security</category>
+      <pubDate>Thu, 24 Sep 2026 15:00:00 +0000</pubDate>
+      <description>September’s Microsoft Security updates center on governing AI agents: Defender can now discover AI agents running on employee devices, Entra Global Secure Access extends Zero Trust classification and enforcement to agent traffic, and Purview intercepts on-behalf-of agentic actions to block data from reaching unsanctioned AI tools. The release also covers shadow-AI prevention at the network layer, Purview data-lifecycle controls, and eDiscovery for Copilot Pages and Loop.</description>
+    </item>
+    <item>
+      <title>Reimagining the SOC for the Agentic Era</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/reimagining-the-soc-for-the-agentic-era-in-microsoft-defender.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/reimagining-the-soc-for-the-agentic-era-in-microsoft-defender.html</guid>
+      <category>Microsoft Security</category>
+      <pubDate>Wed, 23 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Microsoft introduced ISOC — an Integrated Security Operations Center in Microsoft Defender that unifies SIEM and threat protection into one system for AI-driven operations. The argument: attackers automate execution at AI speed, so security can’t win with protection and operations as separate stacks. ISOC runs a six-layer autonomous stack and an integrated protection loop, with humans directing strategy and agents handling continuous detection and response.</description>
+    </item>
+    <item>
+      <title>Anthropic and Accenture on Embedded Evaluation</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/accenture-embedded-evaluation.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/accenture-embedded-evaluation.html</guid>
+      <category>Anthropic</category>
+      <pubDate>Fri, 18 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Anthropic is partnering with Accenture’s Faculty division to embed independent evaluators with employee-level access — red-teaming models, running alignment assessments, testing safeguards, and monitoring decisions through development and deployment. Both expect to invest at least $1 billion over five years; the arrangement is non-exclusive, with more partnerships, including METR, planned.</description>
+    </item>
+    <item>
+      <title>Skills in Google Workspace: Teach Gemini Your Team's Know-How</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/teach-gemini-your-teams-know-hows-with-skills-in-google-workspace.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/teach-gemini-your-teams-know-hows-with-skills-in-google-workspace.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Wed, 16 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Skills in Google Workspace are reusable AI prompts — built with your organization’s rules, templates, and reference files — that guide Gemini to automate repetitive tasks and turn individual expertise into institutional knowledge. Teams author them in Google Docs, deploy via Workspace Studio, and invoke them with @ mentions across Gmail, Docs, Slides, and Drive, with a skills marketplace and admin curation on the way.</description>
+    </item>
+    <item>
+      <title>Microsoft 365 G7: Copilot and Governed Agents for Government</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-microsoft-365-g7-intelligence-trust-for-the-mission-ahead.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-microsoft-365-g7-intelligence-trust-for-the-mission-ahead.html</guid>
+      <category>Microsoft 365</category>
+      <pubDate>Tue, 15 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Microsoft 365 G7 is a government-grade productivity and AI suite for U.S. GCC environments, combining Copilot across Word, Excel, PowerPoint, and Teams (grounded by Work IQ), mission-focused agents for policy, casework, grants, and constituent services, and an Agent 365 control plane to discover, register, and govern every agent. It builds on M365 G5 and the Entra Suite, with phased GA from October 1.</description>
+    </item>
     <item>
       <title>OpenAI&apos;s Agents API: Orchestration as a Service</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-the-agents-api.html</link>
@@ -223,14 +359,6 @@
       <description>Box's security team built an agentic, multi-model pen-testing engine that proves deep logic flaws its scanners can't catch — running on a laptop, gated by an enforced boundary and a deterministic oracle, with an open-weight model out-producing the top frontier reasoner about 7-to-1.</description>
     </item>
     <item>
-      <title>What's New in Microsoft Security: August 2026</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/whats-new-in-microsoft-security-august-2026.html</link>
-      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/whats-new-in-microsoft-security-august-2026.html</guid>
-      <category>Microsoft Security</category>
-      <pubDate>Thu, 27 Aug 2026 11:00:00 +0000</pubDate>
-      <description>August's Microsoft Security drop reorganizes around AI agents: Secure Now guidance to contain unapproved agent actions, Entra Tenant Governance to unify identity, Defender Experts MDR coverage for third-party data via Sentinel, and Purview auto-labeling scaled to 500K files a day for Copilot readiness.</description>
-    </item>
-    <item>
       <title>Valmark Turns Dark Data Into Advisor Agility</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/valmark-financial-group-turns-dark-data-advisor-agility-box-extract.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/valmark-financial-group-turns-dark-data-advisor-agility-box-extract.html</guid>
@@ -239,20 +367,12 @@
       <description>A 60-year-old broker-dealer serving ~400 advisors made Box its governed system of record, then layered AI on top — going from ~4,000 to 240,000+ data points extracted a year and cutting up to 48 hours of manual rekeying per task.</description>
     </item>
     <item>
-      <title>Invisible Guardrails: Securing Autonomous Agents</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/invisible-guardrails-infinite-velocity-how-modern-cisos-secure-autonomous-agents-without-slowing.html</link>
-      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/invisible-guardrails-infinite-velocity-how-modern-cisos-secure-autonomous-agents-without-slowing.html</guid>
-      <category>Box</category>
-      <pubDate>Wed, 26 Aug 2026 12:00:00 GMT</pubDate>
-      <description>Box's Manoj Asnani and Bain Capital CISO Mark Sutton argue blocking AI only creates shadow AI. Safe speed for autonomous agents comes from the content layer: classify crown jewels, make every agent inherit the user's permissions, and contain the blast radius against prompt injection.</description>
-    </item>
-    <item>
-      <title>August Workspace Drops: Meet, Forms &amp; Skills</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/august-2026-workspace-feature-drop.html</link>
-      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/august-2026-workspace-feature-drop.html</guid>
-      <category>Google Workspace</category>
-      <pubDate>Wed, 26 Aug 2026 12:00:00 GMT</pubDate>
-      <description>Google Workspace's August drop adds slide screenshots to Meet notes, auto-organizes every meeting artifact into one Drive folder, generates quizzes in Forms, and turns team rules into reusable Gemini skills — with new admin guardrails for no-code agents.</description>
+      <title>What's New in Microsoft Security: August 2026</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/whats-new-in-microsoft-security-august-2026.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/whats-new-in-microsoft-security-august-2026.html</guid>
+      <category>Microsoft Security</category>
+      <pubDate>Thu, 27 Aug 2026 11:00:00 +0000</pubDate>
+      <description>August's Microsoft Security drop reorganizes around AI agents: Secure Now guidance to contain unapproved agent actions, Entra Tenant Governance to unify identity, Defender Experts MDR coverage for third-party data via Sentinel, and Purview auto-labeling scaled to 500K files a day for Copilot readiness.</description>
     </item>
     <item>
       <title>How Warp Builds Self-Improving Agents</title>
@@ -309,6 +429,22 @@
       <category>Box</category>
       <pubDate>Wed, 26 Aug 2026 13:00:00 +0000</pubDate>
       <description>Trademark Property replaced a 48-hour, $150-200-per-document offshore lease-abstraction process with Box Extract and Box Apps — now running in minutes at near-zero cost, with cross-portfolio clause search across 13 metadata templates and projected savings of $450K-800K.</description>
+    </item>
+    <item>
+      <title>Invisible Guardrails: Securing Autonomous Agents</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/invisible-guardrails-infinite-velocity-how-modern-cisos-secure-autonomous-agents-without-slowing.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/invisible-guardrails-infinite-velocity-how-modern-cisos-secure-autonomous-agents-without-slowing.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 26 Aug 2026 12:00:00 GMT</pubDate>
+      <description>Box's Manoj Asnani and Bain Capital CISO Mark Sutton argue blocking AI only creates shadow AI. Safe speed for autonomous agents comes from the content layer: classify crown jewels, make every agent inherit the user's permissions, and contain the blast radius against prompt injection.</description>
+    </item>
+    <item>
+      <title>August Workspace Drops: Meet, Forms &amp; Skills</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/august-2026-workspace-feature-drop.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/august-2026-workspace-feature-drop.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Wed, 26 Aug 2026 12:00:00 GMT</pubDate>
+      <description>Google Workspace's August drop adds slide screenshots to Meet notes, auto-organizes every meeting artifact into one Drive folder, generates quizzes in Forms, and turns team rules into reusable Gemini skills — with new admin guardrails for no-code agents.</description>
     </item>
     <item>
       <title>Four Layers of Defense for Agent Flows</title>
@@ -447,20 +583,20 @@
       <description>Anthropic’s CI team rebuilt the on-call rotation around Claude Tag — it vets every alert, spins up subagents to investigate systems in parallel, and posts an evidence-grounded incident report in a median of 14 minutes.</description>
     </item>
     <item>
-      <title>What's New in Box This Quarter</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/elevating-team-collaboration-and-productivity-whats-new-box-quarter.html</link>
-      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/elevating-team-collaboration-and-productivity-whats-new-box-quarter.html</guid>
-      <category>Box</category>
-      <pubDate>Tue, 18 Aug 2026 12:00:00 +0000</pubDate>
-      <description>Box's quarterly update targets everyday friction — a unified commenting pane for all feedback, a modern video player with timestamped review and frame guides, Box AI in mobile search, and a single continuous AI session in Box Notes.</description>
-    </item>
-    <item>
       <title>From 10-K to Sourced Memo to Warehouse</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/build-sourced-investment-memo-pipeline-box-and-snowflake.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/build-sourced-investment-memo-pipeline-box-and-snowflake.html</guid>
       <category>Box</category>
       <pubDate>Tue, 18 Aug 2026 16:00:00 +0000</pubDate>
       <description>A Box developer wires document extraction to a warehouse: pull financials from a 10-K and earnings deck, generate a sourced one-page memo with Box Doc Gen, and push structured results to Snowflake for cross-period analysis.</description>
+    </item>
+    <item>
+      <title>What's New in Box This Quarter</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/elevating-team-collaboration-and-productivity-whats-new-box-quarter.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/elevating-team-collaboration-and-productivity-whats-new-box-quarter.html</guid>
+      <category>Box</category>
+      <pubDate>Tue, 18 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Box's quarterly update targets everyday friction — a unified commenting pane for all feedback, a modern video player with timestamped review and frame guides, Box AI in mobile search, and a single continuous AI session in Box Notes.</description>
     </item>
     <item>
       <title>ABC Legal: Every Employee an Agent Builder</title>

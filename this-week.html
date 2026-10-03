@@ -70,7 +70,7 @@
     </svg>
   </div>
   <div class="wrap">
-    <span class="tag">This week &middot; Sep 8 – Sep 10, 2026</span>
+    <span class="tag">This week &middot; Sep 29 – Oct 1, 2026</span>
     <h1>This Week in Enterprise AI</h1>
     <p>11 explainers from 5 sources this week — the enterprise, agentic-AI, and governance moves worth your attention, grouped by theme.</p>
   </div>
@@ -78,80 +78,84 @@
 <main><div class="wrap">
   
     <div class="wk-theme">
+      <div class="wk-eyebrow"><span></span>Model launches <em>1</em></div>
+      <div class="wk-grid">
+      <a class="wk-card" href="explainers/introducing-gpt-6-1-sol.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">Model Launch</span></div>
+        <h3>GPT-6.1 Sol: Near-Flagship Intelligence at a Fifth of the Price</h3>
+        <p>GPT-6.1 Sol is OpenAI’s new mid-tier model offering near-Astra intelligence for about a fifth of the price. It matches GPT-6 Astra on DeepSWE v1.1 coding at one-fifth the cost, beats Opus 5.5 on document analysis and automation benchmarks for less, cuts factual errors 32% at low reasoning effort, and is available now across ChatGPT tiers and the API as gpt-6-1-sol.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      </a></div>
+    </div>
+    <div class="wk-theme">
       <div class="wk-eyebrow"><span></span>AI governance & security <em>1</em></div>
       <div class="wk-grid">
-      <a class="wk-card" href="explainers/metadata-extraction-enterprise-guide-cdos-it-leaders.html">
+      <a class="wk-card" href="explainers/securing-ai-agent-access-inside-architecture-classification-based-access-policy-box-shield.html">
         <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">AI Governance</span></div>
-        <h3>Metadata: The Layer That Makes Enterprise AI Work</h3>
-        <p>Box's guide for CDOs and IT leaders argues enterprise AI stalls on unreachable content, not models: 96% of organizations want agents to reach company content but only 36% of adopters have connected them. The fix is a governed five-stage extraction pipeline (ingest, classify, extract, validate, act) whose fields inherit source permissions and lineage — Barnett Capital cut underwriting 60× and Makena Capital search from ~1 hour to ~1 minute.</p>
+        <h3>Box Shield: Classification-Based Access Policy for AI Agents</h3>
+        <p>Box Shield’s classification-based access policy treats an AI agent reading a file as equivalent to downloading it, and governs Read and Download as separate, independently toggled actions. Every request is evaluated at request time against the file’s current classification and the caller’s integration ID, with restricted reads returning no content at all and every decision logged to the Event Stream API — deployable in monitor mode before enforcement.</p>
         <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
       </a></div>
     </div>
     <div class="wk-theme">
-      <div class="wk-eyebrow"><span></span>Enterprise case studies <em>1</em></div>
+      <div class="wk-eyebrow"><span></span>Enterprise case studies <em>2</em></div>
       <div class="wk-grid">
-      <a class="wk-card" href="explainers/t-rowe-price-brings-more-of-claude-to-its-investment-process.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Case Study</span></div>
-        <h3>T. Rowe Price Puts Claude at the Core of Investing</h3>
-        <p>T. Rowe Price expanded Claude across its investment organization — professionals use Cowork for research synthesis and multi-step operations, and developers build tools with Claude Code. AI leadership sits inside Investments and Global Distribution, T. Rowe Price Labs evaluates and scales applications, and each business unit owns its apps under responsible-use standards.</p>
-        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      <a class="wk-card" href="explainers/barclays-scales-claude.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#A64B2A">Anthropic</span><span class="wk-cat">Case Study</span></div>
+        <h3>Barclays Scales Claude Across the Bank</h3>
+        <p>Barclays is expanding Claude across engineering, customer service, and Global Markets: Claude Code is expected to reach 50% of its developers by end of 2026, a knowledge assistant used by 16,000+ employees has run since 2025, and Claude classifies and routes roughly 120,000 client emails a day — all under robust governance and human oversight.</p>
+        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/albertsons-reimagining-retail.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">Case Study</span></div>
+        <h3>Albertsons Reimagines Retail with OpenAI</h3>
+        <p>Albertsons is expanding OpenAI across 2,200+ stores (Albertsons, Safeway, Vons, Jewel-Osco, Shaw’s, ACME, Tom Thumb) serving 36 million weekly customers — pairing ChatGPT Enterprise for digital, operations, fulfillment, and merchandising teams with customer-facing apps on the OpenAI API, including a Safeway plugin that turns recipes, photos, or meal requests into a built cart with savings and checkout.</p>
+        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
       </a></div>
     </div>
     <div class="wk-theme">
-      <div class="wk-eyebrow"><span></span>Product & practice <em>9</em></div>
+      <div class="wk-eyebrow"><span></span>Product & practice <em>7</em></div>
       <div class="wk-grid">
-      <a class="wk-card" href="explainers/introducing-the-agents-api.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">Agents</span></div>
-        <h3>OpenAI's Agents API: Orchestration as a Service</h3>
-        <p>OpenAI opened the orchestration engine behind Codex as the Agents API (public beta): define task, model, tools, and environment in one call, and it manages context compaction, hosted or self-hosted sandboxes, and parallel subagents. You pay only for tokens and tool use; early customers report up to 60% lower cost, 4× lower latency, and 86% fewer failed responses.</p>
-        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/introducing-chatgpt-financial-services.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">Enterprise AI</span></div>
-        <h3>ChatGPT for Financial Services, Data Included</h3>
-        <p>ChatGPT for Financial Services pairs GPT-6 Astra with built-in datasets (Daloopa, PitchBook, LSEG News, Crunchbase) and entitlement passthrough for sources firms already license, plus admin-published Office templates and SSO/SCIM/RBAC governance. GPT-6 Astra scores 69.9% on OfficeQA Pro versus 60.2% for GPT-5.6 Sol; design partners include Morgan Stanley and Evercore.</p>
-        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/put-data-to-work.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">Product</span></div>
-        <h3>A Data Agent That Skips the SQL</h3>
-        <p>ChatGPT Work's new Data agent lets non-technical users query warehouses (Snowflake, BigQuery, Databricks, Redshift) in plain language, investigate changes, and build interactive dashboards — no SQL. It runs inside governed BI tools (Tableau, Power BI, Sigma, ThoughtSpot) and grounds answers in company semantic layers and dbt metric definitions.</p>
-        <span class="wk-rt">4 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/build-apps-in-copilot-cowork-and-copilot-studio.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#0067B8">Microsoft 365</span><span class="wk-cat">Product</span></div>
-        <h3>Describe an App, Copilot Builds It</h3>
-        <p>Microsoft's Copilot Cowork and Copilot Studio turn a plain-language description into a working full-stack business app via agentic coding — connected to org data through connectors and Work IQ, able to take actions and write back to Microsoft 365. Apps respect Entra identity and policy by default, and IT manages published apps from the Microsoft 365 admin center.</p>
-        <span class="wk-rt">4 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/box-chatgpt-enterprise-content-integration.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">Enterprise AI</span></div>
-        <h3>Box Content, Now Inside ChatGPT</h3>
-        <p>Box and OpenAI embed Box content directly in ChatGPT: browse the folder hierarchy, @mention files as context, preview sources beside the chat, and edit Box Notes — without duplicating content. Existing Box permissions decide what's reachable and admins control which MCP server tools users can invoke; generally available now, rolling out to ChatGPT paid tiers.</p>
-        <span class="wk-rt">4 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/turn-your-data-into-action-6-mini-apps-you-can-create-with-sheets-canvas.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#4285F4">Google Workspace</span><span class="wk-cat">Productivity</span></div>
-        <h3>Turn a Spreadsheet Into a Mini App</h3>
-        <p>Google's Sheets canvas, powered by Gemini 3.8 Flash, turns spreadsheet rows into interactive mini apps from a plain-language prompt — Kanban boards, executive dashboards, financial scenario models, schedules, 2×2 matrices, and workshop boards. Visual edits sync back to the underlying data, and everything lives in the sheet and shares with normal file permissions.</p>
-        <span class="wk-rt">4 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/less-switching-more-flow-5-new-agentic-capabilities-across-google-workspace-apps.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#4285F4">Google Workspace</span><span class="wk-cat">Agents</span></div>
-        <h3>Five Cross-App Agents Inside Google Workspace</h3>
-        <p>Google Workspace added five agentic capabilities that finish cross-app tasks without switching apps: Chat to Slides, Drive to Sheets, Docs to Gmail, Gmail to Docs, and Docs to Slides. Each keeps you in the app you're in while Gemini carries the content across; available on Business/Enterprise Standard and Plus, AI Pro/Ultra, and Education plans.</p>
-        <span class="wk-rt">4 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/reducing-cost-and-improving-performance-with-claude-platform.html">
+      <a class="wk-card" href="explainers/claude-code-mods.html">
         <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Product</span></div>
-        <h3>Cutting Claude Costs 50–73% Without Losing Quality</h3>
-        <p>Anthropic's platform team shows three levers cut Claude API costs 50–73% while holding or improving accuracy: byte-exact prompt caching, pruning instructions written for older models (14.6% cheaper and 5.3% more accurate on an Opus 4.8→5 migration), and calibrating effort per task. The automated cost-optimizer cut LegalBench 58%, tau2-bench retail 73%, and SWE-bench 55% with median steps dropping 29→17.</p>
+        <h3>Claude Code Mods: Customize the CLI in TypeScript</h3>
+        <p>Mods are lightweight TypeScript functions that hook into Claude Code’s events to rewrite prompts, block tool calls, add UI, or replace built-ins — shipped inside plugins. On Team and Enterprise plans a built-in sec-default mod loads first so user mods can’t override security rules.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/september-2026-workspace-feature-drop.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#4285F4">Google Workspace</span><span class="wk-cat">Product</span></div>
+        <h3>Google Workspace September Drop: Image AI and Interactive Data</h3>
+        <p>Google Workspace’s September drop brings six AI updates: Google Pics for pro-level object-level image editing and 2K/4K upscaling inside Docs and Slides; Sheets canvas to turn data into one-click interactive mini-apps; Workspace Intelligence for cross-app task automation; a unified Ask Gemini in Chat; Google Vids document-to-video conversion; and Gemini-based data classification in Drive for DLP and retention.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/claude-for-government-is-now-generally-available.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Product</span></div>
+        <h3>Claude for Government Is Now Generally Available</h3>
+        <p>Claude for Government is generally available inside a FedRAMP High authorized environment, with usage-based pricing and hard caps instead of seat fees, tiered admin controls across departmental hierarchies, two-person approvals for sensitive actions, and audit logging. Claude Code and Claude for Microsoft 365 are in early access through the same environment.</p>
         <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
       </a>
-      <a class="wk-card" href="explainers/meet-box-mount-box-workspace-sandboxed-ai-agents.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">Agents</span></div>
-        <h3>Box Mount: A Filesystem for Sandboxed Agents</h3>
-        <p>Box Mount maps Box folders into sandboxed AI-agent environments as ordinary POSIX directories, so agents use standard filesystem APIs while Box handles two-way sync and stays the governed system of record — permissions, versions, retention, Shield, and audit intact. It's framework-agnostic (OpenAI, Anthropic, LangGraph, CrewAI, Python) and built for contract review, RFP drafting, and multi-agent document work; available in private preview.</p>
+      <a class="wk-card" href="explainers/how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Agents</span></div>
+        <h3>How Anthropic's Sales Team Rebuilt Inbound with Managed Agents</h3>
+        <p>A Claude-powered buying agent now handles thousands of inbound sales conversations a day across contact, pricing, and in-product surfaces — qualifying leads, answering on the spot, or handing complex deals to reps with full context. Agent-qualified leads convert to opportunities more than twice as often and close about five days faster.</p>
+        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/introducing-dots.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">Agents</span></div>
+        <h3>OpenAI's dots: Always-On Agents That Run With Your Projects</h3>
+        <p>Dots are frontier agents powered by GPT-6 Astra that work independently 24/7, each with its own sandboxed cloud computer and browser and connections to 4,000+ apps, reachable across ChatGPT, Slack, Teams, and voice. Enterprises can deploy ‘specialist dots’ with dedicated identities, credentials, and access — managed through Microsoft Agent 365 — with sandboxing, auto-review, and custom approval rules built in.</p>
+        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/documents-decisions-making-unstructured-content-programmable-jev.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">Product</span></div>
+        <h3>Making Unstructured Content Programmable with Jev</h3>
+        <p>Jev is a ‘System One’ model that returns typed values and probabilities instead of open-ended text, so software can consume its judgments directly — no JSON post-processing. Using three primitives (Choice, Score, and Noul), it routes documents to Escalate, Monitor, or Review based on severity, type, and escalation probability, attaching signals as Box metadata while thresholds and review tasks keep humans on consequential decisions.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/box-ai-cuts-security-triage-30-minutes-seconds.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">Product</span></div>
+        <h3>Box AI Cuts Security Triage From 30 Minutes to Seconds</h3>
+        <p>Box’s Security Incident Response Team cut phishing investigation from 30 minutes to seconds by running header, body, and screenshot analyses in parallel, and now auto-closes 56% of phishing cases while escalating sensitive-data references to analysts. Phishing was about 40% of tickets; automation now covers 50–60% of total volume across roughly 20% of alert types, freeing analysts for proactive, hypothesis-driven threat hunting.</p>
         <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
       </a></div>
     </div>

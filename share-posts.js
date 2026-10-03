@@ -1,5 +1,141 @@
 window.__POSTS__ = [
   {
+    "slug": "claude-code-mods",
+    "source": "Claude",
+    "category": "Product",
+    "date": "2026-10-01",
+    "hook": "Code Your Own CLI",
+    "body": "Mods are TypeScript hooks that run before, after, or instead of any Claude Code action. Platform teams can encode guardrails, audit logging, and UI as code — instead of waiting for an official release."
+  },
+  {
+    "slug": "barclays-scales-claude",
+    "source": "Anthropic",
+    "category": "Case Study",
+    "date": "2026-10-01",
+    "hook": "Banking At Scale",
+    "body": "Barclays is scaling Claude across the bank: 50% of developers on Claude Code by end of 2026, a 16,000-employee knowledge assistant, and roughly 120,000 client emails triaged daily — all under strict governance."
+  },
+  {
+    "slug": "albertsons-reimagining-retail",
+    "source": "OpenAI",
+    "category": "Case Study",
+    "date": "2026-10-01",
+    "hook": "Recipe To Cart",
+    "body": "Albertsons is layering ChatGPT Enterprise for staff with OpenAI-API apps for shoppers across 2,200+ stores — a Safeway plugin turns ‘plan pizza night for four’ into a built cart with savings and checkout."
+  },
+  {
+    "slug": "september-2026-workspace-feature-drop",
+    "source": "Google Workspace",
+    "category": "Product",
+    "date": "2026-10-01",
+    "hook": "Six AI Drops",
+    "body": "Google Workspace’s September drop: pro-level image editing in Google Pics, one-click interactive mini-apps in Sheets, cross-app automation, a unified Ask Gemini in Chat, Docs-to-video in Vids, and Gemini data classification in Drive."
+  },
+  {
+    "slug": "claude-for-government-is-now-generally-available",
+    "source": "Claude",
+    "category": "Product",
+    "date": "2026-09-30",
+    "hook": "Compliance-First AI",
+    "body": "Claude for Government is GA inside a FedRAMP High environment — with usage-based pricing and hard caps instead of seat fees, tiered admin controls, two-person approvals, and audit logging built in."
+  },
+  {
+    "slug": "how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents",
+    "source": "Claude",
+    "category": "Agents",
+    "date": "2026-09-30",
+    "hook": "Inbound, Rebuilt",
+    "body": "Anthropic’s inbound buying agent handles thousands of conversations a day. Agent-qualified leads convert 2× better and close about five days faster — and every escalation it logs reveals a self-service gap to fix."
+  },
+  {
+    "slug": "securing-ai-agent-access-inside-architecture-classification-based-access-policy-box-shield",
+    "source": "Box",
+    "category": "AI Governance",
+    "date": "2026-09-30",
+    "hook": "Reading Is Downloading",
+    "body": "AI agents exfiltrate data just by reading it. Box Shield’s classification-based access policy governs Read as a separate, enforced action — so confidential content never leaves, whatever the access method. Monitor first, then enforce."
+  },
+  {
+    "slug": "introducing-gpt-6-1-sol",
+    "source": "OpenAI",
+    "category": "Model Launch",
+    "date": "2026-09-29",
+    "hook": "A Fifth Of The Price",
+    "body": "GPT-6.1 Sol delivers near-flagship intelligence at ~one-fifth the cost: it matches GPT-6 Astra on real coding work, beats Opus 5.5 on docs and automation for less, and cuts factual errors 32%."
+  },
+  {
+    "slug": "introducing-dots",
+    "source": "OpenAI",
+    "category": "Agents",
+    "date": "2026-09-29",
+    "hook": "Agents That Don't Sleep",
+    "body": "Dots are GPT-6 Astra agents that work 24/7 with their own cloud computer and browser, connect to 4,000+ apps, and run across ChatGPT, Slack, and Teams — with enterprise specialist dots governed via Agent 365."
+  },
+  {
+    "slug": "documents-decisions-making-unstructured-content-programmable-jev",
+    "source": "Box",
+    "category": "Product",
+    "date": "2026-09-29",
+    "hook": "Typed, Not Chatty",
+    "body": "Jev is a ‘System One’ model that returns typed values and probabilities, not prose — so software can route a document to Escalate, Monitor, or Review on Choice, Score, and Noul judgments, humans still in the loop."
+  },
+  {
+    "slug": "box-ai-cuts-security-triage-30-minutes-seconds",
+    "source": "Box",
+    "category": "Product",
+    "date": "2026-09-29",
+    "hook": "30 Minutes To Seconds",
+    "body": "Box’s incident-response team cut phishing triage from 30 minutes to seconds with three parallel analyses, and now auto-closes 56% of phishing cases — reinvesting the hours in proactive threat hunting."
+  },
+  {
+    "slug": "the-5-ai-agents-i-tell-every-executive-to-build-first",
+    "source": "Google Workspace",
+    "category": "Agents",
+    "date": "2026-09-24",
+    "hook": "Build These Five First",
+    "body": "Google’s productivity advisor names five no-code agents every executive should build in Gemini: a sentiment analyst, schedule auditor, daily briefing, investor-relations coach, and gratitude reminder — starting with one recurring, low-value task."
+  },
+  {
+    "slug": "whats-new-in-microsoft-security-september-2026",
+    "source": "Microsoft Security",
+    "category": "AI Governance",
+    "date": "2026-09-24",
+    "hook": "Find Your Shadow Agents",
+    "body": "September’s Microsoft Security updates are about AI agents: discovering ones already on employee devices, extending Zero Trust to agent traffic, and intercepting on-behalf-of actions before data leaks to shadow AI."
+  },
+  {
+    "slug": "reimagining-the-soc-for-the-agentic-era-in-microsoft-defender",
+    "source": "Microsoft Security",
+    "category": "AI Governance",
+    "date": "2026-09-23",
+    "hook": "SOC At AI Speed",
+    "body": "Microsoft’s ISOC in Defender merges SIEM and threat protection into one system — because when attackers automate at AI speed, a SOC built from separate stacks can’t keep up. Humans direct; agents execute."
+  },
+  {
+    "slug": "accenture-embedded-evaluation",
+    "source": "Anthropic",
+    "category": "AI Governance",
+    "date": "2026-09-18",
+    "hook": "Evaluators On The Inside",
+    "body": "Anthropic is embedding independent Accenture evaluators with employee-level access to red-team and monitor models — backing it with $1B+ over five years. Expect embedded evaluation to become a governance norm."
+  },
+  {
+    "slug": "teach-gemini-your-teams-know-hows-with-skills-in-google-workspace",
+    "source": "Google Workspace",
+    "category": "Product",
+    "date": "2026-09-16",
+    "hook": "Expertise, Reusable",
+    "body": "Skills in Google Workspace are reusable AI prompts built from your org’s rules, templates, and files — turning one person’s expertise into institutional knowledge Gemini applies across Gmail, Docs, Slides, and Drive via @ mentions."
+  },
+  {
+    "slug": "introducing-microsoft-365-g7-intelligence-trust-for-the-mission-ahead",
+    "source": "Microsoft 365",
+    "category": "Product",
+    "date": "2026-09-15",
+    "hook": "Governed AI For Gov",
+    "body": "Microsoft 365 G7 brings Copilot and mission-focused agents to U.S. government cloud — with an Agent 365 control plane so IT can discover, govern, and block every agent. GA began October 1."
+  },
+  {
     "slug": "introducing-the-agents-api",
     "source": "OpenAI",
     "category": "Agents",
@@ -205,7 +341,7 @@ window.__POSTS__ = [
     "category": "Enterprise AI",
     "date": "2026-08-28",
     "hook": "Tag @Claude, Get Work Back",
-    "body": "Anthropic employees turn tangled Slack threads into finished briefs, request lists, and legal reviews \u2014 tagging Claude like a colleague and getting hours of work back in minutes."
+    "body": "Anthropic employees turn tangled Slack threads into finished briefs, request lists, and legal reviews — tagging Claude like a colleague and getting hours of work back in minutes."
   },
   {
     "slug": "how-we-got-frontier-level-capability-without-frontier-dependency",
@@ -213,7 +349,7 @@ window.__POSTS__ = [
     "category": "AI Governance",
     "date": "2026-08-27",
     "hook": "Grounding Beats The Frontier",
-    "body": "Box built an agentic pen-testing engine that proves real logic flaws on a laptop \u2014 and an open-weight model out-found the top frontier reasoner about seven to one."
+    "body": "Box built an agentic pen-testing engine that proves real logic flaws on a laptop — and an open-weight model out-found the top frontier reasoner about seven to one."
   },
   {
     "slug": "whats-new-in-microsoft-security-august-2026",
