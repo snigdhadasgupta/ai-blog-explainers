@@ -5,7 +5,7 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Oct 2026 01:10:11 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 03:30:43 +0000</lastBuildDate>
     <item>
       <title>A Practical Guide to Building with GPT-6</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/practical-guide-building-gpt-6.html</link>
@@ -13,6 +13,14 @@
       <category>OpenAI</category>
       <pubDate>Fri, 02 Oct 2026 15:00:00 +0000</pubDate>
       <description>OpenAI's practical guide to GPT-6 focuses on production discipline: match Astra (hardest reasoning), Sol (near-Astra at a fifth the cost) or Luna (fast everyday) to the workload, cache input tokens for up to 95% savings, specify outcomes rather than rigid instructions, and use mid-turn steering and async tool calling to keep long-running agents productive and supervised.</description>
+    </item>
+    <item>
+      <title>Northern Rockies: Governed Public-Sector AI with Box</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-northern-rockies-transforms-government-services-ai.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-northern-rockies-transforms-government-services-ai.html</guid>
+      <category>Box</category>
+      <pubDate>Fri, 02 Oct 2026 14:45:00 +0000</pubDate>
+      <description>Northern Rockies Regional Municipality went from banning AI outright to running it on a governed Box content layer — role-based access, full audit logging, and no training on its data. Box AI now accelerates Freedom-of-Information requests, surfaces technical answers in seconds, governs ingested email via mxHERO, and drafts HR documents with Box Doc Gen, while staff validate outputs and keep the final word.</description>
     </item>
     <item>
       <title>Claude Code Mods: Customize the CLI in TypeScript</title>
@@ -69,6 +77,14 @@
       <category>Box</category>
       <pubDate>Wed, 30 Sep 2026 15:00:00 +0000</pubDate>
       <description>Box Shield’s classification-based access policy treats an AI agent reading a file as equivalent to downloading it, and governs Read and Download as separate, independently toggled actions. Every request is evaluated at request time against the file’s current classification and the caller’s integration ID, with restricted reads returning no content at all and every decision logged to the Event Stream API — deployable in monitor mode before enforcement.</description>
+    </item>
+    <item>
+      <title>The Playbook for Intelligent Content Workflow Automation</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/content-workflow-automation.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/content-workflow-automation.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 30 Sep 2026 14:40:00 +0000</pubDate>
+      <description>Box's playbook treats content as one governed lifecycle — plan, create, review, approve, distribute, analyze — rather than manual follow-ups. Choose task-based (predictable but fragile) or status-based (flexible but needs owners) workflows, automate the handoffs with rule-driven Box Relay and agents, and keep editorial, legal, compliance and brand as explicit human checkpoints, with Shield and Governance enforcing access and retention.</description>
     </item>
     <item>
       <title>How Asana Builds Human-Agent Teams with Claude</title>
@@ -135,6 +151,14 @@
       <description>Box evaluated Claude Sonnet 5.5 on real customer workflows spanning spreadsheets, PDFs, slides and images. Accuracy rose from 61% to 65%, deliverables completed 2.4x faster, and token use fell 12%, with the largest gains in regulated industries, financial services climbed from 63% to 81%. The model fact-checks across documents, catching errors earlier versions propagated.</description>
     </item>
     <item>
+      <title>Sage Hospitality Automates the Work Behind the Welcome</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/sage-hospitality-group-automates-work-behind-welcome-0.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/sage-hospitality-group-automates-work-behind-welcome-0.html</guid>
+      <category>Box</category>
+      <pubDate>Mon, 28 Sep 2026 14:40:00 +0000</pubDate>
+      <description>Sage Hospitality Group — 60+ hotels and 60+ restaurants — uses Box Forms and Box Doc Gen to automate document work: access requests generate, route and store themselves in the right Box folder at 500+ a week, and vendor contracts live in Box with automatic version control and permissioned sharing. Next up are Box Sign e-signatures, contract dashboards, metadata extraction, and Box Hubs portals.</description>
+    </item>
+    <item>
       <title>Build Plugins for Claude</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/build-plugins-for-claude.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/build-plugins-for-claude.html</guid>
@@ -183,12 +207,44 @@
       <description>September’s Microsoft Security updates center on governing AI agents: Defender can now discover AI agents running on employee devices, Entra Global Secure Access extends Zero Trust classification and enforcement to agent traffic, and Purview intercepts on-behalf-of agentic actions to block data from reaching unsanctioned AI tools. The release also covers shadow-AI prevention at the network layer, Purview data-lifecycle controls, and eDiscovery for Copilot Pages and Loop.</description>
     </item>
     <item>
+      <title>Claude Tag: Personal Connectors in Channels</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-tag-now-supports-personal-connectors-in-channels.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-tag-now-supports-personal-connectors-in-channels.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 24 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Claude Tag can now use the connectors you personally authorized — Drive, calendar, GitHub, a CRM — inside Slack channels, not just DMs. It asks permission on first use, remembers it for the thread, posts in Review or Auto mode, and logs every action under your own account; unattended routines still use channel-level connectors.</description>
+    </item>
+    <item>
+      <title>Claude Opus 5.5: Built for Context-Heavy Coding</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-opus-5-5-built-for-coding-sessions-that-use-more-context.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-opus-5-5-built-for-coding-sessions-that-use-more-context.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 24 Sep 2026 14:30:00 +0000</pubDate>
+      <description>Claude Opus 5.5 is tuned for long, context-heavy coding sessions and runs about 40% cheaper than Opus 5 on typical token-billed workloads — standard tokens down 20%, cached reads down 60%, a one-hour cache, subagent forking that reuses the parent's context, and about 30% faster output. Pick the model at session start and keep the cache warm to capture the savings.</description>
+    </item>
+    <item>
       <title>Reimagining the SOC for the Agentic Era</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/reimagining-the-soc-for-the-agentic-era-in-microsoft-defender.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/reimagining-the-soc-for-the-agentic-era-in-microsoft-defender.html</guid>
       <category>Microsoft Security</category>
       <pubDate>Wed, 23 Sep 2026 15:00:00 +0000</pubDate>
       <description>Microsoft introduced ISOC — an Integrated Security Operations Center in Microsoft Defender that unifies SIEM and threat protection into one system for AI-driven operations. The argument: attackers automate execution at AI speed, so security can’t win with protection and operations as separate stacks. ISOC runs a six-layer autonomous stack and an integrated protection loop, with humans directing strategy and agents handling continuous detection and response.</description>
+    </item>
+    <item>
+      <title>How to Prepare for AI-Driven Code Modernization</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-to-prepare-for-ai-driven-code-modernization-projects.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-to-prepare-for-ai-driven-code-modernization-projects.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 23 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Anthropic's playbook for AI-driven code modernization: agents can finish in weeks, but the organizational work doesn't shrink. Define one target (Uplift, Transform, or Reimagine), write a machine-checkable certificate of pass conditions, set a leadership-owned tiered promotion policy, lay the prerequisites, build an agentic workflow you tune rather than each change, then pilot on a small partition before scaling.</description>
+    </item>
+    <item>
+      <title>Microsoft: Building the System for AI at Work</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-the-system-for-ai-at-work.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-the-system-for-ai-at-work.html</guid>
+      <category>Microsoft 365</category>
+      <pubDate>Wed, 23 Sep 2026 14:30:00 +0000</pubDate>
+      <description>Microsoft's framing for deploying AI safely, affordably and at scale rests on three pillars: a multi-model platform embedded in Microsoft 365 and grounded in your data; a two-track business model (predictable per-seat USL plus usage-based Copilot Credits with spend visibility and limits); and partnership, with Forward Deployed Engineers handling the change-management and trust side of adoption.</description>
     </item>
     <item>
       <title>Anthropic and Accenture on Embedded Evaluation</title>
@@ -301,6 +357,14 @@
       <category>Box</category>
       <pubDate>Tue, 08 Sep 2026 17:10:00 +0000</pubDate>
       <description>Box Mount maps Box folders into sandboxed AI-agent environments as ordinary POSIX directories, so agents use standard filesystem APIs while Box handles two-way sync and stays the governed system of record — permissions, versions, retention, Shield, and audit intact. It&apos;s framework-agnostic (OpenAI, Anthropic, LangGraph, CrewAI, Python) and built for contract review, RFP drafting, and multi-agent document work; available in private preview.</description>
+    </item>
+    <item>
+      <title>6 Ways Workspace Intelligence Personalizes Help</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/spend-less-time-prompting-6-ways-workspace-intelligence-offers-personalized-help.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/spend-less-time-prompting-6-ways-workspace-intelligence-offers-personalized-help.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Tue, 08 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Workspace Intelligence gives Gemini a real-time, unified understanding of your work across Gmail, Drive, Chat, Docs, Slides and Sheets, so help is personalized with no prompts or setup — daily briefings, one-shot drafts in your voice, on-brand decks, and live spreadsheets from natural language. It respects existing file permissions, isn't used for ads or training without permission, and stays under admin control.</description>
     </item>
     <item>
       <title>Box Tests GPT-6 Astra on Enterprise Work</title>

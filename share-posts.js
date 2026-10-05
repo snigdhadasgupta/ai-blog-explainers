@@ -8,6 +8,14 @@ window.__POSTS__ = [
     "body": "OpenAI's GPT-6 guide is about discipline, not horsepower: match Astra, Sol or Luna to the task, cache for up to 95% savings, specify outcomes over scripts, and steer long-running agents mid-flight."
   },
   {
+    "slug": "how-northern-rockies-transforms-government-services-ai",
+    "source": "Box",
+    "category": "Case Study",
+    "date": "2026-10-02",
+    "hook": "From Ban To Yes",
+    "body": "A municipality banned AI, then adopted it on a governed Box layer — role-based access, audit logs, no training on its data — to speed records requests while humans keep the final word."
+  },
+  {
     "slug": "claude-code-mods",
     "source": "Claude",
     "category": "Product",
@@ -62,6 +70,14 @@ window.__POSTS__ = [
     "date": "2026-09-30",
     "hook": "Reading Is Downloading",
     "body": "AI agents exfiltrate data just by reading it. Box Shield’s classification-based access policy governs Read as a separate, enforced action — so confidential content never leaves, whatever the access method. Monitor first, then enforce."
+  },
+  {
+    "slug": "content-workflow-automation",
+    "source": "Box",
+    "category": "Enterprise AI",
+    "date": "2026-09-30",
+    "hook": "Workflows That Don't Stall",
+    "body": "Box's playbook: map six lifecycle stages, pick task- or status-based workflows, and automate the handoffs with Box Relay and agents — while humans still own every review and approval."
   },
   {
     "slug": "agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude",
@@ -128,6 +144,14 @@ window.__POSTS__ = [
     "body": "On Box's real-workflow evaluation, Claude Sonnet 5.5 lifted accuracy to 65%, ran deliverables 2.4x faster and used 12% fewer tokens, with financial services jumping from 63% to 81%."
   },
   {
+    "slug": "sage-hospitality-group-automates-work-behind-welcome-0",
+    "source": "Box",
+    "category": "Case Study",
+    "date": "2026-09-28",
+    "hook": "Paperwork, Automated",
+    "body": "Sage Hospitality — 60+ hotels and restaurants — uses Box Forms and Doc Gen to generate 500+ access-request documents a week that route and file themselves, freeing staff for guests."
+  },
+  {
     "slug": "build-plugins-for-claude",
     "source": "Claude",
     "category": "Product",
@@ -176,12 +200,44 @@ window.__POSTS__ = [
     "body": "September’s Microsoft Security updates are about AI agents: discovering ones already on employee devices, extending Zero Trust to agent traffic, and intercepting on-behalf-of actions before data leaks to shadow AI."
   },
   {
+    "slug": "claude-tag-now-supports-personal-connectors-in-channels",
+    "source": "Claude",
+    "category": "Product",
+    "date": "2026-09-24",
+    "hook": "Your Tools, In Channel",
+    "body": "Claude Tag can now use your personal connectors inside Slack channels — Drive, GitHub, calendar — with per-use permission and every action logged under your own account."
+  },
+  {
+    "slug": "claude-opus-5-5-built-for-coding-sessions-that-use-more-context",
+    "source": "Claude",
+    "category": "Model Launch",
+    "date": "2026-09-24",
+    "hook": "Cheaper By Design",
+    "body": "Claude Opus 5.5 runs about 40% cheaper than Opus 5 on typical workloads — 20% off tokens, 60% off cached reads, a one-hour cache, and subagents that reuse the parent's context."
+  },
+  {
     "slug": "reimagining-the-soc-for-the-agentic-era-in-microsoft-defender",
     "source": "Microsoft Security",
     "category": "AI Governance",
     "date": "2026-09-23",
     "hook": "SOC At AI Speed",
     "body": "Microsoft’s ISOC in Defender merges SIEM and threat protection into one system — because when attackers automate at AI speed, a SOC built from separate stacks can’t keep up. Humans direct; agents execute."
+  },
+  {
+    "slug": "how-to-prepare-for-ai-driven-code-modernization-projects",
+    "source": "Claude",
+    "category": "Enterprise AI",
+    "date": "2026-09-23",
+    "hook": "Prep Beats Speed",
+    "body": "Agents can modernize code in weeks, but the org work doesn't shrink. Define one target, write a machine-checkable certificate, and set a tiered promotion policy before you start."
+  },
+  {
+    "slug": "building-the-system-for-ai-at-work",
+    "source": "Microsoft 365",
+    "category": "Enterprise AI",
+    "date": "2026-09-23",
+    "hook": "Two Ways To Pay",
+    "body": "Microsoft's system for AI at work: many models inside Microsoft 365, a per-seat license plus usage-based Copilot Credits, and Forward Deployed Engineers for the human side of adoption."
   },
   {
     "slug": "accenture-embedded-evaluation",
@@ -294,6 +350,14 @@ window.__POSTS__ = [
     "date": "2026-09-08",
     "hook": "A Filesystem For Agents",
     "body": "Box Mount maps Box folders into agent sandboxes as ordinary directories. Agents use standard file APIs; Box stays the system of record — permissions, retention, and audit intact."
+  },
+  {
+    "slug": "spend-less-time-prompting-6-ways-workspace-intelligence-offers-personalized-help",
+    "source": "Google Workspace",
+    "category": "Productivity",
+    "date": "2026-09-08",
+    "hook": "Stop Prompting So Hard",
+    "body": "Workspace Intelligence gives Gemini real-time context across Gmail, Drive, Chat, Docs, Slides and Sheets — personalized help with no setup, staying inside your existing file permissions."
   },
   {
     "slug": "first-look-gpt-6-astra-frontier-complex-enterprise-work",
