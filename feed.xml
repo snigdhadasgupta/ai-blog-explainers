@@ -5,7 +5,15 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Oct 2026 03:30:43 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 00:37:40 +0000</lastBuildDate>
+    <item>
+      <title>How Cresta Built an Agent Builder on the Claude Agent SDK</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-cresta-turned-cx-expertise-into-an-agent-builder-on-the-claude-agent-sdk.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-cresta-turned-cx-expertise-into-an-agent-builder-on-the-claude-agent-sdk.html</guid>
+      <category>Claude</category>
+      <pubDate>Mon, 05 Oct 2026 15:00:00 +0000</pubDate>
+      <description>Cresta turned years of contact-center expertise into Conductor, a natural-language builder that ships production customer agents on the Claude Agent SDK. It cut first-deployment time by roughly half, and Cresta treats the build as 20% of the job, spending the rest on evaluation and iteration against four task types.</description>
+    </item>
     <item>
       <title>A Practical Guide to Building with GPT-6</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/practical-guide-building-gpt-6.html</link>
@@ -239,6 +247,14 @@
       <description>Anthropic's playbook for AI-driven code modernization: agents can finish in weeks, but the organizational work doesn't shrink. Define one target (Uplift, Transform, or Reimagine), write a machine-checkable certificate of pass conditions, set a leadership-owned tiered promotion policy, lay the prerequisites, build an agentic workflow you tune rather than each change, then pilot on a small partition before scaling.</description>
     </item>
     <item>
+      <title>Claude Marketplace: Plugins, Agents &amp; Services in One Place</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-marketplace.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-marketplace.html</guid>
+      <category>Claude</category>
+      <pubDate>Tue, 23 Sep 2026 15:00:00 +0000</pubDate>
+      <description>The Claude Marketplace is one catalog for 2,000+ connectors and plugins, buyable Claude-powered agents and products (CrowdStrike, Cursor, Harvey, Snowflake), and consulting partners like Accenture, BCG, and Deloitte. Builders list via three paths: MCP/Skills connectors, products sold against committed Anthropic spend, or the Partner Network.</description>
+    </item>
+    <item>
       <title>Microsoft: Building the System for AI at Work</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-the-system-for-ai-at-work.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-the-system-for-ai-at-work.html</guid>
@@ -253,6 +269,14 @@
       <category>Anthropic</category>
       <pubDate>Fri, 18 Sep 2026 15:00:00 +0000</pubDate>
       <description>Anthropic is partnering with Accenture’s Faculty division to embed independent evaluators with employee-level access — red-teaming models, running alignment assessments, testing safeguards, and monitoring decisions through development and deployment. Both expect to invest at least $1 billion over five years; the arrangement is non-exclusive, with more partnerships, including METR, planned.</description>
+    </item>
+    <item>
+      <title>How Balyasny Evaluates &amp; Governs Claude Fable 5</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/working-at-the-frontier-how-balyasny-asset-management-evaluates-and-governs-claude-fable-5.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/working-at-the-frontier-how-balyasny-asset-management-evaluates-and-governs-claude-fable-5.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 17 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Balyasny Asset Management (~$38B AUM) grades every model on thousands of its own financial tasks: Claude Fable 5 hit 89.4% accuracy versus 86.1% for the prior model and cut merger-arb deal analysis from three-to-five days to under one. Its BAMAgent platform runs thousands of agents 24/7 under least-privilege access, logging, and human review, so a more capable model never gets wider authority by default.</description>
     </item>
     <item>
       <title>Skills in Google Workspace: Teach Gemini Your Team's Know-How</title>

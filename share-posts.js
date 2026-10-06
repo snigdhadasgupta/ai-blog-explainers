@@ -1,5 +1,13 @@
 window.__POSTS__ = [
   {
+    "slug": "how-cresta-turned-cx-expertise-into-an-agent-builder-on-the-claude-agent-sdk",
+    "source": "Claude",
+    "category": "Case Study",
+    "date": "2026-10-05",
+    "hook": "The build is 20%.",
+    "body": "Cresta turned its CX expertise into Conductor, a natural-language agent builder on the Claude Agent SDK — cutting first deployment time by about half, with 80% of the work in evaluation and iteration."
+  },
+  {
     "slug": "practical-guide-building-gpt-6",
     "source": "OpenAI",
     "category": "Product",
@@ -216,6 +224,14 @@ window.__POSTS__ = [
     "body": "Claude Opus 5.5 runs about 40% cheaper than Opus 5 on typical workloads — 20% off tokens, 60% off cached reads, a one-hour cache, and subagents that reuse the parent's context."
   },
   {
+    "slug": "claude-marketplace",
+    "source": "Claude",
+    "category": "Product",
+    "date": "2026-09-23",
+    "hook": "One front door.",
+    "body": "The Claude Marketplace puts 2,000+ connectors, buyable Claude-powered agents, and consulting partners in one catalog — and lets teams spend committed Anthropic budget on partner products and services."
+  },
+  {
     "slug": "reimagining-the-soc-for-the-agentic-era-in-microsoft-defender",
     "source": "Microsoft Security",
     "category": "AI Governance",
@@ -246,6 +262,14 @@ window.__POSTS__ = [
     "date": "2026-09-18",
     "hook": "Evaluators On The Inside",
     "body": "Anthropic is embedding independent Accenture evaluators with employee-level access to red-team and monitor models — backing it with $1B+ over five years. Expect embedded evaluation to become a governance norm."
+  },
+  {
+    "slug": "working-at-the-frontier-how-balyasny-asset-management-evaluates-and-governs-claude-fable-5",
+    "source": "Claude",
+    "category": "Case Study",
+    "date": "2026-09-17",
+    "hook": "Capability isn't authority.",
+    "body": "Balyasny grades every model on its own financial tasks — Fable 5 hit 89.4% — then governs it with least-privilege access and human review, so a smarter model never gets wider reach by default."
   },
   {
     "slug": "teach-gemini-your-teams-know-hows-with-skills-in-google-workspace",
