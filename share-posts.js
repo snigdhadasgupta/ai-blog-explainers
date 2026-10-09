@@ -1,5 +1,53 @@
 window.__POSTS__ = [
   {
+    "slug": "gpt-6-for-everyone",
+    "source": "OpenAI",
+    "category": "Model Launch",
+    "date": "2026-10-07",
+    "hook": "Chat Becomes an Interface",
+    "body": "GPT-6 rolls out globally in ChatGPT with Intelligent UI — answers that render as charts, buttons, forms and on-demand mini-tools. Sol serves the paid tiers, Luna serves Free and Go."
+  },
+  {
+    "slug": "claude-haiku-55-boosts-accuracy-and-halves-latency",
+    "source": "Box",
+    "category": "Model Launch",
+    "date": "2026-10-07",
+    "hook": "Half the Time, 11 Points Up",
+    "body": "On Box’s Complex Work Eval, Claude Haiku 5.5 scores 60% versus 49% for Haiku 4.5 — using about 27% fewer tokens and delivering in roughly half the time, with the biggest gains in arithmetic-heavy report drafting."
+  },
+  {
+    "slug": "3-lessons-from-frontier-ai-vulnerability-research",
+    "source": "Microsoft Security",
+    "category": "AI Governance",
+    "date": "2026-10-07",
+    "hook": "Finding Bugs Got Easy",
+    "body": "Microsoft’s FORGE Lab used AI agents to find vulnerabilities — 140 Windows CVEs and 155 validated open-source reports. The lesson: the bottleneck is now validation and remediation, so measure fixes shipped, not findings generated."
+  },
+  {
+    "slug": "ciso-perspectives-on-managing-vulnerability-risks-in-the-age-of-ai",
+    "source": "Microsoft Security",
+    "category": "AI Governance",
+    "date": "2026-10-06",
+    "hook": "Patching Is the Bottleneck Now",
+    "body": "Microsoft security leaders argue AI speeds scanning and exploits alike, so remediation is now the bottleneck. With Patch Tuesday near 1,000 bugs in September, assume some won’t be patched in time and lean on defense in depth."
+  },
+  {
+    "slug": "atlassian-partnership",
+    "source": "OpenAI",
+    "category": "Enterprise AI",
+    "date": "2026-10-06",
+    "hook": "Status, as a Question",
+    "body": "Atlassian extends its OpenAI partnership: GPT-6-family models now power Rovo agents grounded in the Teamwork Graph, with Jira and Confluence plugins for ChatGPT and Codex. 3,000+ Atlassian developers already use Codex."
+  },
+  {
+    "slug": "bolt-uses-box-automate-turn-weeks-compliance-work-minutes",
+    "source": "Box",
+    "category": "Case Study",
+    "date": "2026-10-06",
+    "hook": "Two Years to a Minute",
+    "body": "Bolt — a mobility platform in 50+ countries with 170,000+ documents in Box — built HR compliance on Box Automate, Extract and Apps. A two-year manual audit became a dashboard that answers questions in minutes."
+  },
+  {
     "slug": "how-cresta-turned-cx-expertise-into-an-agent-builder-on-the-claude-agent-sdk",
     "source": "Claude",
     "category": "Case Study",
@@ -224,6 +272,14 @@ window.__POSTS__ = [
     "body": "Claude Opus 5.5 runs about 40% cheaper than Opus 5 on typical workloads — 20% off tokens, 60% off cached reads, a one-hour cache, and subagents that reuse the parent's context."
   },
   {
+    "slug": "how-coderabbit-power-digital-and-thoughtspot-scale-with-snowflake-and-vercel-on-claude-marketplace",
+    "source": "Claude",
+    "category": "Enterprise AI",
+    "date": "2026-09-23",
+    "hook": "Budget You Already Have",
+    "body": "Claude Marketplace lets companies with an Anthropic commitment fund partner tools they already use — Snowflake, Vercel — without a new budget request. CodeRabbit closed a committed-plan upgrade in a week."
+  },
+  {
     "slug": "claude-marketplace",
     "source": "Claude",
     "category": "Product",
@@ -270,6 +326,14 @@ window.__POSTS__ = [
     "date": "2026-09-17",
     "hook": "Capability isn't authority.",
     "body": "Balyasny grades every model on its own financial tasks — Fable 5 hit 89.4% — then governs it with least-privilege access and human review, so a smarter model never gets wider reach by default."
+  },
+  {
+    "slug": "cowork-is-now-claude",
+    "source": "Claude",
+    "category": "Product",
+    "date": "2026-09-16",
+    "hook": "No More Modes",
+    "body": "Claude Cowork and chat are merging into one Claude: no mode to pick, Cowork and Design from any conversation, and new Docs and Slides you can export to PowerPoint or PDF."
   },
   {
     "slug": "teach-gemini-your-teams-know-hows-with-skills-in-google-workspace",

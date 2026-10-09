@@ -5,7 +5,55 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Oct 2026 00:37:40 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 00:41:45 +0000</lastBuildDate>
+    <item>
+      <title>GPT-6 and Intelligent UI, for Everyone</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/gpt-6-for-everyone.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/gpt-6-for-everyone.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Wed, 07 Oct 2026 15:00:00 +0000</pubDate>
+      <description>OpenAI is rolling GPT-6 out globally in ChatGPT alongside Intelligent UI, which lets answers come back as interactive charts, buttons, forms and small on-demand tools rather than plain text. GPT-6 Instant starts responding 44% sooner than GPT-5.6 on web-search questions (OpenAI’s own testing); Sol serves Plus, Pro, Business and Enterprise while Luna serves Free and Go, and the Work and Codex models are unchanged.</description>
+    </item>
+    <item>
+      <title>Claude Haiku 5.5: More Accurate, Half the Latency</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-haiku-55-boosts-accuracy-and-halves-latency.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-haiku-55-boosts-accuracy-and-halves-latency.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 07 Oct 2026 15:00:00 +0000</pubDate>
+      <description>Box ran Claude Haiku 5.5 through its Complex Work Eval — agents that locate documents and reason across spreadsheets, PDFs and slides against weighted rubrics. Haiku 5.5 scored 60% overall versus 49% for Haiku 4.5 (+11 points), used about 27% fewer tokens, and produced deliverables in roughly half the time. The biggest gains were in arithmetic-heavy work — report drafting (+19) and data analysis (+10) — with financial services rising from 48% to 71%.</description>
+    </item>
+    <item>
+      <title>3 Lessons from Frontier AI Vulnerability Research</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/3-lessons-from-frontier-ai-vulnerability-research.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/3-lessons-from-frontier-ai-vulnerability-research.html</guid>
+      <category>Microsoft Security</category>
+      <pubDate>Wed, 07 Oct 2026 15:00:00 +0000</pubDate>
+      <description>Microsoft’s FORGE Lab used AI agents for vulnerability research across Windows and open source, producing 140 Windows CVEs from May to September 2026 and 155 internally validated reports across 23 open-source projects. The takeaway in three lessons: optimize for reproducible findings rather than scan volume, spend reasoning where it removes a specific uncertainty, and fold validation and patching into the discovery loop. As AI finds bugs faster than teams can fix them, the bottleneck shifts from discovery to triage, validation and remediation.</description>
+    </item>
+    <item>
+      <title>CISO Perspectives: Vulnerability Risk in the Age of AI</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ciso-perspectives-on-managing-vulnerability-risks-in-the-age-of-ai.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ciso-perspectives-on-managing-vulnerability-risks-in-the-age-of-ai.html</guid>
+      <category>Microsoft Security</category>
+      <pubDate>Tue, 06 Oct 2026 15:00:00 +0000</pubDate>
+      <description>Two Microsoft security leaders make the CISO case that in an AI-accelerated world, remediation — not scanning — is the bottleneck: AI speeds weakness-finding and exploit development alike, and on-premises Patch Tuesday volumes are rising, with September 2026 setting a record near 1,000 vulnerabilities. Their playbook: resource remediation as a planned budget line, shorten patch timing for critical systems to as little as 24 hours, adopt AI scanning and remediation harnesses now, and strengthen defense in depth on the assumption that not every vulnerability will be patched in time.</description>
+    </item>
+    <item>
+      <title>Atlassian and OpenAI Expand Their Partnership</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/atlassian-partnership.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/atlassian-partnership.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Tue, 06 Oct 2026 15:00:00 +0000</pubDate>
+      <description>Atlassian is extending its OpenAI partnership so that GPT-6-family models power agents across its platform and Rovo, grounded in the Teamwork Graph — an enterprise context layer linking people, projects, documents and decisions. A product manager can ask whether a launch is on track and Rovo flags blockers, missed milestones and decisions drawn from Jira and Confluence, while Atlassian plugins pull work items and docs into ChatGPT and Codex under existing permissions. More than 3,000 Atlassian developers already use Codex, and the companies are exploring letting teams assign work directly to AI agents.</description>
+    </item>
+    <item>
+      <title>Bolt Turns Weeks of Compliance Work into Minutes</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/bolt-uses-box-automate-turn-weeks-compliance-work-minutes.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/bolt-uses-box-automate-turn-weeks-compliance-work-minutes.html</guid>
+      <category>Box</category>
+      <pubDate>Tue, 06 Oct 2026 15:00:00 +0000</pubDate>
+      <description>Bolt, the urban-mobility platform operating in 50+ countries with 4,000+ employees and 170,000+ employee documents in Box, faced a compliance backlog that would have taken about two years to audit by hand. It built an HR workflow combining Box Automate (consistent renaming, folder creation and routing), Box Extract (metadata tagging) and Box Apps (a queryable dashboard), pulling documents from both Box and Workday into one content layer. Compliance questions that once took weeks or months — such as how many Belgian employees have a remote-work clause — are now answered in minutes, with staff shifting from manual checks to reviewing AI output.</description>
+    </item>
     <item>
       <title>How Cresta Built an Agent Builder on the Claude Agent SDK</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-cresta-turned-cx-expertise-into-an-agent-builder-on-the-claude-agent-sdk.html</link>
@@ -231,6 +279,14 @@
       <description>Claude Opus 5.5 is tuned for long, context-heavy coding sessions and runs about 40% cheaper than Opus 5 on typical token-billed workloads — standard tokens down 20%, cached reads down 60%, a one-hour cache, subagent forking that reuses the parent's context, and about 30% faster output. Pick the model at session start and keep the cache warm to capture the savings.</description>
     </item>
     <item>
+      <title>Scaling on Claude Marketplace with Snowflake and Vercel</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-coderabbit-power-digital-and-thoughtspot-scale-with-snowflake-and-vercel-on-claude-marketplace.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-coderabbit-power-digital-and-thoughtspot-scale-with-snowflake-and-vercel-on-claude-marketplace.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 23 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Claude Marketplace, in limited preview, lets a company with an Anthropic commitment direct part of that spend toward partner tools it already uses — such as Snowflake and Vercel — without a new budget request. Power Digital and ThoughtSpot run Claude inside Snowflake (keeping existing governance), while CodeRabbit moved its agents on Vercel from pay-as-you-go to a committed plan funded by its Anthropic commitment, closing the deal in a week. The pattern: pre-approved budget collapses procurement from quarters to days, and sellers reach customers already building on Claude.</description>
+    </item>
+    <item>
       <title>Reimagining the SOC for the Agentic Era</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/reimagining-the-soc-for-the-agentic-era-in-microsoft-defender.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/reimagining-the-soc-for-the-agentic-era-in-microsoft-defender.html</guid>
@@ -277,6 +333,14 @@
       <category>Claude</category>
       <pubDate>Thu, 17 Sep 2026 15:00:00 +0000</pubDate>
       <description>Balyasny Asset Management (~$38B AUM) grades every model on thousands of its own financial tasks: Claude Fable 5 hit 89.4% accuracy versus 86.1% for the prior model and cut merger-arb deal analysis from three-to-five days to under one. Its BAMAgent platform runs thousands of agents 24/7 under least-privilege access, logging, and human review, so a more capable model never gets wider authority by default.</description>
+    </item>
+    <item>
+      <title>Claude Cowork and Chat Are Now One Claude</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/cowork-is-now-claude.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/cowork-is-now-claude.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 16 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Claude Cowork and chat are merging into one Claude: you no longer pick a mode before starting — Claude figures out what a task needs — and Cowork and Design capabilities work from any conversation. New Claude Docs and Slides let you co-write documents and have Claude draft editable decks you can present or download as PowerPoint or PDF, while existing chats, projects, artifacts, connectors and skills carry over. Claude can keep working after you close your laptop, you can check progress from your phone, and you set how often it checks in. It’s rolling out to Pro and Max users over the coming weeks, with Team and Free to follow.</description>
     </item>
     <item>
       <title>Skills in Google Workspace: Teach Gemini Your Team's Know-How</title>

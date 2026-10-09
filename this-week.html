@@ -6,7 +6,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="This Week in Enterprise AI">
-<meta property="og:description" content="17 explainers from 5 sources this week — the enterprise, agentic-AI, and governance moves worth your attention, grouped by theme.">
+<meta property="og:description" content="9 explainers from 4 sources this week — the enterprise, agentic-AI, and governance moves worth your attention, grouped by theme.">
 <meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/this-week.html">
 <meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/this-week.png">
 <meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/this-week.png">
@@ -70,36 +70,54 @@
     </svg>
   </div>
   <div class="wrap">
-    <span class="tag">This week &middot; Sep 29 – Oct 5, 2026</span>
+    <span class="tag">This week &middot; Oct 2 – Oct 7, 2026</span>
     <h1>This Week in Enterprise AI</h1>
-    <p>17 explainers from 5 sources this week — the enterprise, agentic-AI, and governance moves worth your attention, grouped by theme.</p>
+    <p>9 explainers from 4 sources this week — the enterprise, agentic-AI, and governance moves worth your attention, grouped by theme.</p>
   </div>
 </header>
 <main><div class="wrap">
   
     <div class="wk-theme">
-      <div class="wk-eyebrow"><span></span>Model launches <em>1</em></div>
+      <div class="wk-eyebrow"><span></span>Model launches <em>2</em></div>
       <div class="wk-grid">
-      <a class="wk-card" href="explainers/introducing-gpt-6-1-sol.html">
+      <a class="wk-card" href="explainers/gpt-6-for-everyone.html">
         <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">Model Launch</span></div>
-        <h3>GPT-6.1 Sol: Near-Flagship Intelligence at a Fifth of the Price</h3>
-        <p>GPT-6.1 Sol is OpenAI’s new mid-tier model offering near-Astra intelligence for about a fifth of the price. It matches GPT-6 Astra on DeepSWE v1.1 coding at one-fifth the cost, beats Opus 5.5 on document analysis and automation benchmarks for less, cuts factual errors 32% at low reasoning effort, and is available now across ChatGPT tiers and the API as gpt-6-1-sol.</p>
+        <h3>GPT-6 and Intelligent UI, for Everyone</h3>
+        <p>OpenAI is rolling GPT-6 out globally in ChatGPT alongside Intelligent UI, which lets answers come back as interactive charts, buttons, forms and small on-demand tools rather than plain text. GPT-6 Instant starts responding 44% sooner than GPT-5.6 on web-search questions (OpenAI’s own testing); Sol serves Plus, Pro, Business and Enterprise while Luna serves Free and Go, and the Work and Codex models are unchanged.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/claude-haiku-55-boosts-accuracy-and-halves-latency.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">Model Launch</span></div>
+        <h3>Claude Haiku 5.5: More Accurate, Half the Latency</h3>
+        <p>Box ran Claude Haiku 5.5 through its Complex Work Eval — agents that locate documents and reason across spreadsheets, PDFs and slides against weighted rubrics. Haiku 5.5 scored 60% overall versus 49% for Haiku 4.5 (+11 points), used about 27% fewer tokens, and produced deliverables in roughly half the time. The biggest gains were in arithmetic-heavy work — report drafting (+19) and data analysis (+10) — with financial services rising from 48% to 71%.</p>
         <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
       </a></div>
     </div>
     <div class="wk-theme">
-      <div class="wk-eyebrow"><span></span>AI governance & security <em>1</em></div>
+      <div class="wk-eyebrow"><span></span>AI governance & security <em>2</em></div>
       <div class="wk-grid">
-      <a class="wk-card" href="explainers/securing-ai-agent-access-inside-architecture-classification-based-access-policy-box-shield.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">AI Governance</span></div>
-        <h3>Box Shield: Classification-Based Access Policy for AI Agents</h3>
-        <p>Box Shield’s classification-based access policy treats an AI agent reading a file as equivalent to downloading it, and governs Read and Download as separate, independently toggled actions. Every request is evaluated at request time against the file’s current classification and the caller’s integration ID, with restricted reads returning no content at all and every decision logged to the Event Stream API — deployable in monitor mode before enforcement.</p>
-        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
+      <a class="wk-card" href="explainers/3-lessons-from-frontier-ai-vulnerability-research.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#0E7490">Microsoft Security</span><span class="wk-cat">AI Governance</span></div>
+        <h3>3 Lessons from Frontier AI Vulnerability Research</h3>
+        <p>Microsoft’s FORGE Lab used AI agents for vulnerability research across Windows and open source, producing 140 Windows CVEs from May to September 2026 and 155 internally validated reports across 23 open-source projects. The takeaway in three lessons: optimize for reproducible findings rather than scan volume, spend reasoning where it removes a specific uncertainty, and fold validation and patching into the discovery loop. As AI finds bugs faster than teams can fix them, the bottleneck shifts from discovery to triage, validation and remediation.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/ciso-perspectives-on-managing-vulnerability-risks-in-the-age-of-ai.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#0E7490">Microsoft Security</span><span class="wk-cat">AI Governance</span></div>
+        <h3>CISO Perspectives: Vulnerability Risk in the Age of AI</h3>
+        <p>Two Microsoft security leaders make the CISO case that in an AI-accelerated world, remediation — not scanning — is the bottleneck: AI speeds weakness-finding and exploit development alike, and on-premises Patch Tuesday volumes are rising, with September 2026 setting a record near 1,000 vulnerabilities. Their playbook: resource remediation as a planned budget line, shorten patch timing for critical systems to as little as 24 hours, adopt AI scanning and remediation harnesses now, and strengthen defense in depth on the assumption that not every vulnerability will be patched in time.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
       </a></div>
     </div>
     <div class="wk-theme">
-      <div class="wk-eyebrow"><span></span>Enterprise case studies <em>5</em></div>
+      <div class="wk-eyebrow"><span></span>Enterprise case studies <em>3</em></div>
       <div class="wk-grid">
+      <a class="wk-card" href="explainers/bolt-uses-box-automate-turn-weeks-compliance-work-minutes.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">Case Study</span></div>
+        <h3>Bolt Turns Weeks of Compliance Work into Minutes</h3>
+        <p>Bolt, the urban-mobility platform operating in 50+ countries with 4,000+ employees and 170,000+ employee documents in Box, faced a compliance backlog that would have taken about two years to audit by hand. It built an HR workflow combining Box Automate (consistent renaming, folder creation and routing), Box Extract (metadata tagging) and Box Apps (a queryable dashboard), pulling documents from both Box and Workday into one content layer. Compliance questions that once took weeks or months — such as how many Belgian employees have a remote-work clause — are now answered in minutes, with staff shifting from manual checks to reviewing AI output.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      </a>
       <a class="wk-card" href="explainers/how-cresta-turned-cx-expertise-into-an-agent-builder-on-the-claude-agent-sdk.html">
         <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Case Study</span></div>
         <h3>How Cresta Built an Agent Builder on the Claude Agent SDK</h3>
@@ -111,88 +129,22 @@
         <h3>Northern Rockies: Governed Public-Sector AI with Box</h3>
         <p>Northern Rockies Regional Municipality went from banning AI outright to running it on a governed Box content layer — role-based access, full audit logging, and no training on its data. Box AI now accelerates Freedom-of-Information requests, surfaces technical answers in seconds, governs ingested email via mxHERO, and drafts HR documents with Box Doc Gen, while staff validate outputs and keep the final word.</p>
         <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/barclays-scales-claude.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#A64B2A">Anthropic</span><span class="wk-cat">Case Study</span></div>
-        <h3>Barclays Scales Claude Across the Bank</h3>
-        <p>Barclays is expanding Claude across engineering, customer service, and Global Markets: Claude Code is expected to reach 50% of its developers by end of 2026, a knowledge assistant used by 16,000+ employees has run since 2025, and Claude classifies and routes roughly 120,000 client emails a day — all under robust governance and human oversight.</p>
-        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/albertsons-reimagining-retail.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">Case Study</span></div>
-        <h3>Albertsons Reimagines Retail with OpenAI</h3>
-        <p>Albertsons is expanding OpenAI across 2,200+ stores (Albertsons, Safeway, Vons, Jewel-Osco, Shaw’s, ACME, Tom Thumb) serving 36 million weekly customers — pairing ChatGPT Enterprise for digital, operations, fulfillment, and merchandising teams with customer-facing apps on the OpenAI API, including a Safeway plugin that turns recipes, photos, or meal requests into a built cart with savings and checkout.</p>
-        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Case Study</span></div>
-        <h3>How Asana Builds Human-Agent Teams with Claude</h3>
-        <p>Asana treats Claude-powered agents as members of the team inside its Work Graph, each with a role, scoped permissions, shared memory and visible output. The result is a shift from prompting agents to coaching them, grounded in three live workflows: Slack support, at-risk renewal briefings, and engineering cycle planning.</p>
-        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
       </a></div>
     </div>
     <div class="wk-theme">
-      <div class="wk-eyebrow"><span></span>Product & practice <em>10</em></div>
+      <div class="wk-eyebrow"><span></span>Product & practice <em>2</em></div>
       <div class="wk-grid">
+      <a class="wk-card" href="explainers/atlassian-partnership.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">Enterprise AI</span></div>
+        <h3>Atlassian and OpenAI Expand Their Partnership</h3>
+        <p>Atlassian is extending its OpenAI partnership so that GPT-6-family models power agents across its platform and Rovo, grounded in the Teamwork Graph — an enterprise context layer linking people, projects, documents and decisions. A product manager can ask whether a launch is on track and Rovo flags blockers, missed milestones and decisions drawn from Jira and Confluence, while Atlassian plugins pull work items and docs into ChatGPT and Codex under existing permissions. More than 3,000 Atlassian developers already use Codex, and the companies are exploring letting teams assign work directly to AI agents.</p>
+        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
+      </a>
       <a class="wk-card" href="explainers/practical-guide-building-gpt-6.html">
         <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">Product</span></div>
         <h3>A Practical Guide to Building with GPT-6</h3>
         <p>OpenAI's practical guide to GPT-6 focuses on production discipline: match Astra (hardest reasoning), Sol (near-Astra at a fifth the cost) or Luna (fast everyday) to the workload, cache input tokens for up to 95% savings, specify outcomes rather than rigid instructions, and use mid-turn steering and async tool calling to keep long-running agents productive and supervised.</p>
         <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/claude-code-mods.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Product</span></div>
-        <h3>Claude Code Mods: Customize the CLI in TypeScript</h3>
-        <p>Mods are lightweight TypeScript functions that hook into Claude Code’s events to rewrite prompts, block tool calls, add UI, or replace built-ins — shipped inside plugins. On Team and Enterprise plans a built-in sec-default mod loads first so user mods can’t override security rules.</p>
-        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/september-2026-workspace-feature-drop.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#4285F4">Google Workspace</span><span class="wk-cat">Product</span></div>
-        <h3>Google Workspace September Drop: Image AI and Interactive Data</h3>
-        <p>Google Workspace’s September drop brings six AI updates: Google Pics for pro-level object-level image editing and 2K/4K upscaling inside Docs and Slides; Sheets canvas to turn data into one-click interactive mini-apps; Workspace Intelligence for cross-app task automation; a unified Ask Gemini in Chat; Google Vids document-to-video conversion; and Gemini-based data classification in Drive for DLP and retention.</p>
-        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/claude-for-government-is-now-generally-available.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Product</span></div>
-        <h3>Claude for Government Is Now Generally Available</h3>
-        <p>Claude for Government is generally available inside a FedRAMP High authorized environment, with usage-based pricing and hard caps instead of seat fees, tiered admin controls across departmental hierarchies, two-person approvals for sensitive actions, and audit logging. Claude Code and Claude for Microsoft 365 are in early access through the same environment.</p>
-        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Agents</span></div>
-        <h3>How Anthropic's Sales Team Rebuilt Inbound with Managed Agents</h3>
-        <p>A Claude-powered buying agent now handles thousands of inbound sales conversations a day across contact, pricing, and in-product surfaces — qualifying leads, answering on the spot, or handing complex deals to reps with full context. Agent-qualified leads convert to opportunities more than twice as often and close about five days faster.</p>
-        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/content-workflow-automation.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">Enterprise AI</span></div>
-        <h3>The Playbook for Intelligent Content Workflow Automation</h3>
-        <p>Box's playbook treats content as one governed lifecycle — plan, create, review, approve, distribute, analyze — rather than manual follow-ups. Choose task-based (predictable but fragile) or status-based (flexible but needs owners) workflows, automate the handoffs with rule-driven Box Relay and agents, and keep editorial, legal, compliance and brand as explicit human checkpoints, with Shield and Governance enforcing access and retention.</p>
-        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/devday-2026-recap.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">Product</span></div>
-        <h3>OpenAI DevDay 2026, Unpacked</h3>
-        <p>OpenAI's DevDay 2026 pushed from chat to delegated, agentic work: always-on Dots agents, GPT-6.1 Sol, an Ultrafast tier up to 8x faster, an Agents API with computer use and managed infrastructure, team collaboration across ChatGPT (Space, Pages, Team Tasks, @ChatGPT in Slack and Teams), Private Intelligence security options, and a 32-partner enterprise marketplace atop 1.2 billion weekly users.</p>
-        <span class="wk-rt">7 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/introducing-dots.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">Agents</span></div>
-        <h3>OpenAI's dots: Always-On Agents That Run With Your Projects</h3>
-        <p>Dots are frontier agents powered by GPT-6 Astra that work independently 24/7, each with its own sandboxed cloud computer and browser and connections to 4,000+ apps, reachable across ChatGPT, Slack, Teams, and voice. Enterprises can deploy ‘specialist dots’ with dedicated identities, credentials, and access — managed through Microsoft Agent 365 — with sandboxing, auto-review, and custom approval rules built in.</p>
-        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/documents-decisions-making-unstructured-content-programmable-jev.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">Product</span></div>
-        <h3>Making Unstructured Content Programmable with Jev</h3>
-        <p>Jev is a ‘System One’ model that returns typed values and probabilities instead of open-ended text, so software can consume its judgments directly — no JSON post-processing. Using three primitives (Choice, Score, and Noul), it routes documents to Escalate, Monitor, or Review based on severity, type, and escalation probability, attaching signals as Box metadata while thresholds and review tasks keep humans on consequential decisions.</p>
-        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/box-ai-cuts-security-triage-30-minutes-seconds.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">Product</span></div>
-        <h3>Box AI Cuts Security Triage From 30 Minutes to Seconds</h3>
-        <p>Box’s Security Incident Response Team cut phishing investigation from 30 minutes to seconds by running header, body, and screenshot analyses in parallel, and now auto-closes 56% of phishing cases while escalating sensitive-data references to analysts. Phishing was about 40% of tickets; automation now covers 50–60% of total volume across roughly 20% of alert types, freeing analysts for proactive, hypothesis-driven threat hunting.</p>
-        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
       </a></div>
     </div>
 </div></main>
