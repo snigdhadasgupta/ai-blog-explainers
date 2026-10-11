@@ -1,5 +1,13 @@
 window.__POSTS__ = [
   {
+    "slug": "bringing-crm-into-the-flow-of-work-and-agents-into-business-process-for-sales-and-service-teams",
+    "source": "Microsoft 365",
+    "category": "Agents",
+    "date": "2026-10-08",
+    "hook": "CRM Comes to You",
+    "body": "Microsoft puts 30 Dynamics 365 skills inside Copilot and Teams and sets autonomous agents loose on sales and service — drafting case replies and building pipeline from their own inbox."
+  },
+  {
     "slug": "gpt-6-for-everyone",
     "source": "OpenAI",
     "category": "Model Launch",
@@ -22,6 +30,14 @@ window.__POSTS__ = [
     "date": "2026-10-07",
     "hook": "Finding Bugs Got Easy",
     "body": "Microsoft’s FORGE Lab used AI agents to find vulnerabilities — 140 Windows CVEs and 155 validated open-source reports. The lesson: the bottleneck is now validation and remediation, so measure fixes shipped, not findings generated."
+  },
+  {
+    "slug": "how-im-using-workspace-studio-and-gemini-to-streamline-my-day",
+    "source": "Google Workspace",
+    "category": "Productivity",
+    "date": "2026-10-06",
+    "hook": "Set It and Forget It",
+    "body": "Google Workspace Studio turns plain-English descriptions into no-code flows that run in the background: daily briefings, auto-built to-do lists, meeting follow-ups and Friday blocker scans."
   },
   {
     "slug": "ciso-perspectives-on-managing-vulnerability-risks-in-the-age-of-ai",
@@ -318,6 +334,14 @@ window.__POSTS__ = [
     "date": "2026-09-18",
     "hook": "Evaluators On The Inside",
     "body": "Anthropic is embedding independent Accenture evaluators with employee-level access to red-team and monitor models — backing it with $1B+ over five years. Expect embedded evaluation to become a governance norm."
+  },
+  {
+    "slug": "projects-redesigned",
+    "source": "Claude",
+    "category": "Claude Code",
+    "date": "2026-09-17",
+    "hook": "One Goal, Many Threads",
+    "body": "Claude Code projects now coordinate the work — describe a goal and a coordinator splits it into parallel worker threads, each its own cloud session, then reviews and assembles the result."
   },
   {
     "slug": "working-at-the-frontier-how-balyasny-asset-management-evaluates-and-governs-claude-fable-5",

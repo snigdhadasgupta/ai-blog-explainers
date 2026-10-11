@@ -5,7 +5,15 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Oct 2026 00:41:45 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 04:17:09 +0000</lastBuildDate>
+    <item>
+      <title>CRM in the Flow of Work, Agents in the Process</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/bringing-crm-into-the-flow-of-work-and-agents-into-business-process-for-sales-and-service-teams.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/bringing-crm-into-the-flow-of-work-and-agents-into-business-process-for-sales-and-service-teams.html</guid>
+      <category>Microsoft 365</category>
+      <pubDate>Thu, 08 Oct 2026 15:00:00 +0000</pubDate>
+      <description>Microsoft is inverting the CRM model — customer context and actions come to people inside Copilot and Teams instead of the other way around. Thirty pre-built Dynamics 365 skills across Sales, Service, and Customer Insights land in Copilot's Cowork, Autopilot, and Code experiences, powered by Dynamics 365 MCP servers. Autonomous agents run whole processes: a Service Agent handles cases end to end across Outlook, Teams, and Office, and a Sales Development Agent builds and qualifies pipeline from its own Exchange inbox (consuming Copilot credits from Nov 16). Dynamics 365 Activate maps a lower-risk path off legacy CRM, and everything is governed through Agent 365.</description>
+    </item>
     <item>
       <title>GPT-6 and Intelligent UI, for Everyone</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/gpt-6-for-everyone.html</link>
@@ -29,6 +37,14 @@
       <category>Microsoft Security</category>
       <pubDate>Wed, 07 Oct 2026 15:00:00 +0000</pubDate>
       <description>Microsoft’s FORGE Lab used AI agents for vulnerability research across Windows and open source, producing 140 Windows CVEs from May to September 2026 and 155 internally validated reports across 23 open-source projects. The takeaway in three lessons: optimize for reproducible findings rather than scan volume, spend reasoning where it removes a specific uncertainty, and fold validation and patching into the discovery loop. As AI finds bugs faster than teams can fix them, the bottleneck shifts from discovery to triage, validation and remediation.</description>
+    </item>
+    <item>
+      <title>Automating the Workday with Workspace Studio</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-im-using-workspace-studio-and-gemini-to-streamline-my-day.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-im-using-workspace-studio-and-gemini-to-streamline-my-day.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Tue, 06 Oct 2026 15:00:00 +0000</pubDate>
+      <description>Google's Executive Productivity Advisor shows how she offloads an overloaded workday to Workspace Studio — a no-code command center where plain-English descriptions become background flows that move work across Gmail, Docs, Sheets, Meet, and Chat without a prompt each time. Her own flows run a daily briefing, pull action items into a to-do list, send pre-meeting Chat briefs and post-meeting follow-up drafts, catch spoken commitments from Meet transcripts, and scan department trackers each Friday for blocked work. Flows trigger on a schedule or an event and can carry Gemini 'skills' with team-specific instructions.</description>
     </item>
     <item>
       <title>CISO Perspectives: Vulnerability Risk in the Age of AI</title>
@@ -325,6 +341,14 @@
       <category>Anthropic</category>
       <pubDate>Fri, 18 Sep 2026 15:00:00 +0000</pubDate>
       <description>Anthropic is partnering with Accenture’s Faculty division to embed independent evaluators with employee-level access — red-teaming models, running alignment assessments, testing safeguards, and monitoring decisions through development and deployment. Both expect to invest at least $1 billion over five years; the arrangement is non-exclusive, with more partnerships, including METR, planned.</description>
+    </item>
+    <item>
+      <title>Projects Redesigned: From Folder to Conversation</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/projects-redesigned.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/projects-redesigned.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 17 Sep 2026 15:00:00 +0000</pubDate>
+      <description>Claude Code projects stop being a folder of files and become a coordinator conversation: you describe a goal and a top-level chat splits it into parallel worker threads — each a cloud session on its own branch and repo copy — that run, get reviewed, and are assembled back into the result. A shared project memory and a library keep decisions and artifacts consistent across threads, and you tune check-in cadence plus the model and effort for the coordinator and workers. In beta for select Pro and Max cloud-session users, with Team and Enterprise to follow.</description>
     </item>
     <item>
       <title>How Balyasny Evaluates &amp; Governs Claude Fable 5</title>
