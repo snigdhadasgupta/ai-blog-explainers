@@ -1,5 +1,13 @@
 window.__POSTS__ = [
   {
+    "slug": "gemini-4-argon-pushes-frontier-enterprise-work",
+    "source": "Box",
+    "category": "Model Launch",
+    "date": "2026-10-13",
+    "hook": "Finishing The Job",
+    "body": "Box tested Gemini 4 Argon on its Complex Work eval: 85% vs 71% for Gemini 3.1 Pro, with the biggest gains in data analysis and report drafting across regulated industries."
+  },
+  {
     "slug": "bringing-crm-into-the-flow-of-work-and-agents-into-business-process-for-sales-and-service-teams",
     "source": "Microsoft 365",
     "category": "Agents",

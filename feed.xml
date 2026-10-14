@@ -5,7 +5,15 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 Oct 2026 04:17:09 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 05:57:26 +0000</lastBuildDate>
+    <item>
+      <title>Gemini 4 Argon Pushes the Frontier of Enterprise Work</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/gemini-4-argon-pushes-frontier-enterprise-work.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/gemini-4-argon-pushes-frontier-enterprise-work.html</guid>
+      <category>Box</category>
+      <pubDate>Tue, 13 Oct 2026 15:00:00 +0000</pubDate>
+      <description>Box ran Google’s new Gemini 4 Argon through its Complex Work Eval — agents handed real bundles of spreadsheets, PDFs, slides and images and graded on the finished deliverable. It scored 85% overall versus 71% for Gemini 3.1 Pro (+14 points), with the biggest gains in data analysis (+23) and report drafting (+15). Regulated domains moved most: life sciences 61→88, healthcare 57→87 and public sector 76→94. The model is “coming soon” to Box AI; these are Box’s own benchmark numbers, so validate on your own workloads.</description>
+    </item>
     <item>
       <title>CRM in the Flow of Work, Agents in the Process</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/bringing-crm-into-the-flow-of-work-and-agents-into-business-process-for-sales-and-service-teams.html</link>
