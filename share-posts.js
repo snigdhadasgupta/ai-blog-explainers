@@ -1,5 +1,37 @@
 window.__POSTS__ = [
   {
+      "slug": "governing-third-party-ai-agents",
+      "source": "Box",
+      "category": "AI Governance",
+      "date": "2026-10-14",
+      "hook": "Agents Will Find Everything",
+      "body": "Vendor vetting isn't governance. Box governs each agent by what it can see and what it can do — separating least privilege from least agency, and enforcing boundaries while the agent acts."
+  },
+  {
+      "slug": "how-companies-centralize-unstructured-data-ai",
+      "source": "Box",
+      "category": "Enterprise AI",
+      "date": "2026-10-14",
+      "hook": "Start With The Content",
+      "body": "96% of organizations say agents need company content, but 49% have already had an AI data-exposure incident. Box's fix: govern and curate unstructured data before it reaches the model."
+  },
+  {
+      "slug": "first-look-new-version-box-guidewire",
+      "source": "Box",
+      "category": "Product",
+      "date": "2026-10-13",
+      "hook": "Claims, Minus The Re-Keying",
+      "body": "The new Box for Guidewire puts AI document intake and extraction inside ClaimCenter, PolicyCenter, and BillingCenter — so adjusters stop re-keying evidence and outsiders submit securely without touching the system of record."
+  },
+  {
+      "slug": "experience-easier-migration-and-collaboration-between-google-workspace-and-microsoft-365",
+      "source": "Google Workspace",
+      "category": "Product",
+      "date": "2026-10-13",
+      "hook": "Move Without The Breakage",
+      "body": "Google's data import moves Exchange, SharePoint, OneDrive, and Teams up to 5x faster — now preserving MIP labels and encryption — while Office files stay editable in Docs, Sheets, and Gmail."
+  },
+  {
     "slug": "gemini-4-argon-pushes-frontier-enterprise-work",
     "source": "Box",
     "category": "Model Launch",

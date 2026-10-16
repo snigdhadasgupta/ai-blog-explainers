@@ -5,7 +5,39 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Oct 2026 05:57:26 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 10:15:00 +0000</lastBuildDate>
+    <item>
+      <title>Governing Third-Party AI Agents</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/governing-third-party-ai-agents.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/governing-third-party-ai-agents.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 14 Oct 2026 16:00:00 +0000</pubDate>
+      <description>AI that advises became AI that acts, so Box argues a clean vendor review tells you nothing about what a single agent can actually do inside your systems. Govern each agent by its access and authority with two separate levers: least privilege (what it can see) and least agency (what it can decide). Enforce boundaries while the agent acts via a five-step cycle, and don't let trust auto-pass down multi-agent delegation chains.</description>
+    </item>
+    <item>
+      <title>Getting Unstructured Data AI-Ready</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-companies-centralize-unstructured-data-ai.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-companies-centralize-unstructured-data-ai.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 14 Oct 2026 15:30:00 +0000</pubDate>
+      <description>Agents reason from the messy 80% of enterprise information — documents, scans, contracts, chat. Box's State of AI Report 2026 finds 96% of organizations say agents need company content, yet 49% have already had an AI data-exposure incident and only 34% have formal access rules. The fix is governance plus quality: index and enrich content where it lives, exclude sensitive or stale files before ingestion, and deliver curated datasets instead of file dumps. Box customers have classified more than 7 billion files.</description>
+    </item>
+    <item>
+      <title>A First Look at the New Box for Guidewire</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/first-look-new-version-box-guidewire.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/first-look-new-version-box-guidewire.html</guid>
+      <category>Box</category>
+      <pubDate>Tue, 13 Oct 2026 16:30:00 +0000</pubDate>
+      <description>The new Box for Guidewire brings AI document intake and data extraction into insurance claims and underwriting, inside the system of record. Adjusters and underwriters access, preview, and manage Box-hosted documents and metadata without leaving ClaimCenter, PolicyCenter, or BillingCenter, while Box AI and Box Extract auto-classify evidence and pull the data each workflow needs. External parties submit through governed Box intake paths with no Guidewire access, and one insurer is modernizing more than 100 terabytes of content with Box alongside Guidewire.</description>
+    </item>
+    <item>
+      <title>Easier Microsoft 365 to Workspace Migration</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/experience-easier-migration-and-collaboration-between-google-workspace-and-microsoft-365.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/experience-easier-migration-and-collaboration-between-google-workspace-and-microsoft-365.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Tue, 13 Oct 2026 16:00:00 +0000</pubDate>
+      <description>Google targets the two things that stall a Workspace move: losing data in transit and users who still live in Office. Data import now moves Exchange Online, SharePoint, OneDrive, and Teams up to 5x faster at no extra cost (generally available now), and by year-end will preserve Microsoft Information Protection labels and encryption. Office files stay editable in Gmail, Docs, and Sheets (cell capacity doubled to 20 million), and a native Google Meet experience runs on existing Cisco room hardware before year-end.</description>
+    </item>
     <item>
       <title>Gemini 4 Argon Pushes the Frontier of Enterprise Work</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/gemini-4-argon-pushes-frontier-enterprise-work.html</link>
