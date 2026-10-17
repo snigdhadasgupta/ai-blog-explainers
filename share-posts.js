@@ -1,35 +1,51 @@
 window.__POSTS__ = [
   {
-      "slug": "governing-third-party-ai-agents",
-      "source": "Box",
-      "category": "AI Governance",
-      "date": "2026-10-14",
-      "hook": "Agents Will Find Everything",
-      "body": "Vendor vetting isn't governance. Box governs each agent by what it can see and what it can do — separating least privilege from least agency, and enforcing boundaries while the agent acts."
+    "slug": "managing-open-weight-model-risk-in-enterprise-deployments",
+    "source": "Microsoft Security",
+    "category": "AI Governance",
+    "date": "2026-10-16",
+    "hook": "Openness Isn't The Risk",
+    "body": "Microsoft and NVIDIA say an open-weight model's risk comes from its use case, deployment, and safeguards — not its weights. A shared five-category taxonomy ties each risk to evaluations, controls, and owners."
   },
   {
-      "slug": "how-companies-centralize-unstructured-data-ai",
-      "source": "Box",
-      "category": "Enterprise AI",
-      "date": "2026-10-14",
-      "hook": "Start With The Content",
-      "body": "96% of organizations say agents need company content, but 49% have already had an AI data-exposure incident. Box's fix: govern and curate unstructured data before it reaches the model."
+    "slug": "ai-powered-enterprise-search",
+    "source": "Box",
+    "category": "Enterprise AI",
+    "date": "2026-10-16",
+    "hook": "Search That Actually Finds",
+    "body": "Most employees still can't find the file they need. Box's guide to AI enterprise search: intent plus permission-aware retrieval, grounded cited answers, and the five capabilities to demand before you buy."
   },
   {
-      "slug": "first-look-new-version-box-guidewire",
-      "source": "Box",
-      "category": "Product",
-      "date": "2026-10-13",
-      "hook": "Claims, Minus The Re-Keying",
-      "body": "The new Box for Guidewire puts AI document intake and extraction inside ClaimCenter, PolicyCenter, and BillingCenter — so adjusters stop re-keying evidence and outsiders submit securely without touching the system of record."
+    "slug": "governing-third-party-ai-agents",
+    "source": "Box",
+    "category": "AI Governance",
+    "date": "2026-10-14",
+    "hook": "Agents Will Find Everything",
+    "body": "Vendor vetting isn't governance. Box governs each agent by what it can see and what it can do — separating least privilege from least agency, and enforcing boundaries while the agent acts."
   },
   {
-      "slug": "experience-easier-migration-and-collaboration-between-google-workspace-and-microsoft-365",
-      "source": "Google Workspace",
-      "category": "Product",
-      "date": "2026-10-13",
-      "hook": "Move Without The Breakage",
-      "body": "Google's data import moves Exchange, SharePoint, OneDrive, and Teams up to 5x faster — now preserving MIP labels and encryption — while Office files stay editable in Docs, Sheets, and Gmail."
+    "slug": "how-companies-centralize-unstructured-data-ai",
+    "source": "Box",
+    "category": "Enterprise AI",
+    "date": "2026-10-14",
+    "hook": "Start With The Content",
+    "body": "96% of organizations say agents need company content, but 49% have already had an AI data-exposure incident. Box's fix: govern and curate unstructured data before it reaches the model."
+  },
+  {
+    "slug": "first-look-new-version-box-guidewire",
+    "source": "Box",
+    "category": "Product",
+    "date": "2026-10-13",
+    "hook": "Claims, Minus The Re-Keying",
+    "body": "The new Box for Guidewire puts AI document intake and extraction inside ClaimCenter, PolicyCenter, and BillingCenter — so adjusters stop re-keying evidence and outsiders submit securely without touching the system of record."
+  },
+  {
+    "slug": "experience-easier-migration-and-collaboration-between-google-workspace-and-microsoft-365",
+    "source": "Google Workspace",
+    "category": "Product",
+    "date": "2026-10-13",
+    "hook": "Move Without The Breakage",
+    "body": "Google's data import moves Exchange, SharePoint, OneDrive, and Teams up to 5x faster — now preserving MIP labels and encryption — while Office files stay editable in Docs, Sheets, and Gmail."
   },
   {
     "slug": "gemini-4-argon-pushes-frontier-enterprise-work",
@@ -326,6 +342,14 @@ window.__POSTS__ = [
     "date": "2026-09-24",
     "hook": "Cheaper By Design",
     "body": "Claude Opus 5.5 runs about 40% cheaper than Opus 5 on typical workloads — 20% off tokens, 60% off cached reads, a one-hour cache, and subagents that reuse the parent's context."
+  },
+  {
+    "slug": "introducing-native-box-servicenow-integration-your-content-right-where-work-happens",
+    "source": "Box",
+    "category": "Product",
+    "date": "2026-09-23",
+    "hook": "Content, Inside The Ticket",
+    "body": "Box's new ServiceNow-certified integration puts a live Box panel on every record — preview, upload, and share files without leaving ITSM, HR, or CSM. Content stays governed in Box, no middleware to maintain."
   },
   {
     "slug": "how-coderabbit-power-digital-and-thoughtspot-scale-with-snowflake-and-vercel-on-claude-marketplace",

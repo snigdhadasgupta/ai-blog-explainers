@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What to Look For in AI Enterprise Search">
+<meta property="og:description" content="Most employees still can't find the file they need. Box's guide to AI enterprise search: intent plus permission-aware retrieval, grounded cited answers, and the five capabilities to demand before you buy.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ai-powered-enterprise-search.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/ai-powered-enterprise-search.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/ai-powered-enterprise-search.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What to Look For in AI Enterprise Search">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/ai-powered-enterprise-search.png">
+<title>AI-Powered Enterprise Search — Explainer</title>
+<style>
+  :root{
+    --clay:#CC785C;--clay-dark:#A8543C;--clay-deep:#7A3B29;--ink:#1F1B18;--slate:#3D3733;--stone:#6B6259;--cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--line:#DED6C7;
+    --accent:#3D3AAE;--accent-deep:#2B2A7A;
+    --serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
+  .hero{background:linear-gradient(160deg,#17162E 0%,#262463 55%,var(--accent-deep) 100%);color:#ECEBFA;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent);}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#C7C5F0;border:1px solid rgba(199,197,240,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#DEDDF6;max-width:720px;}
+  .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(236,235,250,.18);font-size:13px;}
+  .meta .m span{display:block;color:#A6A3E0;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#F3F2FC;font-size:14px;}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16px;color:var(--slate);margin-bottom:12px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:stretch;}
+  @media(max-width:820px){.flow{grid-template-columns:1fr 1fr;}}
+  .fstep{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+  .fstep .n{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .fstep h4{font-size:12.5px;margin-bottom:4px;color:var(--ink);line-height:1.2;}
+  .fstep p{font-size:11px;color:var(--stone);line-height:1.35;}
+  .loopnote{text-align:center;margin-top:14px;font-size:13px;color:var(--accent-deep);font-weight:600;font-style:italic;}
+  .scards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:820px){.scards{grid-template-columns:1fr;}}
+  .scard{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;}
+  .scard .big{font-family:var(--serif);font-size:clamp(32px,5vw,42px);font-weight:700;color:var(--accent-deep);line-height:1;}
+  .scard .lbl{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:700;color:var(--ink);margin:10px 0 6px;}
+  .scard .meta2{font-size:11px;color:var(--accent-deep);font-weight:700;margin-bottom:5px;}
+  .scard .ctx{font-size:12px;color:var(--stone);line-height:1.4;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr;}}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:13.5px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);background:#E4E3F6;border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .vs{display:flex;flex-direction:column;gap:0;}
+  .vsrow{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+  .vsrow:last-child{border-bottom:none;}
+  .vsrow .d{font-size:13px;font-weight:700;color:var(--accent-deep);}
+  .vsrow .pair{font-size:13.5px;color:var(--slate);}
+  .vsrow .pair b{color:var(--ink);}
+  .vsrow .pair .old{color:var(--stone);}
+  @media(max-width:640px){.vsrow{grid-template-columns:1fr;gap:4px;}}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#ECEBFA;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#DEDDF6;font-size:15px;max-width:560px;}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--accent-deep);}
+  .src{margin-top:8px;}
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent);color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep);}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:22px 26px;margin:26px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span class="dot">&#10039;</span> AI Blog Explainer</a>
+    <div class="srcbadge">Box</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><circle cx="380" cy="230" r="224" fill="none" stroke="#fff" stroke-opacity=".09" stroke-width="1.5"/><circle cx="380" cy="230" r="170" fill="none" stroke="#fff" stroke-opacity=".15" stroke-width="1.5"/><circle cx="380" cy="230" r="116" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/><circle cx="380" cy="230" r="64" class="hnode"/><circle cx="380" cy="230" r="64" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2"/><circle cx="380" cy="230" r="7" fill="#fff"/><circle cx="550" cy="230" r="5" fill="#fff" fill-opacity=".6"/><circle cx="210" cy="230" r="5" fill="#fff" fill-opacity=".6"/></svg>
+  </div>
+  <div class="wrap">
+    <span class="tag">Box &middot; Enterprise AI &middot; October 16, 2026</span>
+    <h1>What to Look For in AI Enterprise Search</h1>
+    <p class="lede">Most employees still can&rsquo;t reliably find the file they need &mdash; and bolting a chatbot onto a broken index doesn&rsquo;t fix it. Box lays out what actually separates AI enterprise search from keyword search, and the five capabilities to insist on before you buy.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>Box</strong></div>
+      <div class="m"><span>Topic</span><strong>Enterprise AI &middot; Search</strong></div>
+      <div class="m"><span>Theme</span><strong>Intent &amp; permission-aware retrieval</strong></div>
+      <div class="m"><span>Reading time</span><strong>6 min</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
+  <div class="wrap">
+    <div class="tldr" data-tier-anchor>
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li><strong>Keyword search keeps failing</strong> &mdash; scattered files, inconsistent tags, and mixed permissions mean most people still can&rsquo;t find what they need.</li>
+        <li><strong>The shift is intent plus permissions</strong> &mdash; AI search reads meaning, not just keywords, and only ever returns what each user is allowed to see.</li>
+        <li><strong>Grounded answers with citations</strong> &mdash; it connects approved repositories, builds semantic indexes, and answers from source documents you can verify.</li>
+        <li><strong>Five things to demand</strong> &mdash; semantic retrieval, agentic refinement, permission-aware relevance, metadata-driven accuracy, and unified access across silos.</li>
+        <li><strong>Treat it as a rollout</strong> &mdash; prepare and map data, pilot, align governance, then expand &mdash; and measure search success, time saved, and stale-file errors.</li>
+      </ul>
+    </div>
+    <div class="sowhat">
+      <div class="kick">So what for you</div>
+      <p>If you&rsquo;re evaluating an enterprise search or &ldquo;ask your company&rdquo; tool, <strong>make permission-aware retrieval and grounded, cited answers non-negotiable.</strong> A fast answer that surfaces restricted files or cites nothing is worse than no answer &mdash; it moves fast and quietly erodes trust.</p>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The problem</div>
+    <h2>The index is broken, not the search box</h2>
+    <p class="body">Company knowledge is spread across tools, tagged inconsistently, and layered with permissions. Classic keyword and metadata search assumes clean, well-labeled content &mdash; so when content is fragmented, it quietly fails. Box frames AI search that understands intent <em>and</em> permissions as the fix, and anchors the problem with three third-party figures it cites.</p>
+    <div class="figure">
+      <div class="cap">Figure 1 &middot; The cost of not finding things (third-party stats, as cited by Box)</div>
+      <div class="scards">
+        <div class="scard"><div class="big">47%</div><div class="lbl">Can&rsquo;t find what they need</div><div class="meta2">Gartner</div><div class="ctx">Share of digital workers who struggle to locate the information required to do their jobs.</div></div>
+        <div class="scard"><div class="big">10%</div><div class="lbl">First-try success rate</div><div class="meta2">Slite</div><div class="ctx">How often traditional enterprise search returns the right result on the first attempt.</div></div>
+        <div class="scard"><div class="big">$9.3B</div><div class="lbl">Search market by 2032</div><div class="meta2">S&amp;S Insider</div><div class="ctx">Projected enterprise-search market, up from $4.6B in 2023.</div></div>
+      </div>
+      <div class="loopnote">These are third-party figures cited in Box&rsquo;s post, not Box&rsquo;s own measurements &mdash; verify against the original reports before quoting.</div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The checklist</div>
+    <h2>Five capabilities to demand</h2>
+    <p class="body">Strip the marketing away and Box&rsquo;s most useful contribution is a buying checklist. These are the capabilities that separate real AI enterprise search from a search box with a language model stapled on.</p>
+    <div class="grid3">
+      <div class="card"><span class="pill">01</span><h3>Semantic, intent-driven</h3><p>Retrieval on meaning, not literal keyword matches &mdash; so a query works even when it doesn&rsquo;t use the document&rsquo;s exact words.</p></div>
+      <div class="card"><span class="pill">02</span><h3>Agentic refinement</h3><p>Asks clarifying questions and supports conversational follow-ups instead of returning a flat list and leaving you to re-query.</p></div>
+      <div class="card"><span class="pill">03</span><h3>Permission-aware relevance</h3><p>Honors each user&rsquo;s access rights so results never surface content the person isn&rsquo;t authorized to see.</p></div>
+      <div class="card"><span class="pill">04</span><h3>Metadata-driven accuracy</h3><p>Uses version history and file attributes to return the latest approved version, not a stale or superseded copy.</p></div>
+      <div class="card"><span class="pill">05</span><h3>Unified across silos</h3><p>Reaches connected repositories as one corpus rather than forcing separate searches per system.</p></div>
+      <div class="card" style="background:linear-gradient(135deg,#EFEEFB,#E4E3F6);"><span class="pill" style="background:#fff;">Plus</span><h3>Grounded, cited answers</h3><p>Every answer points back to the source document so employees can verify it &mdash; the difference between a confident guess and a defensible result.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2>From repositories to grounded answers</h2>
+    <p class="body">Under the hood, Box describes a secure, permission-aware search layer built on retrieval-augmented generation (RAG): connect approved sources, extract text and metadata, build semantic indexes, enforce role-based permissions, then generate answers grounded in the retrieved documents.</p>
+    <div class="figure">
+      <div class="cap">Figure 2 &middot; The permission-aware RAG pipeline</div>
+      <div class="flow">
+        <div class="fstep"><div class="n">1</div><h4>Connect sources</h4><p>Index approved repositories across the systems where content already lives.</p></div>
+        <div class="fstep"><div class="n">2</div><h4>Extract &amp; enrich</h4><p>Pull text and metadata so meaning and file attributes are both searchable.</p></div>
+        <div class="fstep"><div class="n">3</div><h4>Permission filter</h4><p>Enforce role-based access so retrieval only ever considers what the user may see.</p></div>
+        <div class="fstep"><div class="n">4</div><h4>Ground &amp; cite</h4><p>Generate the answer from retrieved docs and link back to the source to verify.</p></div>
+      </div>
+    </div>
+    <h3 style="margin-top:8px;">AI search vs. traditional search</h3>
+    <div class="vs" style="margin-top:6px;">
+      <div class="vsrow"><div class="d">Interpretation</div><div class="pair"><b>Reads intent &amp; context</b> &middot; <span class="old">matches literal keywords</span></div></div>
+      <div class="vsrow"><div class="d">Relevance</div><div class="pair"><b>Ranks by meaning &amp; permissions</b> &middot; <span class="old">ranks by term frequency</span></div></div>
+      <div class="vsrow"><div class="d">User effort</div><div class="pair"><b>Conversational refinement</b> &middot; <span class="old">repeated manual re-querying</span></div></div>
+      <div class="vsrow"><div class="d">Connectivity</div><div class="pair"><b>Unified across repositories</b> &middot; <span class="old">siloed, per-system search</span></div></div>
+      <div class="vsrow"><div class="d">Output</div><div class="pair"><b>Grounded answer with sources</b> &middot; <span class="old">a list of links to open</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">Rollout &amp; measurement</div>
+    <h2>Four phases, and what to measure</h2>
+    <div class="flow" style="grid-template-columns:repeat(4,1fr);">
+      <div class="fstep"><div class="n">1</div><h4>Prepare &amp; map data</h4><p>Inventory sources, clean content, and map where knowledge actually lives.</p></div>
+      <div class="fstep"><div class="n">2</div><h4>Pilot</h4><p>Tune and test on a bounded corpus and a real user group before scaling.</p></div>
+      <div class="fstep"><div class="n">3</div><h4>Align governance</h4><p>Lock in labeling, retention, permissions, and audit before broad access.</p></div>
+      <div class="fstep"><div class="n">4</div><h4>Expand</h4><p>Extend to more repositories and teams once quality and controls hold.</p></div>
+    </div>
+    <p class="body" style="margin-top:20px;">Box&rsquo;s suggested metrics are the ones worth lifting: search success rate, time saved, reduction in duplicate questions, fewer errors from outdated files, user satisfaction, and faster onboarding. On governance, it stresses permission-aware retrieval, role-based access, encryption, audit logs, retention, classification, and the ability to explain <em>why</em> a result appeared &mdash; plus human review where it matters.</p>
+  </div>
+</section>
+
+<section style="border-bottom:none;" data-depth="manager">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>What to do with this</h2>
+        <p>Use the five-capability checklist as your RFP. Ask every vendor to demo permission-aware results on <em>your</em> messy content, show a grounded answer with a working citation, and explain why a given result surfaced. Then run a bounded pilot and track search success and time saved before you expand.</p>
+      </div>
+      <a class="btn" href="https://blog.box.com/ai-powered-enterprise-search">Read the post &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){var l=it.querySelector("link");return l?l.textContent.trim():"";}).filter(Boolean);
+    var mine=location.href.split("#")[0].split("?")[0].split("/").pop();
+    var i=-1; for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the Box blog &middot; AI Blog Explainers house style (Claude clay palette, Box accent).</p>
+    <p class="src">Source: <a href="https://blog.box.com/ai-powered-enterprise-search">AI-powered enterprise search: What to look for and why it&rsquo;s important</a> &mdash; blog.box.com. The post is vendor-authored; the cited statistics are third-party and were not independently verified here.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://blog.box.com/ai-powered-enterprise-search" target="_blank" rel="noopener" title="Read the original article"
+     style="background:#7A3B29;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:#CC785C;color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={
+    tldr:"Just the five-line summary + the takeaway.",
+    manager:"Summary, the stats, and the buying checklist.",
+    tech:"Everything, including the pipeline and rollout."
+  };
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>

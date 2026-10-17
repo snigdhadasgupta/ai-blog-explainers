@@ -5,7 +5,23 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 16 Oct 2026 10:15:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 05:15:00 +0000</lastBuildDate>
+    <item>
+      <title>Managing Open-Weight Model Risk</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/managing-open-weight-model-risk-in-enterprise-deployments.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/managing-open-weight-model-risk-in-enterprise-deployments.html</guid>
+      <category>Microsoft Security</category>
+      <pubDate>Fri, 16 Oct 2026 10:00:00 +0000</pubDate>
+      <description>Microsoft and NVIDIA argue weight-openness isn't a risk rating — an open-weight model's risk comes from its use case, deployment, and safeguards. Their new joint whitepaper gives a shared five-category taxonomy (cybersecurity, data protection, content, human-AI interaction, bias) so teams speak one language, maps each risk to evaluations (Microsoft Foundry adds groundedness, safety scoring, and automated red teaming), and ties every risk to a working control and an accountable owner — revisited as models and deployments change.</description>
+    </item>
+    <item>
+      <title>What to Look For in AI Enterprise Search</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ai-powered-enterprise-search.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ai-powered-enterprise-search.html</guid>
+      <category>Box</category>
+      <pubDate>Fri, 16 Oct 2026 09:00:00 +0000</pubDate>
+      <description>Most employees still can't find the file they need, and bolting a chatbot onto a broken index doesn't fix it. Box's guide separates AI enterprise search from keyword search: intent-based, permission-aware retrieval that grounds answers in source documents you can verify. The practical core is a five-capability buying checklist — semantic retrieval, agentic refinement, permission-aware relevance, metadata-driven accuracy, and unified access across silos — plus a four-phase rollout and the metrics to track. Cited stats are third-party.</description>
+    </item>
     <item>
       <title>Governing Third-Party AI Agents</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/governing-third-party-ai-agents.html</link>
@@ -333,6 +349,14 @@
       <category>Claude</category>
       <pubDate>Thu, 24 Sep 2026 14:30:00 +0000</pubDate>
       <description>Claude Opus 5.5 is tuned for long, context-heavy coding sessions and runs about 40% cheaper than Opus 5 on typical token-billed workloads — standard tokens down 20%, cached reads down 60%, a one-hour cache, subagent forking that reuses the parent's context, and about 30% faster output. Pick the model at session start and keep the cache warm to capture the savings.</description>
+    </item>
+    <item>
+      <title>Box for ServiceNow, Natively</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-native-box-servicenow-integration-your-content-right-where-work-happens.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-native-box-servicenow-integration-your-content-right-where-work-happens.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 23 Sep 2026 16:30:00 +0000</pubDate>
+      <description>ServiceNow runs the process; Box holds the files — and this native, ServiceNow-certified integration finally puts the content inside the record. A Box panel on each record lets people preview, upload, and share without leaving the ticket, case, or request, and every record gets its own auto-created Box folder across ITSM, HR, CSM, CRM, or custom modules. Files stay in Box with version control, classification, legal hold, and retention intact; it installs in minutes as a certified scoped app with no middleware.</description>
     </item>
     <item>
       <title>Scaling on Claude Marketplace with Snowflake and Vercel</title>
