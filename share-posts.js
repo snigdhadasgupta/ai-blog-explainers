@@ -1,5 +1,21 @@
 window.__POSTS__ = [
   {
+    "slug": "choctaw-nation-protects-and-empowers-its-people-automated-cloud-first-workflows",
+    "source": "Box",
+    "category": "Case Study",
+    "date": "2026-10-16",
+    "hook": "Security First, Then AI",
+    "body": "The third-largest Indian Nation rebuilt its most sensitive services on Box — secure forms and no-code automation saving 360+ hours a year — then layered Box AI on the clean, governed foundation."
+  },
+  {
+    "slug": "green-dashboards-real-exposure-kri-framework-you-can-build",
+    "source": "Box",
+    "category": "AI Governance",
+    "date": "2026-10-09",
+    "hook": "Green Isn't Safe",
+    "body": "Box CISO Heather Ceylan's fix for all-green security decks: report KRIs that measure how exposed you are — not KPIs that measure how busy the team is — scored so a red can't average away."
+  },
+  {
     "slug": "managing-open-weight-model-risk-in-enterprise-deployments",
     "source": "Microsoft Security",
     "category": "AI Governance",

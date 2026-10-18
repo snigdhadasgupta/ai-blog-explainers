@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="From Green Dashboards to Real Exposure: A KRI Framework">
+<meta property="og:description" content="A board-ready way to measure security and AI-era risk: stop reporting how busy the team is (KPIs) and start reporting how exposed the company is (KRIs). Box CISO Heather Ceylan's framework you can build.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/green-dashboards-real-exposure-kri-framework-you-can-build.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/green-dashboards-real-exposure-kri-framework-you-can-build.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/green-dashboards-real-exposure-kri-framework-you-can-build.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="From Green Dashboards to Real Exposure: A KRI Framework">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/green-dashboards-real-exposure-kri-framework-you-can-build.png">
+<title>From Green Dashboards to Real Exposure — Explainer</title>
+<style>
+  :root{
+    --clay:#CC785C;--clay-dark:#A8543C;--clay-deep:#7A3B29;--ink:#1F1B18;--slate:#3D3733;--stone:#6B6259;--cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--line:#DED6C7;
+    --accent:#3D3AAE;--accent-deep:#2B2A7A;
+    --serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--mono:'SFMono-Regular','Consolas','Menlo',monospace;
+    --grn:#2E7D4F;--ylw:#C98A12;--red:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
+  .hero{background:linear-gradient(160deg,#17162E 0%,#262463 55%,var(--accent-deep) 100%);color:#ECEBFA;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent);}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#C7C5F0;border:1px solid rgba(199,197,240,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#DEDDF6;max-width:720px;}
+  .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(236,235,250,.18);font-size:13px;}
+  .meta .m span{display:block;color:#A6A3E0;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#F3F2FC;font-size:14px;}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16px;color:var(--slate);margin-bottom:12px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;align-items:stretch;}
+  @media(max-width:820px){.flow{grid-template-columns:1fr;}}
+  .fstep{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+  .fstep .n{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .fstep h4{font-size:13px;margin-bottom:4px;color:var(--ink);line-height:1.2;}
+  .fstep p{font-size:11.5px;color:var(--stone);line-height:1.35;}
+  .loopnote{text-align:center;margin-top:14px;font-size:13px;color:var(--accent-deep);font-weight:600;font-style:italic;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr;}}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:13.5px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);background:#E4E3F6;border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:8px;}
+  @media(max-width:820px){.vs{grid-template-columns:1fr;}}
+  .vs .col{padding:22px 24px;background:var(--paper);}
+  .vs .col:first-child{border-right:1px solid var(--line);}
+  @media(max-width:820px){.vs .col:first-child{border-right:none;border-bottom:1px solid var(--line);}}
+  .vs .lab{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--accent-deep);margin-bottom:8px;}
+  .vs h3{font-size:17px;margin-bottom:8px;color:var(--ink);}
+  .vs p{font-size:14px;color:var(--stone);}
+  /* severity-index band infographic */
+  .band{margin-top:6px;}
+  .band .scale{display:flex;height:46px;border-radius:10px;overflow:hidden;border:1px solid var(--line);}
+  .band .zone{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:12.5px;letter-spacing:.04em;text-align:center;line-height:1.2;}
+  .band .z-g{background:var(--grn);flex:0 0 15%;}
+  .band .z-y{background:var(--ylw);flex:0 0 34%;}
+  .band .z-r{background:var(--red);flex:1;}
+  .band .axis{position:relative;height:30px;margin-top:4px;}
+  .band .tick{position:absolute;transform:translateX(-50%);font-size:11px;color:var(--stone);font-weight:600;top:0;}
+  .band .marker{position:absolute;left:67%;transform:translateX(-50%);top:-62px;display:flex;flex-direction:column;align-items:center;}
+  .band .marker .flag{background:var(--ink);color:#fff;font-size:11.5px;font-weight:800;padding:4px 9px;border-radius:7px;white-space:nowrap;}
+  .band .marker .stem{width:2px;height:18px;background:var(--ink);}
+  .scard{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px;}
+  @media(max-width:640px){.scard{grid-template-columns:1fr;}}
+  .scell{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .scell .big{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--accent-deep);line-height:1;}
+  .scell .lab{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--stone);margin:9px 0 6px;}
+  .scell p{font-size:13px;color:var(--stone);line-height:1.4;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#ECEBFA;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#DEDDF6;font-size:15px;max-width:560px;}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--accent-deep);}
+  .src{margin-top:8px;}
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent);color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep);}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:22px 26px;margin:26px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span class="dot">&#10039;</span> AI Blog Explainer</a>
+    <div class="srcbadge">Box</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><circle cx="380" cy="230" r="224" fill="none" stroke="#fff" stroke-opacity=".09" stroke-width="1.5"/><circle cx="380" cy="230" r="170" fill="none" stroke="#fff" stroke-opacity=".15" stroke-width="1.5"/><circle cx="380" cy="230" r="116" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/><circle cx="380" cy="230" r="64" class="hnode"/><circle cx="380" cy="230" r="64" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2"/><circle cx="380" cy="230" r="7" fill="#fff"/><circle cx="550" cy="230" r="5" fill="#fff" fill-opacity=".6"/><circle cx="210" cy="230" r="5" fill="#fff" fill-opacity=".6"/></svg>
+  </div>
+  <div class="wrap">
+    <span class="tag">Box &middot; AI Governance &middot; October 9, 2026</span>
+    <h1>From Green Dashboards to Real Exposure</h1>
+    <p class="lede">A board doesn&rsquo;t want to know how busy your security team is. It wants to know how exposed the company is &mdash; and whether that exposure is shrinking or growing. Box CISO Heather Ceylan&rsquo;s fix: stop reporting KPIs to the board and start reporting KRIs.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>Box</strong></div>
+      <div class="m"><span>Topic</span><strong>AI-era risk measurement</strong></div>
+      <div class="m"><span>Theme</span><strong>KRIs vs. KPIs</strong></div>
+      <div class="m"><span>Reading time</span><strong>6 min</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
+  <div class="wrap">
+    <div class="tldr" data-tier-anchor>
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li><strong>KPIs measure your team</strong> &mdash; mean-time-to-remediate, patch-SLA attainment &mdash; and they stay mostly green while telling the board nothing about how exposed the company actually is.</li>
+        <li><strong>KRIs measure the risk</strong> you&rsquo;re carrying. The test for any indicator: does it track the exposure, or just the diligence of chasing it? If it&rsquo;s the latter, it&rsquo;s a KPI &mdash; send it back to the team.</li>
+        <li><strong>Read each risk through three lenses</strong>: exposure (what&rsquo;s open right now), remediation quality (do fixes hold), and prevention (do upstream gates stop issues as the company scales).</li>
+        <li><strong>Score it so a red can&rsquo;t hide</strong>: green/yellow/red worth 0/1/3 points, exposure weighted 1.5&times;, each risk normalized to its own ceiling into a 0&ndash;100% severity index you can trace to the indicators underneath.</li>
+        <li><strong>The AI era is baked in</strong>: AI-assisted code inflates count-based metrics on its own, so indicators shift to rates and densities &mdash; and every risk, including agent and execution control, carries at least one AI-era indicator.</li>
+      </ul>
+    </div>
+    <div class="sowhat">
+      <div class="kick">So what for you</div>
+      <p>Look at your next security or risk deck and ask of every number: <strong>does this tell me how exposed we are, or just how hard the team is working?</strong> The second kind belongs in a team review, not a board slide &mdash; and if your dashboard is all green while AI is multiplying your code and attack surface, the scale is probably measuring effort, not risk.</p>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">Why it matters</div>
+    <h2>&ldquo;Are we doing enough?&rdquo; is the question KPIs can&rsquo;t answer</h2>
+    <p class="body">Every board cybersecurity conversation comes back to three questions: what are our risks, what are we doing about them, and are we doing enough? The first two are easy. The third is hard, because it asks how exposed the company is &mdash; not how well the team performed.</p>
+    <p class="body">A metric like &ldquo;95% of criticals patched within SLA&rdquo; looks reassuring and says nothing about the 5% still open: whether they&rsquo;re internet-facing, or being actively exploited. Two forces make that gap dangerous. The window between a vulnerability being disclosed and weaponized has compressed, so &ldquo;we made SLA&rdquo; can coincide with days of live exploitability. And AI-assisted development ships code and configuration faster than teams grow, so count-based numbers inflate on their own.</p>
+    <p class="lead-quote">The test for every indicator: does it measure the risk you&rsquo;re carrying, or the diligence of chasing it? If it&rsquo;s the latter, it&rsquo;s a KPI &mdash; and it goes back to the team.</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">The framework</div>
+    <h2>Three lenses on every enterprise risk</h2>
+    <p class="body">Box reads each of about ten enterprise risks &mdash; from vulnerability exposure and cloud misconfiguration to third-party compromise, unauthorized access, social engineering, and agent &amp; execution control &mdash; through three lenses. Each risk carries at least one indicator aimed at AI-era exposure, built into the risk itself rather than bolted on as a separate &ldquo;AI risk.&rdquo;</p>
+    <div class="grid3">
+      <div class="card"><span class="pill">Lens 1 &middot; Now</span><h3>Exposure</h3><p>A point-in-time snapshot at quarter-close: what is open, reachable, or unprotected. This is the lens the board cares most about &mdash; and it should move the number the most.</p></div>
+      <div class="card"><span class="pill">Lens 2 &middot; Lookback</span><h3>Remediation quality</h3><p>How fast issues close and whether the fixes hold. A fast fix that doesn&rsquo;t hold just becomes recurring exposure, so velocity alone isn&rsquo;t the measure.</p></div>
+      <div class="card"><span class="pill">Lens 3 &middot; Upstream</span><h3>Prevention</h3><p>Do the controls that stop exposure from arising keep pace as the company scales? This is where the AI-volume problem is won or lost.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">Example indicators</div>
+    <h2>One indicator per lens, and why it&rsquo;s different</h2>
+    <div class="grid3">
+      <div class="card"><span class="pill">Exposure</span><h3>Time-weighted critical exposure</h3><p>At quarter-close, multiply each open critical&rsquo;s days-open by its current exploitation likelihood, then average. It rises when dangerous items sit and falls when weaponizable ones clear fast &mdash; moving independently of whether SLA was met. It replaces patch-SLA attainment.</p></div>
+      <div class="card"><span class="pill">Remediation</span><h3>Recurrence rate</h3><p>The share of this quarter&rsquo;s closures that match something effectively closed before &mdash; same weakness class, same component. Low means durable fixes; high means you&rsquo;re patching symptoms. No velocity metric would reveal this.</p></div>
+      <div class="card"><span class="pill">Prevention</span><h3>Pre-merge catch rate</h3><p>The share of defects caught by upstream gates before code merges, versus those that reach production. It counts outcomes, not scanners enabled &mdash; and it scales as code volume grows, AI-generated code included.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">The scoring</div>
+    <h2>A severity index a red can&rsquo;t average away</h2>
+    <p class="body">The roll-up is deterministic: judgment goes into setting thresholds, and from there the same inputs always produce the same color. Each indicator scores green, yellow, or red &mdash; worth 0, 1, and 3 points. Red is deliberately more than proportional, because plain averaging would let several yellows outweigh one red, and a current exploitable exposure should never average away.</p>
+    <div class="figure">
+      <div class="cap">Figure 1 &middot; How a raw score becomes a board color</div>
+      <div class="flow">
+        <div class="fstep"><div class="n">1</div><h4>Score &amp; weight</h4><p>Each indicator is 0 / 1 / 3 points. Exposure-lens indicators carry a 1.5&times; premium &mdash; current state should move the number more than lookbacks.</p></div>
+        <div class="fstep"><div class="n">2</div><h4>Normalize</h4><p>Divide each risk&rsquo;s weighted score by the maximum it could earn, so a risk with more indicators isn&rsquo;t penalized. Result: a 0&ndash;100% severity index.</p></div>
+        <div class="fstep"><div class="n">3</div><h4>Band</h4><p>Map the index onto a green / yellow / red scale. The example in the post: a risk at 67% is red because three indicators are red &mdash; not because a model guessed a loss.</p></div>
+      </div>
+      <div class="band" style="margin-top:22px;">
+        <div class="scale">
+          <div class="zone z-g">GREEN<br>&le;15%</div>
+          <div class="zone z-y">YELLOW<br>16&ndash;49%</div>
+          <div class="zone z-r">RED&nbsp;&bull;&nbsp;&ge;50%
+            <div class="marker"><div class="flag">Example risk &mdash; 67%</div><div class="stem"></div></div>
+          </div>
+        </div>
+        <div class="axis">
+          <span class="tick" style="left:0%;">0%</span>
+          <span class="tick" style="left:15%;">15%</span>
+          <span class="tick" style="left:49%;">49%</span>
+          <span class="tick" style="left:67%;">67%</span>
+          <span class="tick" style="left:100%;">100%</span>
+        </div>
+      </div>
+      <div class="loopnote">Severity index = weighted indicator points &divide; maximum possible, banded to a single board-ready color.</div>
+    </div>
+    <p class="body" style="margin-top:4px;">Why not expected annual loss in dollars? It speaks the CFO&rsquo;s language, but the moment a dollar figure appears, the conversation turns to challenging the estimate, the likelihood, the assumptions &mdash; time spent on the model instead of the exposure. A bounded, traceable index is shown to the board, but it opens the conversation rather than ending it: what leads is exposure, direction, and the actions on the reds.</p>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">The hard part &amp; the lessons</div>
+    <h2>The metrics are the easy part. The culture isn&rsquo;t.</h2>
+    <p class="body">Security teams are trained to read a red as &ldquo;something we control went wrong.&rdquo; That&rsquo;s true for a KPI &mdash; a red patch-SLA means the team missed. It is <em>not</em> true for exposure: a red exposure indicator can reflect a vendor-disclosed flaw, an actively exploited CVE on a system you don&rsquo;t fully control, or a technique that outran a control you haven&rsquo;t built yet. Teams first treat every red as a personal failure; over time they accept that a red exposure KRI is the program working as intended. Some of the most valuable indicators <em>should</em> sometimes be red.</p>
+    <div class="grid3">
+      <div class="card"><span class="pill">Lesson 1</span><h3>Let gray be a real answer</h3><p>If a capability is still maturing and the data is missing, report gray &mdash; not a default green. A visible coverage gap beats hiding it under a reassuring color.</p></div>
+      <div class="card"><span class="pill">Lesson 2</span><h3>Expect to baseline</h3><p>Watch a number for a quarter or two before setting thresholds, so the threshold reflects your organization&rsquo;s actual risk tolerance rather than a guess.</p></div>
+      <div class="card"><span class="pill">Lesson 3</span><h3>Expect to keep tuning</h3><p>All-red means thresholds are too low; all-green, too high. Either extreme means the scale isn&rsquo;t discriminating &mdash; and thresholds are set with the business, not by security alone.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:none;" data-depth="manager">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>Where to start</h2>
+        <p>Split your dashboard in two: KPIs for team reviews, KRIs for the board. Pick one exposure indicator, one remediation-quality indicator, and one prevention indicator per top risk, give each an AI-era version, and baseline for a quarter before you set thresholds. Budget about a quarter to build the indicators &mdash; and longer to teach the team that a red exposure KRI is not a verdict on their work.</p>
+      </div>
+      <a class="btn" href="https://blog.box.com/green-dashboards-real-exposure-kri-framework-you-can-build">Read the post &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){var l=it.querySelector("link");return l?l.textContent.trim():"";}).filter(Boolean);
+    var mine=location.href.split("#")[0].split("?")[0].split("/").pop();
+    var i=-1; for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the Box blog &middot; AI Blog Explainers house style (Claude clay palette, Box indigo accent).</p>
+    <p class="src">Source: <a href="https://blog.box.com/green-dashboards-real-exposure-kri-framework-you-can-build">From green dashboards to real exposure: A KRI framework you can build</a> &mdash; Heather Ceylan, CISO, blog.box.com, October 9, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://blog.box.com/green-dashboards-real-exposure-kri-framework-you-can-build" target="_blank" rel="noopener" title="Read the original article"
+     style="background:#7A3B29;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:#CC785C;color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={
+    tldr:"Just the five-line summary + the takeaway.",
+    manager:"Summary, why it matters, the lenses and indicators — no scoring math.",
+    tech:"Everything, including the scoring model and the culture lessons."
+  };
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>
