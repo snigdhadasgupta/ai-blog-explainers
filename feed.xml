@@ -5,7 +5,23 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Oct 2026 10:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 01:07:07 +0000</lastBuildDate>
+    <item>
+      <title>Compliance Built Into the Content</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/tissium-supports-compliant-life-science-innovation-box-content-layer.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/tissium-supports-compliant-life-science-innovation-box-content-layer.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 15 Oct 2026 12:00:00 +0000</pubDate>
+      <description>Clinical-stage startup Tissium runs collaboration, workflows, and AI on Box as one governed content layer, so compliance is engineered in rather than bolted on. A Box Automate proof of concept digitized handwritten batch records — cutting roughly 15 minutes per batch to about 2 and replacing a ~3-year electronic-batch-record rollout with a weeks-long build — while GxP, GDPR, EU MDR, and US 21 CFR Part 11 readiness hold at the platform layer. Vendor-reported figures.</description>
+    </item>
+    <item>
+      <title>60 TB of Aerospace Content, Governed</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/flying-whales-elevates-aerospace-innovation-content-and-ai.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/flying-whales-elevates-aerospace-innovation-content-and-ai.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 14 Oct 2026 12:00:00 +0000</pubDate>
+      <description>French cargo-airship maker FLYING WHALES retired four systems — Teams, SharePoint, external-sharing tools, and network storage — and pulled more than 60 TB of documents, imagery, and 3D models into Box as a single source of truth. Box Shield enforces sensitivity-based DLP (view-only, no download for the most sensitive files) so Box AI can search and extract across the corpus without data leaving the boundary, keeping GDPR and the EU AI Act intact. Vendor-reported figures.</description>
+    </item>
     <item>
       <title>Choctaw Nation, Secured and Automated</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/choctaw-nation-protects-and-empowers-its-people-automated-cloud-first-workflows.html</link>

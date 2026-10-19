@@ -1,5 +1,21 @@
 window.__POSTS__ = [
   {
+    "slug": "tissium-supports-compliant-life-science-innovation-box-content-layer",
+    "source": "Box",
+    "category": "Case Study",
+    "date": "2026-10-15",
+    "hook": "15 minutes to 2",
+    "body": "Tissium put Box under its research, ops, and AI as one governed content layer — cutting batch-record time from 15 minutes to 2, with GxP, GDPR and 21 CFR Part 11 intact."
+  },
+  {
+    "slug": "flying-whales-elevates-aerospace-innovation-content-and-ai",
+    "source": "Box",
+    "category": "Case Study",
+    "date": "2026-10-14",
+    "hook": "Four tools, one truth",
+    "body": "FLYING WHALES pulled 60 TB of aerospace content out of four systems into one governed platform — then let Box AI search it without data ever leaving the security boundary."
+  },
+  {
     "slug": "choctaw-nation-protects-and-empowers-its-people-automated-cloud-first-workflows",
     "source": "Box",
     "category": "Case Study",
