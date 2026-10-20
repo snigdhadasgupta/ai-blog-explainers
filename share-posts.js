@@ -1,5 +1,45 @@
 window.__POSTS__ = [
   {
+    "slug": "agents-are-your-newest-insiders-security-must-move-at-their-speed",
+    "source": "Microsoft Security",
+    "category": "AI Governance",
+    "date": "2026-10-19",
+    "hook": "Your newest insider",
+    "body": "Microsoft's case: govern every AI agent like an insider — its own identity, zero standing access, a sandboxed runtime, and controls that live outside the model and adapt as risk changes."
+  },
+  {
+    "slug": "box-extract-open-ai-decisions-api",
+    "source": "Box",
+    "category": "Agents",
+    "date": "2026-10-19",
+    "hook": "Upload in, decision out",
+    "body": "A document lands in Box, AI Extract pulls the fields, and OpenAI's Decisions API picks one of three review routes — intelligent intake, with the human review step kept in Box."
+  },
+  {
+    "slug": "how-an-anthropic-japan-business-development-representative-runs-his-day",
+    "source": "Claude",
+    "category": "Agents",
+    "date": "2026-10-16",
+    "hook": "Six agents, one job each",
+    "body": "An Anthropic BDR in Japan built a fleet of six Claude agents that route leads, draft bilingual replies, and update Salesforce before his day starts. He reviews and sends — about 60 hours saved."
+  },
+  {
+    "slug": "solving-code-review-at-anthropic",
+    "source": "Claude",
+    "category": "Claude Code",
+    "date": "2026-10-15",
+    "hook": "Who reviews the robots?",
+    "body": "Claude writes ~90% of Claude Code. The team moved most of the reading to machines and scaled human sign-off by risk — merged PRs doubled while reverts fell over 40%."
+  },
+  {
+    "slug": "redesigning-source-control",
+    "source": "Claude",
+    "category": "Agents",
+    "date": "2026-10-13",
+    "hook": "Git couldn't keep up",
+    "body": "Agents now merge 30,000+ changes a day at Anthropic. Git buckled — so a seven-person team built Scion, a server-centric version control system, and migrated the monorepo in five months."
+  },
+  {
     "slug": "tissium-supports-compliant-life-science-innovation-box-content-layer",
     "source": "Box",
     "category": "Case Study",

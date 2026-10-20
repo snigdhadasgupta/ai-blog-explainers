@@ -5,22 +5,30 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Oct 2026 01:07:07 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 12:34:51 +0000</lastBuildDate>
     <item>
-      <title>Compliance Built Into the Content</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/tissium-supports-compliant-life-science-innovation-box-content-layer.html</link>
-      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/tissium-supports-compliant-life-science-innovation-box-content-layer.html</guid>
-      <category>Box</category>
-      <pubDate>Thu, 15 Oct 2026 12:00:00 +0000</pubDate>
-      <description>Clinical-stage startup Tissium runs collaboration, workflows, and AI on Box as one governed content layer, so compliance is engineered in rather than bolted on. A Box Automate proof of concept digitized handwritten batch records — cutting roughly 15 minutes per batch to about 2 and replacing a ~3-year electronic-batch-record rollout with a weeks-long build — while GxP, GDPR, EU MDR, and US 21 CFR Part 11 readiness hold at the platform layer. Vendor-reported figures.</description>
+      <title>Agents Are Your Newest Insiders</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/agents-are-your-newest-insiders-security-must-move-at-their-speed.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/agents-are-your-newest-insiders-security-must-move-at-their-speed.html</guid>
+      <category>Microsoft Security</category>
+      <pubDate>Mon, 19 Oct 2026 13:00:00 +0000</pubDate>
+      <description>Microsoft's case for governing every AI agent as an insider: each gets its own identity, starts with zero standing access, and runs in a sandboxed, independently monitored runtime. Risk is reassessed continuously and permissions adjust in graduated steps — reduce, block writes, narrow, or isolate — via Project Perception, Agent 365, and Entra Agent ID. Discovery now spans 60 local agent types.</description>
     </item>
     <item>
-      <title>60 TB of Aerospace Content, Governed</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/flying-whales-elevates-aerospace-innovation-content-and-ai.html</link>
-      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/flying-whales-elevates-aerospace-innovation-content-and-ai.html</guid>
+      <title>From Upload to Routed Review</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/box-extract-open-ai-decisions-api.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/box-extract-open-ai-decisions-api.html</guid>
       <category>Box</category>
-      <pubDate>Wed, 14 Oct 2026 12:00:00 +0000</pubDate>
-      <description>French cargo-airship maker FLYING WHALES retired four systems — Teams, SharePoint, external-sharing tools, and network storage — and pulled more than 60 TB of documents, imagery, and 3D models into Box as a single source of truth. Box Shield enforces sensitivity-based DLP (view-only, no download for the most sensitive files) so Box AI can search and extract across the corpus without data leaving the boundary, keeping GDPR and the EU AI Act intact. Vendor-reported figures.</description>
+      <pubDate>Mon, 19 Oct 2026 12:00:00 +0000</pubDate>
+      <description>A developer blueprint for intelligent document intake. A certificate of insurance lands in Box, Box AI Extract pulls structured fields from it and the requirements doc, and OpenAI's Decisions API returns one of three typed review routes with a confidence value. A Box webhook then opens the right review task and writes values as metadata — the human step stays in Box. Demo code, not production.</description>
+    </item>
+    <item>
+      <title>A Fleet of Six Agents Runs His Day</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-an-anthropic-japan-business-development-representative-runs-his-day.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-an-anthropic-japan-business-development-representative-runs-his-day.html</guid>
+      <category>Claude</category>
+      <pubDate>Fri, 16 Oct 2026 14:00:00 +0000</pubDate>
+      <description>An Anthropic BDR in Japan built a fleet of six Claude agents — the 'Nakama,' each with one job and a Japanese name — on Claude Managed Agents. They route and qualify leads, draft bilingual replies, update Salesforce, and summarize meetings before his day starts; he reviews and sends. Prototyped in Claude first, with a shared knowledge base that learns from his edits. About 60 hours saved, self-reported.</description>
     </item>
     <item>
       <title>Choctaw Nation, Secured and Automated</title>
@@ -47,6 +55,22 @@
       <description>Most employees still can't find the file they need, and bolting a chatbot onto a broken index doesn't fix it. Box's guide separates AI enterprise search from keyword search: intent-based, permission-aware retrieval that grounds answers in source documents you can verify. The practical core is a five-capability buying checklist — semantic retrieval, agentic refinement, permission-aware relevance, metadata-driven accuracy, and unified access across silos — plus a four-phase rollout and the metrics to track. Cited stats are third-party.</description>
     </item>
     <item>
+      <title>Reviewing Code at Agent Speed</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/solving-code-review-at-anthropic.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/solving-code-review-at-anthropic.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 15 Oct 2026 14:00:00 +0000</pubDate>
+      <description>Claude writes about 90% of Claude Code, so the team stopped treating human line-by-line reading as the safeguard. Layered automated checks — Claude self-verification, AI review with verifier voting, security review, CI, a merge queue — do most of the reading, and human approval is scaled by a risk tier set from the change. June to September, merged PRs more than doubled while reverts fell over 40%. Figures are self-reported.</description>
+    </item>
+    <item>
+      <title>Compliance Built Into the Content</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/tissium-supports-compliant-life-science-innovation-box-content-layer.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/tissium-supports-compliant-life-science-innovation-box-content-layer.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 15 Oct 2026 12:00:00 +0000</pubDate>
+      <description>Clinical-stage startup Tissium runs collaboration, workflows, and AI on Box as one governed content layer, so compliance is engineered in rather than bolted on. A Box Automate proof of concept digitized handwritten batch records — cutting roughly 15 minutes per batch to about 2 and replacing a ~3-year electronic-batch-record rollout with a weeks-long build — while GxP, GDPR, EU MDR, and US 21 CFR Part 11 readiness hold at the platform layer. Vendor-reported figures.</description>
+    </item>
+    <item>
       <title>Governing Third-Party AI Agents</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/governing-third-party-ai-agents.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/governing-third-party-ai-agents.html</guid>
@@ -61,6 +85,14 @@
       <category>Box</category>
       <pubDate>Wed, 14 Oct 2026 15:30:00 +0000</pubDate>
       <description>Agents reason from the messy 80% of enterprise information — documents, scans, contracts, chat. Box's State of AI Report 2026 finds 96% of organizations say agents need company content, yet 49% have already had an AI data-exposure incident and only 34% have formal access rules. The fix is governance plus quality: index and enrich content where it lives, exclude sensitive or stale files before ingestion, and deliver curated datasets instead of file dumps. Box customers have classified more than 7 billion files.</description>
+    </item>
+    <item>
+      <title>60 TB of Aerospace Content, Governed</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/flying-whales-elevates-aerospace-innovation-content-and-ai.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/flying-whales-elevates-aerospace-innovation-content-and-ai.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 14 Oct 2026 12:00:00 +0000</pubDate>
+      <description>French cargo-airship maker FLYING WHALES retired four systems — Teams, SharePoint, external-sharing tools, and network storage — and pulled more than 60 TB of documents, imagery, and 3D models into Box as a single source of truth. Box Shield enforces sensitivity-based DLP (view-only, no download for the most sensitive files) so Box AI can search and extract across the corpus without data leaving the boundary, keeping GDPR and the EU AI Act intact. Vendor-reported figures.</description>
     </item>
     <item>
       <title>A First Look at the New Box for Guidewire</title>
@@ -85,6 +117,14 @@
       <category>Box</category>
       <pubDate>Tue, 13 Oct 2026 15:00:00 +0000</pubDate>
       <description>Box ran Google’s new Gemini 4 Argon through its Complex Work Eval — agents handed real bundles of spreadsheets, PDFs, slides and images and graded on the finished deliverable. It scored 85% overall versus 71% for Gemini 3.1 Pro (+14 points), with the biggest gains in data analysis (+23) and report drafting (+15). Regulated domains moved most: life sciences 61→88, healthcare 57→87 and public sector 76→94. The model is “coming soon” to Box AI; these are Box’s own benchmark numbers, so validate on your own workloads.</description>
+    </item>
+    <item>
+      <title>Source Control at Agent Scale</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/redesigning-source-control.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/redesigning-source-control.html</guid>
+      <category>Claude</category>
+      <pubDate>Tue, 13 Oct 2026 14:00:00 +0000</pubDate>
+      <description>Anthropic's agents now merge over 30,000 code changes a day, up from about 2,500 in May — and git, built for offline human developers, buckled. A seven-person team built Scion, an always-online, server-centric version control system where commits, merges, and history all run server-side, and migrated the monorepo in five months. Reported about 200x less infrastructure, checkouts in seconds, and 25% of CI CPU freed. Self-reported.</description>
     </item>
     <item>
       <title>From Green Dashboards to Real Exposure</title>

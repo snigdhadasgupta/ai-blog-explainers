@@ -6,7 +6,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="This Week in Enterprise AI">
-<meta property="og:description" content="10 explainers from 3 sources this week — the enterprise, agentic-AI, and governance moves worth your attention, grouped by theme.">
+<meta property="og:description" content="15 explainers from 4 sources this week — the enterprise, agentic-AI, and governance moves worth your attention, grouped by theme.">
 <meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/this-week.html">
 <meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/this-week.png">
 <meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/this-week.png">
@@ -70,9 +70,9 @@
     </svg>
   </div>
   <div class="wrap">
-    <span class="tag">This week &middot; Oct 13 – Oct 16, 2026</span>
+    <span class="tag">This week &middot; Oct 13 – Oct 19, 2026</span>
     <h1>This Week in Enterprise AI</h1>
-    <p>10 explainers from 3 sources this week — the enterprise, agentic-AI, and governance moves worth your attention, grouped by theme.</p>
+    <p>15 explainers from 4 sources this week — the enterprise, agentic-AI, and governance moves worth your attention, grouped by theme.</p>
   </div>
 </header>
 <main><div class="wrap">
@@ -88,8 +88,14 @@
       </a></div>
     </div>
     <div class="wk-theme">
-      <div class="wk-eyebrow"><span></span>AI governance & security <em>2</em></div>
+      <div class="wk-eyebrow"><span></span>AI governance & security <em>3</em></div>
       <div class="wk-grid">
+      <a class="wk-card" href="explainers/agents-are-your-newest-insiders-security-must-move-at-their-speed.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#0E7490">Microsoft Security</span><span class="wk-cat">AI Governance</span></div>
+        <h3>Agents Are Your Newest Insiders</h3>
+        <p>Microsoft's case for governing every AI agent as an insider: each gets its own identity, starts with zero standing access, and runs in a sandboxed, independently monitored runtime. Risk is reassessed continuously and permissions adjust in graduated steps — reduce, block writes, narrow, or isolate — via Project Perception, Agent 365, and Entra Agent ID. Discovery now spans 60 local agent types.</p>
+        <span class="wk-rt">7 min &middot; Read explainer &rarr;</span>
+      </a>
       <a class="wk-card" href="explainers/managing-open-weight-model-risk-in-enterprise-deployments.html">
         <div class="wk-top"><span class="wk-badge" style="background:#0E7490">Microsoft Security</span><span class="wk-cat">AI Governance</span></div>
         <h3>Managing Open-Weight Model Risk</h3>
@@ -126,19 +132,43 @@
       </a></div>
     </div>
     <div class="wk-theme">
-      <div class="wk-eyebrow"><span></span>Product & practice <em>4</em></div>
+      <div class="wk-eyebrow"><span></span>Product & practice <em>8</em></div>
       <div class="wk-grid">
+      <a class="wk-card" href="explainers/box-extract-open-ai-decisions-api.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">Agents</span></div>
+        <h3>From Upload to Routed Review</h3>
+        <p>A developer blueprint for intelligent document intake. A certificate of insurance lands in Box, Box AI Extract pulls structured fields from it and the requirements doc, and OpenAI's Decisions API returns one of three typed review routes with a confidence value. A Box webhook then opens the right review task and writes values as metadata — the human step stays in Box. Demo code, not production.</p>
+        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/how-an-anthropic-japan-business-development-representative-runs-his-day.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Agents</span></div>
+        <h3>A Fleet of Six Agents Runs His Day</h3>
+        <p>An Anthropic BDR in Japan built a fleet of six Claude agents — the 'Nakama,' each with one job and a Japanese name — on Claude Managed Agents. They route and qualify leads, draft bilingual replies, update Salesforce, and summarize meetings before his day starts; he reviews and sends. Prototyped in Claude first, with a shared knowledge base that learns from his edits. About 60 hours saved, self-reported.</p>
+        <span class="wk-rt">8 min &middot; Read explainer &rarr;</span>
+      </a>
       <a class="wk-card" href="explainers/ai-powered-enterprise-search.html">
         <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">Enterprise AI</span></div>
         <h3>What to Look For in AI Enterprise Search</h3>
         <p>Most employees still can't find the file they need, and bolting a chatbot onto a broken index doesn't fix it. Box's guide separates AI enterprise search from keyword search: intent-based, permission-aware retrieval that grounds answers in source documents you can verify. The practical core is a five-capability buying checklist — semantic retrieval, agentic refinement, permission-aware relevance, metadata-driven accuracy, and unified access across silos — plus a four-phase rollout and the metrics to track. Cited stats are third-party.</p>
         <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
       </a>
+      <a class="wk-card" href="explainers/solving-code-review-at-anthropic.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Claude Code</span></div>
+        <h3>Reviewing Code at Agent Speed</h3>
+        <p>Claude writes about 90% of Claude Code, so the team stopped treating human line-by-line reading as the safeguard. Layered automated checks — Claude self-verification, AI review with verifier voting, security review, CI, a merge queue — do most of the reading, and human approval is scaled by a risk tier set from the change. June to September, merged PRs more than doubled while reverts fell over 40%. Figures are self-reported.</p>
+        <span class="wk-rt">9 min &middot; Read explainer &rarr;</span>
+      </a>
       <a class="wk-card" href="explainers/how-companies-centralize-unstructured-data-ai.html">
         <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">Enterprise AI</span></div>
         <h3>Getting Unstructured Data AI-Ready</h3>
         <p>Agents reason from the messy 80% of enterprise information — documents, scans, contracts, chat. Box's State of AI Report 2026 finds 96% of organizations say agents need company content, yet 49% have already had an AI data-exposure incident and only 34% have formal access rules. The fix is governance plus quality: index and enrich content where it lives, exclude sensitive or stale files before ingestion, and deliver curated datasets instead of file dumps. Box customers have classified more than 7 billion files.</p>
         <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
+      </a>
+      <a class="wk-card" href="explainers/redesigning-source-control.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Agents</span></div>
+        <h3>Source Control at Agent Scale</h3>
+        <p>Anthropic's agents now merge over 30,000 code changes a day, up from about 2,500 in May — and git, built for offline human developers, buckled. A seven-person team built Scion, an always-online, server-centric version control system where commits, merges, and history all run server-side, and migrated the monorepo in five months. Reported about 200x less infrastructure, checkouts in seconds, and 25% of CI CPU freed. Self-reported.</p>
+        <span class="wk-rt">7 min &middot; Read explainer &rarr;</span>
       </a>
       <a class="wk-card" href="explainers/first-look-new-version-box-guidewire.html">
         <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">Product</span></div>
