@@ -1,4 +1,7 @@
 window.__POSTS__ = [
+  {"slug": "code-review-is-now-generally-available", "source": "Claude", "category": "Claude Code", "date": "2026-10-15", "hook": "Code Review goes GA", "body": "Claude Code's AI reviewer is out of preview for Team and Enterprise — about 3× faster (6–10 min per PR), tunable Quick/Standard/Deep per repo, and automatic on new pull requests."},
+  {"slug": "agent-observability-on-the-claude-platform", "source": "Claude", "category": "AI Governance", "date": "2026-10-14", "hook": "Trace before you trust", "body": "Claude Managed Agents, the Messages API, and the SDKs now emit OpenTelemetry traces — so every model call and tool use lands in Datadog, Grafana, Langfuse, and the tools you already run."},
+  {"slug": "uber-s-ciso-on-building-an-insider-threat-program-for-ai", "source": "Claude", "category": "AI Governance", "date": "2026-10-13", "hook": "Agents are insiders too", "body": "Uber's CISO says frontier models need the same monitoring you run for employees: real-time detection at the prompt, layered with open-source ADR and Anthropic's Enterprise Frontier Safeguards — and your data stays yours."},
   {
     "slug": "agents-are-your-newest-insiders-security-must-move-at-their-speed",
     "source": "Microsoft Security",
