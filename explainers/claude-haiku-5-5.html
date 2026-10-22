@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introducing Claude Haiku 5.5">
+<meta property="og:description" content="The cheapest, fastest, most capable small model Anthropic has released — built for high-volume work like summarization, classification, subagents, and browser use, with a first-ever Haiku effort dial.">
+<meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-haiku-5-5.html">
+<meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/claude-haiku-5-5.png">
+<meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/claude-haiku-5-5.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Introducing Claude Haiku 5.5">
+<meta name="twitter:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/claude-haiku-5-5.png">
+<title>Introducing Claude Haiku 5.5 — Explainer</title>
+<style>
+  :root{
+    --clay:#CC785C;--clay-dark:#A8543C;--clay-deep:#7A3B29;--ink:#1F1B18;--slate:#3D3733;--stone:#6B6259;--cream:#F5F2EC;--paper:#FBFAF6;--sand:#EDE7DB;--line:#DED6C7;
+    --accent:#A64B2A;--accent-deep:#6E2F1A;
+    --serif:'Georgia','Times New Roman',serif;--sans:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--mono:'SFMono-Regular','Consolas','Menlo',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .topbar{border-top:5px solid var(--clay);background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:6px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:16px;}
+  .srcbadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);padding:5px 12px;border-radius:100px;}
+  .hero{background:linear-gradient(160deg,#1E130E 0%,#5A2814 55%,var(--accent-deep) 100%);color:#F7ECE6;padding:46px 0 40px;position:relative;overflow:hidden;}
+  .herobg{position:absolute;top:0;right:-4%;height:100%;width:42%;pointer-events:none;opacity:.85;}
+  .herobg svg{width:100%;height:100%;display:block;}
+  .hnode{fill:var(--accent);}
+  .hero .wrap{max-width:900px;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#E6B9A3;border:1px solid rgba(230,185,163,.4);padding:5px 12px;border-radius:100px;margin-bottom:22px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(30px,4.6vw,50px);line-height:1.09;font-weight:700;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:#F0D8CC;max-width:720px;}
+  .meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(247,236,230,.18);font-size:13px;}
+  .meta .m span{display:block;color:#DCA886;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px;}
+  .meta .m strong{font-weight:600;color:#F9EFEA;font-size:14px;}
+  section{padding:32px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;}
+  h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h3{font-size:19px;margin-bottom:8px;color:var(--slate);}
+  p.body{font-size:16px;color:var(--slate);margin-bottom:12px;max-width:760px;}
+  .lead-quote{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--accent-deep);border-left:4px solid var(--accent);padding:4px 0 4px 20px;margin:18px 0;max-width:730px;}
+  .tldr{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;}
+  .tldr h2{font-size:20px;margin-bottom:14px;}
+  .tldr ul{list-style:none;counter-reset:tl;}
+  .tldr li{counter-increment:tl;position:relative;padding-left:46px;margin-bottom:11px;font-size:15.5px;color:var(--slate);}
+  .tldr li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--accent,var(--clay));}
+  .tldr li strong{color:var(--ink);font-weight:700;}
+  .figure{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:20px 0;}
+  .figure .cap{font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:700;}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:stretch;}
+  @media(max-width:820px){.flow{grid-template-columns:1fr 1fr;}}
+  .fstep{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+  .fstep .n{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .fstep h4{font-size:12.5px;margin-bottom:4px;color:var(--ink);line-height:1.2;}
+  .fstep p{font-size:11px;color:var(--stone);line-height:1.35;}
+  .loopnote{text-align:center;margin-top:14px;font-size:13px;color:var(--accent-deep);font-weight:600;font-style:italic;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr;}}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:13.5px;color:var(--stone);}
+  .card .pill{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep);background:#DBEEF4;border-radius:100px;padding:4px 11px;margin-bottom:12px;}
+  .callout{background:linear-gradient(135deg,var(--ink),var(--accent-deep));color:#F3EFEA;border-radius:16px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;}
+  .callout h2{color:#fff;margin-bottom:6px;}
+  .callout p{color:#EADFD6;font-size:15px;max-width:560px;}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  footer{padding:30px 0 46px;color:var(--stone);font-size:12.5px;}
+  footer a{color:var(--accent-deep);}
+  .src{margin-top:8px;}
+  .depthbar{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 10px -8px rgba(0,0,0,.35);}
+  .depthbar .wrap{display:flex;align-items:center;gap:14px;padding:12px 24px;flex-wrap:wrap;}
+  .depthbar .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);}
+  .depthset{display:inline-flex;background:var(--sand);border-radius:100px;padding:4px;gap:2px;}
+  .depthset button{border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);background:transparent;padding:7px 16px;border-radius:100px;transition:all .15s;}
+  .depthset button:hover{color:var(--ink);}
+  .depthset button.on{background:var(--accent);color:#fff;box-shadow:0 3px 10px -5px var(--accent-deep);}
+  .depthhint{font-size:12.5px;color:var(--stone);margin-left:auto;}
+  @media(max-width:640px){.depthhint{display:none;}.depthbar .wrap{gap:10px;padding:10px 18px;}.depthset button{padding:7px 13px;font-size:12.5px;}}
+  section[data-depth]{transition:opacity .2s;}
+  .sowhat{background:linear-gradient(135deg,#FFF7ED,#FDECDD);border:1px solid var(--clay);border-left:5px solid var(--clay);border-radius:14px;padding:22px 26px;margin:26px 0 4px;}
+  .sowhat .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--clay-deep);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .sowhat .kick::before{content:"\2192";font-size:15px;}
+  .sowhat p{font-size:16px;line-height:1.55;color:var(--slate);margin:0;max-width:820px;}
+  .sowhat p strong{color:var(--ink);}
+  .scard-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  @media(max-width:820px){.scard-grid{grid-template-columns:1fr;}}
+  .scard{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:18px 20px;}
+  .scard .big{font-family:var(--serif);font-size:34px;font-weight:700;color:var(--accent-deep);line-height:1;}
+  .scard .lbl{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--stone);margin:8px 0 4px;}
+  .scard .bench{font-size:12.5px;color:var(--ink);font-weight:700;margin-top:2px;}
+  .scard .ctx{font-size:13px;color:var(--slate);margin-top:4px;line-height:1.42;}
+  .pricerow{display:flex;align-items:baseline;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);flex-wrap:wrap;}
+  .pricerow .tier{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--ink);min-width:150px;}
+  .pricerow .cut{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--accent);border-radius:100px;padding:3px 10px;}
+  .pricerow .det{font-size:13.5px;color:var(--slate);flex:1;min-width:200px;}
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span class="dot">&#10039;</span> AI Blog Explainer</a>
+    <div class="srcbadge">Anthropic</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="herobg" aria-hidden="true">
+    <svg viewBox="0 0 560 460" preserveAspectRatio="xMaxYMid slice"><rect x="250" y="300" width="270" height="52" rx="12" fill="#fff" fill-opacity=".12"/><rect x="272" y="238" width="270" height="52" rx="12" fill="#fff" fill-opacity=".18"/><rect x="294" y="176" width="270" height="52" rx="12" fill="#fff" fill-opacity=".26"/><rect x="316" y="114" width="270" height="52" rx="12" class="hnode"/></svg>
+  </div>
+  <div class="wrap">
+    <span class="tag">Anthropic &middot; Model Launch &middot; October 7, 2026</span>
+    <h1>Introducing Claude Haiku 5.5</h1>
+    <p class="lede">The cheapest, fastest, and most capable small model Anthropic has released &mdash; built for high-volume work like summarization, classification, subagents, and browser use, and the first Haiku with an adjustable effort dial.</p>
+    <div class="meta">
+      <div class="m"><span>Source</span><strong>Anthropic</strong></div>
+      <div class="m"><span>Topic</span><strong>Model launch &middot; Small models</strong></div>
+      <div class="m"><span>Theme</span><strong>Cost-efficient scale</strong></div>
+      <div class="m"><span>Reading time</span><strong>6 min</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="depthbar">
+  <div class="wrap">
+    <span class="lbl">Read at your level</span>
+    <div class="depthset" id="aibe-depth">
+      <button data-lvl="tldr">Summary</button>
+      <button data-lvl="manager">Manager</button>
+      <button data-lvl="tech">Technical</button>
+    </div>
+    <span class="depthhint" id="aibe-depthhint"></span>
+  </div>
+</div>
+
+<section data-depth="tldr">
+  <div class="wrap">
+    <div class="tldr" data-tier-anchor>
+      <h2>The idea in five lines</h2>
+      <ul>
+        <li><strong>Cheapest and fastest Haiku yet</strong> &mdash; about 75% less to run on average than Haiku 4.5, and Anthropic's fastest model to date at standard speed.</li>
+        <li><strong>An effort dial, a Haiku first</strong> &mdash; choose cost versus intelligence across Low to Max, so one model fits both throwaway and demanding tasks.</li>
+        <li><strong>Built for high-volume work</strong> &mdash; summaries, compaction, classification, database queries, and as a subagent alongside Opus 5.5 and Sonnet 5.5 on coding.</li>
+        <li><strong>Big jumps on the benchmarks</strong> &mdash; OSWorld 2.1 72.4% (vs 15.7% for Haiku 4.5), GDPval-AA 1620 (vs 735), and HLE with tools 57.4% (vs 18.7%).</li>
+        <li><strong>Available everywhere now</strong> &mdash; on the Claude API, AWS, Google Cloud, and Azure as claude-haiku-5-5; Sonnet 5.5 cache reads also got 50% cheaper.</li>
+      </ul>
+    </div>
+    <div class="sowhat">
+      <div class="kick">So what for you</div>
+      <p>Audit your pipelines for work you send to a big model only because a small one wasn't good enough &mdash; summarization, classification, routing, subagent calls &mdash; and <strong>re-benchmark it on Haiku 5.5</strong>; at roughly a tenth of Sonnet's input price it can move real volume off your most expensive model.</p>
+    </div>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">What it's for</div>
+    <h2>The small model that finally pencils out</h2>
+    <p class="body">Haiku 5.5 targets quick, repetitive, high-volume work &mdash; summaries, compaction, database queries, classification &mdash; and acts as a subagent next to Opus 5.5 and Sonnet 5.5 on coding. Anthropic is clear about the boundary: the larger models are still better for complex agentic coding (for example, Terminal-Bench 4.0), while Haiku 5.5 suits narrower tasks that used to be cost-prohibitive.</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">Why it matters</div>
+    <h2>Small-model economics decide what you automate</h2>
+    <p class="body">The price and speed of the cheapest model set the floor for what's worth doing at scale. A 75% cost cut plus an effort dial turns work that didn't pencil out &mdash; bulk summarization, context compaction, fleets of subagents &mdash; into default automation. The effort setting is the lever: dial it down for throwaway tasks, up for the ones that need the accuracy.</p>
+  </div>
+</section>
+
+<section data-depth="manager">
+  <div class="wrap">
+    <div class="eyebrow">What teams are seeing</div>
+    <h2>Early production results</h2>
+    <div class="grid2">
+      <div class="card"><span class="pill">Asana</span><h3>Faster agent turns</h3><p>Over a 30% reduction in latency for task completions and up to 2.5&times; faster inference per agent turn on their AI Teammates eval suite.</p></div>
+      <div class="card"><span class="pill">HubSpot</span><h3>Best CRM score they'd seen</h3><p>92.8% averaged over three runs on a CRM portal eval &mdash; fastest on a stale-records audit, with the highest hit rate and lowest false-positive rate.</p></div>
+      <div class="card"><span class="pill">Box</span><h3>Higher score, half the latency</h3><p>Scored 11 points higher than Haiku 4.5 at about half the latency in early testing &mdash; suited to cost reports, financial summaries, and recurring reviews.</p></div>
+      <div class="card"><span class="pill">AlphaSense</span><h3>Quality gain at scale</h3><p>0.84 vs 0.76 over Haiku 4.5 on Ask in Document (about 8M calls a week in production), described as statistically significant.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">The numbers</div>
+    <h2>How far it jumped</h2>
+    <div class="figure">
+      <div class="cap">Figure 1 &middot; Haiku 5.5 vs Haiku 4.5 &mdash; Anthropic-reported, validate on your own workloads</div>
+      <div class="scard-grid">
+        <div class="scard"><div class="big">&minus;75%</div><div class="lbl">Average cost to run</div><div class="bench">vs Haiku 4.5</div><div class="ctx">Up to 90% lower for requests under 100k tokens, where 90% of Haiku 4.5 traffic sat.</div></div>
+        <div class="scard"><div class="big">72.4%</div><div class="lbl">OSWorld 2.1 &middot; computer use</div><div class="bench">Haiku 4.5: 15.7%</div><div class="ctx">GPT-6 Luna 48.9%; Sonnet 5.5 83.9% on the same offline subset.</div></div>
+        <div class="scard"><div class="big">1620</div><div class="lbl">GDPval-AA v2.1 &middot; knowledge work</div><div class="bench">Haiku 4.5: 735</div><div class="ctx">Artificial Analysis, 44 occupations. GPT-6 Luna 1437; Sonnet 5.5 1840.</div></div>
+        <div class="scard"><div class="big">57.4%</div><div class="lbl">Humanity's Last Exam &middot; with tools</div><div class="bench">Haiku 4.5: 18.7%</div><div class="ctx">Terminal-Bench 4.0 is 39.2% &mdash; still below Sonnet 5.5 (70.6%), so keep big models for complex coding.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-depth="tech">
+  <div class="wrap">
+    <div class="eyebrow">Pricing</div>
+    <h2>Priced for volume</h2>
+    <div class="figure">
+      <div class="cap">Figure 2 &middot; Per million tokens (Haiku 5.5 shown as &le;100k / &gt;100k)</div>
+      <div class="pricerow"><span class="tier">Input</span><span class="cut">from $0.10</span><span class="det">Haiku 5.5 $0.10 / $0.50 &middot; Haiku 4.5 $1.00 &middot; Sonnet 5.5 $2.00.</span></div>
+      <div class="pricerow"><span class="tier">Output</span><span class="cut">from $0.50</span><span class="det">Haiku 5.5 $0.50 / $2.50 &middot; Haiku 4.5 $5.00 &middot; Sonnet 5.5 $10.00.</span></div>
+      <div class="pricerow"><span class="tier">Cache reads</span><span class="cut">from $0.01</span><span class="det">Haiku 5.5 $0.01 / $0.05 &middot; Haiku 4.5 $0.10 &middot; Sonnet 5.5 $0.10 (also cut 50% this release).</span></div>
+    </div>
+    <p class="body">It's especially good value for prompts up to 100,000 tokens. An updated tokenizer (shared with Sonnet 5.5 and Opus 5.5) uses slightly more tokens per task, so re-check real costs on your own prompts rather than assuming a flat multiple.</p>
+  </div>
+</section>
+
+<section style="border-bottom:none;" data-depth="manager">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>Start building</h2>
+        <p>Haiku 5.5 is available now on the Claude API, AWS, Google Cloud, and Azure &mdash; model id <span style="font-family:var(--mono);">claude-haiku-5-5</span>. Max and Team subscribers also get monthly API credits usable on any model.</p>
+      </div>
+      <a class="btn" href="https://www.anthropic.com/claude-haiku-5-5">Read the post &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<nav id="aibe-nav" style="max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #DED6C7;flex-wrap:wrap;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="../index.html" style="font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;">&larr; All explainers</a>
+  <div style="display:flex;gap:10px;">
+    <a id="aibe-prev" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">&lsaquo; Prev</a>
+    <a id="aibe-next" href="#" style="display:none;font-size:13px;font-weight:700;color:#A8543C;text-decoration:none;border:1px solid #DED6C7;border-radius:100px;padding:8px 15px;">Next &rsaquo;</a>
+  </div>
+</nav>
+<script>
+(function(){
+  fetch("../feed.xml").then(function(r){return r.text();}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,"application/xml");
+    var items=[].slice.call(doc.querySelectorAll("item")).map(function(it){var l=it.querySelector("link");return l?l.textContent.trim():"";}).filter(Boolean);
+    var mine=location.href.split("#")[0].split("?")[0].split("/").pop();
+    var i=-1; for(var k=0;k<items.length;k++){ if(items[k].split("/").pop()===mine){ i=k; break; } }
+    if(i<0) return;
+    var newer=items[i-1], older=items[i+1];
+    var pe=document.getElementById("aibe-prev"), ne=document.getElementById("aibe-next");
+    if(newer){ pe.href=newer; pe.style.display=""; }
+    if(older){ ne.href=older; ne.style.display=""; }
+  }).catch(function(){});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <p>Explainer artifact generated from the Anthropic blog &middot; AI Blog Explainers house style.</p>
+    <p class="src">Source: <a href="https://www.anthropic.com/claude-haiku-5-5">Introducing Claude Haiku 5.5</a> &mdash; anthropic.com, October 7, 2026.</p>
+  </div>
+</footer>
+
+<div id="aibe-share" style="position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:9999;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <a href="https://www.anthropic.com/claude-haiku-5-5" target="_blank" rel="noopener" title="Read the original article"
+     style="background:#7A3B29;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);text-align:center;">Read original &#8599;</a>
+  <button onclick="aibeCopy()" title="Copy link"
+     style="background:#CC785C;color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:700;padding:9px 13px;border-radius:100px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">Copy link</button>
+  <div style="display:flex;gap:8px;">
+    <a id="aibe-li" target="_blank" rel="noopener" title="Share on LinkedIn"
+       style="flex:1;background:#0A66C2;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">in</a>
+    <a id="aibe-x" target="_blank" rel="noopener" title="Share on X"
+       style="flex:1;background:#1F1B18;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:9px 0;border-radius:100px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);">X</a>
+  </div>
+</div>
+<script>
+(function(){
+  var u=encodeURIComponent(location.href), t=encodeURIComponent(document.title.replace(" — Explainer",""));
+  document.getElementById("aibe-li").href="https://www.linkedin.com/sharing/share-offsite/?url="+u;
+  document.getElementById("aibe-x").href="https://twitter.com/intent/tweet?url="+u+"&text="+t;
+})();
+function aibeCopy(){
+  navigator.clipboard.writeText(location.href).then(function(){
+    var b=event.target; var o=b.textContent; b.textContent="Copied!"; setTimeout(function(){b.textContent=o;},1400);
+  });
+}
+</script>
+<script>
+(function(){
+  var ORDER={tldr:0,manager:1,tech:2};
+  var HINT={
+    tldr:"Just the five-line summary + the takeaway.",
+    manager:"Summary, why it matters, and what to do — no deep internals.",
+    tech:"Everything, including the full mechanism and playbook."
+  };
+  var btns=[].slice.call(document.querySelectorAll('#aibe-depth button'));
+  var hintEl=document.getElementById('aibe-depthhint');
+  function apply(lvl){
+    var max=ORDER[lvl]; if(max===undefined){lvl='manager';max=1;}
+    document.querySelectorAll('section[data-depth]').forEach(function(sec){
+      var t=ORDER[sec.getAttribute('data-depth')];
+      sec.style.display=(t<=max)?'':'none';
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lvl')===lvl);});
+    if(hintEl) hintEl.textContent=HINT[lvl]||'';
+    try{localStorage.setItem('aibe-depth',lvl);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lvl'));});});
+  var saved='manager';
+  try{var v=localStorage.getItem('aibe-depth'); if(v&&ORDER[v]!==undefined)saved=v;}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>
