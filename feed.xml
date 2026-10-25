@@ -5,7 +5,55 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Oct 2026 11:38:44 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2026 10:42:47 +0000</lastBuildDate>
+        <item>
+      <title>Claude Duet: Safety, Privacy &amp; Security</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-duet-safety-privacy-and-security.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-duet-safety-privacy-and-security.html</guid>
+      <category>Claude</category>
+      <pubDate>Fri, 23 Oct 2026 18:00:00 +0000</pubDate>
+      <description>How Anthropic keeps its always-on Duet agent safe: approvals that run outside the model on every sensitive send, payment, or deletion; a separate classifier that strips sensitive info from outgoing messages; and credential isolation where passwords, tokens, and cookies never reach the model. Research preview by waitlist for US Pro and Max.</description>
+    </item>
+        <item>
+      <title>Claude Cowork and Chat, Unified for Enterprise</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/unified-claude-enterprise.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/unified-claude-enterprise.html</guid>
+      <category>Claude</category>
+      <pubDate>Fri, 23 Oct 2026 17:30:00 +0000</pubDate>
+      <description>Chat and Cowork are now one unified Claude for Enterprise plans. No mode to pick: a conversation starts as chat and continues in the cloud when a task needs code or files, resuming on any device. Builds on SSO and the Compliance API, with isolated cloud VMs and four new cost controls - Efficient mode, model entitlements, spend limits, and pooled budgets.</description>
+    </item>
+        <item>
+      <title>Why Context, Not the Model, Decides Enterprise AI</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/context-layer-enterprise-ai.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/context-layer-enterprise-ai.html</guid>
+      <category>Box</category>
+      <pubDate>Fri, 23 Oct 2026 17:00:00 +0000</pubDate>
+      <description>Box argues the bottleneck in enterprise AI is context, not model quality - and that more context isn't automatically better. It separates context infrastructure, engineering, and architecture, contrasts benchmarks with audits, and lays out a nine-level maturity model mapping use cases to the structure (and Box products) each one needs.</description>
+    </item>
+        <item>
+      <title>How Cimcorp Built a Global Content Foundation on Box</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/logistics-company-cimcorp-created-content-foundation-scale-automation-customers-around-world.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/logistics-company-cimcorp-created-content-foundation-scale-automation-customers-around-world.html</guid>
+      <category>Box</category>
+      <pubDate>Fri, 23 Oct 2026 16:30:00 +0000</pubDate>
+      <description>Logistics-automation leader Cimcorp replaced fragmented, VPN-bound legacy storage with Box as a single governed content foundation across eight countries and nearly 600 staff - then layered Box AI on top for classification on upload, supplier-package checks, and contract review, with controls that keep it compliant across ISO 27001, GDPR, and NIS2.</description>
+    </item>
+        <item>
+      <title>The Full Claude Platform, Now on Google Cloud</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-models-on-google-cloud-anthropic-managed.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-models-on-google-cloud-anthropic-managed.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 22 Oct 2026 18:00:00 +0000</pubDate>
+      <description>The full Claude Platform is now generally available on Google Cloud (Anthropic managed): day-zero access to every feature and beta, authentication with existing Google Cloud IAM, a single invoice, and usage that draws down your Google Cloud commitment. Fable 5.1, Opus 5.5, Sonnet 5.5, and Haiku 5.5 at launch, plus Fast Mode on Opus 5.5.</description>
+    </item>
+        <item>
+      <title>Four New Box Agent Skills for Developers</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-box-explore-four-new-box-agent-skills-and-help-shape-whats-next.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-box-explore-four-new-box-agent-skills-and-help-shape-whats-next.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 22 Oct 2026 17:30:00 +0000</pubDate>
+      <description>Box introduces four new developer Agent Skills - Box CLI, Box MCP, Box SDK Development, and Box Integration Best Practices - that package production-ready workflow context for coding agents. Installing a skill grants no account access on its own; the skills install via npx and are meant to grow into a shared, open-source knowledge base.</description>
+    </item>
         <item>
       <title>Introducing Claude Duet</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-duet.html</link>
