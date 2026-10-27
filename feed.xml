@@ -5,7 +5,39 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Oct 2026 10:42:47 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2026 00:04:53 +0000</lastBuildDate>
+    <item>
+      <title>When to Fold Subagents Into the Main Loop</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-agents-when-to-fold-subagents-into-your-main-agent-loop.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-agents-when-to-fold-subagents-into-your-main-agent-loop.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 22 Oct 2026 23:00:00 +0000</pubDate>
+      <description>Anthropic's Applied AI team keeps finding a single agent with skills beats both a one-giant-prompt design and an orchestrator-with-subagents design on quality, cost, and latency. Keep subagents only for measurable context bloat, truly parallel work, or tool-selection conflicts; otherwise fold routers, planners, and domain agents back into one loop using progressive disclosure of skills and tools. Migrate by evidence - build a 10-example eval, fold in one subagent, keep it only if the folded version scores worse.</description>
+    </item>
+    <item>
+      <title>OpenAI's Decisions API, Explained</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/decisions-api.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/decisions-api.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Thu, 22 Oct 2026 22:45:00 +0000</pubDate>
+      <description>Now GA on GPT-6 Luna, the Decisions API focuses a frontier model on questions with bounded answers - predicate, choice, or score - so apps and agents decide in near real time, up to 10x faster than Luna via the Responses API. You pay only for input: $0.10 per million tokens, $0.01 cached, no output charges. Customers (Box, Datadog, Ramp, Sierra, Speak) report 3x-40x speedups and 30-90% lower cost at comparable accuracy, plus a GPT-Live voice integration.</description>
+    </item>
+    <item>
+      <title>Uber Rolls Out ChatGPT Work to 30,000</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/uber-chatgpt-work-rollout.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/uber-chatgpt-work-rollout.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Thu, 22 Oct 2026 22:30:00 +0000</pubDate>
+      <description>Uber is expanding ChatGPT Work from a 1,000-person pilot to more than 30,000 employees - its first company-wide deployment of an agentic platform for knowledge work. The agent runs inside ChatGPT Enterprise, connects to Google Drive, Gmail, Calendar, and Slack, and defaults to GPT-6.1 Sol, with operations, finance, marketing, and product targeted first. Uber pairs access with an internal skills library, approved integrations, and training; outcome metrics are promised later, not yet reported.</description>
+    </item>
+    <item>
+      <title>Box Agent Skills Come to AWS Kiro</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/aws-and-box-bring-box-agent-skills-kiro.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/aws-and-box-bring-box-agent-skills-kiro.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 22 Oct 2026 22:15:00 +0000</pubDate>
+      <description>Box Agent Skills - open-source instructions, workflows, and guardrails for common Box development tasks - now plug into AWS Kiro via Kiro Powers, so the coding agent follows Box APIs, auth patterns, and best practices when it detects a Box task. In Kiro CLI, the Box MCP server brings live, permission-aware content (requirements, architecture docs, standards) into the workflow without expanding anyone's access. The same skills already run in Claude, Cursor, and OpenAI Codex.</description>
+    </item>
         <item>
       <title>Claude Duet: Safety, Privacy &amp; Security</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-duet-safety-privacy-and-security.html</link>
