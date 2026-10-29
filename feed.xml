@@ -5,40 +5,72 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 Oct 2026 00:04:53 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 11:31:55 +0000</lastBuildDate>
     <item>
-      <title>When to Fold Subagents Into the Main Loop</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-agents-when-to-fold-subagents-into-your-main-agent-loop.html</link>
-      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-agents-when-to-fold-subagents-into-your-main-agent-loop.html</guid>
+      <title>Smart Reports, Surveys &amp; Pooled Budgets</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/smart-reports-surveys-pooled-budgets.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/smart-reports-surveys-pooled-budgets.html</guid>
       <category>Claude</category>
-      <pubDate>Thu, 22 Oct 2026 23:00:00 +0000</pubDate>
-      <description>Anthropic's Applied AI team keeps finding a single agent with skills beats both a one-giant-prompt design and an orchestrator-with-subagents design on quality, cost, and latency. Keep subagents only for measurable context bloat, truly parallel work, or tool-selection conflicts; otherwise fold routers, planners, and domain agents back into one loop using progressive disclosure of skills and tools. Migrate by evidence - build a 10-example eval, fold in one subagent, keep it only if the folded version scores worse.</description>
+      <pubDate>Wed, 28 Oct 2026 12:00:00 +0000</pubDate>
+      <description>Three Claude Enterprise features, now GA: smart reports that group a team's work into workstreams with spend, deliverables, and friction; in-app surveys that capture where value lands; and pooled group budgets that fund a team instead of a person. Framed for adoption and investment planning, explicitly not individual evaluation.</description>
     </item>
     <item>
-      <title>OpenAI's Decisions API, Explained</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/decisions-api.html</link>
-      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/decisions-api.html</guid>
-      <category>OpenAI</category>
-      <pubDate>Thu, 22 Oct 2026 22:45:00 +0000</pubDate>
-      <description>Now GA on GPT-6 Luna, the Decisions API focuses a frontier model on questions with bounded answers - predicate, choice, or score - so apps and agents decide in near real time, up to 10x faster than Luna via the Responses API. You pay only for input: $0.10 per million tokens, $0.01 cached, no output charges. Customers (Box, Datadog, Ramp, Sierra, Speak) report 3x-40x speedups and 30-90% lower cost at comparable accuracy, plus a GPT-Live voice integration.</description>
+      <title>IDC Brings Quanta Into Claude</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/idc-brings-quanta-into-claude-and-adopts-claude-across-the-company.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/idc-brings-quanta-into-claude-and-adopts-claude-across-the-company.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 28 Oct 2026 12:00:00 +0000</pubDate>
+      <description>IDC brought its Quanta market-intelligence platform into Claude as an MCP connector, so customers get analysis grounded in IDC forecasts with sources cited. Internally IDC rolled Claude out across engineering, product, sales, and marketing, reporting a data repo rebuilt in weeks not months and code review cut from five days to about 30 minutes.</description>
     </item>
     <item>
-      <title>Uber Rolls Out ChatGPT Work to 30,000</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/uber-chatgpt-work-rollout.html</link>
-      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/uber-chatgpt-work-rollout.html</guid>
-      <category>OpenAI</category>
-      <pubDate>Thu, 22 Oct 2026 22:30:00 +0000</pubDate>
-      <description>Uber is expanding ChatGPT Work from a 1,000-person pilot to more than 30,000 employees - its first company-wide deployment of an agentic platform for knowledge work. The agent runs inside ChatGPT Enterprise, connects to Google Drive, Gmail, Calendar, and Slack, and defaults to GPT-6.1 Sol, with operations, finance, marketing, and product targeted first. Uber pairs access with an internal skills library, approved integrations, and training; outcome metrics are promised later, not yet reported.</description>
+      <title>Artifacts for Legal Work</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-artifacts-for-legal-work.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-artifacts-for-legal-work.html</guid>
+      <category>Claude</category>
+      <pubDate>Wed, 28 Oct 2026 12:00:00 +0000</pubDate>
+      <description>Claude for Legal adds ready-to-use artifacts, interactive trackers and dashboards (cite check, jurisdiction matrix, matter board, playbook deviation, horizon scan, tabular review) that teams open with an example, then adapt with their own data and 60-plus connectors. Claude does the first pass; a lawyer applies judgment.</description>
     </item>
     <item>
-      <title>Box Agent Skills Come to AWS Kiro</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/aws-and-box-bring-box-agent-skills-kiro.html</link>
-      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/aws-and-box-bring-box-agent-skills-kiro.html</guid>
+      <title>The CISO's Two Jobs in the Agentic Era</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-cisos-evolving-role-protecting-and-defending-in-the-agentic-era.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-cisos-evolving-role-protecting-and-defending-in-the-agentic-era.html</guid>
+      <category>Microsoft Security</category>
+      <pubDate>Wed, 28 Oct 2026 12:00:00 +0000</pubDate>
+      <description>Microsoft argues the CISO now has two jobs as agents spread 15x year over year (18x in large enterprises): put guardrails and governed identities around the agents employees are building, and defend differently against attackers moving at AI speed. The playbook: observability, a governed identity and classified data per agent, and agents working alongside analysts.</description>
+    </item>
+    <item>
+      <title>Seven Workflow Patterns for Box + AI</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/workflow-patterns-box-and-ai.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/workflow-patterns-box-and-ai.html</guid>
       <category>Box</category>
-      <pubDate>Thu, 22 Oct 2026 22:15:00 +0000</pubDate>
-      <description>Box Agent Skills - open-source instructions, workflows, and guardrails for common Box development tasks - now plug into AWS Kiro via Kiro Powers, so the coding agent follows Box APIs, auth patterns, and best practices when it detects a Box task. In Kiro CLI, the Box MCP server brings live, permission-aware content (requirements, architecture docs, standards) into the workflow without expanding anyone's access. The same skills already run in Claude, Cursor, and OpenAI Codex.</description>
+      <pubDate>Wed, 28 Oct 2026 12:00:00 +0000</pubDate>
+      <description>Box maps seven reusable patterns for building AI workflows, multi-agent, multi-step, deep research, event-driven, scheduled agents, company brain, and sandboxed filesystem, with Box as the content layer and the patterns meant to combine. The guidance: start with the work, not the model, and pick one recurring task with clear inputs and a useful output.</description>
     </item>
-        <item>
+    <item>
+      <title>Cutting-Edge AI for Regulated Finance</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/google-workspace-brings-cutting-edge-ai-to-regulated-finance.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/google-workspace-brings-cutting-edge-ai-to-regulated-finance.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Tue, 27 Oct 2026 12:00:00 +0000</pubDate>
+      <description>Google pairs Gemini in Workspace with FINRA-compliant archiving, now live through Smarsh, Global Relay, and Mimecast across Chat, Gmail, Drive, Calendar, and Meet, so regulated finance can adopt AI without breaking supervision rules. Capture uses real-time SMTP journaling and direct exports to WORM storage, gated behind the Assured Controls add-on.</description>
+    </item>
+    <item>
+      <title>Box MCP: Connect, Govern, Work With AI</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/box-mcp-server-updates-bring-more-ways-connect-govern-and-work-ai.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/box-mcp-server-updates-bring-more-ways-connect-govern-and-work-ai.html</guid>
+      <category>Box</category>
+      <pubDate>Tue, 27 Oct 2026 12:00:00 +0000</pubDate>
+      <description>Box's MCP server updates add browser sign-in for AI clients like Cursor and Claude Code (no secrets), write-action guardrails via the Box Action Platform, per-tool access control with Disabled, Read, Read and Write, or Custom presets, verified-domain enforcement, and a new activity report, with every AI action running under the user's own identity and permissions.</description>
+    </item>
+    <item>
+      <title>GPT-6.1 Terra: Vision to Action</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-gpt-6-1-terra.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/introducing-gpt-6-1-terra.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Mon, 26 Oct 2026 12:00:00 +0000</pubDate>
+      <description>GPT-6.1 Terra pairs detailed visual reasoning with precise computer use at 50% lower API pricing than GPT-5.6 Terra, aimed at workday tasks like drafting, reading drawings, and filling forms. It scores 15 points higher on Agents' Last Exam at about a third of the cost, cuts low-effort errors from 53.6% to 16.7%, and more than doubles GPT-5.6 Terra on Terminal-Bench. Available in ChatGPT Work, Codex, and the API.</description>
+    </item>
+<item>
       <title>Claude Duet: Safety, Privacy &amp; Security</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-duet-safety-privacy-and-security.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-duet-safety-privacy-and-security.html</guid>
@@ -46,7 +78,7 @@
       <pubDate>Fri, 23 Oct 2026 18:00:00 +0000</pubDate>
       <description>How Anthropic keeps its always-on Duet agent safe: approvals that run outside the model on every sensitive send, payment, or deletion; a separate classifier that strips sensitive info from outgoing messages; and credential isolation where passwords, tokens, and cookies never reach the model. Research preview by waitlist for US Pro and Max.</description>
     </item>
-        <item>
+<item>
       <title>Claude Cowork and Chat, Unified for Enterprise</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/unified-claude-enterprise.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/unified-claude-enterprise.html</guid>
@@ -54,7 +86,7 @@
       <pubDate>Fri, 23 Oct 2026 17:30:00 +0000</pubDate>
       <description>Chat and Cowork are now one unified Claude for Enterprise plans. No mode to pick: a conversation starts as chat and continues in the cloud when a task needs code or files, resuming on any device. Builds on SSO and the Compliance API, with isolated cloud VMs and four new cost controls - Efficient mode, model entitlements, spend limits, and pooled budgets.</description>
     </item>
-        <item>
+<item>
       <title>Why Context, Not the Model, Decides Enterprise AI</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/context-layer-enterprise-ai.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/context-layer-enterprise-ai.html</guid>
@@ -62,7 +94,7 @@
       <pubDate>Fri, 23 Oct 2026 17:00:00 +0000</pubDate>
       <description>Box argues the bottleneck in enterprise AI is context, not model quality - and that more context isn't automatically better. It separates context infrastructure, engineering, and architecture, contrasts benchmarks with audits, and lays out a nine-level maturity model mapping use cases to the structure (and Box products) each one needs.</description>
     </item>
-        <item>
+<item>
       <title>How Cimcorp Built a Global Content Foundation on Box</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/logistics-company-cimcorp-created-content-foundation-scale-automation-customers-around-world.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/logistics-company-cimcorp-created-content-foundation-scale-automation-customers-around-world.html</guid>
@@ -70,7 +102,39 @@
       <pubDate>Fri, 23 Oct 2026 16:30:00 +0000</pubDate>
       <description>Logistics-automation leader Cimcorp replaced fragmented, VPN-bound legacy storage with Box as a single governed content foundation across eight countries and nearly 600 staff - then layered Box AI on top for classification on upload, supplier-package checks, and contract review, with controls that keep it compliant across ISO 27001, GDPR, and NIS2.</description>
     </item>
-        <item>
+<item>
+      <title>When to Fold Subagents Into the Main Loop</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-agents-when-to-fold-subagents-into-your-main-agent-loop.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-agents-when-to-fold-subagents-into-your-main-agent-loop.html</guid>
+      <category>Claude</category>
+      <pubDate>Thu, 22 Oct 2026 23:00:00 +0000</pubDate>
+      <description>Anthropic's Applied AI team keeps finding a single agent with skills beats both a one-giant-prompt design and an orchestrator-with-subagents design on quality, cost, and latency. Keep subagents only for measurable context bloat, truly parallel work, or tool-selection conflicts; otherwise fold routers, planners, and domain agents back into one loop using progressive disclosure of skills and tools. Migrate by evidence - build a 10-example eval, fold in one subagent, keep it only if the folded version scores worse.</description>
+    </item>
+<item>
+      <title>OpenAI's Decisions API, Explained</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/decisions-api.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/decisions-api.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Thu, 22 Oct 2026 22:45:00 +0000</pubDate>
+      <description>Now GA on GPT-6 Luna, the Decisions API focuses a frontier model on questions with bounded answers - predicate, choice, or score - so apps and agents decide in near real time, up to 10x faster than Luna via the Responses API. You pay only for input: $0.10 per million tokens, $0.01 cached, no output charges. Customers (Box, Datadog, Ramp, Sierra, Speak) report 3x-40x speedups and 30-90% lower cost at comparable accuracy, plus a GPT-Live voice integration.</description>
+    </item>
+<item>
+      <title>Uber Rolls Out ChatGPT Work to 30,000</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/uber-chatgpt-work-rollout.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/uber-chatgpt-work-rollout.html</guid>
+      <category>OpenAI</category>
+      <pubDate>Thu, 22 Oct 2026 22:30:00 +0000</pubDate>
+      <description>Uber is expanding ChatGPT Work from a 1,000-person pilot to more than 30,000 employees - its first company-wide deployment of an agentic platform for knowledge work. The agent runs inside ChatGPT Enterprise, connects to Google Drive, Gmail, Calendar, and Slack, and defaults to GPT-6.1 Sol, with operations, finance, marketing, and product targeted first. Uber pairs access with an internal skills library, approved integrations, and training; outcome metrics are promised later, not yet reported.</description>
+    </item>
+<item>
+      <title>Box Agent Skills Come to AWS Kiro</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/aws-and-box-bring-box-agent-skills-kiro.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/aws-and-box-bring-box-agent-skills-kiro.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 22 Oct 2026 22:15:00 +0000</pubDate>
+      <description>Box Agent Skills - open-source instructions, workflows, and guardrails for common Box development tasks - now plug into AWS Kiro via Kiro Powers, so the coding agent follows Box APIs, auth patterns, and best practices when it detects a Box task. In Kiro CLI, the Box MCP server brings live, permission-aware content (requirements, architecture docs, standards) into the workflow without expanding anyone's access. The same skills already run in Claude, Cursor, and OpenAI Codex.</description>
+    </item>
+<item>
       <title>The Full Claude Platform, Now on Google Cloud</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-models-on-google-cloud-anthropic-managed.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-models-on-google-cloud-anthropic-managed.html</guid>
@@ -78,7 +142,7 @@
       <pubDate>Thu, 22 Oct 2026 18:00:00 +0000</pubDate>
       <description>The full Claude Platform is now generally available on Google Cloud (Anthropic managed): day-zero access to every feature and beta, authentication with existing Google Cloud IAM, a single invoice, and usage that draws down your Google Cloud commitment. Fable 5.1, Opus 5.5, Sonnet 5.5, and Haiku 5.5 at launch, plus Fast Mode on Opus 5.5.</description>
     </item>
-        <item>
+<item>
       <title>Four New Box Agent Skills for Developers</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-box-explore-four-new-box-agent-skills-and-help-shape-whats-next.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-box-explore-four-new-box-agent-skills-and-help-shape-whats-next.html</guid>
@@ -86,7 +150,7 @@
       <pubDate>Thu, 22 Oct 2026 17:30:00 +0000</pubDate>
       <description>Box introduces four new developer Agent Skills - Box CLI, Box MCP, Box SDK Development, and Box Integration Best Practices - that package production-ready workflow context for coding agents. Installing a skill grants no account access on its own; the skills install via npx and are meant to grow into a shared, open-source knowledge base.</description>
     </item>
-        <item>
+<item>
       <title>Introducing Claude Duet</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-duet.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-duet.html</guid>
@@ -94,7 +158,7 @@
       <pubDate>Wed, 21 Oct 2026 15:00:00 +0000</pubDate>
       <description>A new app where Claude works as a proactive agent - it sends a morning brief across your connected apps, keeps working on tasks while you step away, and shows you exactly what it will do before it sends, pays, signs, or deletes. Built on Opus 5.5 and running on its own cloud VM with a browser. Research preview by waitlist for US Pro and Max; 6,000+ connectors.</description>
     </item>
-    <item>
+<item>
       <title>Claude Security Scans Continuously</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-security-now-scans-continuously-and-tracks-fixes.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-security-now-scans-continuously-and-tracks-fixes.html</guid>
@@ -102,7 +166,7 @@
       <pubDate>Wed, 21 Oct 2026 14:00:00 +0000</pubDate>
       <description>Claude Security moves from one-off scans to continuous monitoring: connect repos via the GitHub app or a token, get a deep baseline scan, then risk-based re-scans on every change. Findings mark themselves fixed when the fix lands and reopen if they return, each rated against an editable, code-derived threat model with an exploit path. New API and MCP connector; public beta for Claude Enterprise, with $25K/month in credits through Dec 31.</description>
     </item>
-    <item>
+<item>
       <title>AI Document Extraction, Explained</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ai-document-extraction.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ai-document-extraction.html</guid>
@@ -110,7 +174,7 @@
       <pubDate>Wed, 21 Oct 2026 13:00:00 +0000</pubDate>
       <description>Box's primer on how generative AI shifts document extraction from template-matching to semantic understanding, and how agentic extraction classifies, validates, and routes the data it pulls - turning unsearchable 'dark data' into structured records without added headcount. Includes the pipeline and a five-step buying checklist: define docs, prioritize APIs, test on real samples, check governance, run a PoC. Cited stats are third-party.</description>
     </item>
-    <item>
+<item>
       <title>When Agentic AI Runs the Attack</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise.html</guid>
@@ -119,6 +183,14 @@
       <description>Microsoft attributes a ConnectWise supply-chain compromise to China-aligned STORM-0940, which used the open-source agentic framework ARTEX to accelerate familiar tradecraft - password spray and OAuth app abuse - to machine speed: 2,250+ tenants at 2,900 sign-in attempts per minute, and privileged cloud access in under three hours in several cases. Defender guidance: preserve logs, inventory the four app IDs, review from Oct 15, and don't delete apps first.</description>
     </item>
     <item>
+      <title>Migrating to Google Workspace, De-Risked</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-to-migrate-to-google-workspace-in-less-time-and-at-no-cost-a-new-guide-for-cisos.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/how-to-migrate-to-google-workspace-in-less-time-and-at-no-cost-a-new-guide-for-cisos.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Wed, 21 Oct 2026 12:00:00 +0000</pubDate>
+      <description>A new Google whitepaper for CIOs and CISOs frames a Workspace migration as a phased, de-risked plan: three rollout phases with a 5 to 10 percent early-adopter wave, proactive data audits and identity routing, the Migration Planner for a high-confidence ETA, and a no-cost data import tool that processes entirely in memory.</description>
+    </item>
+<item>
       <title>OpenAI Models Come to Google Cloud</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/openai-models-google-cloud.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/openai-models-google-cloud.html</guid>
@@ -126,7 +198,7 @@
       <pubDate>Wed, 21 Oct 2026 11:00:00 +0000</pubDate>
       <description>OpenAI's frontier models and Codex agentic workflows are coming to Google Cloud's Model Garden, giving enterprises native access inside Google Cloud's governance and infrastructure. Buy through the Google Cloud Marketplace and draw down existing GCP spend commitments; models will also reach Google Antigravity and the Gemini Agent. GA in the coming weeks, and Microsoft remains OpenAI's primary cloud partner.</description>
     </item>
-    <item>
+<item>
       <title>Why the Insurance Workflow Is Still Stuck</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ai-pilot-worked-why-insurance-workflow-still-stuck.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/ai-pilot-worked-why-insurance-workflow-still-stuck.html</guid>
@@ -294,7 +366,7 @@
       <pubDate>Thu, 08 Oct 2026 15:00:00 +0000</pubDate>
       <description>Microsoft is inverting the CRM model — customer context and actions come to people inside Copilot and Teams instead of the other way around. Thirty pre-built Dynamics 365 skills across Sales, Service, and Customer Insights land in Copilot's Cowork, Autopilot, and Code experiences, powered by Dynamics 365 MCP servers. Autonomous agents run whole processes: a Service Agent handles cases end to end across Outlook, Teams, and Office, and a Sales Development Agent builds and qualifies pipeline from its own Exchange inbox (consuming Copilot credits from Nov 16). Dynamics 365 Activate maps a lower-risk path off legacy CRM, and everything is governed through Agent 365.</description>
     </item>
-    <item>
+<item>
       <title>Building Effective Agent Automations</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-effective-agent-automations.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/building-effective-agent-automations.html</guid>
@@ -326,7 +398,7 @@
       <pubDate>Wed, 07 Oct 2026 15:00:00 +0000</pubDate>
       <description>Microsoft’s FORGE Lab used AI agents for vulnerability research across Windows and open source, producing 140 Windows CVEs from May to September 2026 and 155 internally validated reports across 23 open-source projects. The takeaway in three lessons: optimize for reproducible findings rather than scan volume, spend reasoning where it removes a specific uncertainty, and fold validation and patching into the discovery loop. As AI finds bugs faster than teams can fix them, the bottleneck shifts from discovery to triage, validation and remediation.</description>
     </item>
-    <item>
+<item>
       <title>Introducing Claude Haiku 5.5</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-haiku-5-5.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/claude-haiku-5-5.html</guid>
@@ -911,14 +983,6 @@
       <description>Box's security team built an agentic, multi-model pen-testing engine that proves deep logic flaws its scanners can't catch — running on a laptop, gated by an enforced boundary and a deterministic oracle, with an open-weight model out-producing the top frontier reasoner about 7-to-1.</description>
     </item>
 <item>
-      <title>Valmark Turns Dark Data Into Advisor Agility</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/valmark-financial-group-turns-dark-data-advisor-agility-box-extract.html</link>
-      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/valmark-financial-group-turns-dark-data-advisor-agility-box-extract.html</guid>
-      <category>Box</category>
-      <pubDate>Thu, 27 Aug 2026 12:00:00 GMT</pubDate>
-      <description>A 60-year-old broker-dealer serving ~400 advisors made Box its governed system of record, then layered AI on top — going from ~4,000 to 240,000+ data points extracted a year and cutting up to 48 hours of manual rekeying per task.</description>
-    </item>
-<item>
       <title>What's New in Microsoft Security: August 2026</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/whats-new-in-microsoft-security-august-2026.html</link>
       <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/whats-new-in-microsoft-security-august-2026.html</guid>
@@ -981,22 +1045,6 @@
       <category>Box</category>
       <pubDate>Wed, 26 Aug 2026 13:00:00 +0000</pubDate>
       <description>Trademark Property replaced a 48-hour, $150-200-per-document offshore lease-abstraction process with Box Extract and Box Apps — now running in minutes at near-zero cost, with cross-portfolio clause search across 13 metadata templates and projected savings of $450K-800K.</description>
-    </item>
-<item>
-      <title>Invisible Guardrails: Securing Autonomous Agents</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/invisible-guardrails-infinite-velocity-how-modern-cisos-secure-autonomous-agents-without-slowing.html</link>
-      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/invisible-guardrails-infinite-velocity-how-modern-cisos-secure-autonomous-agents-without-slowing.html</guid>
-      <category>Box</category>
-      <pubDate>Wed, 26 Aug 2026 12:00:00 GMT</pubDate>
-      <description>Box's Manoj Asnani and Bain Capital CISO Mark Sutton argue blocking AI only creates shadow AI. Safe speed for autonomous agents comes from the content layer: classify crown jewels, make every agent inherit the user's permissions, and contain the blast radius against prompt injection.</description>
-    </item>
-<item>
-      <title>August Workspace Drops: Meet, Forms &amp; Skills</title>
-      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/august-2026-workspace-feature-drop.html</link>
-      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/august-2026-workspace-feature-drop.html</guid>
-      <category>Google Workspace</category>
-      <pubDate>Wed, 26 Aug 2026 12:00:00 GMT</pubDate>
-      <description>Google Workspace's August drop adds slide screenshots to Meet notes, auto-organizes every meeting artifact into one Drive folder, generates quizzes in Forms, and turns team rules into reusable Gemini skills — with new admin guardrails for no-code agents.</description>
     </item>
 <item>
       <title>Four Layers of Defense for Agent Flows</title>
@@ -1669,6 +1717,30 @@
       <category>Google Workspace</category>
       <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
       <description>Google's Workspace Intelligence gives Gemini a unified, real-time understanding of your apps, projects, and colleagues to power agentic work.</description>
+    </item>
+<item>
+      <title>Valmark Turns Dark Data Into Advisor Agility</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/valmark-financial-group-turns-dark-data-advisor-agility-box-extract.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/valmark-financial-group-turns-dark-data-advisor-agility-box-extract.html</guid>
+      <category>Box</category>
+      <pubDate>Thu, 27 Aug 2026 12:00:00 GMT</pubDate>
+      <description>A 60-year-old broker-dealer serving ~400 advisors made Box its governed system of record, then layered AI on top — going from ~4,000 to 240,000+ data points extracted a year and cutting up to 48 hours of manual rekeying per task.</description>
+    </item>
+<item>
+      <title>Invisible Guardrails: Securing Autonomous Agents</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/invisible-guardrails-infinite-velocity-how-modern-cisos-secure-autonomous-agents-without-slowing.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/invisible-guardrails-infinite-velocity-how-modern-cisos-secure-autonomous-agents-without-slowing.html</guid>
+      <category>Box</category>
+      <pubDate>Wed, 26 Aug 2026 12:00:00 GMT</pubDate>
+      <description>Box's Manoj Asnani and Bain Capital CISO Mark Sutton argue blocking AI only creates shadow AI. Safe speed for autonomous agents comes from the content layer: classify crown jewels, make every agent inherit the user's permissions, and contain the blast radius against prompt injection.</description>
+    </item>
+<item>
+      <title>August Workspace Drops: Meet, Forms &amp; Skills</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/august-2026-workspace-feature-drop.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/august-2026-workspace-feature-drop.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Wed, 26 Aug 2026 12:00:00 GMT</pubDate>
+      <description>Google Workspace's August drop adds slide screenshots to Meet notes, auto-organizes every meeting artifact into one Drive folder, generates quizzes in Forms, and turns team rules into reusable Gemini skills — with new admin guardrails for no-code agents.</description>
     </item>
   </channel>
 </rss>
