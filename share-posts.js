@@ -1,34 +1,252 @@
 window.__POSTS__ = [
-  {"slug": "smart-reports-surveys-pooled-budgets", "source": "Claude", "category": "Product", "date": "2026-10-28", "hook": "See The Work", "body": "Three Claude Enterprise features: smart reports on what each team does with Claude and what it costs, in-app surveys that capture value, and one shared budget per team."},
-  {"slug": "idc-brings-quanta-into-claude-and-adopts-claude-across-the-company", "source": "Claude", "category": "Case Study", "date": "2026-10-28", "hook": "Research Where You Work", "body": "IDC put its Quanta market-intelligence platform inside Claude as a connector, and rebuilt its own work on it: a data repo in weeks, code review in 30 minutes."},
-  {"slug": "introducing-artifacts-for-legal-work", "source": "Claude", "category": "Product", "date": "2026-10-28", "hook": "Artifacts, Not Prompts", "body": "Claude for Legal ships ready-to-use trackers and dashboards. Open one with an example, add your documents and connectors, and share it. Claude does the first pass; a lawyer decides."},
-  {"slug": "the-cisos-evolving-role-protecting-and-defending-in-the-agentic-era", "source": "Microsoft Security", "category": "AI Governance", "date": "2026-10-28", "hook": "The CISO's Two Jobs", "body": "Agents spread 15x in a year. Microsoft says the CISO must now put governed identities and guardrails around agents, and defend differently against AI-speed attackers."},
-  {"slug": "workflow-patterns-box-and-ai", "source": "Box", "category": "Enterprise AI", "date": "2026-10-28", "hook": "Start With The Work", "body": "Box names seven reusable AI workflow patterns, from multi-agent to event-driven to company brain, with Box as the content layer. Pick the task first, the model second."},
-  {"slug": "google-workspace-brings-cutting-edge-ai-to-regulated-finance", "source": "Google Workspace", "category": "Enterprise AI", "date": "2026-10-27", "hook": "Compliance Stops Stalling AI", "body": "Gemini in Workspace plus FINRA-compliant archiving through Smarsh, Global Relay, and Mimecast lets regulated finance adopt AI without breaking supervision rules."},
-  {"slug": "box-mcp-server-updates-bring-more-ways-connect-govern-and-work-ai", "source": "Box", "category": "AI Governance", "date": "2026-10-27", "hook": "Connect, Govern, Work", "body": "Box's MCP updates let AI tools sign in with a browser and act as the user, while admins set per-tool access, block risky writes, and audit every call."},
-  {"slug": "introducing-gpt-6-1-terra", "source": "OpenAI", "category": "Model Launch", "date": "2026-10-26", "hook": "Vision Meets Action", "body": "GPT-6.1 Terra pairs visual reasoning with precise computer use at half the API price, scoring 15 points higher on Agents' Last Exam at about a third of the cost."},
-  {"slug": "how-to-migrate-to-google-workspace-in-less-time-and-at-no-cost-a-new-guide-for-cisos", "source": "Google Workspace", "category": "Product", "date": "2026-10-21", "hook": "Migration, De-Risked", "body": "A new Google guide for IT leaders: a three-phase rollout, a 5 to 10 percent early-adopter wave, the Migration Planner, and a no-cost, in-memory data import tool."},
-  {"slug": "claude-duet-safety-privacy-and-security", "source": "Claude", "category": "AI Governance", "date": "2026-10-23", "hook": "Trust, Built Outside The Model", "body": "Claude Duet acts across your accounts, so its riskiest checks run outside the model: approvals on every recipient, a sensitive-info classifier, and credentials the agent never sees."},
-  {"slug": "unified-claude-enterprise", "source": "Claude", "category": "Product", "date": "2026-10-23", "hook": "One Claude, No Mode Switch", "body": "Chat and Cowork are now one experience for Claude Enterprise. Start with a question, hand over a whole project; work runs in the cloud and resumes on any device."},
-  {"slug": "context-layer-enterprise-ai", "source": "Box", "category": "Enterprise AI", "date": "2026-10-23", "hook": "Context, Not The Model", "body": "The bottleneck in enterprise AI is usually context, not model quality. A system can ace benchmarks and still fail an audit, so match structure to the task risk."},
-  {"slug": "logistics-company-cimcorp-created-content-foundation-scale-automation-customers-around-world", "source": "Box", "category": "Case Study", "date": "2026-10-23", "hook": "AI Where The Work Is", "body": "Logistics-automation leader Cimcorp replaced VPN-bound legacy storage with one governed Box foundation across eight countries, then ran Box AI inside it for classification and contract review."},
-  {"slug": "building-agents-when-to-fold-subagents-into-your-main-agent-loop", "source": "Claude", "category": "Agents", "date": "2026-10-22", "hook": "One Loop Beats Many", "body": "Across enterprise deployments, a single agent with skills keeps beating orchestrator-and-subagent designs on quality, cost, and latency. Keep subagents for three real cases; fold the rest back in by evidence."},
-  {"slug": "decisions-api", "source": "OpenAI", "category": "Product", "date": "2026-10-22", "hook": "Decisions On The Hot Path", "body": "OpenAI's Decisions API focuses GPT-6 Luna on bounded answers (predicate, choice, score) up to 10x faster than Luna. Customers report 3x to 40x speedups at $0.10 per million input tokens."},
-  {"slug": "uber-chatgpt-work-rollout", "source": "OpenAI", "category": "Case Study", "date": "2026-10-22", "hook": "30,000 Get An Agent", "body": "Uber is rolling ChatGPT Work out company-wide, from a 1,000-person pilot to 30,000+ employees. Its first agentic platform for knowledge work, with GPT-6.1 Sol as the default."},
-  {"slug": "aws-and-box-bring-box-agent-skills-kiro", "source": "Box", "category": "Agents", "date": "2026-10-22", "hook": "Box Expertise, Portable", "body": "Box Agent Skills (open-source instructions and guardrails for Box development) now plug into AWS Kiro. The Box MCP server adds live, permission-aware content without widening anyone's access."},
-  {"slug": "claude-models-on-google-cloud-anthropic-managed", "source": "Claude", "category": "Product", "date": "2026-10-22", "hook": "Full Claude, On Google Cloud", "body": "The complete Claude Platform is now GA on Google Cloud: day-zero features, your existing IAM login, a single invoice, and usage that draws down your Google Cloud commitment."},
-  {"slug": "building-box-explore-four-new-box-agent-skills-and-help-shape-whats-next", "source": "Box", "category": "Agents", "date": "2026-10-22", "hook": "Context Your Agent Can Use", "body": "Four new Box Agent Skills (CLI, MCP, SDK development, and integration best practices) give coding agents production-ready workflow context. Installing one grants no account access on its own."},
-  {"slug": "claude-duet", "source": "Claude", "category": "Product", "date": "2026-10-21", "hook": "Claude, working ahead", "body": "Claude Duet is a new app where Claude acts as a proactive agent - it briefs you each morning, works while you step away, and checks with you before it sends, pays, or signs."},
-  {"slug": "claude-security-now-scans-continuously-and-tracks-fixes", "source": "Claude", "category": "AI Governance", "date": "2026-10-21", "hook": "Security that never sleeps", "body": "Claude Security now scans your repos continuously as code changes, marks each finding fixed when the fix lands, reopens it if it returns, and plugs into your tools via API and MCP."},
-  {"slug": "ai-document-extraction", "source": "Box", "category": "Enterprise AI", "date": "2026-10-21", "hook": "From dark data to action", "body": "Generative AI moves document extraction from template-matching to meaning, and agentic extraction validates and routes what it pulls. Box's guide to the pipeline and how to choose a platform."},
-  {"slug": "storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise", "source": "Microsoft Security", "category": "AI Governance", "date": "2026-10-21", "hook": "Attacks at machine speed", "body": "Microsoft says a nation-state actor used the open-source agentic framework ARTEX to reach privileged cloud access in under three hours - the same tradecraft, accelerated across thousands of tenants."},
-  {"slug": "openai-models-google-cloud", "source": "OpenAI", "category": "Product", "date": "2026-10-21", "hook": "Models, where you build", "body": "OpenAI's frontier models and Codex are coming to Google Cloud's Model Garden - native access inside your governed environment, billed through the Marketplace against existing GCP commitments."},
-  {"slug": "ai-pilot-worked-why-insurance-workflow-still-stuck", "source": "Box", "category": "Enterprise AI", "date": "2026-10-20", "hook": "The pilot isn't the point", "body": "AI that reads insurance documents well still stalls if manual handoffs remain. Start with the workflow, not the model, and judge production by whether a manual step actually disappears."},
-  {"slug": "building-effective-agent-automations", "source": "Claude", "category": "Agents", "date": "2026-10-08", "hook": "Agents you can trust", "body": "A reference build for scheduled background agents: read from a bookmark, treat a failed source as unreadable not quiet, confirm before you record, and cap what each run can spend."},
-  {"slug": "claude-haiku-5-5", "source": "Anthropic", "category": "Model Launch", "date": "2026-10-07", "hook": "Small, fast, cheap", "body": "Claude Haiku 5.5 runs about 75% cheaper than 4.5, with a first-ever effort dial - built for summaries, classification, and subagents, plus a big jump on computer-use benchmarks."},
-  {"slug": "code-review-is-now-generally-available", "source": "Claude", "category": "Claude Code", "date": "2026-10-15", "hook": "Code Review goes GA", "body": "Claude Code's AI reviewer is out of preview for Team and Enterprise — about 3× faster (6–10 min per PR), tunable Quick/Standard/Deep per repo, and automatic on new pull requests."},
-  {"slug": "agent-observability-on-the-claude-platform", "source": "Claude", "category": "AI Governance", "date": "2026-10-14", "hook": "Trace before you trust", "body": "Claude Managed Agents, the Messages API, and the SDKs now emit OpenTelemetry traces — so every model call and tool use lands in Datadog, Grafana, Langfuse, and the tools you already run."},
-  {"slug": "uber-s-ciso-on-building-an-insider-threat-program-for-ai", "source": "Claude", "category": "AI Governance", "date": "2026-10-13", "hook": "Agents are insiders too", "body": "Uber's CISO says frontier models need the same monitoring you run for employees: real-time detection at the prompt, layered with open-source ADR and Anthropic's Enterprise Frontier Safeguards — and your data stays yours."},
+  {
+    "slug": "microsoft-copilot-for-finance-purpose-built-for-the-way-finance-teams-work",
+    "source": "Microsoft 365",
+    "category": "Product",
+    "date": "2026-10-29",
+    "hook": "Beyond the spreadsheet.",
+    "body": "Microsoft moves finance AI past Excel: 25+ skills across accounting, capital markets, and corporate finance in Copilot and Cowork, with audit trails and human approval on every change."
+  },
+  {
+    "slug": "october-workspace-drops-edit-markdown-talk-to-gmail-and-docs-translate-meetings-and-more",
+    "source": "Google Workspace",
+    "category": "Product",
+    "date": "2026-10-29",
+    "hook": "Talk, translate, markdown.",
+    "body": "Google Workspace's October drop: native Markdown in Docs and Drive, conversational voice in Gmail and Docs, and live Meet translation across 63 languages."
+  },
+  {
+    "slug": "openai-servicenow-partnership-expansion",
+    "source": "OpenAI",
+    "category": "Agents",
+    "date": "2026-10-28",
+    "hook": "Tickets meet ChatGPT.",
+    "body": "ServiceNow brings records and actions into ChatGPT, scoped by your existing permissions. OpenAI models also move into dev, security, and voice workflows, phased through 2027."
+  },
+  {
+    "slug": "smart-reports-surveys-pooled-budgets",
+    "source": "Claude",
+    "category": "Product",
+    "date": "2026-10-28",
+    "hook": "See The Work",
+    "body": "Three Claude Enterprise features: smart reports on what each team does with Claude and what it costs, in-app surveys that capture value, and one shared budget per team."
+  },
+  {
+    "slug": "idc-brings-quanta-into-claude-and-adopts-claude-across-the-company",
+    "source": "Claude",
+    "category": "Case Study",
+    "date": "2026-10-28",
+    "hook": "Research Where You Work",
+    "body": "IDC put its Quanta market-intelligence platform inside Claude as a connector, and rebuilt its own work on it: a data repo in weeks, code review in 30 minutes."
+  },
+  {
+    "slug": "introducing-artifacts-for-legal-work",
+    "source": "Claude",
+    "category": "Product",
+    "date": "2026-10-28",
+    "hook": "Artifacts, Not Prompts",
+    "body": "Claude for Legal ships ready-to-use trackers and dashboards. Open one with an example, add your documents and connectors, and share it. Claude does the first pass; a lawyer decides."
+  },
+  {
+    "slug": "the-cisos-evolving-role-protecting-and-defending-in-the-agentic-era",
+    "source": "Microsoft Security",
+    "category": "AI Governance",
+    "date": "2026-10-28",
+    "hook": "The CISO's Two Jobs",
+    "body": "Agents spread 15x in a year. Microsoft says the CISO must now put governed identities and guardrails around agents, and defend differently against AI-speed attackers."
+  },
+  {
+    "slug": "workflow-patterns-box-and-ai",
+    "source": "Box",
+    "category": "Enterprise AI",
+    "date": "2026-10-28",
+    "hook": "Start With The Work",
+    "body": "Box names seven reusable AI workflow patterns, from multi-agent to event-driven to company brain, with Box as the content layer. Pick the task first, the model second."
+  },
+  {
+    "slug": "how-to-manage-costs-and-demonstrate-roi-for-claude-code-on-google-cloud",
+    "source": "Claude",
+    "category": "Claude Code",
+    "date": "2026-10-27",
+    "hook": "Cost per task.",
+    "body": "Claude Code is consumption-priced, so agentic runs outspend chat. Anthropic's Google Cloud playbook: govern spend with guardrails, track it by user and model, and prove value in delivery metrics."
+  },
+  {
+    "slug": "claude-for-financial-advisors",
+    "source": "Claude",
+    "category": "Product",
+    "date": "2026-10-27",
+    "hook": "Prep, not meetings.",
+    "body": "Advisors spend only a sixth of their time with clients. Claude for Financial Advisors wires 22 custodial and wealth-tech connectors into eight skills, staging every client-facing action for approval."
+  },
+  {
+    "slug": "oracle-apps-in-chatgpt",
+    "source": "OpenAI",
+    "category": "Enterprise AI",
+    "date": "2026-10-27",
+    "hook": "Oracle, meet ChatGPT.",
+    "body": "Oracle is building an AI Workspace that pulls finance, procurement, and planning apps into ChatGPT. Oracle reports 130,000 ChatGPT users and 95,000+ on Codex internally."
+  },
+  {
+    "slug": "google-workspace-brings-cutting-edge-ai-to-regulated-finance",
+    "source": "Google Workspace",
+    "category": "Enterprise AI",
+    "date": "2026-10-27",
+    "hook": "Compliance Stops Stalling AI",
+    "body": "Gemini in Workspace plus FINRA-compliant archiving through Smarsh, Global Relay, and Mimecast lets regulated finance adopt AI without breaking supervision rules."
+  },
+  {
+    "slug": "box-mcp-server-updates-bring-more-ways-connect-govern-and-work-ai",
+    "source": "Box",
+    "category": "AI Governance",
+    "date": "2026-10-27",
+    "hook": "Connect, Govern, Work",
+    "body": "Box's MCP updates let AI tools sign in with a browser and act as the user, while admins set per-tool access, block risky writes, and audit every call."
+  },
+  {
+    "slug": "introducing-gpt-6-1-terra",
+    "source": "OpenAI",
+    "category": "Model Launch",
+    "date": "2026-10-26",
+    "hook": "Vision Meets Action",
+    "body": "GPT-6.1 Terra pairs visual reasoning with precise computer use at half the API price, scoring 15 points higher on Agents' Last Exam at about a third of the cost."
+  },
+  {
+    "slug": "claude-duet-safety-privacy-and-security",
+    "source": "Claude",
+    "category": "AI Governance",
+    "date": "2026-10-23",
+    "hook": "Trust, Built Outside The Model",
+    "body": "Claude Duet acts across your accounts, so its riskiest checks run outside the model: approvals on every recipient, a sensitive-info classifier, and credentials the agent never sees."
+  },
+  {
+    "slug": "unified-claude-enterprise",
+    "source": "Claude",
+    "category": "Product",
+    "date": "2026-10-23",
+    "hook": "One Claude, No Mode Switch",
+    "body": "Chat and Cowork are now one experience for Claude Enterprise. Start with a question, hand over a whole project; work runs in the cloud and resumes on any device."
+  },
+  {
+    "slug": "context-layer-enterprise-ai",
+    "source": "Box",
+    "category": "Enterprise AI",
+    "date": "2026-10-23",
+    "hook": "Context, Not The Model",
+    "body": "The bottleneck in enterprise AI is usually context, not model quality. A system can ace benchmarks and still fail an audit, so match structure to the task risk."
+  },
+  {
+    "slug": "logistics-company-cimcorp-created-content-foundation-scale-automation-customers-around-world",
+    "source": "Box",
+    "category": "Case Study",
+    "date": "2026-10-23",
+    "hook": "AI Where The Work Is",
+    "body": "Logistics-automation leader Cimcorp replaced VPN-bound legacy storage with one governed Box foundation across eight countries, then ran Box AI inside it for classification and contract review."
+  },
+  {
+    "slug": "building-agents-when-to-fold-subagents-into-your-main-agent-loop",
+    "source": "Claude",
+    "category": "Agents",
+    "date": "2026-10-22",
+    "hook": "One Loop Beats Many",
+    "body": "Across enterprise deployments, a single agent with skills keeps beating orchestrator-and-subagent designs on quality, cost, and latency. Keep subagents for three real cases; fold the rest back in by evidence."
+  },
+  {
+    "slug": "decisions-api",
+    "source": "OpenAI",
+    "category": "Product",
+    "date": "2026-10-22",
+    "hook": "Decisions On The Hot Path",
+    "body": "OpenAI's Decisions API focuses GPT-6 Luna on bounded answers (predicate, choice, score) up to 10x faster than Luna. Customers report 3x to 40x speedups at $0.10 per million input tokens."
+  },
+  {
+    "slug": "uber-chatgpt-work-rollout",
+    "source": "OpenAI",
+    "category": "Case Study",
+    "date": "2026-10-22",
+    "hook": "30,000 Get An Agent",
+    "body": "Uber is rolling ChatGPT Work out company-wide, from a 1,000-person pilot to 30,000+ employees. Its first agentic platform for knowledge work, with GPT-6.1 Sol as the default."
+  },
+  {
+    "slug": "aws-and-box-bring-box-agent-skills-kiro",
+    "source": "Box",
+    "category": "Agents",
+    "date": "2026-10-22",
+    "hook": "Box Expertise, Portable",
+    "body": "Box Agent Skills (open-source instructions and guardrails for Box development) now plug into AWS Kiro. The Box MCP server adds live, permission-aware content without widening anyone's access."
+  },
+  {
+    "slug": "claude-models-on-google-cloud-anthropic-managed",
+    "source": "Claude",
+    "category": "Product",
+    "date": "2026-10-22",
+    "hook": "Full Claude, On Google Cloud",
+    "body": "The complete Claude Platform is now GA on Google Cloud: day-zero features, your existing IAM login, a single invoice, and usage that draws down your Google Cloud commitment."
+  },
+  {
+    "slug": "building-box-explore-four-new-box-agent-skills-and-help-shape-whats-next",
+    "source": "Box",
+    "category": "Agents",
+    "date": "2026-10-22",
+    "hook": "Context Your Agent Can Use",
+    "body": "Four new Box Agent Skills (CLI, MCP, SDK development, and integration best practices) give coding agents production-ready workflow context. Installing one grants no account access on its own."
+  },
+  {
+    "slug": "how-to-migrate-to-google-workspace-in-less-time-and-at-no-cost-a-new-guide-for-cisos",
+    "source": "Google Workspace",
+    "category": "Product",
+    "date": "2026-10-21",
+    "hook": "Migration, De-Risked",
+    "body": "A new Google guide for IT leaders: a three-phase rollout, a 5 to 10 percent early-adopter wave, the Migration Planner, and a no-cost, in-memory data import tool."
+  },
+  {
+    "slug": "claude-duet",
+    "source": "Claude",
+    "category": "Product",
+    "date": "2026-10-21",
+    "hook": "Claude, working ahead",
+    "body": "Claude Duet is a new app where Claude acts as a proactive agent - it briefs you each morning, works while you step away, and checks with you before it sends, pays, or signs."
+  },
+  {
+    "slug": "claude-security-now-scans-continuously-and-tracks-fixes",
+    "source": "Claude",
+    "category": "AI Governance",
+    "date": "2026-10-21",
+    "hook": "Security that never sleeps",
+    "body": "Claude Security now scans your repos continuously as code changes, marks each finding fixed when the fix lands, reopens it if it returns, and plugs into your tools via API and MCP."
+  },
+  {
+    "slug": "ai-document-extraction",
+    "source": "Box",
+    "category": "Enterprise AI",
+    "date": "2026-10-21",
+    "hook": "From dark data to action",
+    "body": "Generative AI moves document extraction from template-matching to meaning, and agentic extraction validates and routes what it pulls. Box's guide to the pipeline and how to choose a platform."
+  },
+  {
+    "slug": "storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise",
+    "source": "Microsoft Security",
+    "category": "AI Governance",
+    "date": "2026-10-21",
+    "hook": "Attacks at machine speed",
+    "body": "Microsoft says a nation-state actor used the open-source agentic framework ARTEX to reach privileged cloud access in under three hours - the same tradecraft, accelerated across thousands of tenants."
+  },
+  {
+    "slug": "openai-models-google-cloud",
+    "source": "OpenAI",
+    "category": "Product",
+    "date": "2026-10-21",
+    "hook": "Models, where you build",
+    "body": "OpenAI's frontier models and Codex are coming to Google Cloud's Model Garden - native access inside your governed environment, billed through the Marketplace against existing GCP commitments."
+  },
+  {
+    "slug": "ai-pilot-worked-why-insurance-workflow-still-stuck",
+    "source": "Box",
+    "category": "Enterprise AI",
+    "date": "2026-10-20",
+    "hook": "The pilot isn't the point",
+    "body": "AI that reads insurance documents well still stalls if manual handoffs remain. Start with the workflow, not the model, and judge production by whether a manual step actually disappears."
+  },
   {
     "slug": "agents-are-your-newest-insiders-security-must-move-at-their-speed",
     "source": "Microsoft Security",
@@ -54,52 +272,12 @@ window.__POSTS__ = [
     "body": "An Anthropic BDR in Japan built a fleet of six Claude agents that route leads, draft bilingual replies, and update Salesforce before his day starts. He reviews and sends — about 60 hours saved."
   },
   {
-    "slug": "solving-code-review-at-anthropic",
-    "source": "Claude",
-    "category": "Claude Code",
-    "date": "2026-10-15",
-    "hook": "Who reviews the robots?",
-    "body": "Claude writes ~90% of Claude Code. The team moved most of the reading to machines and scaled human sign-off by risk — merged PRs doubled while reverts fell over 40%."
-  },
-  {
-    "slug": "redesigning-source-control",
-    "source": "Claude",
-    "category": "Agents",
-    "date": "2026-10-13",
-    "hook": "Git couldn't keep up",
-    "body": "Agents now merge 30,000+ changes a day at Anthropic. Git buckled — so a seven-person team built Scion, a server-centric version control system, and migrated the monorepo in five months."
-  },
-  {
-    "slug": "tissium-supports-compliant-life-science-innovation-box-content-layer",
-    "source": "Box",
-    "category": "Case Study",
-    "date": "2026-10-15",
-    "hook": "15 minutes to 2",
-    "body": "Tissium put Box under its research, ops, and AI as one governed content layer — cutting batch-record time from 15 minutes to 2, with GxP, GDPR and 21 CFR Part 11 intact."
-  },
-  {
-    "slug": "flying-whales-elevates-aerospace-innovation-content-and-ai",
-    "source": "Box",
-    "category": "Case Study",
-    "date": "2026-10-14",
-    "hook": "Four tools, one truth",
-    "body": "FLYING WHALES pulled 60 TB of aerospace content out of four systems into one governed platform — then let Box AI search it without data ever leaving the security boundary."
-  },
-  {
     "slug": "choctaw-nation-protects-and-empowers-its-people-automated-cloud-first-workflows",
     "source": "Box",
     "category": "Case Study",
     "date": "2026-10-16",
     "hook": "Security First, Then AI",
     "body": "The third-largest Indian Nation rebuilt its most sensitive services on Box — secure forms and no-code automation saving 360+ hours a year — then layered Box AI on the clean, governed foundation."
-  },
-  {
-    "slug": "green-dashboards-real-exposure-kri-framework-you-can-build",
-    "source": "Box",
-    "category": "AI Governance",
-    "date": "2026-10-09",
-    "hook": "Green Isn't Safe",
-    "body": "Box CISO Heather Ceylan's fix for all-green security decks: report KRIs that measure how exposed you are — not KPIs that measure how busy the team is — scored so a red can't average away."
   },
   {
     "slug": "managing-open-weight-model-risk-in-enterprise-deployments",
@@ -118,6 +296,54 @@ window.__POSTS__ = [
     "body": "Most employees still can't find the file they need. Box's guide to AI enterprise search: intent plus permission-aware retrieval, grounded cited answers, and the five capabilities to demand before you buy."
   },
   {
+    "slug": "introducing-microsoft-copilot-for-legal",
+    "source": "Microsoft 365",
+    "category": "Product",
+    "date": "2026-10-15",
+    "hook": "Redlines you approve.",
+    "body": "20+ legal skills bring drafting, playbook review, and obligation tracking into Word and Cowork. Copilot proposes tracked changes; the lawyer still approves every edit."
+  },
+  {
+    "slug": "code-review-is-now-generally-available",
+    "source": "Claude",
+    "category": "Claude Code",
+    "date": "2026-10-15",
+    "hook": "Code Review goes GA",
+    "body": "Claude Code's AI reviewer is out of preview for Team and Enterprise — about 3× faster (6–10 min per PR), tunable Quick/Standard/Deep per repo, and automatic on new pull requests."
+  },
+  {
+    "slug": "solving-code-review-at-anthropic",
+    "source": "Claude",
+    "category": "Claude Code",
+    "date": "2026-10-15",
+    "hook": "Who reviews the robots?",
+    "body": "Claude writes ~90% of Claude Code. The team moved most of the reading to machines and scaled human sign-off by risk — merged PRs doubled while reverts fell over 40%."
+  },
+  {
+    "slug": "tissium-supports-compliant-life-science-innovation-box-content-layer",
+    "source": "Box",
+    "category": "Case Study",
+    "date": "2026-10-15",
+    "hook": "15 minutes to 2",
+    "body": "Tissium put Box under its research, ops, and AI as one governed content layer — cutting batch-record time from 15 minutes to 2, with GxP, GDPR and 21 CFR Part 11 intact."
+  },
+  {
+    "slug": "agent-observability-on-the-claude-platform",
+    "source": "Claude",
+    "category": "AI Governance",
+    "date": "2026-10-14",
+    "hook": "Trace before you trust",
+    "body": "Claude Managed Agents, the Messages API, and the SDKs now emit OpenTelemetry traces — so every model call and tool use lands in Datadog, Grafana, Langfuse, and the tools you already run."
+  },
+  {
+    "slug": "flying-whales-elevates-aerospace-innovation-content-and-ai",
+    "source": "Box",
+    "category": "Case Study",
+    "date": "2026-10-14",
+    "hook": "Four tools, one truth",
+    "body": "FLYING WHALES pulled 60 TB of aerospace content out of four systems into one governed platform — then let Box AI search it without data ever leaving the security boundary."
+  },
+  {
     "slug": "governing-third-party-ai-agents",
     "source": "Box",
     "category": "AI Governance",
@@ -132,6 +358,22 @@ window.__POSTS__ = [
     "date": "2026-10-14",
     "hook": "Start With The Content",
     "body": "96% of organizations say agents need company content, but 49% have already had an AI data-exposure incident. Box's fix: govern and curate unstructured data before it reaches the model."
+  },
+  {
+    "slug": "uber-s-ciso-on-building-an-insider-threat-program-for-ai",
+    "source": "Claude",
+    "category": "AI Governance",
+    "date": "2026-10-13",
+    "hook": "Agents are insiders too",
+    "body": "Uber's CISO says frontier models need the same monitoring you run for employees: real-time detection at the prompt, layered with open-source ADR and Anthropic's Enterprise Frontier Safeguards — and your data stays yours."
+  },
+  {
+    "slug": "redesigning-source-control",
+    "source": "Claude",
+    "category": "Agents",
+    "date": "2026-10-13",
+    "hook": "Git couldn't keep up",
+    "body": "Agents now merge 30,000+ changes a day at Anthropic. Git buckled — so a seven-person team built Scion, a server-centric version control system, and migrated the monorepo in five months."
   },
   {
     "slug": "first-look-new-version-box-guidewire",
@@ -158,12 +400,36 @@ window.__POSTS__ = [
     "body": "Box tested Gemini 4 Argon on its Complex Work eval: 85% vs 71% for Gemini 3.1 Pro, with the biggest gains in data analysis and report drafting across regulated industries."
   },
   {
+    "slug": "green-dashboards-real-exposure-kri-framework-you-can-build",
+    "source": "Box",
+    "category": "AI Governance",
+    "date": "2026-10-09",
+    "hook": "Green Isn't Safe",
+    "body": "Box CISO Heather Ceylan's fix for all-green security decks: report KRIs that measure how exposed you are — not KPIs that measure how busy the team is — scored so a red can't average away."
+  },
+  {
+    "slug": "building-effective-agent-automations",
+    "source": "Claude",
+    "category": "Agents",
+    "date": "2026-10-08",
+    "hook": "Agents you can trust",
+    "body": "A reference build for scheduled background agents: read from a bookmark, treat a failed source as unreadable not quiet, confirm before you record, and cap what each run can spend."
+  },
+  {
     "slug": "bringing-crm-into-the-flow-of-work-and-agents-into-business-process-for-sales-and-service-teams",
     "source": "Microsoft 365",
     "category": "Agents",
     "date": "2026-10-08",
     "hook": "CRM Comes to You",
     "body": "Microsoft puts 30 Dynamics 365 skills inside Copilot and Teams and sets autonomous agents loose on sales and service — drafting case replies and building pipeline from their own inbox."
+  },
+  {
+    "slug": "claude-haiku-5-5",
+    "source": "Anthropic",
+    "category": "Model Launch",
+    "date": "2026-10-07",
+    "hook": "Small, fast, cheap",
+    "body": "Claude Haiku 5.5 runs about 75% cheaper than 4.5, with a first-ever effort dial - built for summaries, classification, and subagents, plus a big jump on computer-use benchmarks."
   },
   {
     "slug": "gpt-6-for-everyone",
