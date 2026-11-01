@@ -1,5 +1,13 @@
 window.__POSTS__ = [
   {
+    "slug": "tracking-ai-adoption-in-north-korean-threat-actor-tradecraft",
+    "source": "Microsoft Security",
+    "category": "AI Governance",
+    "date": "2026-10-29",
+    "hook": "Old playbook, new speed.",
+    "body": "Microsoft Threat Intelligence maps how state-backed actors fold AI into recruiting lures, fake hires, and code — faster and at scale, but still human-directed. Defense is mostly fundamentals."
+  },
+  {
     "slug": "microsoft-copilot-for-finance-purpose-built-for-the-way-finance-teams-work",
     "source": "Microsoft 365",
     "category": "Product",

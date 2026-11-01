@@ -5,7 +5,15 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 31 Oct 2026 09:01:31 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Nov 2026 05:38:00 +0000</lastBuildDate>
+    <item>
+      <title>When Attackers Adopt AI</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/tracking-ai-adoption-in-north-korean-threat-actor-tradecraft.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/tracking-ai-adoption-in-north-korean-threat-actor-tradecraft.html</guid>
+      <category>Microsoft Security</category>
+      <pubDate>Thu, 29 Oct 2026 16:00:00 +0000</pubDate>
+      <description>Microsoft Threat Intelligence maps how North Korean groups fold AI into their playbooks — faster recruiter lures and fake-hire personas, altered voice and video, and AI-assisted code — while operations stay human-directed, not autonomous. It rates actors on a four-stage adoption curve and argues the best defenses are fundamentals: identity verification in hiring, phishing protections, and endpoint block-mode with attack-surface-reduction rules.</description>
+    </item>
     <item>
       <title>Microsoft Copilot for Finance</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/microsoft-copilot-for-finance-purpose-built-for-the-way-finance-teams-work.html</link>
