@@ -1,5 +1,21 @@
 window.__POSTS__ = [
   {
+    "slug": "message-threads",
+    "source": "Claude",
+    "category": "Agents",
+    "date": "2026-11-02",
+    "hook": "Send once, not every turn.",
+    "body": "Long-running agents stop resending the whole conversation each turn. One Messages API parameter sends only what's new, cutting median time to first token about 35% on huge requests — with no change to token cost."
+  },
+  {
+    "slug": "inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor",
+    "source": "Microsoft Security",
+    "category": "AI Governance",
+    "date": "2026-10-30",
+    "hook": "A backdoor in your editor.",
+    "body": "A tampered Claude Code extension in the Cursor marketplace planted an SSH key, opened a reverse tunnel, and persisted across reboots. Treat your editor's extension marketplace as a supply chain."
+  },
+  {
     "slug": "tracking-ai-adoption-in-north-korean-threat-actor-tradecraft",
     "source": "Microsoft Security",
     "category": "AI Governance",

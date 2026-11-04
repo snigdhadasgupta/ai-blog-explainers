@@ -6,7 +6,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="This Week in Enterprise AI">
-<meta property="og:description" content="15 explainers from 6 sources this week — the enterprise, agentic-AI, and governance moves worth your attention, grouped by theme.">
+<meta property="og:description" content="11 explainers from 6 sources this week — the enterprise, agentic-AI, and governance moves worth your attention, grouped by theme.">
 <meta property="og:url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/this-week.html">
 <meta property="og:image" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/this-week.png">
 <meta property="og:image:secure_url" content="https://snigdhadasgupta.github.io/ai-blog-explainers/share-cards/this-week.png">
@@ -70,26 +70,22 @@
     </svg>
   </div>
   <div class="wrap">
-    <span class="tag">This week &middot; Oct 26 – Oct 29, 2026</span>
+    <span class="tag">This week &middot; Oct 28 – Nov 2, 2026</span>
     <h1>This Week in Enterprise AI</h1>
-    <p>15 explainers from 6 sources this week — the enterprise, agentic-AI, and governance moves worth your attention, grouped by theme.</p>
+    <p>11 explainers from 6 sources this week — the enterprise, agentic-AI, and governance moves worth your attention, grouped by theme.</p>
   </div>
 </header>
 <main><div class="wrap">
   
     <div class="wk-theme">
-      <div class="wk-eyebrow"><span></span>Model launches <em>1</em></div>
-      <div class="wk-grid">
-      <a class="wk-card" href="explainers/introducing-gpt-6-1-terra.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">Model Launch</span></div>
-        <h3>GPT-6.1 Terra: Vision to Action</h3>
-        <p>GPT-6.1 Terra pairs detailed visual reasoning with precise computer use at 50% lower API pricing than GPT-5.6 Terra, aimed at workday tasks like drafting, reading drawings, and filling forms. It scores 15 points higher on Agents' Last Exam at about a third of the cost, cuts low-effort errors from 53.6% to 16.7%, and more than doubles GPT-5.6 Terra on Terminal-Bench. Available in ChatGPT Work, Codex, and the API.</p>
-        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
-      </a></div>
-    </div>
-    <div class="wk-theme">
       <div class="wk-eyebrow"><span></span>AI governance & security <em>3</em></div>
       <div class="wk-grid">
+      <a class="wk-card" href="explainers/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#0E7490">Microsoft Security</span><span class="wk-cat">AI Governance</span></div>
+        <h3>A Trojanized AI Coding Extension</h3>
+        <p>A tampered Claude Code extension briefly appeared in the Cursor marketplace. On load it planted an SSH key, opened a reverse tunnel to an attacker, and persisted across macOS, Linux, and Windows — without any second-stage download. Microsoft confirms the npm and Visual Studio Marketplace channels and Anthropic's systems were unaffected, and shares indicators plus a cleanup playbook.</p>
+        <span class="wk-rt">7 min &middot; Read explainer &rarr;</span>
+      </a>
       <a class="wk-card" href="explainers/tracking-ai-adoption-in-north-korean-threat-actor-tradecraft.html">
         <div class="wk-top"><span class="wk-badge" style="background:#0E7490">Microsoft Security</span><span class="wk-cat">AI Governance</span></div>
         <h3>When Attackers Adopt AI</h3>
@@ -100,12 +96,6 @@
         <div class="wk-top"><span class="wk-badge" style="background:#0E7490">Microsoft Security</span><span class="wk-cat">AI Governance</span></div>
         <h3>The CISO's Two Jobs in the Agentic Era</h3>
         <p>Microsoft argues the CISO now has two jobs as agents spread 15x year over year (18x in large enterprises): put guardrails and governed identities around the agents employees are building, and defend differently against attackers moving at AI speed. The playbook: observability, a governed identity and classified data per agent, and agents working alongside analysts.</p>
-        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/box-mcp-server-updates-bring-more-ways-connect-govern-and-work-ai.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#3D3AAE">Box</span><span class="wk-cat">AI Governance</span></div>
-        <h3>Box MCP: Connect, Govern, Work With AI</h3>
-        <p>Box's MCP server updates add browser sign-in for AI clients like Cursor and Claude Code (no secrets), write-action guardrails via the Box Action Platform, per-tool access control with Disabled, Read, Read and Write, or Custom presets, verified-domain enforcement, and a new activity report, with every AI action running under the user's own identity and permissions.</p>
         <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
       </a></div>
     </div>
@@ -120,8 +110,14 @@
       </a></div>
     </div>
     <div class="wk-theme">
-      <div class="wk-eyebrow"><span></span>Product & practice <em>10</em></div>
+      <div class="wk-eyebrow"><span></span>Product & practice <em>7</em></div>
       <div class="wk-grid">
+      <a class="wk-card" href="explainers/message-threads.html">
+        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Agents</span></div>
+        <h3>Message Threads</h3>
+        <p>A coding agent can fire hundreds of requests per session, each resending the full conversation. Message threads add one Messages API parameter so agents send only what's new per turn — cutting median time to first token by about 35% on 500k–1M-token requests, with token cost unchanged. In public beta on the Claude Platform, AWS, Microsoft Foundry, and Google Cloud.</p>
+        <span class="wk-rt">4 min &middot; Read explainer &rarr;</span>
+      </a>
       <a class="wk-card" href="explainers/microsoft-copilot-for-finance-purpose-built-for-the-way-finance-teams-work.html">
         <div class="wk-top"><span class="wk-badge" style="background:#0067B8">Microsoft 365</span><span class="wk-cat">Product</span></div>
         <h3>Microsoft Copilot for Finance</h3>
@@ -157,30 +153,6 @@
         <h3>Seven Workflow Patterns for Box + AI</h3>
         <p>Box maps seven reusable patterns for building AI workflows, multi-agent, multi-step, deep research, event-driven, scheduled agents, company brain, and sandboxed filesystem, with Box as the content layer and the patterns meant to combine. The guidance: start with the work, not the model, and pick one recurring task with clear inputs and a useful output.</p>
         <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/how-to-manage-costs-and-demonstrate-roi-for-claude-code-on-google-cloud.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Claude Code</span></div>
-        <h3>Costs & ROI: Claude Code on Google Cloud</h3>
-        <p>Claude Code is consumption-priced, so agentic runs outspend chat. Anthropic's playbook on Google Cloud: a self-hosted gateway with per-developer spend caps and model allowlists, OpenTelemetry cost tracking by skill and model, and ROI proven through PR and delivery metrics rather than token counts.</p>
-        <span class="wk-rt">7 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/claude-for-financial-advisors.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#CC785C">Claude</span><span class="wk-cat">Product</span></div>
-        <h3>Claude for Financial Advisors</h3>
-        <p>Claude for Financial Advisors is a suite of 22 partner connectors and eight workflow skills covering prep, portfolio review, estate and tax, and compliance. It stages CRM updates and client communications for the advisor to approve, screens language against the SEC Marketing Rule, and recommends Enterprise plans for the audit logs.</p>
-        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/oracle-apps-in-chatgpt.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#0F9D77">OpenAI</span><span class="wk-cat">Enterprise AI</span></div>
-        <h3>Oracle Apps, Inside ChatGPT</h3>
-        <p>Oracle is building an AI Workspace that brings its finance, procurement, and planning apps and data into ChatGPT under each org's permissions, plus OpenAI-powered Oracle products: an AI Security Mesh, an SMB bundle, and the App Composer app builder. Oracle reports 130,000 internal ChatGPT users and 95,000+ on Codex.</p>
-        <span class="wk-rt">6 min &middot; Read explainer &rarr;</span>
-      </a>
-      <a class="wk-card" href="explainers/google-workspace-brings-cutting-edge-ai-to-regulated-finance.html">
-        <div class="wk-top"><span class="wk-badge" style="background:#4285F4">Google Workspace</span><span class="wk-cat">Enterprise AI</span></div>
-        <h3>Cutting-Edge AI for Regulated Finance</h3>
-        <p>Google pairs Gemini in Workspace with FINRA-compliant archiving, now live through Smarsh, Global Relay, and Mimecast across Chat, Gmail, Drive, Calendar, and Meet, so regulated finance can adopt AI without breaking supervision rules. Capture uses real-time SMTP journaling and direct exports to WORM storage, gated behind the Assured Controls add-on.</p>
-        <span class="wk-rt">5 min &middot; Read explainer &rarr;</span>
       </a></div>
     </div>
 </div></main>
