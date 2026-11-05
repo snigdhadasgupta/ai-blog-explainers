@@ -5,7 +5,16 @@
     <link>https://snigdhadasgupta.github.io/ai-blog-explainers/</link>
     <description>The AI announcements that matter, from Anthropic, OpenAI, Microsoft, and Google — turned into visual explainers.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Nov 2026 12:40:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 04:47:00 +0000</lastBuildDate>
+    <item>
+      <title>The Enterprise Context Paradox</title>
+      <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-power-and-the-paradox-of-enterprise-context-in-ai.html</link>
+      <guid>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/the-power-and-the-paradox-of-enterprise-context-in-ai.html</guid>
+      <category>Google Workspace</category>
+      <pubDate>Thu, 05 Nov 2026 01:00:00 +0000</pubDate>
+      <description>Google argues enterprise context is what makes AI a reliable operational partner — but anchored only in company history, AI optimizes for what has worked, not what could, hardcoding confirmation bias. The fix is contextual discernment: selective grounding for precision and compliance, and intentful context exclusion for fresh, outside thinking — toggled in Gemini by turning company data on or off per task.</description>
+    </item>
+
     <item>
       <title>Message Threads</title>
       <link>https://snigdhadasgupta.github.io/ai-blog-explainers/explainers/message-threads.html</link>

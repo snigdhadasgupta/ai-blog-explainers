@@ -1,5 +1,13 @@
 window.__POSTS__ = [
   {
+    "slug": "the-power-and-the-paradox-of-enterprise-context-in-ai",
+    "source": "Google Workspace",
+    "category": "Enterprise AI",
+    "date": "2026-11-05",
+    "hook": "More isn't always better.",
+    "body": "Grounding AI in company data makes it reliable — but anchored only in your history, it just defends the status quo. The new skill: knowing when to turn enterprise context off."
+  },
+  {
     "slug": "message-threads",
     "source": "Claude",
     "category": "Agents",
